@@ -11,9 +11,10 @@ import { HomeComponent } from './Pages/home/home.component';
 import { OpDashboardComponent } from './Pages/op-dashboard/op-dashboard.component';
 import { MnDashboardComponent } from './Pages/mn-dashboard/mn-dashboard.component';
 import { SearchComponent } from './Pages/search/search.component';
-
+import { HttpClientModule } from '@angular/common/http'
 import { RouterModule, Routes } from '@angular/router';
 import { GeneralJournalComponent } from './Pages/Finance/general-journal/general-journal.component'
+import { from } from 'rxjs';
 
 const appRoutes:Routes = [
   {path: '', redirectTo: 'Home', pathMatch: 'full' },
@@ -42,6 +43,7 @@ const appRoutes:Routes = [
     AppRoutingModule,
     NgbModule,
     ChartModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],

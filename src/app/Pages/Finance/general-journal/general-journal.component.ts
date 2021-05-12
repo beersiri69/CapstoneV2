@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Test } from 'src/app/Model/test'
+import { NetworkService } from '../../../Service/network.service'
 
 @Component({
   selector: 'app-general-journal',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GeneralJournalComponent implements OnInit {
 
-  constructor() { }
+  TestAll : Test[] | undefined;
+  Count : number | undefined;
+
+  constructor(private networkService : NetworkService) { }
 
   ngOnInit(): void {
+    this.feedUser();
+  }
+  feedUser(){
+    this.networkService.getTest().subscribe(
+      data => {
+          this.TestAll = data.result
+          // alert(JSON.stringify(this.TestAll[0]['A']))
+          this.Count = this.TestAll.length
+      },
+      err =>{
+        alert("Cannot get user data");
+      });
   }
 
 }
