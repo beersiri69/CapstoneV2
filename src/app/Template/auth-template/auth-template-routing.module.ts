@@ -5,17 +5,16 @@ import { GeneralJournalComponent } from '../../Pages/Finance/general-journal/gen
 import { MnDashboardComponent } from '../../Pages/mn-dashboard/mn-dashboard.component';
 import { OpDashboardComponent } from '../../Pages/op-dashboard/op-dashboard.component';
 import { SearchComponent } from '../../Pages/search/search.component';
-import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http'
+
 const Authroute: Routes = [
-//   { path:'',                component: HomeComponent},
-//   { path:'home',                 component: HomeComponent,
-//     children: 
-//     [ { path:'generaljournal',  component: GeneralJournalComponent},
-//       { path:'managerdashboard',     component: MnDashboardComponent},
-//       { path:'operatordashboard',     component: OpDashboardComponent},
-//       { path:'search',          component: SearchComponent},
-//     ]}
+  { path:'',                component: HomeComponent},
+  { path:'home',                 component: HomeComponent,
+    children: 
+    [ { path:'generaljournal',  component: GeneralJournalComponent},
+      { path:'managerdashboard',     component: MnDashboardComponent},
+      { path:'operatordashboard',     component: OpDashboardComponent},
+      { path:'search',          component: SearchComponent},
+    ]}
    
  ];
 
