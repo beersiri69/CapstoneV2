@@ -25,7 +25,8 @@ const routes: Routes =[
       { path:'operatordashboard',     component: OpDashboardComponent},
       { path:'search',          component: SearchComponent},
     ]
-  }
+  },
+ 
 ];
 
 @NgModule({

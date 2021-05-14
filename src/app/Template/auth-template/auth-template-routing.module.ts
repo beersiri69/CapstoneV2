@@ -13,8 +13,9 @@ const Authroute: Routes = [
     [ { path:'generaljournal',  component: GeneralJournalComponent},
       { path:'managerdashboard',     component: MnDashboardComponent},
       { path:'operatordashboard',     component: OpDashboardComponent},
-      { path:'search',          component: SearchComponent},
-    ]}
+      { path:'search',          component: SearchComponent,
+    }
+  ]}
    
  ];
 

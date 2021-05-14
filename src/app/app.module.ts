@@ -8,20 +8,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule,  } from '@angular/router';
 import { ComponentsModule } from './Layouts/components.module'
-import { AuthTemplateComponent } from './Template/auth-template/auth-template.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import {HomeComponent} from './Pages/home/home.component'
-import {OpDashboardComponent} from './Pages/op-dashboard/op-dashboard.component'
-import {MnDashboardComponent} from './Pages/mn-dashboard/mn-dashboard.component'
-import {SearchComponent} from './Pages/search/search.component'
-import {GeneralJournalComponent} from './Pages/Finance/general-journal/general-journal.component'
-import { AuthTemplateModule } from './Template/auth-template/auth-template.module'
+
+import {  HttpClientModule } from '@angular/common/http';
+
+import { AuthTemplateModule } from './Template/auth-template/auth-template.module';
+import { SearchModule } from './Pages/search/search.module';
+import { SearchComponent } from './Pages/search/search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    SearchComponent
     
   ],
   imports: [
@@ -33,7 +32,8 @@ import { AuthTemplateModule } from './Template/auth-template/auth-template.modul
     ChartModule,   
     ComponentsModule,    
     HttpClientModule,
-    AuthTemplateModule
+    AuthTemplateModule,
+    SearchModule
   ],
   providers: [],
   bootstrap: [AppComponent]

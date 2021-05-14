@@ -1,4 +1,10 @@
-<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+<!-- Sidenav -->
+<app-sidebar></app-sidebar>
+<div class="main-content">
+  <!-- Top navbar -->
+  <app-navbar></app-navbar>
+  <!-- Pages -->
+  <div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
     <div class="container-fluid">
       <div class="header-body">
         <!-- Card stats -->
@@ -12,7 +18,7 @@
       <div class="col">
         <div class="card shadow">
           <div class="card-header border-0">
-            <h3 class="mb-0">Search</h3>
+            <h3 class="mb-0">Staff</h3>
           </div>
           <div class="table-responsive">
             <table class="table align-items-center table-flush">
@@ -64,14 +70,11 @@
         </div>
       </div>
     </div>
-
-  <div>
-    <ul>
-      <li>
-          <a routerLink="/search/staff">Staff</a>
-      </li>
-      <li>
-        <a routerLink="/search/customer">Customer</a>
-      </li>
-    </ul>
+<div class="container-fluid">
+    
+<app-footer></app-footer>
   </div>
+</div>
+
+
+  
