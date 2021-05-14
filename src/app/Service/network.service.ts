@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Observable, Observer } from 'rxjs'
 import { TestAll } from '../Model/test'
+import { CustomerAll } from '../Model/customer'
+import { StaffAll } from '../Model/staff'
 
 @Injectable({
   providedIn: 'root'
@@ -10,10 +12,18 @@ import { TestAll } from '../Model/test'
 export class NetworkService {
 
   private TestURL = `https://localhost:44389/api/auth/test`
+  private cusAPI = `https://localhost:44389/api/auth/customer`
+  private staffAPI = `https://localhost:44389/api/auth/staff`
 
   constructor(private httpClient: HttpClient) { }
 
   getTest(): Observable<TestAll>{
     return this.httpClient.get<TestAll>(this.TestURL)
+  }
+  getStaff(): Observable<StaffAll>{
+    return this.httpClient.get<StaffAll>(this.staffAPI)
+  }
+  getCustomer(): Observable<CustomerAll>{
+    return this.httpClient.get<CustomerAll>(this.cusAPI)
   }
 }

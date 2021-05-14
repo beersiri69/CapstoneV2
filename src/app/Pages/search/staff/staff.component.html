@@ -24,20 +24,29 @@
             <table class="table align-items-center table-flush">
               <thead class="thead-light">
                 <tr>
-                  <th scope="col">Primary Key</th>
-                  <th scope="col">Value1</th>
-                  <th scope="col">Value2</th>
+                    <th scope="col">StaffID</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Surname</th>
+                    <th scope="col">Tel</th>
+                    <th scope="col">Password</th>
+                    <th scope="col">Role</th>
             
                 </tr>
               </thead>
               <tbody>
-                <!-- <tr *ngFor = "let Test of TestAll; index as i">
-                     <td> {{Test["A"]}}</td>
-                    <td> {{Test["B"]}}</td>
-                    <td> {{Test["C"]}}</td> 
+                <tr *ngFor = "let Staff of StaffAll; index as i">
+                     <td> {{Staff.Staff_ID}}</td>
+                     <td> {{Staff.Staff_Title}}</td>
+                     <td> {{Staff.Staff_Name}}</td>
+                     <td> {{Staff.Staff_Surname}}</td>
+                     <td> {{Staff.Staff_Tel}}</td>
+                     <td> {{Staff.Password}}</td>
+                     <td> {{Staff.Role}}</td>
+                  
                     
                                   
-                </tr> -->
+                </tr>
                                
               </tbody>
             </table>
