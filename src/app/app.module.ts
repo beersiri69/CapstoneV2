@@ -23,17 +23,22 @@ import { SearchComponent } from './Pages/search/search.component';
     SearchComponent
     
   ],
-  imports: [
+  imports: [ 
+    AppRoutingModule,
+    
+    //SearchModule,
+    AuthTemplateModule,
+
     CommonModule,
     RouterModule,
     BrowserModule,
-    AppRoutingModule,
+  
     NgbModule,
     ChartModule,   
     ComponentsModule,    
     HttpClientModule,
-    AuthTemplateModule,
-    SearchModule
+    
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

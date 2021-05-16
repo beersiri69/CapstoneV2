@@ -8,6 +8,7 @@ import { AuthTemplateComponent } from '../auth-template/auth-template.component'
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { GeneralJournalComponent } from '../../Pages/Finance/general-journal/general-journal.component';
+import { SearchModule } from 'src/app/Pages/search/search.module';
 @NgModule({
   declarations: [
     AuthTemplateComponent,
@@ -20,9 +21,10 @@ import { GeneralJournalComponent } from '../../Pages/Finance/general-journal/gen
     CommonModule,
     BrowserModule,
     HttpClientModule,
-    NgbModule,
-    RouterModule,
-    AuthTemplateRoutingModule,
+    NgbModule,   
+    SearchModule,
+    AuthTemplateRoutingModule,  
+   
     
     
     ComponentsModule,

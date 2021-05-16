@@ -5,14 +5,8 @@ import { SearchComponent } from './search.component';
 import { StaffComponent } from './staff/staff.component';
 
 const SearchRoutes: Routes = [
-  {path:'' ,component: SearchComponent },
-  {path: 'search/staff' , component: StaffComponent},
-  {path: 'search/customer' , component: CustomerComponent},
-  {
-    path: '**',
-    redirectTo: 'home',
-
-  }
+  
+  
 ];
 
 @NgModule({
