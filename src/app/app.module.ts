@@ -16,6 +16,7 @@ import {  HttpClientModule } from '@angular/common/http';
 import { AuthTemplateModule } from './Template/auth-template/auth-template.module';
 import { SearchModule } from './Pages/search/search.module';
 import { SearchComponent } from './Pages/search/search.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { SearchComponent } from './Pages/search/search.component';
   ],
   imports: [ 
     AppRoutingModule,
-    
+   
     //SearchModule,
     AuthTemplateModule,
 
@@ -36,7 +37,7 @@ import { SearchComponent } from './Pages/search/search.component';
     NgbModule,
     ChartModule,   
     ComponentsModule,    
-    HttpClientModule,
+    HttpClientModule, BrowserAnimationsModule,
     
    
   ],

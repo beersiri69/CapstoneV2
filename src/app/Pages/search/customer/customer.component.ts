@@ -24,7 +24,7 @@ export class CustomerComponent implements OnInit {
           this.Count = this.CustomerAll.length
       },
       err =>{
-        alert("Cannot get user data");
+        //alert("Cannot get user data");
       });
   }
 

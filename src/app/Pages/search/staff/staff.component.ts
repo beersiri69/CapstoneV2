@@ -26,7 +26,7 @@ export class StaffComponent implements OnInit {
           this.Count = this.StaffAll.length
       },
       err =>{
-        alert("Cannot get user data");
+        //alert("Cannot get user data");
       });
   }
 
