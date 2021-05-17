@@ -2,7 +2,6 @@
 import { from } from 'rxjs';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-<<<<<<< Updated upstream
 import { CommonModule, } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -55,6 +54,15 @@ import { ChartsModule } from 'ng2-charts';
     CommonModule,
     RouterModule,
     BrowserModule,
+    AppRoutingModule,
+   
+    
+    //This module call by app module
+    AuthTemplateModule,
+    ChartsModule,
+    CommonModule,
+    RouterModule,
+    BrowserModule,
   
     NgbModule,
 
@@ -62,10 +70,6 @@ import { ChartsModule } from 'ng2-charts';
     HttpClientModule, BrowserAnimationsModule,
     
    
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
->>>>>>> Stashed changes
   ],
   providers: [],
   bootstrap: [AppComponent]
