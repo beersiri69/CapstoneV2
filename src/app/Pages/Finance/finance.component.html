@@ -1,0 +1,24 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+      <div class="header-body">
+
+        <!-- Card stats -->
+        
+        <mat-form-field appearance="fill" style=" Background-color: #D5D5D5; ">
+          <mat-label style="color:black">Select page</mat-label>
+          <mat-select (selectionChange)="navigateTo($event.value)">
+            <mat-option *ngFor="let page of pages; index as i" [value]="page.Route">
+              {{page.Name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        
+        
+
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid mt--7">
+    <!-- Table -->
+    <router-outlet></router-outlet>
+</div>  

@@ -25,7 +25,7 @@ export class GeneralJournalComponent implements OnInit {
           this.Count = this.TestAll.length
       },
       err =>{
-        alert("Cannot get user data");
+        //alert("Cannot get user data");
       });
   }
 
