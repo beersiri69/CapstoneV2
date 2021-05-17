@@ -14,18 +14,8 @@ const routes: Routes =[
     redirectTo: 'home',
     pathMatch: 'full',
   } 
-  ,{
-    path: '',
-    component: AuthTemplateComponent,
-    children: 
-    [ 
-      { path:'home',           component: HomeComponent},
-      { path:'generaljournal',  component: GeneralJournalComponent},
-      { path:'managerdashboard',     component: MnDashboardComponent},
-      { path:'operatordashboard',     component: OpDashboardComponent},
-      { path:'search',          component: SearchComponent},
-    ]
-  }
+  
+ 
 ];
 
 @NgModule({

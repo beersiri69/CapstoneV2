@@ -8,21 +8,26 @@ import { AuthTemplateComponent } from '../auth-template/auth-template.component'
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { GeneralJournalComponent } from '../../Pages/Finance/general-journal/general-journal.component';
+import { SearchModule } from 'src/app/Pages/search/search.module';
+import { FinanceModule } from 'src/app/Pages/Finance/finance.module';
 @NgModule({
   declarations: [
     AuthTemplateComponent,
     // FooterComponent,
     // NavbarComponent,
     // SidebarComponent
-    GeneralJournalComponent,
+    //GeneralJournalComponent,
   ],
   imports: [   
+    
     CommonModule,
     BrowserModule,
     HttpClientModule,
-    NgbModule,
-    RouterModule,
-    AuthTemplateRoutingModule,
+    NgbModule,  
+    
+    FinanceModule,
+    SearchModule,
+    AuthTemplateRoutingModule,  
     
     
     ComponentsModule,
