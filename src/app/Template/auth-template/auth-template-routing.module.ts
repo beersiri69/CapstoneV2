@@ -17,6 +17,8 @@ import { RecieveableComponent } from 'src/app/Pages/Finance/ledger/recieveable/r
 import { IncomestatementComponent } from 'src/app/Pages/Finance/incomestatement/incomestatement.component';
 import { ReconciliationComponent } from 'src/app/Pages/Finance/reconciliation/reconciliation.component';
 import { InventorystockComponent } from 'src/app/Pages/Finance/inventorystock/inventorystock.component';
+import { ExampleComponent } from 'src/app/example/example.component';
+import { LoginComponent } from 'src/app/login/login.component';
 
 const Authroute: Routes = [
   {
@@ -56,6 +58,11 @@ const Authroute: Routes = [
           {path: 'customer' , component: CustomerComponent},  
         ] 
       },
+      {
+        path:'example',
+        component:ExampleComponent
+      },
+     
     ]
   },
  
