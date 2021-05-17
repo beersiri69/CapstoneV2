@@ -8,7 +8,6 @@ import { SearchComponent } from '../../Pages/search/search.component';
 import { StaffComponent } from 'src/app/Pages/search/staff/staff.component';
 import { CustomerComponent } from 'src/app/Pages/search/customer/customer.component';
 import { AuthTemplateComponent } from './auth-template.component';
-import { FinanceModule } from 'src/app/Pages/Finance/finance.module';
 import { FinanceComponent } from 'src/app/Pages/Finance/finance.component';
 import { LedgerComponent } from 'src/app/Pages/Finance/ledger/ledger.component';
 import { CashComponent } from 'src/app/Pages/Finance/ledger/cash/cash.component';
