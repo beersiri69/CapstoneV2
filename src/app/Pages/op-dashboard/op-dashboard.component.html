@@ -47,10 +47,21 @@
         </div>
         <div class="card-body">
           <!-- Chart -->
-          <div class="chart">
-            <!-- Chart wrapper -->
-
+          <div style="display: block">
+            <canvas baseChart 
+            [chartType]="'line'" 
+            [legend]="true" 
+            [datasets]="chartData" 
+            [labels]="chartLabels"
+            [options]="chartOptions" 
+            (chartHover)="onChartHover(($event))" 
+            (chartClick)="onChartClick(($event))">
+            </canvas>
+            <!-- <button (click)="newDataPoint([900, 50, 300], 'May')">
+              Add data point
+            </button> -->
           </div>
+          <!-- ปรับความสูง+data chart sale value -->
         </div>
       </div>
     </div>
@@ -63,19 +74,32 @@
           <div class="row align-items-center">
             <div class="col">
               <h6 class="text-uppercase text-muted ls-1 mb-1">Performance</h6>
-              <h2 class="mb-0">Total orders</h2>
+              <h2 class="mb-0">WIP at each station</h2>
             </div>
           </div>
         </div>
         <div class="card-body">
-          <!-- Chart -->
           <div class="chart">
-
+            <div style="display: block">
+              <canvas baseChart 
+              [chartType]="'bar'" 
+              [legend]="true" 
+              [datasets]="chartData" 
+              [labels]="chartLabels"
+              [options]="chartOptions" 
+              (chartHover)="onChartHover(($event))" 
+              (chartClick)="onChartClick(($event))">
+              </canvas>
+              <!-- <button (click)="newDataPoint([900, 50, 300], 'May')">
+                Add data point
+              </button> -->
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+  
   <!----------------------------- END TOTAL ORDERS ----------------------------->
   
   <!----------------------------- START PAGE VISITS ----------------------------->

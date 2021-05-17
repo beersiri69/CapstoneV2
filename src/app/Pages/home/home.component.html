@@ -96,4 +96,36 @@
 <div style="display: block">
   <chart [type]="type" [data]="data" [options]="options"></chart>
 </div>
-</div> -->
+=======
+<!-- <div class="col-5 h-100 m-5 d-inline-block "> -->
+  <div class="col-xl-4">
+    <div class="card shadow">
+      <div class="card-header bg-transparent">
+        <div class="row align-items-center">
+          <div class="col">
+            <h6 class="text-uppercase text-muted ls-1 mb-1">Performance</h6>
+            <h2 class="mb-0">WIP at each station</h2>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="chart">
+          <div style="display: block">
+            <canvas baseChart 
+            [chartType]="'line'" 
+            [legend]="true" 
+            [datasets]="chartData" 
+            [labels]="chartLabels"
+            [options]="chartOptions" 
+            (chartHover)="onChartHover(($event))" 
+            (chartClick)="onChartClick(($event))">
+            </canvas>
+            <button (click)="newDataPoint([900, 50, 300], 'May')">
+              Add data point
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+>>>>>>> Stashed changes
