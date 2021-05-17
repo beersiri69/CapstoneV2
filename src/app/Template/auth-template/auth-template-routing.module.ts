@@ -15,6 +15,9 @@ import { CashComponent } from 'src/app/Pages/Finance/ledger/cash/cash.component'
 import { InventoryComponent } from 'src/app/Pages/Finance/ledger/inventory/inventory.component';
 import { PayableComponent } from 'src/app/Pages/Finance/ledger/payable/payable.component';
 import { RecieveableComponent } from 'src/app/Pages/Finance/ledger/recieveable/recieveable.component';
+import { IncomestatementComponent } from 'src/app/Pages/Finance/incomestatement/incomestatement.component';
+import { ReconciliationComponent } from 'src/app/Pages/Finance/reconciliation/reconciliation.component';
+import { InventorystockComponent } from 'src/app/Pages/Finance/inventorystock/inventorystock.component';
 
 const Authroute: Routes = [
   {
@@ -23,6 +26,7 @@ const Authroute: Routes = [
     children: 
     [ { path:'search', redirectTo:'search/staff',pathMatch:'full'},
       { path:'financial', redirectTo:'financial/Journal_Transaction',pathMatch:'full'},
+      { path:'financial/General_Ledger',redirectTo:'financial/General_Ledger/Account_Receivable',pathMatch:'full'},
 
 
       { path:'home',                  component: HomeComponent},
@@ -38,11 +42,9 @@ const Authroute: Routes = [
               { path:'Stock',               component: InventoryComponent},
               { path:'Cash',                component: CashComponent},
             ]},
-          { path:'Income_Statement',    component: LedgerComponent},
-          { path:'Reconciliation',    component: LedgerComponent},
-          { path:'Inventory Stock',    component: LedgerComponent},
-          { path:'General_Ledger',    component: LedgerComponent},
-          { path:'Purchase Order',    component: LedgerComponent},
+          { path:'Income_Statement',    component: IncomestatementComponent},
+          { path:'Reconciliation',    component: ReconciliationComponent},
+          { path:'Inventory_Stock',    component: InventorystockComponent},
         ]
       },
       

@@ -18,11 +18,11 @@ import { SearchModule } from './Pages/search/search.module';
 import { SearchComponent } from './Pages/search/search.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    SearchComponent
-    
+    SearchComponent,    
   ],
   imports: [ 
     AppRoutingModule,

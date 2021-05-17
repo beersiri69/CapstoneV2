@@ -37,11 +37,11 @@ export class FinanceComponent implements OnInit {
    pages: Pagelist[] = [
     {Name: 'Journal Transaction', Route: 'Journal_Transaction'},
     {Name: 'General Ledger', Route: 'General_Ledger'},
-    {Name: 'Income Statement', Route: 'Income_Statemen'},
+    {Name: 'Income Statement', Route: 'Income_Statement'},
     {Name: 'Reconciliation', Route: 'Reconciliation'},
-    {Name: 'Inventory Stock', Route: 'Inventory Stock'},
-    {Name: 'Purchase Order', Route: 'Purchase Order'},
-    {Name: 'Invoice', Route: 'Invoice'},
+    {Name: 'Inventory Stock', Route: 'Inventory_Stock'},
+    // {Name: 'Purchase Order', Route: 'Purchase Order'},
+    // {Name: 'Invoice', Route: 'Invoice'},
   ];
 
   ngOnInit(): void {
