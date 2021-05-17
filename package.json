@@ -11,20 +11,6 @@
   },
   "private": true,
   "dependencies": {
-<<<<<<< Updated upstream
-    "@angular/animations": "~11.2.12",
-    "@angular/cdk": "^11.2.12",
-    "@angular/common": "~11.2.12",
-    "@angular/compiler": "~11.2.12",
-    "@angular/core": "~11.2.12",
-    "@angular/forms": "~11.2.12",
-    "@angular/localize": "~11.2.12",
-    "@angular/material": "^11.2.12",
-    "@angular/platform-browser": "~11.2.12",
-    "@angular/platform-browser-dynamic": "~11.2.12",
-    "@angular/router": "~11.2.12",
-    "@ng-bootstrap/ng-bootstrap": "^9.1.0",
-=======
     "@angular/animations": "^11.2.14",
     "@angular/cdk": "^11.2.12",
     "@angular/common": "^11.2.14",
@@ -37,7 +23,6 @@
     "@angular/platform-browser-dynamic": "^11.2.14",
     "@angular/router": "^11.2.14",
     "@ng-bootstrap/ng-bootstrap": "^9.1.1",
->>>>>>> Stashed changes
     "@types/chart.js": "^2.9.32",
     "angular2-chartjs": "^0.5.1",
     "bootstrap": "^4.5.0",
@@ -63,9 +48,7 @@
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
-<<<<<<< Updated upstream
-    "karma-jasmine-html-reporter": "^1.5.0",
-<<<<<<< Updated upstream
+    "karma-jasmine-html-reporter": "^1.6.0",
     "prettier": "2.3.0",
 =======
 =======
