@@ -17,12 +17,17 @@ import { AuthTemplateModule } from './Template/auth-template/auth-template.modul
 import { SearchModule } from './Pages/search/search.module';
 import { SearchComponent } from './Pages/search/search.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ExampleComponent } from './example/example.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
   declarations: [
+    ExampleComponent,
     AppComponent,
-    SearchComponent,    
+    SearchComponent,
+    ExampleComponent,
+    LoginComponent,    
   ],
   imports: [ 
     AppRoutingModule,
