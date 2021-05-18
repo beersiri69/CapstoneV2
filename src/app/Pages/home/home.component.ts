@@ -51,7 +51,9 @@ export class HomeComponent implements OnInit {
   }
   // };
   ngOnInit() {
+    //  alert("UserID: " + localStorage.getItem('UserID') + "\n" +  
+    //        "Password: " + localStorage.getItem('Password'))
   }
 
-
+  
 }

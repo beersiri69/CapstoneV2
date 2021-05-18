@@ -14,7 +14,7 @@ export class NetworkService {
   private TestURL = `https://localhost:44389/api/auth/test`
   private cusAPI = `https://localhost:44389/api/auth/customer`
   private staffAPI = `https://localhost:44389/api/auth/staff`
-
+  
   constructor(private httpClient: HttpClient) { }
 
   getTest(): Observable<TestAll>{
@@ -26,4 +26,5 @@ export class NetworkService {
   getCustomer(): Observable<CustomerAll>{
     return this.httpClient.get<CustomerAll>(this.cusAPI)
   }
+  
 }

@@ -125,14 +125,19 @@
             </div> -->
           <!-- </div> -->
           <div class="card-body px-lg-5 py-lg-5">
-            
-            <form role="form">
+            <!-- From  -->
+            <form role="form" [formGroup]="myForm" >
               <div class="form-group mb-3">
+                <div class="alert alert-warning" role="alert" *ngIf="logalert.toggle == true">
+                  {{logalert.message}}
+                </div>
                 <div class="input-group input-group-alternative">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                   </div>
-                  <input class="form-control" placeholder="Email" type="email">
+                  
+                  <!-- Username -->
+                  <input class="form-control" placeholder="UserID" type="email" formControlName="UserID">
                 </div>
               </div>
               <div class="form-group">
@@ -140,7 +145,8 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                   </div>
-                  <input class="form-control" placeholder="Password" type="password">
+                    <!-- Password -->
+                  <input class="form-control" placeholder="Password" type="password" formControlName="Password" >
                 </div>
               </div>
               <div class="custom-control custom-control-alternative custom-checkbox">
@@ -150,9 +156,10 @@
                 </label>
               </div>
               <div class="text-center">
-                <button type="button" class="btn btn-primary my-4">Sign in</button>
+                <button type="button" (click)="Onsubmit()"  class="btn btn-primary my-4">Log in</button>
               </div>
             </form>
+
           </div>
         </div>
       

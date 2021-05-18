@@ -19,6 +19,7 @@ import { SearchComponent } from './Pages/search/search.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ExampleComponent } from './example/example.component';
 import { LoginComponent } from './login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
