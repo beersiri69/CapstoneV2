@@ -13,7 +13,7 @@ export const ROUTES: RouteInfo[] = [
     { path: 'financial', title: 'Financial Dashboard',  icon:'ni-money-coins text-orange', class: '' },
     { path: 'search', title: 'Search',  icon:'ni fas fa-search text-red', class: '' },
     { path: 'home', title: 'User profile',  icon:'ni-single-02 text-yellow', class: '' },
-    { path: 'home', title: 'Logout',  icon:'ni-button-power text-info', class: '' },
+    { path: 'login', title: 'Logout',  icon:'ni-button-power text-info', class: '' },
 ];
 
 @Component({
