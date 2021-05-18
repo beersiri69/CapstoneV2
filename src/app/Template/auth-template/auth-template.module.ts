@@ -10,6 +10,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { SearchModule } from 'src/app/Pages/search/search.module';
 import { FinanceModule } from 'src/app/Pages/Finance/finance.module';
+import { HomeComponent } from 'src/app/Pages/home/home.component';
+import { ChartsModule } from 'ng2-charts';
+import { OpDashboardComponent } from 'src/app/Pages/op-dashboard/op-dashboard.component';
+
 @NgModule({
   declarations: [
     AuthTemplateComponent,
@@ -17,6 +21,12 @@ import { FinanceModule } from 'src/app/Pages/Finance/finance.module';
     // NavbarComponent,
     // SidebarComponent
     //GeneralJournalComponent,
+    HomeComponent,
+    //import component to this module below
+
+
+    OpDashboardComponent
+    
   ],
   imports: [   
     
@@ -24,7 +34,9 @@ import { FinanceModule } from 'src/app/Pages/Finance/finance.module';
     BrowserModule,
     HttpClientModule,
     NgbModule,  
-    
+
+    // AuthTemplateModule call this modeul below
+    ChartsModule,
     FinanceModule,
     SearchModule,
     AuthTemplateRoutingModule,  
@@ -37,4 +49,5 @@ import { FinanceModule } from 'src/app/Pages/Finance/finance.module';
     AuthTemplateComponent
   ]
 })
+  //this module name AuthTemplateModule
 export class AuthTemplateModule { }

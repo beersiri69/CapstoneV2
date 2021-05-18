@@ -11,14 +11,16 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule,  } from '@angular/router';
 import { ComponentsModule } from './Layouts/components.module'
 
-import {  HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AuthTemplateModule } from './Template/auth-template/auth-template.module';
-import { SearchModule } from './Pages/search/search.module';
+
 import { SearchComponent } from './Pages/search/search.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ExampleComponent } from './example/example.component';
 import { LoginComponent } from './login/login.component';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -44,6 +46,8 @@ import { LoginComponent } from './login/login.component';
     ComponentsModule,    
     HttpClientModule, BrowserAnimationsModule,
     
+    FormsModule,
+    ReactiveFormsModule
    
   ],
   providers: [],
