@@ -48,7 +48,7 @@ export class FinanceComponent implements OnInit {
   }
 
   navigateTo(value){
-    console.log(value);
+    //console.log(value);
     this.router.navigate(['financial/',value]);
   
   }
