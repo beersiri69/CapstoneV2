@@ -24,5 +24,7 @@ export class NavbarComponent implements OnInit {
     var Title_return = Titlee.replace('/','');
     return Title_return;
   }
-
+  Log_Name = '';
+  Log_SurName = '';
+  
 }
