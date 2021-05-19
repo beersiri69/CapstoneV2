@@ -17,6 +17,7 @@ interface botton{
 export class FinanceComponent implements OnInit {
   Menu_Title:string[];
   Router_List:string[];
+  public PropChange : any[];
   constructor(private router: Router) {
     this.Menu_Title=[
       "Journal Transaction",
@@ -48,6 +49,16 @@ export class FinanceComponent implements OnInit {
   ];
 
   ngOnInit() { 
+    this.PropChange = ["btn-menuu","btn-menuu","btn-menuu","btn-menuu","btn-menuu"]
+  }
+
+  check(e){
+    var target = e.target || e.srcElement || e.currentTarget
+    var x = target.id
+    for ( let i in this.PropChange){
+      this.PropChange[i] = "btn-menuu"
+    }
+    this.PropChange[x] = "btn-sell"
   }
 
   navigateTo(value){

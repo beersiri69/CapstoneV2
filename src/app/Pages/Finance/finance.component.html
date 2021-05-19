@@ -4,8 +4,8 @@
 
         <!-- Card stats -->
         
-        <a *ngFor="let Page of pages" routerLink="{{Page.Route}}">
-          <button type="button" placement="top-center" class="btn-menu" triggers="hover focus click">{{Page.Name}}</button>  
+        <a *ngFor="let Page of pages; index as i" routerLink="{{Page.Route}}">
+          <button id={{i}} type="button" placement="top-center" class="{{PropChange[i]}}" triggers="hover focus click"(click)=check($event)>{{Page.Name}}</button>  
         </a>
 
       </div>

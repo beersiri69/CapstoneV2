@@ -15,7 +15,7 @@ interface botton{
 
 export class LedgerComponent implements OnInit {
   constructor(private router: Router) { } 
-
+  public PropChange : any[];
     // B
   ledgers: botton[] = [
     {Name: 'Account Receivable', Route: 'Account_Receivable'},
@@ -25,6 +25,16 @@ export class LedgerComponent implements OnInit {
   ];
 
   ngOnInit(): void {
+    this.PropChange = ["btn-menuuu","btn-menuuu","btn-menuuu","btn-menuuu"]
+  }
+
+  check(e){
+    var target = e.target || e.srcElement || e.currentTarget
+    var x = target.id
+    for ( let i in this.PropChange){
+      this.PropChange[i] = "btn-menuuu"
+    }
+    this.PropChange[x] = "btn-selll"
   }
 
   navigateTo(value){

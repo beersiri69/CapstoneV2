@@ -4,9 +4,8 @@
       <div class="container-fluid">
     
         <!-- A         B -->
-        <a *ngFor="let Ledger of ledgers" routerLink="{{Ledger.Route}}">
-          <button type="button" placement="top-center" class="btn-menuu"
-            triggers="hover focus click">{{Ledger.Name}}</button>
+        <a *ngFor="let Ledger of ledgers; index as i" routerLink="{{Ledger.Route}}">
+          <button id={{i}} type="button" placement="top-center" class="{{PropChange[i]}}" triggers="hover focus click"(click)=check($event)>{{Ledger.Name}}</button>
         </a>
     
         <router-outlet></router-outlet>
