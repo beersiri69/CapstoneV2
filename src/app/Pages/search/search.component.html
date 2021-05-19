@@ -1,19 +1,46 @@
 <div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
-    <div class="container-fluid">
-      <div class="header-body">
-        <!-- Card stats -->
-        <ul>
-          <li>
-              <a routerLink="./staff">Staff</a>
-          </li>
-          <li>
-            <a routerLink="./customer">Customer</a>
-          </li>
-        </ul>
+  <div class="container-fluid">
+    <div class="header-body">
+      <!-- Card stats -->
+      
+        <a *ngFor="let Page of Bottonshow" routerLink="{{Page.path}}">
+          <button type="button" placement="top-center" class="btn-menu" triggers="hover focus click">{{Page.Name}}</button>  
+        </a>
+
+        </div>
       </div>
     </div>
-  </div>
-  <div class="container-fluid mt--7">
-    <!-- Table -->
-    <router-outlet></router-outlet>
-</div>  
+    
+    <!-- <div class="container-fluid mt--7">
+      <div class="row">
+        <div class="col">
+          <div class="card shadow">
+            <div class="card-header border-0">
+              <div class="row">
+                <div class="col">
+                   <h3 class="mb-0">{{TableName}}</h3>
+                </div>  
+                <div class="col-4">
+           
+                  <div class="input-group mb-3">
+                    <input type="text" [(ngModel)]="myModel" (keyup)="valuechange()"  class="form-control searchcustom" placeholder="{{TableName}} ID" #myInput> -->
+                    <!-- <input type="text"class="form-control searchcustom" placeholder="{{TableName}} ID" #myInput formControlName="SearchID"> -->
+                    
+                    <!-- <div class="input-group-append">
+                      <button class="btn-search" type="button"><i class="fa fa-search" aria-hidden="true"></i></button> -->
+                      <!-- <button class="btn-search" type="button" (click)="OnSearch()"><i class="fa fa-search" aria-hidden="true"></i></button> -->
+                    <!-- </div>
+                  </div>    
+                        
+                </div>
+              </div>
+            </div> -->
+     
+              <!-- Table -->
+            <router-outlet></router-outlet>
+    
+       
+      
+ 
+    
+ 
