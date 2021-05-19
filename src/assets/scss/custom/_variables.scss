@@ -119,6 +119,12 @@ $slack:         #3aaf85 !default;
 $dribbble:      #ea4c89 !default;
 $github:        #222222 !default;
 
+$bymewhite:     #f4f1de !default;
+$bymeorange:    #e07a5f !default;
+$bymedarkblue:  #013a63 !default;
+$bymegreen:     #81b29a !default;
+$bymeyellow:    #f2cc8f !default;
+
 $theme-colors: () !default;
 $theme-colors: map-merge((
   "default":      $default,
@@ -131,7 +137,12 @@ $theme-colors: map-merge((
   "white":        $white,
   "neutral":      $white,
   "dark":         $dark,
-  "darker":       $darker
+  "darker":       $darker,
+  "bymewhite":    $bymewhite,
+  "bymeorange":   $bymeorange,
+  "bymedarkblue": $bymedarkblue,
+  "bymegreen":    $bymegreen,
+  "bymeyellow":   $bymeyellow,
 ), $theme-colors);
 
 $brand-colors: () !default;
