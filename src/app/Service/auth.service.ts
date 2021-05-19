@@ -21,9 +21,9 @@ export class AuthService {
     var x = localStorage.getItem('UserRole');
 
     if (x !== null) {
-      console.log("routing as " + x);
+     // console.log("routing as " + x);
     } else {
-      console.log('Redirect to login');
+      //console.log('Redirect to login');
       //this.router.navigateByUrl("/login")
     }
     return x

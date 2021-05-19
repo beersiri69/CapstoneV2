@@ -20,14 +20,13 @@ export class AppComponent {
 
     this.router.events.subscribe((event: Event) => {
         if (event instanceof NavigationStart) {
-          console.log(event.url)
+          //console.log(event.url)
             if(event.url !== '/login' && (this.authservice.CheckRole() === null)){
-              this.router.navigateByUrl("/login")
+
+              // TODO
+              //this.router.navigateByUrl("/login")
             }
-          // var cmp = this.authservice.CheckRole()
-          //  if(cmp === "Staff"){
-          //     console.log(cmp+ "is Manager")
-          //  }
+
         }
       
     });

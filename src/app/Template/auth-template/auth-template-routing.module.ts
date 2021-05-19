@@ -1,3 +1,5 @@
+import { PurchaseOrderComponent } from './../../Pages/search/purchase-order/purchase-order.component';
+import { InvoiceComponent } from './../../Pages/search/invoice/invoice.component';
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from '../../Pages/home/home.component';
@@ -55,7 +57,9 @@ const Authroute: Routes = [
         path:'search' ,component: SearchComponent,
         children:[
           {path: 'staff' , component: StaffComponent},
-          {path: 'customer' , component: CustomerComponent},  
+          {path: 'customer' , component: CustomerComponent}, 
+          {path: 'invoice' , component: InvoiceComponent}, 
+          {path: 'purchase_order' , component: PurchaseOrderComponent}, 
         ] 
       },
       {
