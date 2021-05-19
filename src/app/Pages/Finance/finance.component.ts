@@ -1,7 +1,8 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
-interface Pagelist{
+
+interface botton{
   Name: string;
   Route: string;
 }
@@ -9,6 +10,8 @@ interface Pagelist{
 @Component({
   selector: 'app-finance',
   templateUrl: './finance.component.html',
+  styleUrls: ['../search/search.component.scss'],
+  
 })
 
 export class FinanceComponent implements OnInit {
@@ -34,17 +37,17 @@ export class FinanceComponent implements OnInit {
       "Invoice"
     ]
    }
-   pages: Pagelist[] = [
+  
+//OLD one
+  pages: botton[] = [
     {Name: 'Journal Transaction', Route: 'Journal_Transaction'},
     {Name: 'General Ledger', Route: 'General_Ledger'},
     {Name: 'Income Statement', Route: 'Income_Statement'},
     {Name: 'Reconciliation', Route: 'Reconciliation'},
     {Name: 'Inventory Stock', Route: 'Inventory_Stock'},
-    // {Name: 'Purchase Order', Route: 'Purchase Order'},
-    // {Name: 'Invoice', Route: 'Invoice'},
   ];
 
-  ngOnInit(): void {
+  ngOnInit() { 
   }
 
   navigateTo(value){

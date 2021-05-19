@@ -4,16 +4,9 @@
 
         <!-- Card stats -->
         
-        <mat-form-field appearance="fill" style=" Background-color: #D5D5D5; ">
-          <mat-label style="color:black">Select page</mat-label>
-          <mat-select (selectionChange)="navigateTo($event.value)">
-            <mat-option *ngFor="let page of pages; index as i" [value]="page.Route">
-              {{page.Name}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        
-        
+        <a *ngFor="let Page of pages" routerLink="{{Page.Route}}">
+          <button type="button" placement="top-center" class="btn-menu" triggers="hover focus click">{{Page.Name}}</button>  
+        </a>
 
       </div>
     </div>
