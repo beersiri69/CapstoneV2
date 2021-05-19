@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartType, ChartOptions } from 'chart.js';
+import { ChartType, ChartOptions, ChartDataSets } from 'chart.js';
 import { MultiDataSet, Label } from 'ng2-charts';
 
 @Component({
@@ -18,6 +18,31 @@ export class OpDashboardComponent implements OnInit {
   // public doughnutChartColors: Color[] = [
   //   {backgroundColor:["#9E120E","#FF5800","#FFB414"]}
   // ];
+
+
+
+  public lineChartData: ChartDataSets[] = [
+    { data: [85, 72, 78, 75, 77, 75], label: 'Crude oil prices' },
+  ];
+
+  public lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June'];
+
+  public lineChartOptions = {
+    responsive: true,
+  };
+  public lineChartType: ChartType = 'line';
+  // lineChartColors: Color[] = [
+  //   {
+  //     borderColor: 'black',
+  //     backgroundColor: 'rgba(255,255,0,0.28)',
+  //   },
+  // ];
+
+  public lineChartLegend = true;
+  public lineChartPlugins = [];
+  
+
+
 
    ngOnInit() {
   }
