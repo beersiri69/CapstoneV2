@@ -197,10 +197,9 @@
   </div>
   
   <!----------------------------- START WIP ----------------------------->
-  
-  <div class="row mt-5">
+  <div class="row">
     <div class="col">
-      <div class="card shadow">
+      <div class="card shadow mt-5">
         <div class="card-header bg-transparent">
           <div class="row align-items-center">
             <div class="col">
@@ -212,29 +211,17 @@
         <div class="card-body">
           <div style="display: block">
             <canvas baseChart 
-            [chartType]="'doughnut'" 
-            [legend]="true" 
-            [datasets]="chartData" 
-            [labels]="chartLabels"
-            [options]="chartOptions" 
-            (chartHover)="onChartHover(($event))" 
-            (chartClick)="onChartClick(($event))">
-            </canvas>
-            <!-- <canvas baseChart 
-            [data]="doughnutChartData" 
+            [data]="doughnutChartData"
             [labels]="doughnutChartLabels"
             [chartType]="doughnutChartType">
-            </canvas> -->
-            <!-- <button (click)="newDataPoint([900, 50, 300], 'May')">
-                Add data point
-              </button> -->
+            <!-- [colors]="doughnutChartColors" -->
+            </canvas>
           </div>
         </div>
       </div>
     </div>
     <div class="col">
-
-      <div class="card shadow">
+      <div class="card shadow mt-5">
         <div class="card-header bg-transparent">
           <div class="row align-items-center">
             <div class="col">
@@ -246,28 +233,16 @@
         <div class="card-body">
           <div style="display: block">
             <canvas baseChart 
-            [chartType]="'doughnut'" 
-            [legend]="true" 
-            [datasets]="chartData" 
-            [labels]="chartLabels"
-            [options]="chartOptions" 
-            (chartHover)="onChartHover(($event))" 
-            (chartClick)="onChartClick(($event))">
-            </canvas>
-            <!-- <canvas baseChart 
-            [data]="doughnutChartData" 
+            [data]="doughnutChartData"
             [labels]="doughnutChartLabels"
             [chartType]="doughnutChartType">
-            </canvas> -->
-            <!-- <button (click)="newDataPoint([900, 50, 300], 'May')">
-                Add data point
-              </button> -->
+            <!-- [colors]="doughnutChartColors" -->
+            </canvas>
           </div>
         </div>
       </div>
     </div>
   </div>
-
   <!----------------------------- END WIP ----------------------------->
   
   <!----------------------------- START PAGE VISITS ----------------------------->
