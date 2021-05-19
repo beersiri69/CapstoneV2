@@ -1,11 +1,9 @@
-<div class="header">
-  <!-- <div class="header bg-gradient-danger pb-8 pt-5 pt-md-8"> -->
-  <!-- <img src="./assets/img/theme/login.JPG"> -->
-  <!-- <img src="./assets/img/theme/login-2.jpg"> -->
-  <!-- <img src="./assets/img/theme/login-3.jpg"> -->
-  <img src="./assets/img/theme/login-4.jpg">
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
   <div class="container-fluid">
     <div class="header-body">
+      <a *ngFor="let Page of pages; index as i" routerLink="{{Page.Route}}">
+        <button id={{i}} type="button" placement="top-center" class="{{PropChange[i]}}" triggers="hover focus click"(click)=check($event)>{{Page.Name}}</button>  
+      </a>
       <!-- Card stats -->
       <div class="row">
         <div class="col-xl-3 col-lg-6">
