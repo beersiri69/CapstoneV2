@@ -4,14 +4,15 @@ import { Customer } from 'src/app/Model/customer'
 @Component({
   selector: 'app-customer',
   templateUrl: './customer.component.html',
-
+  styleUrls: ['../search.component.scss']
 })
 export class CustomerComponent implements OnInit {
 
   CustomerAll : Customer[] | undefined;
   Count : number | undefined;
 
-  constructor(private networkService : NetworkService) { }
+  constructor(private networkService : NetworkService,
+    ) { }
 
   ngOnInit(): void {
     this.feedUser();
@@ -27,5 +28,20 @@ export class CustomerComponent implements OnInit {
         //alert("Cannot get user data");
       });
   }
-
+  myModel = '' 
+  valuechange(){  
+    if(this.myModel.length > 3){
+      this.networkService.searchCustomerby(this.myModel).subscribe(
+        data => {        
+          this.CustomerAll = data.result  
+          //this.query = data.result
+          //console.log(data.result)            
+        },
+        err =>{
+            alert("can not getuser")
+        });
+    }else{
+      this.feedUser();
+    }
+  }
 }

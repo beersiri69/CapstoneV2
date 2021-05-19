@@ -1,11 +1,29 @@
-    <!-- Table -->
-    <div class="row">
-      <div class="col">
-        <div class="card shadow">
-          <div class="card-header border-0">
-            <h3 class="mb-0">Customer</h3>
+<div class="container-fluid mt--7">
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header border-0">
+          <div class="row">
+            <div class="col">
+               <h3 class="mb-0">Customer</h3>
+            </div>  
+            <div class="col-4">
+       
+              <div class="input-group mb-3">
+                <input type="text" [(ngModel)]="myModel" (keyup)="valuechange()"  class="form-control searchcustom" placeholder="Customer ID" #myInput>
+                <!-- <input type="text"class="form-control searchcustom" placeholder="{{TableName}} ID" #myInput formControlName="SearchID"> -->
+                
+                <div class="input-group-append">
+                  <button class="btn-search" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+                  <!-- <button class="btn-search" type="button" (click)="OnSearch()"><i class="fa fa-search" aria-hidden="true"></i></button> -->
+                </div>
+              </div>    
+                    
+            </div>
           </div>
-          <div class="table-responsive">
+        </div>
+         <!-- //TODO -->
+         <div class="table-responsive">
             <table class="table align-items-center table-flush">
               <thead class="thead-light">
                 <tr>
@@ -59,6 +77,4 @@
               </ul>
             </nav>
           </div>
-        </div>
-      </div>
-    </div>
+

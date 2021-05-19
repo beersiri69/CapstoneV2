@@ -1,33 +1,56 @@
 import { Staff } from 'src/app/Model/staff'
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Input} from '@angular/core';
 import { NetworkService } from 'src/app/Service/network.service';
+import { FormGroup } from '@angular/forms';
+
+
 
 @Component({
   selector: 'app-staff',
   templateUrl: './staff.component.html',
-
+  styleUrls: ['../search.component.scss']
 })
 export class StaffComponent implements OnInit {
 
-  
+  TableName = "Staff"
   StaffAll : Staff[] | undefined;
-  Count : number | undefined;
+  
 
-  constructor(private networkService : NetworkService) { }
+  constructor(private networkService : NetworkService,
+              
+    ) { }
 
   ngOnInit(): void {
     this.feedUser();
+    
   }
   feedUser(){
     this.networkService.getStaff().subscribe(
       data => {
-          this.StaffAll = data.result
-          //alert(JSON.stringify(this.StaffAll))
-          this.Count = this.StaffAll.length
+          this.StaffAll = data.result            
       },
-      err =>{
-        //alert("Cannot get user data");
+      err =>{        
       });
   }
 
+  myModel = ''
+  valuechange(){  
+    
+    if(this.myModel.length > 3){
+      this.networkService.searchStaffby(this.myModel).subscribe(
+        data => {         
+          this.StaffAll = data.result 
+          //this.query = data.result
+          //console.log(data.result)            
+        },
+        err =>{
+            alert("can not getuser")
+        });
+    }
+    else{
+      this.feedUser()
+    }  
+  }
+
+  
 }
