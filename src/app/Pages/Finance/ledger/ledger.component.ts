@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+// import {} from '../../search/search.component'
 
-interface LedgerList{
+interface botton{
   Name: string;
   Route: string;
 }
@@ -9,14 +10,14 @@ interface LedgerList{
 @Component({
   selector: 'app-ledger',
   templateUrl: './ledger.component.html',
-  styleUrls: ['./ledger.component.scss']
+  styleUrls: ['../../search/search.component.scss']
 })
+
 export class LedgerComponent implements OnInit {
+  constructor(private router: Router) { } 
 
-  constructor(private router: Router) { }
-
- 
-  ledgers: LedgerList[] = [
+    // B
+  ledgers: botton[] = [
     {Name: 'Account Receivable', Route: 'Account_Receivable'},
     {Name: 'Account Payable', Route: 'Account_Payable'},
     {Name: 'Stock', Route: 'Stock'},

@@ -10,7 +10,7 @@ interface botton{
 @Component({
   selector: 'app-finance',
   templateUrl: './finance.component.html',
-  styleUrls: ['../search/search.component.scss'],
+  styleUrls: ['../search/search.component.scss']
   
 })
 
