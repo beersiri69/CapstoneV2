@@ -28,32 +28,27 @@ export class SearchComponent implements OnInit {
   SearhForm: FormGroup;
   public Bottonshow: any[];
 
+  public PropChange : any[];
+
 
   constructor(private router : Router,
              private networkService:NetworkService,
-              
-    ) { }
+             ) {}
     
-    
+  
   ngOnInit() {
     this.Bottonshow = bottonall.filter(Bottonshow => Bottonshow)    
-
+    
+    this.PropChange = ["btn-menu","btn-menu","btn-menu","btn-menu"]
   }
-
-  
-  
-  myModel = '' 
-  valuechange(){  
-    if(this.myModel.length > 3){
-      this.networkService.searchStaffby(this.myModel).subscribe(
-        data => {         
-          //this.query = data.result
-          //console.log(data.result)            
-        },
-        err =>{
-            alert("can not getuser")
-        });
-    }
+  check(e){
+    var target = e.target || e.srcElement || e.currentTarget
+    var x = target.id
+    for ( let i in this.PropChange){
+      this.PropChange[i] = "btn-menu"
+    }    
+    this.PropChange[x] = "btn-sel"
+    
   }
 }
 
