@@ -40,8 +40,6 @@ export class StaffComponent implements OnInit {
       this.networkService.searchStaffby(this.myModel).subscribe(
         data => {         
           this.StaffAll = data.result 
-          //this.query = data.result
-          //console.log(data.result)            
         },
         err =>{
             alert("can not getuser")

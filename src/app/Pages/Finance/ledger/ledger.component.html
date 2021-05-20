@@ -1,15 +1,16 @@
     <!-- Table -->
- 
-    <mat-form-field appearance="fill" style="background-color: #D5D5D5">
-        <mat-label>Select page</mat-label>
-        <mat-select panelClass="my-select-panel-class" (selectionChange)="navigateTo($event.value)">
-          <mat-option *ngFor="let ledger of ledgers; index as i" [value]="ledger.Route">
-            {{ledger.Name}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-
-    <router-outlet></router-outlet>
     
+    <div class="header spb-4 pt-5 pt-md-4">
+      <div class="container-fluid">
+    
+        <!-- A         B -->
+        <a *ngFor="let Ledger of ledgers; index as i" routerLink="{{Ledger.Route}}">
+          <button id={{i}} type="button" placement="top-center" class="{{PropChange[i]}}" triggers="hover focus click"(click)=check($event)>{{Ledger.Name}}</button>
+        </a>
+    
+        <router-outlet></router-outlet>
+    
+      </div>
+    </div>
   
     

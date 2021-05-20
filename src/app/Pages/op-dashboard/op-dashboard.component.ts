@@ -1,54 +1,111 @@
 import { Component, OnInit } from '@angular/core';
-import {Chart} from 'chart.js';
+import { ChartType, ChartOptions, ChartDataSets } from 'chart.js';
+import { MultiDataSet, Label, Color } from 'ng2-charts';
 
 @Component({
   selector: 'app-OperatorDashboard',
   templateUrl: './op-dashboard.component.html',
   styleUrls: ['./op-dashboard.component.scss']
 })
-//OpDashboardComponent ==> this is name of this component
+
 export class OpDashboardComponent implements OnInit {
 
-  // public datasets: any;
-  // public data: any;
-  // public salesChart;
-  // public clicked: boolean = true;
-  // public clicked1: boolean = false;
+  ///////////////////////// FIRST GAUGE-CHART /////////////////////////
+
+  public canvasWidth = 740
+  public needleValue = 100 
+  public centralLabel = '99' //show level number
+  // public bottomLabel = '0'
+  public options = {
+    hasNeedle: true,
+    outerNeedle: true,
+    needleColor: 'rgb(166,206,227)',
+    needleUpdateSpeed: 4,
+    arcColors: ['rgb(166,206,227)', 'black'],
+    arcDelimiters: [99],
+    rangeLabel: ['0', '100'],
+    needleStartValue: 0,
+  }
+
+
+  ///////////////////////// SECOND GAUGE-CHART /////////////////////////
+
+  public canvasWidth2 = 740
+  public needleValue2 = 50 //percent
+  public centralLabel2 = '100' //show level number
+  // public bottomLabel = '0'
+  public options2 = {
+    hasNeedle: true,
+    outerNeedle: true,
+    needleColor: 'rgb(166,206,227)',
+    needleUpdateSpeed: 4,
+    arcColors: ['rgb(166,206,227)', 'black'],
+    arcDelimiters: [50], //percent
+    rangeLabel: ['0', '200'],
+    needleStartValue: 0,
+  }
+
+
+
+
+  ///////////////////////// FIRST DONUT /////////////////////////
+
+  public doughnutChartLabels: Label[] = ['SO station', 'IB station', 'OB station', 'GB station', 'DB station'];
+  public doughnutChartData: MultiDataSet = [
+    [350, 450, 100, 700, 95]
+  ];  
+  public doughnutChartType: ChartType = 'doughnut';
+
+  // public doughnutChartColors: Color[] = [
+  //   {backgroundColor:["#9E120E","#FF5800","#FFB414"]}
+  // ];
+
+
+  ///////////////////////// SECOND DONUT /////////////////////////
+
+  public doughnutChartLabels2: Label[] = ['SO station', 'IB station', 'OB station', 'GB station', 'DB station'];
+  public doughnutChartData2: MultiDataSet = [
+    [450, 200, 100, 200, 750]
+  ];  
+  public doughnutChartType2: ChartType = 'doughnut';
+
+  public doughnutChartColors2: Color[] = [
+    {backgroundColor:["#9E120E","#FF5800","#FFB414","black"]}
+  ];
+
+
+
+
+  ///////////////////////// LINE CHART [NOT USE] /////////////////////////
+
+  // public lineChartData: ChartDataSets[] = [
+  //   { data: [85, 72, 78, 75, 77, 75], label: 'Crude oil prices' },
+  // ];
+
+  // public lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June'];
+
+  // public lineChartOptions = {
+  //   responsive: true,
+  // };
+  // public lineChartType: ChartType = 'line';
+  // // lineChartColors: Color[] = [
+  // //   {
+  // //     borderColor: 'black',
+  // //     backgroundColor: 'rgba(255,255,0,0.28)',
+  // //   },
+  // // ];
+
+  // public lineChartLegend = true;
+  // public lineChartPlugins = [];
+  
+
+
+
+  ///////////////////////// BIG LINE-CHART /////////////////////////
 
    ngOnInit() {
-
-  //   this.datasets = [
-  //     [0, 20, 10, 30, 15, 40, 20, 60, 60],
-  //     [0, 20, 5, 25, 10, 30, 15, 40, 40]
-  //   ];
-  //   this.data = this.datasets[0];
-
-  //   var chartOrders = document.getElementById('chart-orders');
-
   }
 
-/*
-    var ordersChart = new Chart(chartOrders, {
-      type: 'bar',
-      options: chartExample2.options,
-      data: chartExample2.data
-    });
-
-    var chartSales = document.getElementById('chart-sales');
-
-    this.salesChart = new Chart(chartSales, {
-			type: 'line',
-			options: chartExample1.options,
-			data: chartExample1.data
-		});
-  }
-
-
-  public updateOptions() {
-    this.salesChart.data.datasets[0].data = this.data;
-    this.salesChart.update();
-  }
-*/
 constructor() { }
 
   chartData = [
@@ -62,7 +119,7 @@ constructor() { }
     },
     {
       data: [45, 67, 800, 500],
-      label: 'DB station'
+      label: 'OB station'
     },
     {
       data: [700, 67, 800, 500],
@@ -70,7 +127,7 @@ constructor() { }
     },
     {
       data: [200, 67, 800, 500],
-      label: 'OB station'
+      label: 'DB station'
     }
   ];
   chartLabels = [

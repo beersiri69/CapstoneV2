@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Test } from 'src/app/Model/test'
 import { NetworkService } from '../../../Service/network.service'
-
+import {MatDatepickerInputEvent} from '@angular/material/datepicker';
+import {formatDate} from '@angular/common';
 @Component({
   selector: 'app-general-journal',
   templateUrl: './general-journal.component.html',
@@ -12,21 +13,19 @@ export class GeneralJournalComponent implements OnInit {
   TestAll : Test[] | undefined;
   Count : number | undefined;
 
-  constructor(private networkService : NetworkService) { }
+  constructor(private networkService : NetworkService) {
+
+   }
 
   ngOnInit(): void {
-    this.feedUser();
+    
   }
-  feedUser(){
-    this.networkService.getTest().subscribe(
-      data => {
-          this.TestAll = data.result
-          // alert(JSON.stringify(this.TestAll[0]['A']))
-          this.Count = this.TestAll.length
-      },
-      err =>{
-        //alert("Cannot get user data");
-      });
+ 
+ 
+  
+  addEvent(event: MatDatepickerInputEvent<Date>) {
+    console.log(formatDate(event.value,'dd/MM/yyyy','en-US'));
   }
+
 
 }

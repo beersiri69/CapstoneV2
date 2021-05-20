@@ -13,6 +13,7 @@ import { FinanceModule } from 'src/app/Pages/Finance/finance.module';
 import { HomeComponent } from 'src/app/Pages/home/home.component';
 import { ChartsModule } from 'ng2-charts';
 import { OpDashboardComponent } from 'src/app/Pages/op-dashboard/op-dashboard.component';
+import { GaugeChartModule } from 'angular-gauge-chart';
 
 @NgModule({
   declarations: [
@@ -39,11 +40,10 @@ import { OpDashboardComponent } from 'src/app/Pages/op-dashboard/op-dashboard.co
     ChartsModule,
     FinanceModule,
     SearchModule,
-    AuthTemplateRoutingModule,  
-    
-    
+    AuthTemplateRoutingModule,    
     ComponentsModule,
-    
+    GaugeChartModule,
+   
   ],
   exports:[
     AuthTemplateComponent
