@@ -44,6 +44,37 @@ export class OpDashboardComponent implements OnInit {
 
 
 
+  // public needleValue = 20
+  // public chartWidth = 400
+  // public name='Gauge chart'
+  // public options={
+  //   hasNeedle: true,
+  //   outerNeedle: true,
+  //   needleColor: "rgb(166,206,227)",
+  //   needleStartValue: -1,
+  //   needleUpdateSpeed: 4,
+  //   rangeLabel: ["-10","10"],
+  //   centralLabel: "2",
+  //   rangeLabelFontSize: 42,
+  // }
+  public canvasWidth = 300
+  public needleValue = 65
+  public centralLabel = ''
+  public name = 'Gauge chart'
+  public bottomLabel = '65'
+  public options = {
+    hasNeedle: true,
+    needleColor: 'gray',
+    needleUpdateSpeed: 1000,
+    arcColors: ['rgb(44, 151, 222)', 'lightgray'],
+    arcDelimiters: [30],
+    rangeLabel: ['0', '100'],
+    needleStartValue: 50,
+}
+
+
+
+
    ngOnInit() {
   }
 
