@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartType, ChartOptions, ChartDataSets } from 'chart.js';
-import { MultiDataSet, Label } from 'ng2-charts';
+import { MultiDataSet, Label, Color } from 'ng2-charts';
 
 @Component({
   selector: 'app-OperatorDashboard',
@@ -9,9 +9,50 @@ import { MultiDataSet, Label } from 'ng2-charts';
 })
 
 export class OpDashboardComponent implements OnInit {
-  public doughnutChartLabels: Label[] = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
+
+  ///////////////////////// FIRST GAUGE-CHART /////////////////////////
+
+  public canvasWidth = 740
+  public needleValue = 100 
+  public centralLabel = '99' //show level number
+  // public bottomLabel = '0'
+  public options = {
+    hasNeedle: true,
+    outerNeedle: true,
+    needleColor: 'rgb(166,206,227)',
+    needleUpdateSpeed: 4,
+    arcColors: ['rgb(166,206,227)', 'black'],
+    arcDelimiters: [99],
+    rangeLabel: ['0', '100'],
+    needleStartValue: 0,
+  }
+
+
+  ///////////////////////// SECOND GAUGE-CHART /////////////////////////
+
+  public canvasWidth2 = 740
+  public needleValue2 = 50 //percent
+  public centralLabel2 = '100' //show level number
+  // public bottomLabel = '0'
+  public options2 = {
+    hasNeedle: true,
+    outerNeedle: true,
+    needleColor: 'rgb(166,206,227)',
+    needleUpdateSpeed: 4,
+    arcColors: ['rgb(166,206,227)', 'black'],
+    arcDelimiters: [50], //percent
+    rangeLabel: ['0', '200'],
+    needleStartValue: 0,
+  }
+
+
+
+
+  ///////////////////////// FIRST DONUT /////////////////////////
+
+  public doughnutChartLabels: Label[] = ['SO station', 'IB station', 'OB station', 'GB station', 'DB station'];
   public doughnutChartData: MultiDataSet = [
-    [350, 450, 100]
+    [350, 450, 100, 700, 95]
   ];  
   public doughnutChartType: ChartType = 'doughnut';
 
@@ -20,60 +61,47 @@ export class OpDashboardComponent implements OnInit {
   // ];
 
 
+  ///////////////////////// SECOND DONUT /////////////////////////
 
-  public lineChartData: ChartDataSets[] = [
-    { data: [85, 72, 78, 75, 77, 75], label: 'Crude oil prices' },
+  public doughnutChartLabels2: Label[] = ['SO station', 'IB station', 'OB station', 'GB station', 'DB station'];
+  public doughnutChartData2: MultiDataSet = [
+    [450, 200, 100, 200, 750]
+  ];  
+  public doughnutChartType2: ChartType = 'doughnut';
+
+  public doughnutChartColors2: Color[] = [
+    {backgroundColor:["#9E120E","#FF5800","#FFB414","black"]}
   ];
 
-  public lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June'];
 
-  public lineChartOptions = {
-    responsive: true,
-  };
-  public lineChartType: ChartType = 'line';
-  // lineChartColors: Color[] = [
-  //   {
-  //     borderColor: 'black',
-  //     backgroundColor: 'rgba(255,255,0,0.28)',
-  //   },
+
+
+  ///////////////////////// LINE CHART [NOT USE] /////////////////////////
+
+  // public lineChartData: ChartDataSets[] = [
+  //   { data: [85, 72, 78, 75, 77, 75], label: 'Crude oil prices' },
   // ];
 
-  public lineChartLegend = true;
-  public lineChartPlugins = [];
+  // public lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June'];
+
+  // public lineChartOptions = {
+  //   responsive: true,
+  // };
+  // public lineChartType: ChartType = 'line';
+  // // lineChartColors: Color[] = [
+  // //   {
+  // //     borderColor: 'black',
+  // //     backgroundColor: 'rgba(255,255,0,0.28)',
+  // //   },
+  // // ];
+
+  // public lineChartLegend = true;
+  // public lineChartPlugins = [];
   
 
 
 
-  // public needleValue = 20
-  // public chartWidth = 400
-  // public name='Gauge chart'
-  // public options={
-  //   hasNeedle: true,
-  //   outerNeedle: true,
-  //   needleColor: "rgb(166,206,227)",
-  //   needleStartValue: -1,
-  //   needleUpdateSpeed: 4,
-  //   rangeLabel: ["-10","10"],
-  //   centralLabel: "2",
-  //   rangeLabelFontSize: 42,
-  // }
-  public canvasWidth = 300
-  public needleValue = 65
-  public centralLabel = ''
-  public name = 'Gauge chart'
-  public bottomLabel = '65'
-  public options = {
-    hasNeedle: true,
-    needleColor: 'gray',
-    needleUpdateSpeed: 1000,
-    arcColors: ['rgb(44, 151, 222)', 'lightgray'],
-    arcDelimiters: [30],
-    rangeLabel: ['0', '100'],
-    needleStartValue: 50,
-}
-
-
-
+  ///////////////////////// BIG LINE-CHART /////////////////////////
 
    ngOnInit() {
   }
@@ -91,7 +119,7 @@ constructor() { }
     },
     {
       data: [45, 67, 800, 500],
-      label: 'DB station'
+      label: 'OB station'
     },
     {
       data: [700, 67, 800, 500],
@@ -99,7 +127,7 @@ constructor() { }
     },
     {
       data: [200, 67, 800, 500],
-      label: 'OB station'
+      label: 'DB station'
     }
   ];
   chartLabels = [
