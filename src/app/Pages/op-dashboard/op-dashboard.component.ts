@@ -1,54 +1,83 @@
 import { Component, OnInit } from '@angular/core';
-import {Chart} from 'chart.js';
+import { ChartType, ChartOptions, ChartDataSets } from 'chart.js';
+import { MultiDataSet, Label } from 'ng2-charts';
 
 @Component({
   selector: 'app-OperatorDashboard',
   templateUrl: './op-dashboard.component.html',
   styleUrls: ['./op-dashboard.component.scss']
 })
-//OpDashboardComponent ==> this is name of this component
-export class OpDashboardComponent implements OnInit {
 
-  // public datasets: any;
-  // public data: any;
-  // public salesChart;
-  // public clicked: boolean = true;
-  // public clicked1: boolean = false;
+export class OpDashboardComponent implements OnInit {
+  public doughnutChartLabels: Label[] = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
+  public doughnutChartData: MultiDataSet = [
+    [350, 450, 100]
+  ];  
+  public doughnutChartType: ChartType = 'doughnut';
+
+  // public doughnutChartColors: Color[] = [
+  //   {backgroundColor:["#9E120E","#FF5800","#FFB414"]}
+  // ];
+
+
+
+  public lineChartData: ChartDataSets[] = [
+    { data: [85, 72, 78, 75, 77, 75], label: 'Crude oil prices' },
+  ];
+
+  public lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June'];
+
+  public lineChartOptions = {
+    responsive: true,
+  };
+  public lineChartType: ChartType = 'line';
+  // lineChartColors: Color[] = [
+  //   {
+  //     borderColor: 'black',
+  //     backgroundColor: 'rgba(255,255,0,0.28)',
+  //   },
+  // ];
+
+  public lineChartLegend = true;
+  public lineChartPlugins = [];
+  
+
+
+
+  // public needleValue = 20
+  // public chartWidth = 400
+  // public name='Gauge chart'
+  // public options={
+  //   hasNeedle: true,
+  //   outerNeedle: true,
+  //   needleColor: "rgb(166,206,227)",
+  //   needleStartValue: -1,
+  //   needleUpdateSpeed: 4,
+  //   rangeLabel: ["-10","10"],
+  //   centralLabel: "2",
+  //   rangeLabelFontSize: 42,
+  // }
+  public canvasWidth = 300
+  public needleValue = 65
+  public centralLabel = ''
+  public name = 'Gauge chart'
+  public bottomLabel = '65'
+  public options = {
+    hasNeedle: true,
+    needleColor: 'gray',
+    needleUpdateSpeed: 1000,
+    arcColors: ['rgb(44, 151, 222)', 'lightgray'],
+    arcDelimiters: [30],
+    rangeLabel: ['0', '100'],
+    needleStartValue: 50,
+}
+
+
+
 
    ngOnInit() {
-
-  //   this.datasets = [
-  //     [0, 20, 10, 30, 15, 40, 20, 60, 60],
-  //     [0, 20, 5, 25, 10, 30, 15, 40, 40]
-  //   ];
-  //   this.data = this.datasets[0];
-
-  //   var chartOrders = document.getElementById('chart-orders');
-
   }
 
-/*
-    var ordersChart = new Chart(chartOrders, {
-      type: 'bar',
-      options: chartExample2.options,
-      data: chartExample2.data
-    });
-
-    var chartSales = document.getElementById('chart-sales');
-
-    this.salesChart = new Chart(chartSales, {
-			type: 'line',
-			options: chartExample1.options,
-			data: chartExample1.data
-		});
-  }
-
-
-  public updateOptions() {
-    this.salesChart.data.datasets[0].data = this.data;
-    this.salesChart.update();
-  }
-*/
 constructor() { }
 
   chartData = [

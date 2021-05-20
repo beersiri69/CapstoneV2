@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+// import {} from '../../search/search.component'
 
-interface LedgerList{
+interface botton{
   Name: string;
   Route: string;
 }
@@ -9,14 +10,14 @@ interface LedgerList{
 @Component({
   selector: 'app-ledger',
   templateUrl: './ledger.component.html',
-  styleUrls: ['./ledger.component.scss']
+  styleUrls: ['../../search/search.component.scss']
 })
+
 export class LedgerComponent implements OnInit {
-
-  constructor(private router: Router) { }
-
- 
-  ledgers: LedgerList[] = [
+  constructor(private router: Router) { } 
+  public PropChange : any[];
+    // B
+  ledgers: botton[] = [
     {Name: 'Account Receivable', Route: 'Account_Receivable'},
     {Name: 'Account Payable', Route: 'Account_Payable'},
     {Name: 'Stock', Route: 'Stock'},
@@ -24,6 +25,16 @@ export class LedgerComponent implements OnInit {
   ];
 
   ngOnInit(): void {
+    this.PropChange = ["btn-menuuu","btn-menuuu","btn-menuuu","btn-menuuu"]
+  }
+
+  check(e){
+    var target = e.target || e.srcElement || e.currentTarget
+    var x = target.id
+    for ( let i in this.PropChange){
+      this.PropChange[i] = "btn-menuuu"
+    }
+    this.PropChange[x] = "btn-selll"
   }
 
   navigateTo(value){

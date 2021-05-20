@@ -1,31 +1,4 @@
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //
 // Variables
 //
@@ -119,6 +92,12 @@ $slack:         #3aaf85 !default;
 $dribbble:      #ea4c89 !default;
 $github:        #222222 !default;
 
+$bymewhite:     #f4f1de !default;
+$bymeorange:    #584B53 !default;
+$bymedarkblue:  #013a63 !default;
+$bymegreen:     #81b29a !default;
+$bymeyellow:    #f2cc8f !default;
+
 $theme-colors: () !default;
 $theme-colors: map-merge((
   "default":      $default,
@@ -131,7 +110,12 @@ $theme-colors: map-merge((
   "white":        $white,
   "neutral":      $white,
   "dark":         $dark,
-  "darker":       $darker
+  "darker":       $darker,
+  "bymewhite":    $bymewhite,
+  "bymeorange":   $bymeorange,
+  "bymedarkblue": $bymedarkblue,
+  "bymegreen":    $bymegreen,
+  "bymeyellow":   $bymeyellow,
 ), $theme-colors);
 
 $brand-colors: () !default;
@@ -232,7 +216,7 @@ $love-color: $red !default;
 // Body
 
 
-$body-bg: #f8f9fe !default;
+$body-bg: #f0f6ff !default;
 $body-color: $gray-700 !default;
 
 
@@ -920,6 +904,7 @@ $card-border-color:                 rgba($black, .05) !default;
 $card-inner-border-radius:          calc(#{$card-border-radius} - #{$card-border-width}) !default;
 $card-cap-bg:                       $white !default;
 $card-bg:                           $white !default;
+// $card-bg:                           #e9f1ff !default;
 
 $card-img-overlay-padding:          1.25rem !default;
 
