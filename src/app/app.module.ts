@@ -20,6 +20,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ExampleComponent } from './example/example.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatNativeDateModule } from '@angular/material/core';
+
+
 
 
 
@@ -48,7 +51,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule, BrowserAnimationsModule,
     
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
+    MatNativeDateModule
+    
    
   ],
   providers: [],
