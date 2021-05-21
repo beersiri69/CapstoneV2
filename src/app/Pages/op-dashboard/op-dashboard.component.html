@@ -195,11 +195,11 @@
     </div>
     <!----------------------------- END SIX BLOCKS ----------------------------->
   </div>
-  
+
   <!----------------------------- START GAUGE-CHART ----------------------------->
   <div class="row">
     <!----------------------------- FIRST GAUGE-CHART ----------------------------->
-    <div class="col">
+    <div class="col-xl-6">
       <div class="card shadow mt-5">
         <div class="card-header bg-transparent">
           <div class="row align-items-center">
@@ -219,16 +219,16 @@
             [plugins]="lineChartPlugins">
           </canvas>      -->
           <rg-gauge-chart 
-              [canvasWidth]="canvasWidth" 
-              [needleValue]="needleValue" 
-              [centralLabel]="centralLabel"
-              [options]="options">
-              </rg-gauge-chart>
+          [canvasWidth]="canvasWidth" 
+          [needleValue]="needleValue" 
+          [centralLabel]="centralLabel"
+          [options]="options">
+          </rg-gauge-chart>
         </div>
       </div>
     </div>
     <!----------------------------- SECOND GAUGE-CHART ----------------------------->
-    <div class="col">
+    <div class="col-xl-6">
       <div class="card shadow mt-5">
         <div class="card-header bg-transparent">
           <div class="row align-items-center">
@@ -241,24 +241,23 @@
         <div class="card-body">
           <!-- <div class="row">
             <div class="col"> -->
-              <rg-gauge-chart 
-              [canvasWidth]="canvasWidth2" 
-              [needleValue]="needleValue2" 
-              [centralLabel]="centralLabel2"
-              [options]="options2">
-              </rg-gauge-chart>
-            <!-- </div>
+          <rg-gauge-chart 
+          [canvasWidth]="canvasWidth2" 
+          [needleValue]="needleValue2" 
+          [centralLabel]="centralLabel2"
+          [options]="options2">
+          </rg-gauge-chart>
+          <!-- </div>
           </div> -->
         </div>
       </div>
     </div>
   </div>
   <!----------------------------- END GAUGE-CHART ----------------------------->
-
   <!----------------------------- START DONUT ----------------------------->
   <div class="row">
     <!----------------------------- FIRST DONUT ----------------------------->
-    <div class="col">
+    <div class="col-xl-6">
       <div class="card shadow mt-5">
         <div class="card-header bg-transparent">
           <div class="row align-items-center">
@@ -271,17 +270,17 @@
         <div class="card-body">
           <div style="display: block">
             <canvas baseChart 
-            [data]="doughnutChartData"
-            [labels]="doughnutChartLabels"
+            [data]="doughnutChartData" 
+            [labels]="doughnutChartLabels" 
             [chartType]="doughnutChartType">
-            <!-- [colors]="doughnutChartColors" -->
+              <!-- [colors]="doughnutChartColors" -->
             </canvas>
           </div>
         </div>
       </div>
     </div>
     <!----------------------------- SECOND DONUT ----------------------------->
-    <div class="col">
+    <div class="col-xl-6">
       <div class="card shadow mt-5">
         <div class="card-header bg-transparent">
           <div class="row align-items-center">
@@ -294,9 +293,9 @@
         <div class="card-body">
           <div style="display: block">
             <canvas baseChart 
-            [data]="doughnutChartData2"
+            [data]="doughnutChartData2" 
             [labels]="doughnutChartLabels2"
-            [chartType]="doughnutChartType2"
+            [chartType]="doughnutChartType2" 
             [colors]="doughnutChartColors2">
             </canvas>
           </div>
@@ -305,7 +304,6 @@
     </div>
   </div>
   <!----------------------------- END DONUT ----------------------------->
-  
   <!----------------------------- START PAGE VISITS ----------------------------->
   <div class="row mt-5">
     <div class="col-xl-8 mb-5 mb-xl-0">
