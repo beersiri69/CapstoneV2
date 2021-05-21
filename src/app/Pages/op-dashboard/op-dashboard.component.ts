@@ -144,6 +144,11 @@ constructor() { }
   onChartClick = ($event: any) => {
     window.console.log('onChartClick', $event);
   };
+  
+  lineChartColors: Color[] = [
+    {backgroundColor:["white","#FF5800","#FFB414","white","pink"]}
+  ];
+
   newDataPoint(dataArr = [100, 100, 100], label) {
     this.chartData.forEach((dataset, index) => {
       this.chartData[index] = Object.assign({}, this.chartData[index], {
