@@ -106,7 +106,8 @@ $bymesix:       #6b705c !default;
 $bymeseven:     #006d77 !default;
 $bymeeight:     #83c5be !default;
 $bymenine:      #edf6f9 !default;
-// $bymeten:         # !default;
+$bymeten:       #fffbf8 !default;
+$bymeoneone:    #1753adc0 !default;
 // $byme:         # !default;
 
 $theme-colors: () !default;
@@ -136,6 +137,8 @@ $theme-colors: map-merge((
   "bymeseven":    $bymeseven,
   "bymeeight":    $bymeeight,
   "bymenine":     $bymenine,
+  "bymeten":      $bymeten,
+  "bymeoneone":   $bymeoneone,
 ), $theme-colors);
 
 $brand-colors: () !default;
