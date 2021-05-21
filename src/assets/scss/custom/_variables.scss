@@ -97,6 +97,17 @@ $bymeorange:    #584B53 !default;
 $bymedarkblue:  #013a63 !default;
 $bymegreen:     #81b29a !default;
 $bymeyellow:    #f2cc8f !default;
+$bymeone:       #cb997e !default;
+$bymetwo:       #ddbea9 !default;
+$bymethree:     #ffe8d6 !default;
+$bymefour:      #b7b7a4 !default;
+$bymefive:      #a5a58d !default;
+$bymesix:       #6b705c !default;
+$bymeseven:     #006d77 !default;
+$bymeeight:     #83c5be !default;
+$bymenine:      #edf6f9 !default;
+// $bymeten:         # !default;
+// $byme:         # !default;
 
 $theme-colors: () !default;
 $theme-colors: map-merge((
@@ -116,6 +127,15 @@ $theme-colors: map-merge((
   "bymedarkblue": $bymedarkblue,
   "bymegreen":    $bymegreen,
   "bymeyellow":   $bymeyellow,
+  "bymeone":      $bymeone,
+  "bymetwo":      $bymetwo,
+  "bymethree":    $bymethree,
+  "bymefour":     $bymefour,
+  "bymefive":     $bymefive,
+  "bymesix":      $bymesix,
+  "bymeseven":    $bymeseven,
+  "bymeeight":    $bymeeight,
+  "bymenine":     $bymenine,
 ), $theme-colors);
 
 $brand-colors: () !default;
@@ -217,7 +237,7 @@ $love-color: $red !default;
 
 
 $body-bg: #f0f6ff !default;
-$body-color: $gray-700 !default;
+$body-color: #f0f6ff !default;
 
 
 
@@ -982,8 +1002,8 @@ $footer-padding-x:              0;
 
 
 $footer-link-font-size: .85rem !default;
-$footer-bg: theme-color("secondary") !default;
-$footer-color: $gray-600 !default;
+$footer-bg: #f0f6ff !default;
+$footer-color: #f0f6ff !default;
 $footer-link-color: $gray-600 !default;
 $footer-link-hover-color: $gray-700 !default;
 $footer-heading-color: $gray-600 !default;
