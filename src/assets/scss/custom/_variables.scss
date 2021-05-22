@@ -108,7 +108,10 @@ $bymeeight:     #83c5be !default;
 $bymenine:      #edf6f9 !default;
 $bymeten:       #fffbf8 !default;
 $bymeoneone:    #1753adc0 !default;
-// $byme:         # !default;
+$bymeonetwo:    #840032 !default;
+$bymeonethree:  #fcd581 !default;
+$bymeonefour:   #fffcf6 !default;
+//$bymeonefour:   # !default;
 
 $theme-colors: () !default;
 $theme-colors: map-merge((
@@ -123,6 +126,7 @@ $theme-colors: map-merge((
   "neutral":      $white,
   "dark":         $dark,
   "darker":       $darker,
+  
   "bymewhite":    $bymewhite,
   "bymeorange":   $bymeorange,
   "bymedarkblue": $bymedarkblue,
@@ -139,6 +143,9 @@ $theme-colors: map-merge((
   "bymenine":     $bymenine,
   "bymeten":      $bymeten,
   "bymeoneone":   $bymeoneone,
+  "bymeonetwo":   $bymeonetwo,
+  "bymeonethree": $bymeonethree,
+  "bymeonefour":  $bymeonefour,
 ), $theme-colors);
 
 $brand-colors: () !default;

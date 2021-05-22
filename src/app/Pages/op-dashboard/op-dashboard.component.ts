@@ -50,7 +50,7 @@ export class OpDashboardComponent implements OnInit {
 
   ///////////////////////// FIRST DONUT /////////////////////////
 
-  public doughnutChartLabels: Label[] = ['SO station', 'IB station', 'OB station', 'GB station', 'DB station'];
+  public doughnutChartLabels: Label[] = ['SO station', 'IB station', 'DB station', 'GB station', 'OB station'];
   public doughnutChartData: MultiDataSet = [
     [350, 450, 100, 700, 95]
   ];  
@@ -63,7 +63,7 @@ export class OpDashboardComponent implements OnInit {
 
   ///////////////////////// SECOND DONUT /////////////////////////
 
-  public doughnutChartLabels2: Label[] = ['SO station', 'IB station', 'OB station', 'GB station', 'DB station'];
+  public doughnutChartLabels2: Label[] = ['SO station', 'IB station', 'DB station', 'GB station', 'OB station'];
   public doughnutChartData2: MultiDataSet = [
     [450, 200, 100, 200, 750]
   ];  
@@ -103,7 +103,7 @@ export class OpDashboardComponent implements OnInit {
 
 
 
-  ///////////////////////// BIG LINE-CHART /////////////////////////
+  ///////////////////////// WIP /////////////////////////
 
   // public chartColors: Color[] =[
   //   {
@@ -117,34 +117,34 @@ constructor() { }
 
   chartData = [
     {
-      data: [330, 600, 260, 700],
+      data: [3],
       label: 'SO station',
       fill: false
     },
     {
-      data: [120, 455, 100, 340],
+      data: [0],
       label: 'IB station',
       fill: false
     },
     {
-      data: [45, 67, 800, 500],
-      label: 'OB station',
+      data: [0],
+      label: 'DB station',
       fill: false
     },
     {
-      data: [700, 67, 800, 500],
+      data: [1],
       label: 'GB station',
       fill: false
     },
     {
-      data: [200, 67, 800, 500],
-      label: 'DB station',
+      data: [1],
+      label: 'OB station',
       fill: false
     }
   ];
   chartLabels: Label[] = [
     // อยากให้ขึ้นเป็น day / week / month ที่เลือกจะดู
-    'January', 'February', 'March', 'April'
+    
   ];
   chartOptions = {
     responsive: true,
@@ -173,5 +173,56 @@ constructor() { }
 
     this.chartLabels = [...this.chartLabels, label];
   }
+
+
+///////////////////////// BUSY /////////////////////////
+
+
+
+  chartData2 = [
+    {
+      data: [3],
+      label: 'DIESEL BAY',
+      fill: false
+    },
+    {
+      data: [1],
+      label: 'GASOHOL95 BAY',
+      fill: false
+    }
+  ];
+  chartLabels2: Label[] = [
+    // อยากให้ขึ้นเป็น day / week / month ที่เลือกจะดู
+    // 'DIESEL BAY', 'GASOHOL95 BAY'
+  ];
+  chartOptions2 = {
+    responsive: true,
+    legend: {
+      labels: {
+        fontColor: 'black'
+      }
+    }
+  };
+  // ...
+  onChartHover2 = ($event: any) => {
+    window.console.log('onChartHover', $event);
+  };
+  onChartClick2 = ($event: any) => {
+    window.console.log('onChartClick', $event);
+  };
+
+
+
+  newDataPoint2(dataArr = [100, 100, 100], label) {
+    this.chartData2.forEach((dataset, index) => {
+      this.chartData2[index] = Object.assign({}, this.chartData2[index], {
+        data: [...this.chartData2[index].data, dataArr[index]]
+      });
+    });
+
+    this.chartLabels2 = [...this.chartLabels2, label];
+  }
+
+
   
 }
