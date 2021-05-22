@@ -1,4 +1,4 @@
-<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+<div class="header bg-bymetwo pb-8 pt-5 pt-md-8">
     <div class="container-fluid">
       <div class="header-body">       
         <a *ngFor="let Page of pages; index as i" routerLink="{{Page.Route}}">
@@ -10,7 +10,12 @@
       </div>
     </div>
   </div>
-  <div class="container-fluid mt--7">
-    <!-- Table -->
-    <router-outlet></router-outlet>
-</div>  
+  <div class="body bg-bymeten">
+    <div class="container-fluid mt--7">
+      <!-- Table -->
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <div class="footer bg-bymeten">
+  </div>
+  
