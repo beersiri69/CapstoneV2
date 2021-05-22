@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-ManagerDashboard',
+  selector: 'app-mn-dashboard',
   templateUrl: './mn-dashboard.component.html',
   styleUrls: ['./mn-dashboard.component.scss']
 })

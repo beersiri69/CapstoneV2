@@ -21,6 +21,8 @@ import { ReconciliationComponent } from 'src/app/Pages/Finance/reconciliation/re
 import { InventorystockComponent } from 'src/app/Pages/Finance/inventorystock/inventorystock.component';
 import { ExampleComponent } from 'src/app/example/example.component';
 import { LoginComponent } from 'src/app/login/login.component';
+import { DailyComponent } from 'src/app/Pages/mn-dashboard/daily/daily.component';
+import { WeeklyComponent } from 'src/app/Pages/mn-dashboard/weekly/weekly.component';
 
 const Authroute: Routes = [
   {
@@ -51,7 +53,13 @@ const Authroute: Routes = [
         ]
       },
       
-      { path:'managerdashboard',      component: MnDashboardComponent},
+      { path:'managerdashboard',      component: MnDashboardComponent,
+      children:[
+        {path: 'daily' , component: DailyComponent},
+        {path: 'weekly' , component: WeeklyComponent}, 
+       
+      ] 
+    },
       { path:'operatordashboard',     component: OpDashboardComponent},
       {
         path:'search' ,component: SearchComponent,
