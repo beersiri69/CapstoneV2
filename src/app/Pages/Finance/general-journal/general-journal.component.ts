@@ -33,10 +33,6 @@ export interface GeneralShow{
 
 }
 
-
-
-
-
 @Component({
   selector: 'app-general-journal',
   templateUrl: './general-journal.component.html',
