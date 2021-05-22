@@ -66,6 +66,9 @@ export class GeneralJournalComponent implements OnInit {
 
   Init_Date(){
   var DateSearchInit = "2018-03-01"
+
+  this.GetRefNo(DateSearchInit)
+  
   this.networkService.GetTransaction(DateSearchInit).subscribe(
     data => {         
       this.TransactionAll = data.result        
@@ -81,7 +84,7 @@ export class GeneralJournalComponent implements OnInit {
   addEvent(event: MatDatepickerInputEvent<Date>) {
     this.GeneralShowAll = []
     var DateSearch = formatDate(event.value,'yyyy-MM-dd','en-US');
-    
+    this.GetRefNo(DateSearch)
     this.networkService.GetTransaction(DateSearch).subscribe(
       data => {         
         this.TransactionAll = data.result        
@@ -91,9 +94,7 @@ export class GeneralJournalComponent implements OnInit {
           //alert("can not getuser")
       });
     }
-   
-  
-      
+         
     InsertShow(w,x,y,z,o){
       this.GeneralShowAll.push({
         Date: w,
@@ -117,20 +118,36 @@ export class GeneralJournalComponent implements OnInit {
         var Amount = this.TransactionAll[k].Amount   
 
         if(this.TransactionAll[k].Action === "Sale"){          
-
-          this.InsertShow(Date_insert,"Inventory",InventoryNo,Amount,'')
+          if(this.TransactionAll[k].Type === "DIESEL"){
+            this.InsertShow(Date_insert,"Inventory (Sale Diesel)",InventoryNo,Amount,'')
+          }else{
+            this.InsertShow(Date_insert,"Inventory (Sale Gasohol 95)",InventoryNo,Amount,'')
+          }
+          
           this.InsertShow('',"Acc. Payable",PayableNo,'',Amount)
           this.InsertShow('',"Acc. Payable",PayableNo,Amount,'')
           this.InsertShow('',"Cash",CashNo,'',Amount)
         }else if(this.TransactionAll[k].Action === "Purchase"){
-
-          this.InsertShow(Date_insert,"Acc. Receivable",ReceivableNo,Amount,'')
+          if(this.TransactionAll[k].Type === "DIESEL"){
+            this.InsertShow(Date_insert,"Acc. Receivable (Purchase Diesel)",ReceivableNo,Amount,'')
+          }else{
+            this.InsertShow(Date_insert,"Acc. Receivable (Purchase Gasohol 95)",ReceivableNo,Amount,'')
+          }          
           this.InsertShow('',"Inventory",InventoryNo,'',Amount)
           this.InsertShow('',"Cash",CashNo,Amount,'')
           this.InsertShow('',"Acc. Receivable",ReceivableNo,'',Amount)         
         }
       }
       
+    }
+    DatChange :string
+    GetRefNo(date :string){
+      this.DatChange = date.charAt(2)
+      this.DatChange += date.charAt(3)
+      this.DatChange += date.charAt(5)
+      this.DatChange += date.charAt(6)
+      this.DatChange += date.charAt(8)
+      this.DatChange += date.charAt(9)
     }
 }
  
