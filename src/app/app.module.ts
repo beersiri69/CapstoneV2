@@ -33,7 +33,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     AppComponent,
     SearchComponent,
     ExampleComponent,
-    LoginComponent,    
+    LoginComponent,
+    
   ],
   imports: [ 
     AppRoutingModule,

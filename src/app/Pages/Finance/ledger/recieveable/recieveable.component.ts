@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+import { NetworkService } from 'src/app/Service/network.service';
+import {MatDatepickerInputEvent} from '@angular/material/datepicker';
+import {formatDate} from '@angular/common';
 @Component({
   selector: 'app-recieveable',
   templateUrl: './recieveable.component.html',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecieveableComponent implements OnInit {
 
-  constructor() { }
+  constructor(private networkService : NetworkService,) { }
 
   ngOnInit(): void {
+  }
+
+  addEvent(event: MatDatepickerInputEvent<Date>){
+
   }
 
 }
