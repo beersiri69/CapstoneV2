@@ -4,7 +4,7 @@ import { Observable, Observer } from 'rxjs'
 import { TestAll } from '../Model/test'
 import { CustomerAll } from '../Model/customer'
 import { StaffAll } from '../Model/staff'
-
+import { TransactionAll} from '../Model/transaction.model'
 @Injectable({
   providedIn: 'root'
 })
@@ -14,8 +14,9 @@ export class NetworkService {
   private TestURL = `https://localhost:44389/api/auth/test`
   private cusAPI = `https://localhost:44389/api/auth/customer`
   private staffAPI = `https://localhost:44389/api/auth/staff`
-  private searchStaff =''
-  private CustomerAll =''
+  private SearchStaffAPI =''
+  private SearchCustomerAPI =''
+  private GetTransactionAPI = ''
   constructor(private httpClient: HttpClient) { }
 
   getTest(): Observable<TestAll>{
@@ -30,14 +31,22 @@ export class NetworkService {
 
 
   searchStaffby(id): Observable<StaffAll>{
-    this.searchStaff = 'https://localhost:44389/api/auth/searchStaffby/' + id;
+    this.SearchStaffAPI = 'https://localhost:44389/api/auth/searchStaffby/' + id;
     //console.log(this.searchStaff)
-    return this.httpClient.get<StaffAll>(this.searchStaff)
+    return this.httpClient.get<StaffAll>(this.SearchStaffAPI)
   }
   searchCustomerby(id): Observable<CustomerAll>{
-    this.CustomerAll = 'https://localhost:44389/api/auth/searchCustomerby/' + id;
+    this.SearchCustomerAPI = 'https://localhost:44389/api/auth/searchCustomerby/' + id;
     //console.log(this.searchStaff)
-    return this.httpClient.get<CustomerAll>(this.CustomerAll)
+    return this.httpClient.get<CustomerAll>(this.SearchCustomerAPI)
   }
+
+  GetTransaction(Date): Observable<TransactionAll>{
+    this.GetTransactionAPI = 'https://localhost:44389/api/auth/TransactionByDate/' + Date;
+    //console.log(this.searchStaff)
+    return this.httpClient.get<TransactionAll>(this.GetTransactionAPI)
+  }
+  
+
 
 }
