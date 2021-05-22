@@ -31,7 +31,6 @@ export interface GeneralShow{
   Debit : number | undefined;
   Credit : number | undefined;
 
-  
 }
 
 
@@ -117,7 +116,7 @@ export class GeneralJournalComponent implements OnInit {
         
         var Amount = this.TransactionAll[k].Amount   
 
-        if(this.TransactionAll[k].Action === "Sale"){          
+        if(this.TransactionAll[k].Action === "Sale"){
           if(this.TransactionAll[k].Type === "DIESEL"){
             this.InsertShow(Date_insert,"Inventory (Sale Diesel)",InventoryNo,Amount,'')
           }else{
