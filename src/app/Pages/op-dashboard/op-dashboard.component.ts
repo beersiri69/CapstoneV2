@@ -138,34 +138,34 @@ constructor() { }
 
   chartData = [
     {
-      data: [3],
+      data: [33, 60, 26, 70, 12, 25, 100],
       label: 'SO station',
       fill: false
     },
     {
-      data: [0],
+      data: [0, 12, 33, 70, 12, 33, 80],
       label: 'IB station',
       fill: false
     },
     {
-      data: [0],
+      data: [0, 70, 12, 33, 48, 20, 22],
       label: 'DB station',
       fill: false
     },
     {
-      data: [1],
+      data: [1, 12, 33, 48, 57, 18, 75],
       label: 'GB station',
       fill: false
     },
     {
-      data: [1],
+      data: [1, 23, 90, 33, 58, 12, 64],
       label: 'OB station',
       fill: false
     }
   ];
   chartLabels: Label[] = [
     // อยากให้ขึ้นเป็น day / week / month ที่เลือกจะดู
-    
+    '00:00', '04:00', '08:00', '12:00', '16:00', '20:00', '24:00'
   ];
   chartOptions = {
     responsive: true,

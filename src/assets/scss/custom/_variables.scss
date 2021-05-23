@@ -111,6 +111,13 @@ $bymeoneone:    #1753adc0 !default;
 $bymeonetwo:    #840032 !default;
 $bymeonethree:  #fcd581 !default;
 $bymeonefour:   #fffcf6 !default;
+$bymeonefive:   #ffc759 !default;
+$bymeonesix:    #227C9D !default;
+$bymeoneseven:  #17C3B2 !default;
+$bymeoneeight:  #C44536 !default;
+$bymeonenine:   #772E25 !default;
+$bymeoneten:    #b4b2ae !default;
+$bymetwoone:    #d3d0cb !default;
 //$bymeonefour:   # !default;
 
 $theme-colors: () !default;
@@ -146,6 +153,13 @@ $theme-colors: map-merge((
   "bymeonetwo":   $bymeonetwo,
   "bymeonethree": $bymeonethree,
   "bymeonefour":  $bymeonefour,
+  "bymeonefive":  $bymeonefive,
+  "bymeonesix":   $bymeonesix,
+  "bymeoneseven": $bymeoneseven,
+  "bymeoneeight": $bymeoneeight,
+  "bymeonenine":  $bymeonenine,
+  "bymeoneten":   $bymeoneten,
+  "bymetwoone":   $bymetwoone,
 ), $theme-colors);
 
 $brand-colors: () !default;
