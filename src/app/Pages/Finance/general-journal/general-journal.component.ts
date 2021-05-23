@@ -23,14 +23,12 @@ import * as moment from 'moment';
 //   Debit : number | undefined;
 //   Credit: number | undefined;
 // }
-export interface GeneralShow{
-  
+export interface GeneralShow{  
   Date: String | undefined;
   Explain : String | undefined;
   Ref : number | undefined;
   Debit : number | undefined;
   Credit : number | undefined;
-
 }
 
 
@@ -124,7 +122,7 @@ export class GeneralJournalComponent implements OnInit {
           }
           
           this.InsertShow('',"Acc. Payable",PayableNo,'',Amount)
-          this.InsertShow('',"Acc. Payable",PayableNo,Amount,'')
+          this.InsertShow(Date_insert,"Acc. Payable",PayableNo,Amount,'')
           this.InsertShow('',"Cash",CashNo,'',Amount)
         }else if(this.TransactionAll[k].Action === "Purchase"){
           if(this.TransactionAll[k].Type === "DIESEL"){
@@ -133,7 +131,7 @@ export class GeneralJournalComponent implements OnInit {
             this.InsertShow(Date_insert,"Acc. Receivable (Purchase Gasohol 95)",ReceivableNo,Amount,'')
           }          
           this.InsertShow('',"Inventory",InventoryNo,'',Amount)
-          this.InsertShow('',"Cash",CashNo,Amount,'')
+          this.InsertShow(Date_insert,"Cash",CashNo,Amount,'')
           this.InsertShow('',"Acc. Receivable",ReceivableNo,'',Amount)         
         }
       }

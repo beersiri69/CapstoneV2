@@ -3,6 +3,7 @@ import { Transaction } from '../Model/transaction.model';
 import { NetworkService } from './network.service';
 import {formatDate} from '@angular/common';
 import { Income } from '../Model/income.model'
+import { Expense } from '../Model/expense.Model';
 
 export interface GeneralShow{
   Date: String | undefined;
@@ -22,6 +23,8 @@ export class LedgerService {
   TransactionStart : Transaction[] | undefined;
   GeneralShowAll :GeneralShow[]  = []
   IncomeCal : Income[] | undefined
+  GetSumCash : Transaction[] | undefined
+  Expenseoverall : Expense[] | undefined
 
   constructor(private networkService : NetworkService) { }
 
@@ -31,7 +34,6 @@ export class LedgerService {
     this.networkService.GetTransaction(DateSearch).subscribe(
       data => {         
         this.TransactionAll = data.result
-        //console.log(data.result)
         if(Type === 'Receivable'){
           this.InsertReceivable()
         }
@@ -42,15 +44,14 @@ export class LedgerService {
           this.InsertInventory(DateSearch)
         } 
         else if(Type === 'Cash'){
-          this.InsertCash()
+          this.InsertCash(DateSearch)
         }
-
-      
       },
       err =>{
           //alert("can not getuser")
       });
-      //console.log(this.GeneralShowAll)
+      
+
       return this.GeneralShowAll
   }
 
@@ -75,8 +76,8 @@ export class LedgerService {
       var RefID = 'J' + this.GetRefNo(Date_insert)
 
       if(this.TransactionAll[k].Action==="Sale"){
-        this.InsertShow(Date_insert,"Sale Fuel",RefID,Amount,'',Amount);
-        this.InsertShow('','Customer Paid',RefID,'',Amount,'0');
+        this.InsertShow(Date_insert,"Sale Fuel",RefID,Amount.toFixed(2),'',Amount.toFixed(2));
+        this.InsertShow('','Customer Paid',RefID,'',Amount.toFixed(2),'0.00');
       }
     }
     
@@ -90,8 +91,8 @@ export class LedgerService {
       var RefID = 'J' + this.GetRefNo(Date_insert)
 
       if(this.TransactionAll[k].Action==="Purchase"){
-        this.InsertShow(Date_insert,"Purchase Fuel",RefID,Amount,'',Amount);
-        this.InsertShow('','Paid Purchase Fuel',RefID,'',Amount,'0');
+        this.InsertShow(Date_insert,"Purchase Fuel",RefID,Amount.toFixed(2),'',Amount.toFixed(2));
+        this.InsertShow('','Paid Purchase Fuel',RefID,'',Amount.toFixed(2),'0.00');
       }
     }
   }
@@ -100,49 +101,110 @@ export class LedgerService {
 
   InsertInventory(DateSearch){
     this.IncomeCal= [] 
-    
-   
     this.networkService.GetIncomeFromStart(DateSearch).subscribe(
       data => { 
         this.IncomeCal = data.result
         
         this.Amount_Init = this.IncomeCal['Begin_G_B_'] + this.IncomeCal['Begin_D_B_']
-        console.log( this.Amount_Init)
+        //console.log( this.Amount_Init)
        },
       err => {
-
         },
       )
-
     this.Amout_left = this.Amount_Init
 
-    this.InsertShow(Date_insert,'Beginning Stock','',this.Amout_left,'',this.Amout_left);
+    var Date_insert = formatDate(this.TransactionAll[0].Date,'yyyy-MM-dd','en-US')    
+    var RefID = 'J' + this.GetRefNo(Date_insert)    
+
+    this.InsertShow(Date_insert,'Beginning Stock',RefID,this.Amout_left.toFixed(2),'',this.Amout_left.toFixed(2));
 
     for (let k in this.TransactionAll){
       var Date_insert = formatDate(this.TransactionAll[k].Date,'yyyy-MM-dd','en-US')
       var RefID = 'J' + this.GetRefNo(Date_insert)
-
       var Amount = this.TransactionAll[k].Amount
       if(this.TransactionAll[k].Action==="Purchase"){
-        this.InsertShow(Date_insert,'Purchase Fuel',RefID,Amount,'',this.Amout_left + Amount);
+        this.Amout_left += Amount
+        this.InsertShow(Date_insert,'Purchase Fuel',RefID,Amount.toFixed(2),'',this.Amout_left.toFixed(2));
       }
       else{
-        this.InsertShow(Date_insert,'Sale Fuel',RefID,'',Amount,this.Amout_left - Amount);
+        this.Amout_left -= Amount
+        this.InsertShow(Date_insert,'Sale Fuel',RefID,'',Amount.toFixed(2),this.Amout_left.toFixed(2));
       }
     }
     
   }
-  InsertCash(){
-    // for (let k in this.TransactionAll){
-    //   var Date_insert = formatDate(this.TransactionAll[k].Date,'yyyy-MM-dd','en-US')
-        
-    //   var Amount = this.TransactionAll[k].Amount
-    //   if(this.TransactionAll[k].Action==="Sale"){
-    //     this.InsertShow(Date_insert,v,w,x,y,z);
-    //   }
-    // }
+  SumCash :number
+  async InsertCash(DateSearch) : Promise<void>{
+    
+    await this.InsertCash_Connect(DateSearch)
+  
+    await this.InsertCash_GetSum()
+    
+    await this.InsertCash_Gettransac()
+
+    await this.InsertCash_GetExpense()
+     
   }
- 
+  
+  InsertCash_Connect(DateSearch){
+    this.SumCash = 1000000
+
+    this.networkService.SumCashBeforeDate(DateSearch).subscribe(
+      data => { 
+        this.GetSumCash = data.result
+       },
+      err => {
+        },
+      )
+    this.networkService.GetExpense().subscribe(
+      data => { 
+        this.Expenseoverall = data.result
+       },
+      err => {
+        },
+    )
+  }
+
+  InsertCash_GetSum(){
+    for(let i in this.GetSumCash){
+      
+      if(this.GetSumCash[i].Action==='Purchase'){
+        this.SumCash -= this.GetSumCash[i].Amount
+      }
+      else{
+        this.SumCash += this.GetSumCash[i].Amount
+      }      
+    }
+  }
+  InsertCash_Gettransac(){
+    var Date_insert = formatDate(this.TransactionAll[0].Date,'yyyy-MM-dd','en-US')    
+    var RefID = 'J' + this.GetRefNo(Date_insert)   
+
+    for (let k in this.TransactionAll){
+      var Date_insert = formatDate(this.TransactionAll[k].Date,'yyyy-MM-dd','en-US')
+        
+      var Amount = this.TransactionAll[k].Amount
+      if(this.TransactionAll[k].Action==="Purchase"){
+        this.SumCash -=this.TransactionAll[k].Amount
+        this.InsertShow(Date_insert,'Purchase Fuel',RefID,'',Amount.toFixed(2),this.SumCash.toFixed(2));
+      }
+      else{
+        this.SumCash+=this.TransactionAll[k].Amount
+        this.InsertShow(Date_insert,'Sale Fuel',RefID,Amount.toFixed(2),'',this.SumCash.toFixed(2));
+      }
+    }
+  }
+  InsertCash_GetExpense(){
+    var Date_insert = formatDate(this.TransactionAll[0].Date,'yyyy-MM-dd','en-US')    
+    var RefID = 'J' + this.GetRefNo(Date_insert)      
+
+    for (let j in this.Expenseoverall){
+      console.log(this.Expenseoverall[j])
+      this.SumCash -= this.Expenseoverall[j].Price_Per_day
+      this.InsertShow(Date_insert,this.Expenseoverall[j].Expense1,RefID,'',this.Expenseoverall[j].Price_Per_day,this.SumCash.toFixed(2));
+    }  
+  }
+  
   
   GetRefNo(date :string){
     var DatChange
