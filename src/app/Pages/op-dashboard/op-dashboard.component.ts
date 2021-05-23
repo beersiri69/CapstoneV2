@@ -13,6 +13,7 @@ import { from } from 'rxjs';
 
 export class OpDashboardComponent implements OnInit {
 
+  ///////////////////////// FIRST GAUGE-CHART /////////////////////////
 
   single: any[];
   multi: any[];
@@ -167,11 +168,7 @@ export class OpDashboardComponent implements OnInit {
     console.log(event);
   }
 
-constructor() {
-  Object.assign(this, { single })
-  this.view = [innerWidth / 4, 655];
- }
-// constructor(private shipService: ShipService) { }
+constructor() { }
 
   chartData = [
     {

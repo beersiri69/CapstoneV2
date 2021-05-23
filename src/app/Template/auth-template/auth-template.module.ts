@@ -49,7 +49,10 @@ import { FormsModule } from '@angular/forms';
     AuthTemplateRoutingModule,    
     ComponentsModule,
     GaugeChartModule,
-    MnDashboardModule
+    MnDashboardModule,
+
+    NgxChartsModule,
+    FormsModule,
   ],
   exports:[
     AuthTemplateComponent
