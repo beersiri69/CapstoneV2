@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartType, ChartOptions, ChartDataSets, } from 'chart.js';
 import { MultiDataSet, Label, Color } from 'ng2-charts';
-
+import { single } from './data'; 
 @Component({
   selector: 'app-OperatorDashboard',
   templateUrl: './op-dashboard.component.html',
@@ -10,6 +10,27 @@ import { MultiDataSet, Label, Color } from 'ng2-charts';
 
 export class OpDashboardComponent implements OnInit {
 
+  single: any[];
+  multi: any[];
+
+  view:any= [700, 500];
+  
+  // options
+  showXAxis = true;
+  showYAxis = true;
+  gradient = false;
+  showLegend = true;
+  showXAxisLabel = true;
+  xAxisLabel = 'Country';
+  showYAxisLabel = true;
+  yAxisLabel = 'Population';
+
+  colorScheme = {
+    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
+  };
+  onSelect(event) {
+    console.log(event);
+  }
   ///////////////////////// FIRST GAUGE-CHART /////////////////////////
 
   public canvasWidth = 740
@@ -141,8 +162,10 @@ export class OpDashboardComponent implements OnInit {
   //  };
   }
 
-constructor() { }
-
+constructor() { 
+  Object.assign(this, { single })
+}
+  
   chartData = [
     {
       data: [33, 60, 26, 70, 12, 25, 100],

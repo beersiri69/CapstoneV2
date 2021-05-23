@@ -16,7 +16,8 @@ import { GaugeChartModule } from 'angular-gauge-chart';
 import { OpDashboardComponent } from 'src/app/Pages/op-dashboard/op-dashboard.component';
 import { MnDashboardModule } from 'src/app/Pages/mn-dashboard/mn-dashboard.module';
 import { MnDashboardComponent } from 'src/app/Pages/mn-dashboard/mn-dashboard.component';
-
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AuthTemplateComponent,
@@ -45,7 +46,10 @@ import { MnDashboardComponent } from 'src/app/Pages/mn-dashboard/mn-dashboard.co
     AuthTemplateRoutingModule,    
     ComponentsModule,
     GaugeChartModule,
-    MnDashboardModule
+    MnDashboardModule,
+
+    NgxChartsModule,
+    FormsModule,
   ],
   exports:[
     AuthTemplateComponent

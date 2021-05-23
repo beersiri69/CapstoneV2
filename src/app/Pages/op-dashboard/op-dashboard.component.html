@@ -246,16 +246,33 @@
         <div class="card-body">
           <!-- Chart -->
           <div style="display: block">
-            <canvas baseChart 
+            <!-- <canvas baseChart 
             [chartType]="'bar'" 
             [legend]="true" 
             [datasets]="chartData2" 
             [labels]="chartLabels2"
             [options]="chartOptions2" 
             (chartHover)="onChartHover2(($event))" 
-            (chartClick)="onChartClick2(($event))">
+            (chartClick)="onChartClick2(($event))"> -->
+
+            <ngx-charts-bar-vertical
+              [view]="view"
+              [scheme]="colorScheme"
+              [results]="single"
+              [gradient]="gradient"
+              [xAxis]="showXAxis"
+              [yAxis]="showYAxis"
+              [legend]="showLegend"
+              [showXAxisLabel]="showXAxisLabel"
+              [showYAxisLabel]="showYAxisLabel"
+              [xAxisLabel]="xAxisLabel"
+              [yAxisLabel]="yAxisLabel"
+              (select)="onSelect($event)">
+            </ngx-charts-bar-vertical>
+
+
             <!-- [Color]="chartColors" -->
-            </canvas>
+            <!-- </canvas> -->
             <!-- <button (click)="newDataPoint([900, 50, 300], 'May')">
                 Add data point
               </button> -->
