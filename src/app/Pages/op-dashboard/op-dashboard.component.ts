@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartType, ChartOptions, ChartDataSets } from 'chart.js';
+import { ChartType, ChartOptions, ChartDataSets, } from 'chart.js';
 import { MultiDataSet, Label, Color } from 'ng2-charts';
 
 @Component({
@@ -131,7 +131,14 @@ export class OpDashboardComponent implements OnInit {
   //     backgroundColor:["#FF7360", "#6FC8CE", "#FAFFF2", "#FFFCC4", "#B9E8E0"]
   //   }];
 
+
+  // public primaryYAxis: Object;
+
    ngOnInit() {
+  //   this.primaryYAxis = {
+  //     minimum: 0, maximum: 80, interval: 10,
+      
+  //  };
   }
 
 constructor() { }
@@ -174,6 +181,7 @@ constructor() { }
         fontColor: 'white'
       }
     }
+
   };
   // ...
   onChartHover = ($event: any) => {
@@ -204,11 +212,6 @@ constructor() { }
       data: [3],
       label: 'DIESEL BAY',
       fill: false
-    },
-    {
-      data: [1],
-      label: 'GASOHOL95 BAY',
-      fill: false
     }
   ];
   chartLabels2: Label[] = [
@@ -221,7 +224,10 @@ constructor() { }
       labels: {
         fontColor: 'black'
       }
-    }
+    },
+    primaryYAxis: {
+      minimum: 0, maximum: 5, interval:1, 
+   }
   };
   // ...
   onChartHover2 = ($event: any) => {
@@ -233,7 +239,7 @@ constructor() { }
 
 
 
-  newDataPoint2(dataArr = [100, 100, 100], label) {
+  newDataPoint2(dataArr = [0, 0, 0], label) {
     this.chartData2.forEach((dataset, index) => {
       this.chartData2[index] = Object.assign({}, this.chartData2[index], {
         data: [...this.chartData2[index].data, dataArr[index]]
@@ -241,6 +247,50 @@ constructor() { }
     });
 
     this.chartLabels2 = [...this.chartLabels2, label];
+  }
+
+
+
+  chartData22 = [
+    {
+      data: [1],
+      label: 'GASOHOL95 BAY',
+      fill: false
+    }
+  ];
+  chartLabels22: Label[] = [
+    // อยากให้ขึ้นเป็น day / week / month ที่เลือกจะดู
+    // 'DIESEL BAY', 'GASOHOL95 BAY'
+  ];
+  chartOptions22 = {
+    responsive: true,
+    legend: {
+      labels: {
+        fontColor: 'black'
+      }
+    },
+    primaryYAxis: {
+      minimum: 0, maximum: 5, interval:1, 
+   }
+  };
+  // ...
+  onChartHover22 = ($event: any) => {
+    window.console.log('onChartHover', $event);
+  };
+  onChartClick22 = ($event: any) => {
+    window.console.log('onChartClick', $event);
+  };
+
+
+
+  newDataPoint22(dataArr = [0, 0, 0], label) {
+    this.chartData22.forEach((dataset, index) => {
+      this.chartData22[index] = Object.assign({}, this.chartData22[index], {
+        data: [...this.chartData22[index].data, dataArr[index]]
+      });
+    });
+
+    this.chartLabels22 = [...this.chartLabels22, label];
   }
 
 
