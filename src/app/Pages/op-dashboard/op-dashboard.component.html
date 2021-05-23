@@ -227,7 +227,7 @@
   <!----------------------------- START RESOURCES BUSY ----------------------------->
   <div class="row mt-5">
   <!----------------------------- FIRST RESOURCES BUSY ----------------------------->
-    <div class="col-xl-6 mb-5 mb-xl-0">
+    <div class="col-xl-4 mb-5 mb-xl-0">
       <div class="card shadow">
         <div class="card-header mt-3 bg-transparent">
           <div class="row align-items-center">
@@ -246,21 +246,22 @@
         <div class="card-body">
           <!-- Chart -->
           <div style="display: block">
-            <!-- <ngx-charts-bar-vertical 
-            [view]="view"
-            [scheme]="colorScheme"
-            [results]="single"
-            
-            [xAxis]="showXAxis"
-            [yAxis]="showYAxis"
-            [legend]="showLegend"
-            [showXAxisLabel]="showXAxisLabel"
-            [showYAxisLabel]="showYAxisLabel"
-            [xAxisLabel]="xAxisLabel"
-            [yAxisLabel]="yAxisLabel"
-            >
-            </ngx-charts-bar-vertical> -->
-            <canvas baseChart 
+            <ngx-charts-bar-vertical
+              (window:resize)="onResize($event)"
+              [view]="view"
+              [scheme]="colorScheme"
+              [results]="single"
+              [gradient]="gradient"
+              [xAxis]="showXAxis"
+              [yAxis]="showYAxis"
+              [legend]="showLegend"
+              [showXAxisLabel]="showXAxisLabel"
+              [showYAxisLabel]="showYAxisLabel"
+              [xAxisLabel]="xAxisLabel"
+              [yAxisLabel]="yAxisLabel"
+              >
+            </ngx-charts-bar-vertical>
+            <!-- <canvas baseChart 
             [chartType]="'bar'" 
             [legend]="true" 
             [datasets]="chartData2" 
@@ -268,17 +269,14 @@
             [options]="chartOptions2" 
             (chartHover)="onChartHover2(($event))" 
             (chartClick)="onChartClick2(($event))">
-            </canvas>
-            <!-- <button (click)="newDataPoint([900, 50, 300], 'May')">
-                Add data point
-              </button> -->
+            </canvas> -->
           </div>
           <!-- ปรับความสูง+data chart sale value -->
         </div>
       </div>
     </div>
     <!----------------------------- SECOND RESOURCES BUSY ----------------------------->
-    <div class="col-xl-6 mb-5 mb-xl-0">
+    <div class="col-xl-8 mb-5 mb-xl-0">
       <div class="card shadow">
         <div class="card-header mt-3 bg-transparent">
           <div class="row align-items-center">
@@ -379,7 +377,8 @@
             <canvas baseChart 
             [data]="doughnutChartData" 
             [labels]="doughnutChartLabels" 
-            [chartType]="doughnutChartType">
+            [chartType]="doughnutChartType"
+            [colors]="doughnutChartColors">
               <!-- [colors]="doughnutChartColors" -->
             </canvas>
           </div>

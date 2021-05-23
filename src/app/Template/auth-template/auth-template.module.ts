@@ -17,6 +17,7 @@ import { OpDashboardComponent } from 'src/app/Pages/op-dashboard/op-dashboard.co
 import { MnDashboardModule } from 'src/app/Pages/mn-dashboard/mn-dashboard.module';
 import { MnDashboardComponent } from 'src/app/Pages/mn-dashboard/mn-dashboard.component';
 import { NgxChartsModule }from '@swimlane/ngx-charts';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { NgxChartsModule }from '@swimlane/ngx-charts';
     // AuthTemplateModule call this modeul below
     ChartsModule,
     NgxChartsModule,
+    FormsModule,
     FinanceModule,
     SearchModule,
     AuthTemplateRoutingModule,    

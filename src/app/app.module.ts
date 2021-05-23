@@ -51,6 +51,7 @@ import { ExampleModule } from './example/example.module';
     ExampleModule,
 
     NgbModule,
+    FormsModule,
     ChartModule,   
     ComponentsModule,    
     HttpClientModule, BrowserAnimationsModule,
