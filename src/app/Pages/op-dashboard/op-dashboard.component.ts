@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ChartType, ChartOptions, ChartDataSets, } from 'chart.js';
 import { MultiDataSet, Label, Color } from 'ng2-charts';
 import { NgbTooltipModule } from "@ng-bootstrap/ng-bootstrap";
-import { single } from '../../example/data';
+import { single } from '../op-dashboard/data';
 import { from } from 'rxjs';
 
 @Component({
@@ -13,29 +13,30 @@ import { from } from 'rxjs';
 
 export class OpDashboardComponent implements OnInit {
 
-  ///////////////////////// FIRST GAUGE-CHART /////////////////////////
+  ///////////////////////// RESOURCES BUSY /////////////////////////
 
   single: any[];
   multi: any[];
 
-  view:any= [700, 655];
+  view:any= [300, 655];
   
   // options
+  
   showXAxis = true;
   showYAxis = true;
   gradient = false;
   showLegend = true;
   showXAxisLabel = true;
-  xAxisLabel = 'Country';
+  // xAxisLabel = 'Country';
   showYAxisLabel = true;
-  yAxisLabel = 'Population';
+  // yAxisLabel = 'Population';
 
   colorScheme = {
-    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
+    domain: ['#ffe3bb', '#b99c7e']
   };
 
   onResize(event) {
-    this.view = [event.target.innerWidth / 1.35, 400];
+    this.view = [event.target.innerWidth / 1.3, 655];
 }
 
   // ///////////////////////// FIRST GAUGE-CHART /////////////////////////
@@ -83,12 +84,8 @@ export class OpDashboardComponent implements OnInit {
   ];  
   public doughnutChartType: ChartType = 'doughnut';
   public doughnutChartColors: Color[] = [
-    {backgroundColor:["#f6af3a","#fec569","#ffe3bb","b99c7e","7f5c46"]}
+    {backgroundColor:["#f6af3a","#fec569","#ffe3bb","#b99c7e","#7f5c46"]}
   ];
-
-  // public doughnutChartColors: Color[] = [
-  //   {backgroundColor:["#9E120E","#FF5800","#FFB414"]}
-  // ];
 
 
   ///////////////////////// SECOND DONUT /////////////////////////
@@ -100,75 +97,62 @@ export class OpDashboardComponent implements OnInit {
   public doughnutChartType2: ChartType = 'doughnut';
 
   public doughnutChartColors2: Color[] = [
-    {backgroundColor:["#f6af3a","#fec569","#ffe3bb","b99c7e","7f5c46"]}
+    {backgroundColor:["#f6af3a","#fec569","#ffe3bb","#b99c7e","#7f5c46"]}
   ];
 
 
+  ///////////////////////// %OEE /////////////////////////
 
-
-
-
-
-
-  public barChartLabels: Label[] = ['SO station', 'IB station', 'DB station', 'GB station', 'OB station'];
-  public barChartData: ChartDataSets[] = [
-    { data: [450, 200, 100, 200, 750], label:'Best fruit'}
-  ];  
+  public barChartOptions: ChartOptions = {
+    responsive: true,
+  };
+  public barChartLabels: Label[] = ['%A (AVAILABILITY)', '%P (PERFORMANCE)', '%Q (QUALITY)'];
   public barChartType: ChartType = 'bar';
+  public barChartLegend = true;
+
+  public barChartData: ChartDataSets[] = [
+    {
+      data: [33, 60, 26],
+      label: 'SALE OFFICE',
+    },
+    {
+      data: [12, 45, 30],
+      label: 'INBOUND WEIGHTBRIDGE'
+    },
+    {
+      data: [45, 57, 60],
+      label: 'DIESEL BAY'
+    },
+    {
+      data: [14,32,15],
+      label: 'GASOHOL95 BAY'
+    },
+    {
+      data: [60,63,25],
+      label: 'OUTBOUND WEIGHTBRIDGE'
+    },
+  ];
 
   public barChartColors: Color[] = [
-    {backgroundColor:["#f6af3a","#fec569","#ffe3bb","b99c7e","7f5c46"]}
-  ];
-
-
-
-
-
-
-
-
-  ///////////////////////// LINE CHART [NOT USE] /////////////////////////
-
-  // public lineChartData: ChartDataSets[] = [
-  //   { data: [85, 72, 78, 75, 77, 75], label: 'Crude oil prices',fill: false },
-  //   { data: [100, 72, 25, 75, 80, 12], label: 'B',fill: false },
-  //   { data: [77, 65, 78, 11, 120, 99], label: 'C',fill: false },
-  // ];
-
-  // public lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June'];
-
-  // public lineChartOptions = {
-  //   responsive: true,
-  // };
-  // public lineChartType: ChartType = 'line';
-  // // lineChartColors: Color[] = [
-  // //   {
-  // //     borderColor: 'black',
-  // //     backgroundColor: 'rgba(255,255,0,0.28)',
-  // //   },
-  // // ];
-
-  // public lineChartLegend = true;
-  // public lineChartPlugins = [];
-  
+    { backgroundColor: '#ffa410' },
+    { backgroundColor: '#fec569' },
+    { backgroundColor: '#ffe3bb' },
+    { backgroundColor: '#b99c7e' },
+    { backgroundColor: '#7f5c46' },
+  ]
 
 
 
   ///////////////////////// WIP /////////////////////////
 
-  // public chartColors: Color[] =[
-  //   {
-  //     backgroundColor:["#FF7360", "#6FC8CE", "#FAFFF2", "#FFFCC4", "#B9E8E0"]
-  //   }];
-
-
-  // public primaryYAxis: Object;
-
    ngOnInit() {
     console.log(event);
   }
 
-constructor() { }
+constructor() {
+  Object.assign(this, { single })
+  this.view = [innerWidth / 1.3, 655];
+ }
 
   chartData = [
     {
@@ -319,76 +303,39 @@ constructor() { }
 
     this.chartLabels22 = [...this.chartLabels22, label];
   }
-
-
-  ///////////////////////// %OEE /////////////////////////
-
-  chartData3 = [
-    {
-      data: [33, 60, 26],
-      label: 'SALE OFFICE',
-      fill: true,
-      
-    },
-    {
-      data: [12, 45, 30],
-      label: 'INBOUND WEIGHTBRIDGE',
-      fill: true
-    },
-    {
-      data: [45, 57, 60],
-      label: 'DIESEL BAY',
-      fill: true
-    },
-    {
-      data: [14,32,15],
-      label: 'GASOHOL95 BAY',
-      fill: true
-    },
-    {
-      data: [60,63,25],
-      label: 'OUTBOUND WEIGHTBRIDGE',
-      fill: true
-    },
-  ];
-  colors:[{
-    backgroundColor:"#81b29a",
-    hoverBackgroundColor:"#81b29a",
-    borderColor:"#81b29a",
-    hoverBorderColor:"#81b29a"
-}];
-  chartLabels3: Label[] = [
-    // อยากให้ขึ้นเป็น day / week / month ที่เลือกจะดู
-    '%A (AVAILABILITY)', '%P (PERFORMANCE)', '%Q (QUALITY)'
-  ];
-  chartOptions3 = {
-    responsive: true,
-    legend: {
-      labels: {
-        fontColor: 'black'
-      }
-    }
-  };
-  // ...
-  onChartHover3 = ($event: any) => {
-    window.console.log('onChartHover', $event);
-  };
-  onChartClick3 = ($event: any) => {
-    window.console.log('onChartClick', $event);
-  };
+}
 
 
 
-  newDataPoint3(dataArr = [100, 100, 100], label) {
-    this.chartData3.forEach((dataset, index) => {
-      this.chartData3[index] = Object.assign({}, this.chartData3[index], {
-        data: [...this.chartData3[index].data, dataArr[index]]
-      });
-    });
 
-    this.chartLabels3 = [...this.chartLabels3, label];
-  }
+
+  ///////////////////////// LINE CHART [NOT USE] in EXPORT /////////////////////////
+
+  // public lineChartData: ChartDataSets[] = [
+  //   { data: [85, 72, 78, 75, 77, 75], label: 'Crude oil prices',fill: false },
+  //   { data: [100, 72, 25, 75, 80, 12], label: 'B',fill: false },
+  //   { data: [77, 65, 78, 11, 120, 99], label: 'C',fill: false },
+  // ];
+
+  // public lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June'];
+
+  // public lineChartOptions = {
+  //   responsive: true,
+  // };
+  // public lineChartType: ChartType = 'line';
+  // // lineChartColors: Color[] = [
+  // //   {
+  // //     borderColor: 'black',
+  // //     backgroundColor: 'rgba(255,255,0,0.28)',
+  // //   },
+  // // ];
+
+  // public lineChartLegend = true;
+  // public lineChartPlugins = [];
+  
+
+
+
 
 
   
-}

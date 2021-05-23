@@ -244,10 +244,10 @@
           </div>
         </div>
         <div class="card-body">
+          <!-- (window:resize)="onResize($event)" -->
           <!-- Chart -->
           <div style="display: block">
             <ngx-charts-bar-vertical
-              (window:resize)="onResize($event)"
               [view]="view"
               [scheme]="colorScheme"
               [results]="single"
@@ -257,9 +257,9 @@
               [legend]="showLegend"
               [showXAxisLabel]="showXAxisLabel"
               [showYAxisLabel]="showYAxisLabel"
-              [xAxisLabel]="xAxisLabel"
-              [yAxisLabel]="yAxisLabel"
               >
+              <!-- [xAxisLabel]="xAxisLabel"
+              [yAxisLabel]="yAxisLabel" -->
             </ngx-charts-bar-vertical>
             <!-- <canvas baseChart 
             [chartType]="'bar'" 
@@ -338,19 +338,12 @@
           <!-- Chart -->
           <div style="display: block">
             <canvas baseChart 
-            [chartType]="'bar'" 
-            [legend]="true" 
-            [datasets]="chartData3" 
-            [labels]="chartLabels3"
-            [options]="chartOptions3" 
-            
-            (chartHover)="onChartHover3(($event))" 
-            (chartClick)="onChartClick3(($event))">
-            <!-- [Color]="chartColors" -->
+            [datasets]="barChartData" 
+            [labels]="barChartLabels"                        
+            [chartType]="barChartType" 
+            [colors]="barChartColors"
+            [options]="barChartOptions">
             </canvas>
-            <!-- <button (click)="newDataPoint([900, 50, 300], 'May')">
-                Add data point
-              </button> -->
           </div>
           <!-- ปรับความสูง+data chart sale value -->
         </div>
@@ -379,7 +372,6 @@
             [labels]="doughnutChartLabels" 
             [chartType]="doughnutChartType"
             [colors]="doughnutChartColors">
-              <!-- [colors]="doughnutChartColors" -->
             </canvas>
           </div>
           <div class="row justify-content-md-center">
@@ -460,40 +452,6 @@
             [chartType]="doughnutChartType2" 
             [colors]="doughnutChartColors2">
             </canvas>
-
-
-
-
-
-
-
-
-
-
-            <canvas baseChart 
-            [datasets]="barChartData" 
-            [labels]="barChartLabels"                        
-            [chartType]="barChartType" 
-            [colors]="barChartColors">
-            </canvas>
-          </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
           <div class="row justify-content-md-center">
             <div class="card card-stats mt-3 mb-4 mb-xl-0">
               <div class="card-body">
@@ -555,4 +513,7 @@
     </div>
   </div>
   <!----------------------------- END DONUT ----------------------------->
+</div>
+<div class=" footer container-fluid bg-bymeten">
+
 </div>

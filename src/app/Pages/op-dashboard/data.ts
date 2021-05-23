@@ -4,10 +4,6 @@ export var single = [
       "value": 8940000
     },
     {
-      "name": "USA",
-      "value": 5000000
-    },
-    {
       "name": "France",
       "value": 7200000
     }
@@ -24,20 +20,6 @@ export var single = [
         {
           "name": "2011",
           "value": 8940000
-        }
-      ]
-    },
-  
-    {
-      "name": "USA",
-      "series": [
-        {
-          "name": "2010",
-          "value": 7870000
-        },
-        {
-          "name": "2011",
-          "value": 8270000
         }
       ]
     },
