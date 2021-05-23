@@ -218,14 +218,15 @@
   </div>
 
   <!----------------------------- START GAUGE-CHART ----------------------------->
-  <div class="row">
+  <div class="row mt-5">
+  <!----------------------------- START RESOURCES BUSY ----------------------------->
     <div class="col-xl-4 mb-5 mb-xl-0">
       <div class="card shadow">
         <div class="card-header bg-transparent">
           <div class="row align-items-center">
             <div class="col">
-              <h6 class="text-uppercase text-light ls-1 mb-1">AT EACH STATION</h6>
-              <h2 class="text-white mb-0">WORK IN PROCESS</h2>
+              <h6 class="text-uppercase text-muted ls-1 mb-1">AT EACH STATION</h6>
+              <h2 class="text-black mb-0">RESOURCES BUSY</h2>
             </div>
             <div class="col">
               <!-- <ul class="nav nav-pills justify-content-end">
@@ -256,14 +257,16 @@
         </div>
       </div>
     </div>
+    <!----------------------------- END RESOURCES BUSY ----------------------------->
 
+    <!----------------------------- START %OEE ----------------------------->
     <div class="col-xl-8 mb-5 mb-xl-0">
       <div class="card shadow">
         <div class="card-header bg-transparent">
           <div class="row align-items-center">
             <div class="col">
-              <h6 class="text-uppercase text-light ls-1 mb-1">AT EACH STATION</h6>
-              <h2 class="text-white mb-0">WORK IN PROCESS</h2>
+              <h6 class="text-uppercase text-muted ls-1 mb-1">AT EACH STATION</h6>
+              <h2 class="text-black mb-0">COMPARE %OEE</h2>
             </div>
             <div class="col">
               <!-- <ul class="nav nav-pills justify-content-end">
@@ -279,11 +282,12 @@
             <canvas baseChart 
             [chartType]="'bar'" 
             [legend]="true" 
-            [datasets]="chartData" 
-            [labels]="chartLabels"
-            [options]="chartOptions" 
-            (chartHover)="onChartHover(($event))" 
-            (chartClick)="onChartClick(($event))">
+            [datasets]="chartData3" 
+            [labels]="chartLabels3"
+            [options]="chartOptions3" 
+            
+            (chartHover)="onChartHover3(($event))" 
+            (chartClick)="onChartClick3(($event))">
             <!-- [Color]="chartColors" -->
             </canvas>
             <!-- <button (click)="newDataPoint([900, 50, 300], 'May')">
@@ -294,113 +298,9 @@
         </div>
       </div>
     </div>
+    <!----------------------------- END %OEE ----------------------------->
   </div>
 
-  <div class="row">
-    <!----------------------------- FIRST GAUGE-CHART ----------------------------->
-    <div class="col">
-      <div class="card shadow mt-5">
-        <div class="card-header bg-transparent">
-          <div class="row align-items-center">
-            <div class="col">
-              <h6 class="text-uppercase text-muted ls-1 mb-1">CURRENT NUMBER</h6>
-              <h2 class="mb-0">RESOURCES BUSY</h2>
-            </div>
-          </div>
-          
-            <div style="display: block">
-              <canvas baseChart 
-              [chartType]="'bar'" 
-              [legend]="true" 
-              [datasets]="chartData2" 
-              [labels]="chartLabels2"
-              [options]="chartOptions2" 
-              (chartHover)="onChartHover2(($event))" 
-              (chartClick)="onChartClick2(($event))">
-              </canvas>
-            </div>
-
-            <!-- <canvas baseChart 
-              [datasets]="lineChartData" 
-              [labels]="lineChartLabels" 
-              [options]="lineChartOptions"
-              [legend]="lineChartLegend" 
-              [chartType]="lineChartType" 
-              [plugins]="lineChartPlugins">
-            </canvas>      -->
-            <!-- <rg-gauge-chart 
-            [canvasWidth]="canvasWidth" 
-            [needleValue]="needleValue" 
-            [centralLabel]="centralLabel"
-            [options]="options">
-            </rg-gauge-chart> -->
-
-            <!-- <canvas baseChart 
-              [datasets]="barChartData"
-              [labels]="barChartLabels"
-              [options]="barChartOptions"
-              [plugins]="barChartPlugins"
-              [legend]="barChartLegend"
-              [chartType]="barChartType">
-            </canvas> -->
-          
-        </div>
-        <!-- <div class="card-body">
-          <div style="display: block">
-            <canvas baseChart 
-            [chartType]="'bar'" 
-            [legend]="true" 
-            [datasets]="chartData" 
-            [labels]="chartLabels"
-            [options]="chartOptions" 
-            (chartHover)="onChartHover(($event))" 
-            (chartClick)="onChartClick(($event))">
-            </canvas>
-          </div> -->
-          <!-- <canvas baseChart 
-            [datasets]="lineChartData" 
-            [labels]="lineChartLabels" 
-            [options]="lineChartOptions"
-            [legend]="lineChartLegend" 
-            [chartType]="lineChartType" 
-            [plugins]="lineChartPlugins">
-          </canvas>      -->
-          <!-- <rg-gauge-chart 
-          [canvasWidth]="canvasWidth" 
-          [needleValue]="needleValue" 
-          [centralLabel]="centralLabel"
-          [options]="options">
-          </rg-gauge-chart> -->
-        <!-- </div> -->
-      </div>
-    </div>
-    <!----------------------------- SECOND GAUGE-CHART ----------------------------->
-    <!-- <div class="col-xl-6">
-      <div class="card shadow mt-5">
-        <div class="card-header bg-transparent">
-          <div class="row align-items-center">
-            <div class="col">
-              <h6 class="text-uppercase text-muted ls-1 mb-1">RESOURCES BUSY</h6>
-              <h2 class="mb-0">AT DIESEL BAY</h2>
-            </div>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="row">
-            <div class="col">
-          <rg-gauge-chart 
-          [canvasWidth]="canvasWidth2" 
-          [needleValue]="needleValue2" 
-          [centralLabel]="centralLabel2"
-          [options]="options2">
-          </rg-gauge-chart>
-          </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
-  </div>
-  <!----------------------------- END GAUGE-CHART ----------------------------->
   <!----------------------------- START DONUT ----------------------------->
   <div class="row">
     <!----------------------------- FIRST DONUT ----------------------------->
@@ -501,7 +401,39 @@
             [chartType]="doughnutChartType2" 
             [colors]="doughnutChartColors2">
             </canvas>
+
+
+
+
+
+
+
+
+
+
+            <canvas baseChart 
+            [datasets]="barChartData" 
+            [labels]="barChartLabels"                        
+            [chartType]="barChartType" 
+            [colors]="barChartColors">
+            </canvas>
           </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
           <div class="row justify-content-md-center">
             <div class="card card-stats mt-3 mb-4 mb-xl-0">

@@ -76,6 +76,27 @@ export class OpDashboardComponent implements OnInit {
 
 
 
+
+
+
+
+  public barChartLabels: Label[] = ['SO station', 'IB station', 'DB station', 'GB station', 'OB station'];
+  public barChartData: ChartDataSets[] = [
+    { data: [450, 200, 100, 200, 750], label:'Best fruit'}
+  ];  
+  public barChartType: ChartType = 'bar';
+
+  public barChartColors: Color[] = [
+    {backgroundColor:["#9E120E","#FF5800","#FFB414","black"]}
+  ];
+
+
+
+
+
+
+
+
   ///////////////////////// LINE CHART [NOT USE] /////////////////////////
 
   // public lineChartData: ChartDataSets[] = [
@@ -175,9 +196,8 @@ constructor() { }
   }
 
 
+
 ///////////////////////// BUSY /////////////////////////
-
-
 
   chartData2 = [
     {
@@ -221,6 +241,75 @@ constructor() { }
     });
 
     this.chartLabels2 = [...this.chartLabels2, label];
+  }
+
+
+  ///////////////////////// %OEE /////////////////////////
+
+  chartData3 = [
+    {
+      data: [33, 60, 26],
+      label: 'SALE OFFICE',
+      fill: true,
+      
+    },
+    {
+      data: [12, 45, 30],
+      label: 'INBOUND WEIGHTBRIDGE',
+      fill: true
+    },
+    {
+      data: [45, 57, 60],
+      label: 'DIESEL BAY',
+      fill: true
+    },
+    {
+      data: [14,32,15],
+      label: 'GASOHOL95 BAY',
+      fill: true
+    },
+    {
+      data: [60,63,25],
+      label: 'OUTBOUND WEIGHTBRIDGE',
+      fill: true
+    },
+  ];
+  colors:[{
+    backgroundColor:"#81b29a",
+    hoverBackgroundColor:"#81b29a",
+    borderColor:"#81b29a",
+    hoverBorderColor:"#81b29a"
+}];
+  chartLabels3: Label[] = [
+    // อยากให้ขึ้นเป็น day / week / month ที่เลือกจะดู
+    '%A (AVAILABILITY)', '%P (PERFORMANCE)', '%Q (QUALITY)'
+  ];
+  chartOptions3 = {
+    responsive: true,
+    legend: {
+      labels: {
+        fontColor: 'black'
+      }
+    }
+  };
+  // ...
+  onChartHover3 = ($event: any) => {
+    window.console.log('onChartHover', $event);
+  };
+  onChartClick3 = ($event: any) => {
+    window.console.log('onChartClick', $event);
+  };
+
+
+
+  newDataPoint3(dataArr = [100, 100, 100], label) {
+    this.chartData3.forEach((dataset, index) => {
+      this.chartData3[index] = Object.assign({}, this.chartData3[index], {
+        data: [...this.chartData3[index].data, dataArr[index]]
+      });
+    });
+
+    this.chartLabels3 = [...this.chartLabels3, label];
   }
 
 
