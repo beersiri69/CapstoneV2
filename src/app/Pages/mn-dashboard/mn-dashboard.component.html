@@ -1,12 +1,23 @@
-<div class="header bg-bymetwo pb-8 pt-5 pt-md-8">
+<div class="header bg-bymeone pb-8 pt-5 pt-md-8">
     <div class="container-fluid">
-      <div class="header-body">       
-        <a *ngFor="let Page of pages; index as i" routerLink="./{{Page.Route}}">
-          <button id={{i}} type="button" placement="top-center" class="{{PropChange[i]}}" triggers="hover focus click"(click)=check($event)>{{Page.Name}}</button>  
-        </a>
+      <div class="header-body">
+        <!-- <div class="row"> -->
+          <!-- <div class="col-xl-1">
 
-        <!-- Card stats -->
+          </div> -->
+          <!-- <div class="col"> -->
+            <a *ngFor="let Page of pages; index as i" routerLink="./{{Page.Route}}">
+              <button id={{i}} type="button" placement="top-center" class="{{PropChange[i]}}" triggers="hover focus click"
+                (click)=check($event)>{{Page.Name}}</button>
+            </a>
+        
+            <!-- Card stats -->
+        
+          <!-- </div> -->
+          <!-- <div class="col-xl-1">
 
+          </div> -->
+        <!-- </div> -->
       </div>
     </div>
   </div>

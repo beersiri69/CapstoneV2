@@ -1,13 +1,15 @@
 .btn-menu,.btn-search{
+    width: 655px;
+    height: 44px;
     margin-right: 0.7em;
     display: inline-block;
     font-weight: 600;
-    color: #f33242;
+    color: #584B53;
     text-align: center;
     vertical-align: middle;
     -webkit-user-select: none;
     user-select: none;
-    background-color: #ffffffb9;
+    background-color: #ffffff;
     border: 1px solid transparent;
     padding: 0.625rem 1.25rem;
     font-size: 0.875rem;
@@ -16,15 +18,17 @@
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 .btn-sel{
+    width: 655px;
+    height: 44px;
     margin-right: 0.7em;
     display: inline-block;
     font-weight: 600;
-    color: #f4f1de;
+    color: #ffffff;
     text-align: center;
     vertical-align: middle;
     -webkit-user-select: none;
     user-select: none;
-    background-color: #e07a5f;
+    background-color: #584B53;
     border: 1px solid transparent;
     padding: 0.625rem 1.25rem;
     font-size: 0.875rem;
@@ -33,11 +37,11 @@
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     }
 .btn-menu:hover{
-    color: #ffffffb9;
-    background-color: #fa7580;
+    color: #584B53;
+    background-color: #fff6e4;
 }
 .btn-search{
-    color:#ffffff;
+    color:#fff6e4;
     background-color: #33a5e7c0;
 }
 .btn-search:hover{
