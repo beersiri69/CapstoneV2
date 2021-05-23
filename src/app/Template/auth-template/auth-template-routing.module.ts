@@ -23,6 +23,7 @@ import { ExampleComponent } from 'src/app/example/example.component';
 import { LoginComponent } from 'src/app/login/login.component';
 import { DailyComponent } from 'src/app/Pages/mn-dashboard/daily/daily.component';
 import { WeeklyComponent } from 'src/app/Pages/mn-dashboard/weekly/weekly.component';
+import { MonthlyComponent } from 'src/app/Pages/mn-dashboard/monthly/monthly.component';
 
 const Authroute: Routes = [
   {
@@ -59,6 +60,7 @@ const Authroute: Routes = [
       children:[
         {path: 'daily' , component: DailyComponent},
         {path: 'weekly' , component: WeeklyComponent}, 
+        {path: 'monthly' , component: MonthlyComponent}, 
        
       ] 
     },

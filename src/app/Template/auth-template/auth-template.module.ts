@@ -30,7 +30,7 @@ import { FormsModule } from '@angular/forms';
     //import component to this module below
 
     MnDashboardComponent,
-    OpDashboardComponent
+    OpDashboardComponent,
     
   ],
   imports: [   

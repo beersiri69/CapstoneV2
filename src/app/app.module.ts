@@ -22,6 +22,8 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ExampleModule } from './example/example.module';
+import { MonthlyComponent } from './Pages/mn-dashboard/monthly/monthly.component';
+
 
 
 
@@ -36,6 +38,8 @@ import { ExampleModule } from './example/example.module';
     SearchComponent,
     ExampleComponent,
     LoginComponent,
+   
+    
     
   ],
   imports: [ 

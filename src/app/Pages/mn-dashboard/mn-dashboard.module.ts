@@ -6,12 +6,14 @@ import { ChartsModule } from 'ng2-charts';
 import { GaugeChartModule } from 'angular-gauge-chart';
 import { RouterModule, Routes } from '@angular/router';
 import { MnRoutingModule } from './mn-dashboard-routing.module';
+import { MonthlyComponent } from './monthly/monthly.component';
 
 
 @NgModule({
   declarations: [
     DailyComponent,
-    WeeklyComponent
+    WeeklyComponent,
+    MonthlyComponent,
   ],
   imports: [
     CommonModule,
