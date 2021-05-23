@@ -28,6 +28,7 @@ import { ExampleModule } from './example/example.module';
 
 
 
+
 @NgModule({
   declarations: [
     ExampleComponent,
@@ -53,6 +54,7 @@ import { ExampleModule } from './example/example.module';
     ChartModule,   
     ComponentsModule,    
     HttpClientModule, BrowserAnimationsModule,
+    NgxChartsModule,
     
     FormsModule,
     ReactiveFormsModule,

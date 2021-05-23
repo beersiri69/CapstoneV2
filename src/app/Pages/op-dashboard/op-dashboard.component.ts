@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartType, ChartOptions, ChartDataSets, } from 'chart.js';
 import { MultiDataSet, Label, Color } from 'ng2-charts';
+// import { NgxChartsModule } from '@swimlane/ngx-charts';
+// import { BrowserModule } from '@angular/platform-browser';
+// import { ShipService } from './ship.service';
 
 @Component({
   selector: 'app-OperatorDashboard',
@@ -10,42 +13,62 @@ import { MultiDataSet, Label, Color } from 'ng2-charts';
 
 export class OpDashboardComponent implements OnInit {
 
-  ///////////////////////// FIRST GAUGE-CHART /////////////////////////
+  // ///////////////////////// FIRST GAUGE-CHART /////////////////////////
 
-  public canvasWidth = 740
-  public needleValue = 100 
-  public centralLabel = '99' //show level number
-  // public bottomLabel = '0'
-  public options = {
-    hasNeedle: true,
-    outerNeedle: true,
-    needleColor: 'rgb(166,206,227)',
-    needleUpdateSpeed: 4,
-    arcColors: ['rgb(166,206,227)', 'black'],
-    arcDelimiters: [99],
-    rangeLabel: ['0', '100'],
-    needleStartValue: 0,
-  }
-
-
-  ///////////////////////// SECOND GAUGE-CHART /////////////////////////
-
-  public canvasWidth2 = 740
-  public needleValue2 = 50 //percent
-  public centralLabel2 = '100' //show level number
-  // public bottomLabel = '0'
-  public options2 = {
-    hasNeedle: true,
-    outerNeedle: true,
-    needleColor: 'rgb(166,206,227)',
-    needleUpdateSpeed: 4,
-    arcColors: ['rgb(166,206,227)', 'black'],
-    arcDelimiters: [50], //percent
-    rangeLabel: ['0', '200'],
-    needleStartValue: 0,
-  }
+  // public canvasWidth = 740
+  // public needleValue = 100 
+  // public centralLabel = '99' //show level number
+  // // public bottomLabel = '0'
+  // public options = {
+  //   hasNeedle: true,
+  //   outerNeedle: true,
+  //   needleColor: 'rgb(166,206,227)',
+  //   needleUpdateSpeed: 4,
+  //   arcColors: ['rgb(166,206,227)', 'black'],
+  //   arcDelimiters: [99],
+  //   rangeLabel: ['0', '100'],
+  //   needleStartValue: 0,
+  // }
 
 
+  // ///////////////////////// SECOND GAUGE-CHART /////////////////////////
+
+  // public canvasWidth2 = 740
+  // public needleValue2 = 50 //percent
+  // public centralLabel2 = '100' //show level number
+  // // public bottomLabel = '0'
+  // public options2 = {
+  //   hasNeedle: true,
+  //   outerNeedle: true,
+  //   needleColor: 'rgb(166,206,227)',
+  //   needleUpdateSpeed: 4,
+  //   arcColors: ['rgb(166,206,227)', 'black'],
+  //   arcDelimiters: [50], //percent
+  //   rangeLabel: ['0', '200'],
+  //   needleStartValue: 0,
+  // }
+
+
+  ///////////////////////// EXAMPLE BUSY /////////////////////////
+
+  // single: any[];
+  // multi: any[];
+
+  // view: any[] = [1400, 400];
+
+  // // options
+  // showXAxis = true;
+  // showYAxis = true;
+  // gradient = false;
+  // showLegend = true;
+  // showXAxisLabel = true;
+  // xAxisLabel = 'Date';
+  // showYAxisLabel = true;
+  // yAxisLabel = 'Total Consumers';
+
+  // colorScheme = {
+  //   domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
+  // };
 
 
   ///////////////////////// FIRST DONUT /////////////////////////
@@ -135,6 +158,22 @@ export class OpDashboardComponent implements OnInit {
   // public primaryYAxis: Object;
 
    ngOnInit() {
+  //   this.shipService
+  //   .getConsumuriSiDataForShipById(this.shipId)
+  //   .subscribe(data => {
+  //     console.log(data);
+  //     this.single = data.map(datum => ({
+  //       name: datum.data,
+  //       value: datum.totalConsum24
+  //     }));
+  //   });
+  // }
+  // onSelect(event) {
+  //   console.log(event);
+  // }
+
+
+
   //   this.primaryYAxis = {
   //     minimum: 0, maximum: 80, interval: 10,
       
@@ -142,6 +181,7 @@ export class OpDashboardComponent implements OnInit {
   }
 
 constructor() { }
+// constructor(private shipService: ShipService) { }
 
   chartData = [
     {
@@ -205,13 +245,13 @@ constructor() { }
 
 
 
-///////////////////////// BUSY /////////////////////////
+///////////////////////// BUSY I /////////////////////////
 
   chartData2 = [
     {
       data: [3],
       label: 'DIESEL BAY',
-      fill: false
+      fill: true
     }
   ];
   chartLabels2: Label[] = [
@@ -249,7 +289,7 @@ constructor() { }
     this.chartLabels2 = [...this.chartLabels2, label];
   }
 
-
+///////////////////////// BUSY II /////////////////////////
 
   chartData22 = [
     {

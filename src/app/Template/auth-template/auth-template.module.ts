@@ -16,6 +16,7 @@ import { GaugeChartModule } from 'angular-gauge-chart';
 import { OpDashboardComponent } from 'src/app/Pages/op-dashboard/op-dashboard.component';
 import { MnDashboardModule } from 'src/app/Pages/mn-dashboard/mn-dashboard.module';
 import { MnDashboardComponent } from 'src/app/Pages/mn-dashboard/mn-dashboard.component';
+import { NgxChartsModule }from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { MnDashboardComponent } from 'src/app/Pages/mn-dashboard/mn-dashboard.co
 
     // AuthTemplateModule call this modeul below
     ChartsModule,
+    NgxChartsModule,
     FinanceModule,
     SearchModule,
     AuthTemplateRoutingModule,    
