@@ -23,6 +23,7 @@
     "@angular/platform-browser-dynamic": "^11.2.14",
     "@angular/router": "^11.2.14",
     "@ng-bootstrap/ng-bootstrap": "^9.1.1",
+    "@swimlane/ngx-charts": "^18.0.1",
     "@types/chart.js": "^2.9.32",
     "angular-gauge-chart": "^0.7.2",
     "angular2-chartjs": "^0.5.1",

@@ -21,6 +21,9 @@ import { ReconciliationComponent } from 'src/app/Pages/Finance/reconciliation/re
 import { InventorystockComponent } from 'src/app/Pages/Finance/inventorystock/inventorystock.component';
 import { ExampleComponent } from 'src/app/example/example.component';
 import { LoginComponent } from 'src/app/login/login.component';
+import { DailyComponent } from 'src/app/Pages/mn-dashboard/daily/daily.component';
+import { WeeklyComponent } from 'src/app/Pages/mn-dashboard/weekly/weekly.component';
+import { MonthlyComponent } from 'src/app/Pages/mn-dashboard/monthly/monthly.component';
 
 const Authroute: Routes = [
   {
@@ -28,8 +31,10 @@ const Authroute: Routes = [
     component: AuthTemplateComponent,
     children: 
     [ { path:'search', redirectTo:'search/staff',pathMatch:'full'},
-      { path:'financial', redirectTo:'financial/Journal_Transaction',pathMatch:'full'},
+      { path:'financial', redirectTo:'financial/General_Ledger',pathMatch:'full'},
       { path:'financial/General_Ledger',redirectTo:'financial/General_Ledger/Account_Receivable',pathMatch:'full'},
+      { path:'managerdashboard', redirectTo:'managerdashboard',pathMatch:'full'},
+      // { path:'managerdashboard', redirectTo:'managerdashboard/',pathMatch:'full'},
 
 
       { path:'home',                  component: HomeComponent},
@@ -51,7 +56,14 @@ const Authroute: Routes = [
         ]
       },
       
-      { path:'managerdashboard',      component: MnDashboardComponent},
+      { path:'managerdashboard',      component: MnDashboardComponent,
+      children:[
+        {path: 'daily' , component: DailyComponent},
+        {path: 'weekly' , component: WeeklyComponent}, 
+        {path: 'monthly' , component: MonthlyComponent}, 
+       
+      ] 
+    },
       { path:'operatordashboard',     component: OpDashboardComponent},
       {
         path:'search' ,component: SearchComponent,

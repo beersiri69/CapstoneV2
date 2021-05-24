@@ -1,21 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartType, ChartOptions, ChartDataSets, } from 'chart.js';
+import { ChartType, ChartOptions, ChartDataSets } from 'chart.js';
 import { MultiDataSet, Label, Color } from 'ng2-charts';
-import { NgbTooltipModule } from "@ng-bootstrap/ng-bootstrap";
-import { single } from '../op-dashboard/data';
-import { from } from 'rxjs';
+
 
 @Component({
-  selector: 'app-OperatorDashboard',
-  templateUrl: './op-dashboard.component.html',
-  styleUrls: ['./op-dashboard.component.scss']
+  selector: 'app-weekly',
+  templateUrl: './weekly.component.html',
+  styleUrls: ['./weekly.component.scss']
 })
-
-export class OpDashboardComponent implements OnInit {
+export class WeeklyComponent implements OnInit {
 
   ///////////////////////// RESOURCES BUSY /////////////////////////
 
-  //   single: any[];
   //   multi: any[];
 
   //   view:any= [300, 655];
@@ -32,9 +28,22 @@ export class OpDashboardComponent implements OnInit {
   //   // yAxisLabel = 'Population';
 
   //   colorScheme = {
-  //     domain: ['#ffe3bb', '#b99c7e']
+  //     domain: ['#f6af3a', '#fec569', '#ffe3bb', '#b99c7e', '#7f5c46']
   //   };
 
+
+
+  //   onSelect(event): void {
+  //     console.log(event);
+  //   }
+
+  //   onActivate(data): void {
+  //     console.log('Activate', JSON.parse(JSON.stringify(data)));
+  //   }
+
+  //   onDeactivate(data): void {
+  //     console.log('Deactivate', JSON.parse(JSON.stringify(data)));
+  //   }
   //   onResize(event) {
   //     this.view = [event.target.innerWidth / 1.3, 655];
   // }
@@ -141,6 +150,48 @@ export class OpDashboardComponent implements OnInit {
     { backgroundColor: '#7f5c46' },
   ]
 
+
+
+  ///////////////////////// SCHEDULE UTILIZATION /////////////////////////
+
+  public barChartOptions2: ChartOptions = {
+    responsive: true,
+  };
+  public barChartLabels2: Label[] = [];
+  public barChartType2: ChartType = 'horizontalBar';
+  public barChartLegend2 = true;
+
+  public barChartData2: ChartDataSets[] = [
+    {
+      data: [33, 60, 26],
+      label: 'SALE OFFICE',
+    },
+    {
+      data: [12, 45, 30],
+      label: 'INBOUND WEIGHTBRIDGE'
+    },
+    {
+      data: [45, 57, 60],
+      label: 'DIESEL BAY'
+    },
+    {
+      data: [14, 32, 15],
+      label: 'GASOHOL95 BAY'
+    },
+    {
+      data: [60, 63, 25],
+      label: 'OUTBOUND WEIGHTBRIDGE'
+    },
+  ];
+
+  public barChartColors2: Color[] = [
+    { backgroundColor: '#d6cfcb' },
+    { backgroundColor: '#ccb7ae' },
+    { backgroundColor: '#96808c' },
+    { backgroundColor: '#706677' },
+    { backgroundColor: '#565264' },
+  ]
+  
 
 
   ///////////////////////// WIP /////////////////////////
@@ -315,7 +366,7 @@ export class OpDashboardComponent implements OnInit {
   }
 
   constructor() {
-    // Object.assign(this, { single })
+    // Object.assign(this, { multi })
     // this.view = [innerWidth / 4, 655];
   }
 }
@@ -347,9 +398,3 @@ export class OpDashboardComponent implements OnInit {
 
   // public lineChartLegend = true;
   // public lineChartPlugins = [];
-
-
-
-
-
-

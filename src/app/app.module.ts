@@ -7,7 +7,7 @@ import { ChartModule  } from 'angular2-chartjs';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { RouterModule,  } from '@angular/router';
 import { ComponentsModule } from './Layouts/components.module'
 
@@ -21,6 +21,10 @@ import { ExampleComponent } from './example/example.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
+import { ExampleModule } from './example/example.module';
+import { MonthlyComponent } from './Pages/mn-dashboard/monthly/monthly.component';
+
+
 
 
 
@@ -34,6 +38,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     SearchComponent,
     ExampleComponent,
     LoginComponent,
+   
+    
     
   ],
   imports: [ 
@@ -45,15 +51,19 @@ import { MatNativeDateModule } from '@angular/material/core';
     CommonModule,
     RouterModule,
     BrowserModule,
-  
+    
+    ExampleModule,
+
     NgbModule,
+    FormsModule,
     ChartModule,   
     ComponentsModule,    
     HttpClientModule, BrowserAnimationsModule,
+    NgxChartsModule,
     
     FormsModule,
     ReactiveFormsModule,
-
+    NgxChartsModule,
     MatNativeDateModule
     
    

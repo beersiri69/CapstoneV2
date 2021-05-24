@@ -1,17 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartType, ChartOptions, ChartDataSets, } from 'chart.js';
+import { ChartType, ChartOptions, ChartDataSets } from 'chart.js';
 import { MultiDataSet, Label, Color } from 'ng2-charts';
-import { NgbTooltipModule } from "@ng-bootstrap/ng-bootstrap";
-import { single } from '../op-dashboard/data';
-import { from } from 'rxjs';
+
 
 @Component({
-  selector: 'app-OperatorDashboard',
-  templateUrl: './op-dashboard.component.html',
-  styleUrls: ['./op-dashboard.component.scss']
+  selector: 'app-daily',
+  templateUrl: './daily.component.html',
+  styleUrls: ['./daily.component.scss']
 })
 
-export class OpDashboardComponent implements OnInit {
+export class DailyComponent implements OnInit {
 
   ///////////////////////// RESOURCES BUSY /////////////////////////
 
@@ -347,9 +345,3 @@ export class OpDashboardComponent implements OnInit {
 
   // public lineChartLegend = true;
   // public lineChartPlugins = [];
-
-
-
-
-
-

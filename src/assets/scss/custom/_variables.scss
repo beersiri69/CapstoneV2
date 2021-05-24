@@ -108,7 +108,30 @@ $bymeeight:     #83c5be !default;
 $bymenine:      #edf6f9 !default;
 $bymeten:       #fffbf8 !default;
 $bymeoneone:    #1753adc0 !default;
-// $byme:         # !default;
+$bymeonetwo:    #840032 !default;
+$bymeonethree:  #fcd581 !default;
+$bymeonefour:   #fffcf6 !default;
+///////////////////////// BY ME CHART /////////////////////////
+$bymeonefive:   #ffc759 !default;
+$bymeonesix:    #227C9D !default;
+$bymeoneseven:  #17C3B2 !default;
+$bymeoneeight:  #C44536 !default;
+$bymeonenine:   #772E25 !default;
+$bymeoneten:    #b4b2ae !default;
+$bymetwoone:    #d3d0cb !default;
+$bymetwotwo:    #ab3d30 !default;
+$bymetwothree:  #460707 !default;
+$bymetwofour:   #f6af3a !default;
+$bymetwofive:   #ffcf83 !default;
+$bymetwosix:    #ffe6c4 !default;
+$bymetwoseven:  #b99c7e !default;
+$bymetwoeight:  #7f5c46 !default;
+$bymetwonine:   #d6cfcb !default;
+$bymetwoten:    #ccb7ae !default;
+$bymethreeone:  #96808c !default;
+$bymethreetwo:  #706677 !default;
+$bymethreethree:#565264 !default;
+//$bymeonefour:   # !default;
 
 $theme-colors: () !default;
 $theme-colors: map-merge((
@@ -123,6 +146,7 @@ $theme-colors: map-merge((
   "neutral":      $white,
   "dark":         $dark,
   "darker":       $darker,
+  
   "bymewhite":    $bymewhite,
   "bymeorange":   $bymeorange,
   "bymedarkblue": $bymedarkblue,
@@ -139,6 +163,30 @@ $theme-colors: map-merge((
   "bymenine":     $bymenine,
   "bymeten":      $bymeten,
   "bymeoneone":   $bymeoneone,
+  "bymeonetwo":   $bymeonetwo,
+  "bymeonethree": $bymeonethree,
+  "bymeonefour":  $bymeonefour,
+  ///////////////////////// BY ME CHART /////////////////////////
+  "bymeonefive":  $bymeonefive,
+  "bymeonesix":   $bymeonesix,
+  "bymeoneseven": $bymeoneseven,
+  "bymeoneeight": $bymeoneeight,
+  "bymeonenine":  $bymeonenine,
+  "bymeoneten":   $bymeoneten,
+  "bymetwoone":   $bymetwoone,
+  "bymetwotwo":   $bymetwotwo,
+  "bymetwothree": $bymetwothree,
+  "bymetwofour":  $bymetwofour,
+  "bymetwofive":  $bymetwofive,
+  "bymetwosix":   $bymetwosix,
+  "bymetwoseven": $bymetwoseven,
+  "bymetwoeight": $bymetwoeight,
+  "bymetwonine":  $bymetwonine,
+  "bymetwoten":   $bymetwoten,
+  "bymethreeone": $bymethreeone,
+  "bymethreetwo": $bymethreetwo,
+  "bymethreethree":   $bymethreethree,
+  // "bymetwoone":   $bymetwoone,
 ), $theme-colors);
 
 $brand-colors: () !default;

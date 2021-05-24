@@ -31,10 +31,6 @@ export interface GeneralShow{
   Credit : number | undefined;
 }
 
-
-
-
-
 @Component({
   selector: 'app-general-journal',
   templateUrl: './general-journal.component.html',
