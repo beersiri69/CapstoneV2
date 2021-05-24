@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ChartType, ChartOptions, ChartDataSets, } from 'chart.js';
 import { MultiDataSet, Label, Color } from 'ng2-charts';
 import { NgbTooltipModule } from "@ng-bootstrap/ng-bootstrap";
-import { single } from '../../op-dashboard/data';
+import { multi } from '../monthly/data';
 import { from } from 'rxjs';
 
 @Component({
@@ -31,7 +31,7 @@ export class MonthlyComponent implements OnInit {
   // yAxisLabel = 'Population';
 
   colorScheme = {
-    domain: ['#ffe3bb', '#b99c7e']
+    domain: ['#f6af3a', '#fec569', '#ffe3bb', '#b99c7e', '#7f5c46']
   };
 
   onResize(event) {
@@ -149,7 +149,7 @@ export class MonthlyComponent implements OnInit {
   }
 
 constructor() {
-  Object.assign(this, { single })
+  Object.assign(this, { multi })
   this.view = [innerWidth / 1.3, 655];
  }
 

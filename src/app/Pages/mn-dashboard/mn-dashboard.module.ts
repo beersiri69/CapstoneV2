@@ -7,6 +7,8 @@ import { GaugeChartModule } from 'angular-gauge-chart';
 import { RouterModule, Routes } from '@angular/router';
 import { MnRoutingModule } from './mn-dashboard-routing.module';
 import { MonthlyComponent } from './monthly/monthly.component';
+import { NgxChartsModule} from '@swimlane/ngx-charts'
+import { FormsModule} from '@angular/forms'
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { MonthlyComponent } from './monthly/monthly.component';
     ChartsModule,
     GaugeChartModule,
     RouterModule,
-    MnRoutingModule
+    MnRoutingModule,
+    FormsModule,
+    NgxChartsModule
   ],
   exports: [RouterModule]
 })

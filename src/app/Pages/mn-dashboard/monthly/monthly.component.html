@@ -302,9 +302,12 @@
                 <div class="card-body">
                     <!-- Chart -->
                     <div style="display: block">
-                        <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [chartType]="barChartType"
-                            [colors]="barChartColors" [options]="barChartOptions">
-                        </canvas>
+                        <ngx-charts-bar-vertical [view]="view" [scheme]="colorScheme" [results]="multi"
+                            [gradient]="gradient" [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend"
+                            [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel">
+                            <!-- [xAxisLabel]="xAxisLabel"
+                                  [yAxisLabel]="yAxisLabel" -->
+                        </ngx-charts-bar-vertical>
                     </div>
                     <!-- ปรับความสูง+data chart sale value -->
                 </div>
