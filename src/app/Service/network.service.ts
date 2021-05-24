@@ -25,6 +25,7 @@ export class NetworkService {
   private GetTransactionStartAPI = ''
   private GetIncomeFromStartAPI = ''
   private SumCashBeforeDateAPI = ''
+  private GetIncomeBetweenAPI = ''
 
   constructor(private httpClient: HttpClient) { }
 
@@ -76,5 +77,11 @@ export class NetworkService {
 
   GetExpense(): Observable<ExpenseAll>{     
     return this.httpClient.get<ExpenseAll>(this.GetExpenseAPI)
+  }
+
+  
+  GetIncomeBetween(StartDate,EndDate): Observable<IncomeAll>{     
+    this.GetIncomeBetweenAPI = 'https://localhost:44389/api/auth/IncomeBetween/?Start=' + StartDate + '&End='+ EndDate;
+    return this.httpClient.get<IncomeAll>(this.GetIncomeBetweenAPI)
   }
 }

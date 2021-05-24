@@ -34,7 +34,7 @@
                 <th scope="col">Balance(Baht)</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody *ngIf="GeneralShowAll && GeneralShowAll[0]">
               <tr *ngFor = "let list of GeneralShowAll; index as i">
                 <td> {{list.Date}}</td>
                 <td> {{list.Explain}}</td>
