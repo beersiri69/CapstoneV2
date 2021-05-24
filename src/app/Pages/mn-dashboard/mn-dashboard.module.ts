@@ -9,6 +9,8 @@ import { MnRoutingModule } from './mn-dashboard-routing.module';
 import { MonthlyComponent } from './monthly/monthly.component';
 import { NgxChartsModule} from '@swimlane/ngx-charts'
 import { FormsModule} from '@angular/forms'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { FormsModule} from '@angular/forms'
     RouterModule,
     MnRoutingModule,
     FormsModule,
-    NgxChartsModule
+    NgxChartsModule,
+    BrowserAnimationsModule,
+    BrowserModule
   ],
   exports: [RouterModule]
 })

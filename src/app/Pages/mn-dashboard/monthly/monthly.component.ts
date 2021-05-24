@@ -14,30 +14,40 @@ export class MonthlyComponent implements OnInit {
 
   ///////////////////////// RESOURCES BUSY /////////////////////////
 
-  single: any[];
   multi: any[];
+  view: any = [700, 400];
 
-  view:any= [300, 655];
-  
   // options
-  
-  showXAxis = true;
-  showYAxis = true;
-  gradient = false;
-  showLegend = true;
-  showXAxisLabel = true;
-  // xAxisLabel = 'Country';
-  showYAxisLabel = true;
-  // yAxisLabel = 'Population';
+  showXAxis: boolean = true;
+  showYAxis: boolean = true;
+  gradient: boolean = true;
+  showLegend: boolean = true;
+  showXAxisLabel: boolean = true;
+  xAxisLabel: string = 'Country';
+  showYAxisLabel: boolean = true;
+  yAxisLabel: string = 'Population';
+  legendTitle: string = 'Years';
 
   colorScheme = {
     domain: ['#f6af3a', '#fec569', '#ffe3bb', '#b99c7e', '#7f5c46']
   };
 
+  
+
+  onSelect(data): void {
+    console.log('Item clicked', JSON.parse(JSON.stringify(data)));
+  }
+
+  onActivate(data): void {
+    console.log('Activate', JSON.parse(JSON.stringify(data)));
+  }
+
+  onDeactivate(data): void {
+    console.log('Deactivate', JSON.parse(JSON.stringify(data)));
+  }
   onResize(event) {
     this.view = [event.target.innerWidth / 1.3, 655];
-}
-
+  }
   // ///////////////////////// FIRST GAUGE-CHART /////////////////////////
 
   // public canvasWidth = 740
@@ -80,10 +90,10 @@ export class MonthlyComponent implements OnInit {
   public doughnutChartLabels: Label[] = ['SO station', 'IB station', 'DB station', 'GB station', 'OB station'];
   public doughnutChartData: MultiDataSet = [
     [350, 450, 100, 700, 95]
-  ];  
+  ];
   public doughnutChartType: ChartType = 'doughnut';
   public doughnutChartColors: Color[] = [
-    {backgroundColor:["#f6af3a","#fec569","#ffe3bb","#b99c7e","#7f5c46"]}
+    { backgroundColor: ["#f6af3a", "#fec569", "#ffe3bb", "#b99c7e", "#7f5c46"] }
   ];
 
 
@@ -92,11 +102,11 @@ export class MonthlyComponent implements OnInit {
   public doughnutChartLabels2: Label[] = ['SO station', 'IB station', 'DB station', 'GB station', 'OB station'];
   public doughnutChartData2: MultiDataSet = [
     [450, 200, 100, 200, 750]
-  ];  
+  ];
   public doughnutChartType2: ChartType = 'doughnut';
 
   public doughnutChartColors2: Color[] = [
-    {backgroundColor:["#f6af3a","#fec569","#ffe3bb","#b99c7e","#7f5c46"]}
+    { backgroundColor: ["#f6af3a", "#fec569", "#ffe3bb", "#b99c7e", "#7f5c46"] }
   ];
 
 
@@ -123,11 +133,11 @@ export class MonthlyComponent implements OnInit {
       label: 'DIESEL BAY'
     },
     {
-      data: [14,32,15],
+      data: [14, 32, 15],
       label: 'GASOHOL95 BAY'
     },
     {
-      data: [60,63,25],
+      data: [60, 63, 25],
       label: 'OUTBOUND WEIGHTBRIDGE'
     },
   ];
@@ -144,14 +154,14 @@ export class MonthlyComponent implements OnInit {
 
   ///////////////////////// WIP /////////////////////////
 
-   ngOnInit() {
+  ngOnInit() {
     console.log(event);
   }
 
-constructor() {
-  Object.assign(this, { multi })
-  this.view = [innerWidth / 1.3, 655];
- }
+  constructor() {
+    Object.assign(this, { multi })
+    this.view = [innerWidth / 1.3, 655];
+  }
 
   chartData = [
     {
@@ -215,7 +225,7 @@ constructor() {
 
 
 
-///////////////////////// BUSY I /////////////////////////
+  ///////////////////////// BUSY I /////////////////////////
 
   chartData2 = [
     {
@@ -236,8 +246,8 @@ constructor() {
       }
     },
     primaryYAxis: {
-      minimum: 0, maximum: 5, interval:1, 
-   }
+      minimum: 0, maximum: 5, interval: 1,
+    }
   };
   // ...
   onChartHover2 = ($event: any) => {
@@ -259,7 +269,7 @@ constructor() {
     this.chartLabels2 = [...this.chartLabels2, label];
   }
 
-///////////////////////// BUSY II /////////////////////////
+  ///////////////////////// BUSY II /////////////////////////
 
   chartData22 = [
     {
@@ -280,8 +290,8 @@ constructor() {
       }
     },
     primaryYAxis: {
-      minimum: 0, maximum: 5, interval:1, 
-   }
+      minimum: 0, maximum: 5, interval: 1,
+    }
   };
   // ...
   onChartHover22 = ($event: any) => {
@@ -331,10 +341,10 @@ constructor() {
 
   // public lineChartLegend = true;
   // public lineChartPlugins = [];
-  
 
 
 
 
 
-  
+
+
