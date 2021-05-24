@@ -14,40 +14,42 @@ export class MonthlyComponent implements OnInit {
 
   ///////////////////////// RESOURCES BUSY /////////////////////////
 
-  multi: any[];
-  view: any = [700, 400];
+  //   multi: any[];
 
-  // options
-  showXAxis: boolean = true;
-  showYAxis: boolean = true;
-  gradient: boolean = true;
-  showLegend: boolean = true;
-  showXAxisLabel: boolean = true;
-  xAxisLabel: string = 'Country';
-  showYAxisLabel: boolean = true;
-  yAxisLabel: string = 'Population';
-  legendTitle: string = 'Years';
+  //   view:any= [300, 655];
 
-  colorScheme = {
-    domain: ['#f6af3a', '#fec569', '#ffe3bb', '#b99c7e', '#7f5c46']
-  };
+  //   // options
 
-  
+  //   showXAxis = true;
+  //   showYAxis = true;
+  //   gradient = false;
+  //   showLegend = true;
+  //   showXAxisLabel = true;
+  //   // xAxisLabel = 'Country';
+  //   showYAxisLabel = true;
+  //   // yAxisLabel = 'Population';
 
-  onSelect(data): void {
-    console.log('Item clicked', JSON.parse(JSON.stringify(data)));
-  }
+  //   colorScheme = {
+  //     domain: ['#f6af3a', '#fec569', '#ffe3bb', '#b99c7e', '#7f5c46']
+  //   };
 
-  onActivate(data): void {
-    console.log('Activate', JSON.parse(JSON.stringify(data)));
-  }
 
-  onDeactivate(data): void {
-    console.log('Deactivate', JSON.parse(JSON.stringify(data)));
-  }
-  onResize(event) {
-    this.view = [event.target.innerWidth / 1.3, 655];
-  }
+
+  //   onSelect(event): void {
+  //     console.log(event);
+  //   }
+
+  //   onActivate(data): void {
+  //     console.log('Activate', JSON.parse(JSON.stringify(data)));
+  //   }
+
+  //   onDeactivate(data): void {
+  //     console.log('Deactivate', JSON.parse(JSON.stringify(data)));
+  //   }
+  //   onResize(event) {
+  //     this.view = [event.target.innerWidth / 1.3, 655];
+  // }
+
   // ///////////////////////// FIRST GAUGE-CHART /////////////////////////
 
   // public canvasWidth = 740
@@ -93,7 +95,7 @@ export class MonthlyComponent implements OnInit {
   ];
   public doughnutChartType: ChartType = 'doughnut';
   public doughnutChartColors: Color[] = [
-    { backgroundColor: ["#f6af3a", "#fec569", "#ffe3bb", "#b99c7e", "#7f5c46"] }
+    { backgroundColor: ["#f6af3a", "#ffcf83", "#ffe6c4", "#b99c7e", "#7f5c46"] }
   ];
 
 
@@ -106,7 +108,7 @@ export class MonthlyComponent implements OnInit {
   public doughnutChartType2: ChartType = 'doughnut';
 
   public doughnutChartColors2: Color[] = [
-    { backgroundColor: ["#f6af3a", "#fec569", "#ffe3bb", "#b99c7e", "#7f5c46"] }
+    { backgroundColor: ["#f6af3a", "#ffcf83", "#ffe6c4", "#b99c7e", "#7f5c46"] }
   ];
 
 
@@ -144,24 +146,57 @@ export class MonthlyComponent implements OnInit {
 
   public barChartColors: Color[] = [
     { backgroundColor: '#ffa410' },
-    { backgroundColor: '#fec569' },
-    { backgroundColor: '#ffe3bb' },
+    { backgroundColor: '#ffcf83' },
+    { backgroundColor: '#ffe6c4' },
     { backgroundColor: '#b99c7e' },
     { backgroundColor: '#7f5c46' },
   ]
 
 
 
+  ///////////////////////// SCHEDULE UTILIZATION /////////////////////////
+
+  public barChartOptions2: ChartOptions = {
+    responsive: true,
+  };
+  public barChartLabels2: Label[] = [];
+  public barChartType2: ChartType = 'horizontalBar';
+  public barChartLegend2 = true;
+
+  public barChartData2: ChartDataSets[] = [
+    {
+      data: [33, 60, 26],
+      label: 'SALE OFFICE',
+    },
+    {
+      data: [12, 45, 30],
+      label: 'INBOUND WEIGHTBRIDGE'
+    },
+    {
+      data: [45, 57, 60],
+      label: 'DIESEL BAY'
+    },
+    {
+      data: [14, 32, 15],
+      label: 'GASOHOL95 BAY'
+    },
+    {
+      data: [60, 63, 25],
+      label: 'OUTBOUND WEIGHTBRIDGE'
+    },
+  ];
+
+  public barChartColors2: Color[] = [
+    { backgroundColor: '#d6cfcb' },
+    { backgroundColor: '#ccb7ae' },
+    { backgroundColor: '#96808c' },
+    { backgroundColor: '#706677' },
+    { backgroundColor: '#565264' },
+  ]
+  
+
+
   ///////////////////////// WIP /////////////////////////
-
-  ngOnInit() {
-    console.log(event);
-  }
-
-  constructor() {
-    Object.assign(this, { multi })
-    this.view = [innerWidth / 1.3, 655];
-  }
 
   chartData = [
     {
@@ -227,90 +262,114 @@ export class MonthlyComponent implements OnInit {
 
   ///////////////////////// BUSY I /////////////////////////
 
-  chartData2 = [
-    {
-      data: [3],
-      label: 'DIESEL BAY',
-      fill: true
-    }
+  public doughnutChartLabels3: Label[] = ['DIESEL', 'Other'];
+  public doughnutChartData3: MultiDataSet = [
+    [900, 450]
   ];
-  chartLabels2: Label[] = [
-    // อยากให้ขึ้นเป็น day / week / month ที่เลือกจะดู
-    // 'DIESEL BAY', 'GASOHOL95 BAY'
+  public doughnutChartType3: ChartType = 'doughnut';
+  public doughnutChartColors3: Color[] = [
+    { backgroundColor: ["#ab3d30", "#e7e7e7"] }
   ];
-  chartOptions2 = {
-    responsive: true,
-    legend: {
-      labels: {
-        fontColor: 'black'
-      }
-    },
-    primaryYAxis: {
-      minimum: 0, maximum: 5, interval: 1,
-    }
-  };
-  // ...
-  onChartHover2 = ($event: any) => {
-    window.console.log('onChartHover', $event);
-  };
-  onChartClick2 = ($event: any) => {
-    window.console.log('onChartClick', $event);
-  };
 
+  // chartData2 = [
+  //   {
+  //     data: [84],
+  //     label: 'DIESEL BAY',
+  //     fill: true
+  //   }
+  // ];
+  // chartLabels2: Label[] = [
+  //   // อยากให้ขึ้นเป็น day / week / month ที่เลือกจะดู
+  //   // 'DIESEL BAY', 'GASOHOL95 BAY'
+  // ];
+  // chartOptions2 = {
+  //   responsive: true,
+  //   legend: {
+  //     labels: {
+  //       fontColor: 'black'
+  //     }
+  //   },
+  //   primaryYAxis: {
+  //     minimum: 0, maximum: 5, interval:1, 
+  //  }
+  // };
+  // // ...
+  // onChartHover2 = ($event: any) => {
+  //   window.console.log('onChartHover', $event);
+  // };
+  // onChartClick2 = ($event: any) => {
+  //   window.console.log('onChartClick', $event);
+  // };
 
+  // newDataPoint2(dataArr = [0, 0, 0], label) {
+  //   this.chartData2.forEach((dataset, index) => {
+  //     this.chartData2[index] = Object.assign({}, this.chartData2[index], {
+  //       data: [...this.chartData2[index].data, dataArr[index]]
+  //     });
+  //   });
 
-  newDataPoint2(dataArr = [0, 0, 0], label) {
-    this.chartData2.forEach((dataset, index) => {
-      this.chartData2[index] = Object.assign({}, this.chartData2[index], {
-        data: [...this.chartData2[index].data, dataArr[index]]
-      });
-    });
-
-    this.chartLabels2 = [...this.chartLabels2, label];
-  }
+  //   this.chartLabels2 = [...this.chartLabels2, label];
+  // }
 
   ///////////////////////// BUSY II /////////////////////////
 
-  chartData22 = [
-    {
-      data: [1],
-      label: 'GASOHOL95 BAY',
-      fill: false
-    }
+  public doughnutChartLabels4: Label[] = ['GASOHOL95', 'Other'];
+  public doughnutChartData4: MultiDataSet = [
+    [450, 900]
   ];
-  chartLabels22: Label[] = [
-    // อยากให้ขึ้นเป็น day / week / month ที่เลือกจะดู
-    // 'DIESEL BAY', 'GASOHOL95 BAY'
+  public doughnutChartType4: ChartType = 'doughnut';
+  public doughnutChartColors4: Color[] = [
+    { backgroundColor: ["#460707", "#e7e7e7"] }
   ];
-  chartOptions22 = {
-    responsive: true,
-    legend: {
-      labels: {
-        fontColor: 'black'
-      }
-    },
-    primaryYAxis: {
-      minimum: 0, maximum: 5, interval: 1,
-    }
-  };
-  // ...
-  onChartHover22 = ($event: any) => {
-    window.console.log('onChartHover', $event);
-  };
-  onChartClick22 = ($event: any) => {
-    window.console.log('onChartClick', $event);
-  };
 
 
+  // chartData22 = [
+  //   {
+  //     data: [3],
+  //     label: 'GASOHOL95 BAY',
+  //     fill: false
+  //   }
+  // ];
+  // chartLabels22: Label[] = [
+  //   // อยากให้ขึ้นเป็น day / week / month ที่เลือกจะดู
+  //   // 'DIESEL BAY', 'GASOHOL95 BAY'
+  // ];
+  // chartOptions22 = {
+  //   responsive: true,
+  //   legend: {
+  //     labels: {
+  //       fontColor: 'black'
+  //     }
+  //   },
+  //   primaryYAxis: {
+  //     minimum: 0, maximum: 5, interval: 1,
+  //   }
+  // };
+  // // ...
+  // onChartHover22 = ($event: any) => {
+  //   window.console.log('onChartHover', $event);
+  // };
+  // onChartClick22 = ($event: any) => {
+  //   window.console.log('onChartClick', $event);
+  // };
 
-  newDataPoint22(dataArr = [0, 0, 0], label) {
-    this.chartData22.forEach((dataset, index) => {
-      this.chartData22[index] = Object.assign({}, this.chartData22[index], {
-        data: [...this.chartData22[index].data, dataArr[index]]
-      });
-    });
+  // newDataPoint22(dataArr = [0, 0, 0], label) {
+  //   this.chartData22.forEach((dataset, index) => {
+  //     this.chartData22[index] = Object.assign({}, this.chartData22[index], {
+  //       data: [...this.chartData22[index].data, dataArr[index]]
+  //     });
+  //   });
 
-    this.chartLabels22 = [...this.chartLabels22, label];
+  //   this.chartLabels22 = [...this.chartLabels22, label];
+  // }
+
+  ngOnInit() {
+    // console.log(event);
+  }
+
+  constructor() {
+    // Object.assign(this, { multi })
+    // this.view = [innerWidth / 4, 655];
   }
 }
 
@@ -341,10 +400,3 @@ export class MonthlyComponent implements OnInit {
 
   // public lineChartLegend = true;
   // public lineChartPlugins = [];
-
-
-
-
-
-
-
