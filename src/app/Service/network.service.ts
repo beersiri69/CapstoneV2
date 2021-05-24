@@ -1,3 +1,4 @@
+import { PurchaseAll } from './../Model/purchase';
 import { ExpenseAll } from './../Model/expense.Model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
@@ -7,6 +8,8 @@ import { CustomerAll } from '../Model/customer'
 import { StaffAll } from '../Model/staff'
 import { TransactionAll} from '../Model/transaction.model'
 import { IncomeAll } from '../Model/income.model'
+import { DeliverAll } from '../Model/deliver';
+import { PaymentAll } from '../Model/payment';
 
 
 @Injectable({
@@ -19,6 +22,11 @@ export class NetworkService {
   private cusAPI = `https://localhost:44389/api/auth/customer`
   private staffAPI = `https://localhost:44389/api/auth/staff`
   private GetExpenseAPI = 'https://localhost:44389/api/auth/getexpense'
+
+  private DeliverAllAPI = 'https://localhost:44389/api/auth/DeliverAll'
+  private PaymentAllAPI = 'https://localhost:44389/api/auth/PaymentAll'
+  private PurchaseAllAPI = 'https://localhost:44389/api/auth/PurchaseAll'
+
   private SearchStaffAPI =''
   private SearchCustomerAPI =''
   private GetTransactionAPI = ''
@@ -83,5 +91,17 @@ export class NetworkService {
   GetIncomeBetween(StartDate,EndDate): Observable<IncomeAll>{     
     this.GetIncomeBetweenAPI = 'https://localhost:44389/api/auth/IncomeBetween/?Start=' + StartDate + '&End='+ EndDate;
     return this.httpClient.get<IncomeAll>(this.GetIncomeBetweenAPI)
+  }
+
+  GetDeliverAll(): Observable<DeliverAll>{     
+    return this.httpClient.get<DeliverAll>(this.DeliverAllAPI)
+  }
+
+  GetPaymentAll(): Observable<PaymentAll>{     
+    return this.httpClient.get<PaymentAll>(this.PaymentAllAPI)
+  }
+
+  GetPurchaseAll(): Observable<PurchaseAll>{     
+    return this.httpClient.get<PurchaseAll>(this.PurchaseAllAPI)
   }
 }
