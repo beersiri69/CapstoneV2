@@ -79,7 +79,9 @@ export class OpDashboardComponent implements OnInit {
   ///////////////////////// LINE CHART [NOT USE] /////////////////////////
 
   // public lineChartData: ChartDataSets[] = [
-  //   { data: [85, 72, 78, 75, 77, 75], label: 'Crude oil prices' },
+  //   { data: [85, 72, 78, 75, 77, 75], label: 'Crude oil prices',fill: false },
+  //   { data: [100, 72, 25, 75, 80, 12], label: 'B',fill: false },
+  //   { data: [77, 65, 78, 11, 120, 99], label: 'C',fill: false },
   // ];
 
   // public lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June'];
@@ -103,6 +105,11 @@ export class OpDashboardComponent implements OnInit {
 
   ///////////////////////// BIG LINE-CHART /////////////////////////
 
+  // public chartColors: Color[] =[
+  //   {
+  //     backgroundColor:["#FF7360", "#6FC8CE", "#FAFFF2", "#FFFCC4", "#B9E8E0"]
+  //   }];
+
    ngOnInit() {
   }
 
@@ -111,31 +118,41 @@ constructor() { }
   chartData = [
     {
       data: [330, 600, 260, 700],
-      label: 'SO station'
+      label: 'SO station',
+      fill: false
     },
     {
       data: [120, 455, 100, 340],
-      label: 'IB station'
+      label: 'IB station',
+      fill: false
     },
     {
       data: [45, 67, 800, 500],
-      label: 'OB station'
+      label: 'OB station',
+      fill: false
     },
     {
       data: [700, 67, 800, 500],
-      label: 'GB station'
+      label: 'GB station',
+      fill: false
     },
     {
       data: [200, 67, 800, 500],
-      label: 'DB station'
+      label: 'DB station',
+      fill: false
     }
   ];
-  chartLabels = [
+  chartLabels: Label[] = [
     // อยากให้ขึ้นเป็น day / week / month ที่เลือกจะดู
-    'XXX'
+    'January', 'February', 'March', 'April'
   ];
   chartOptions = {
-    responsive: true
+    responsive: true,
+    legend: {
+      labels: {
+        fontColor: 'white'
+      }
+    }
   };
   // ...
   onChartHover = ($event: any) => {
@@ -144,6 +161,9 @@ constructor() { }
   onChartClick = ($event: any) => {
     window.console.log('onChartClick', $event);
   };
+
+
+
   newDataPoint(dataArr = [100, 100, 100], label) {
     this.chartData.forEach((dataset, index) => {
       this.chartData[index] = Object.assign({}, this.chartData[index], {

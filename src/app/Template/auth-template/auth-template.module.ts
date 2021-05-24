@@ -43,7 +43,7 @@ import { GaugeChartModule } from 'angular-gauge-chart';
     AuthTemplateRoutingModule,    
     ComponentsModule,
     GaugeChartModule,
-   
+    
   ],
   exports:[
     AuthTemplateComponent

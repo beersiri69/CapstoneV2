@@ -9,9 +9,10 @@ import { LedgerModule } from './ledger/ledger.module';
 import { IncomestatementComponent } from './incomestatement/incomestatement.component';
 import { ReconciliationComponent } from './reconciliation/reconciliation.component';
 import { InventorystockComponent } from './inventorystock/inventorystock.component';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatDatepickerModule} from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     GeneralJournalComponent,
@@ -28,6 +29,8 @@ import { MatInputModule } from '@angular/material/input';
     MatDatepickerModule,
     MatFormFieldModule,
     MatInputModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports:[
     MatFormFieldModule,
