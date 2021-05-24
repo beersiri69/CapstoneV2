@@ -151,7 +151,7 @@ export class OpDashboardComponent implements OnInit {
 
 constructor() {
   Object.assign(this, { single })
-  this.view = [innerWidth / 1.3, 655];
+  this.view = [innerWidth / 4, 655];
  }
 
   chartData = [
