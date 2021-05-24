@@ -11,7 +11,11 @@ import { NgxChartsModule} from '@swimlane/ngx-charts'
 import { FormsModule} from '@angular/forms'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { MatSelectModule } from '@angular/material/select';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,11 @@ import { BrowserModule } from '@angular/platform-browser';
     FormsModule,
     NgxChartsModule,
     BrowserAnimationsModule,
-    BrowserModule
+    BrowserModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   exports: [RouterModule]
 })

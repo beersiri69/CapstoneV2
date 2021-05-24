@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartType, ChartOptions, ChartDataSets } from 'chart.js';
 import { MultiDataSet, Label, Color } from 'ng2-charts';
-
+import {MatDatepickerInputEvent} from '@angular/material/datepicker';
+import {formatDate} from '@angular/common';
 
 @Component({
   selector: 'app-daily',
@@ -11,6 +12,13 @@ import { MultiDataSet, Label, Color } from 'ng2-charts';
 
 export class DailyComponent implements OnInit {
 
+
+  addEvent(event: MatDatepickerInputEvent<Date>){
+    
+  var DatePick = formatDate(event.value,'yyyy-MM-dd','en-US');
+  
+  
+}
   ///////////////////////// RESOURCES BUSY /////////////////////////
 
   //   single: any[];
