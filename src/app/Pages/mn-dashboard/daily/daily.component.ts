@@ -8,75 +8,321 @@ import { MultiDataSet, Label, Color } from 'ng2-charts';
   templateUrl: './daily.component.html',
   styleUrls: ['./daily.component.scss']
 })
+
 export class DailyComponent implements OnInit {
 
-  ///////////////////////// FIRST GAUGE-CHART /////////////////////////
+  ///////////////////////// RESOURCES BUSY /////////////////////////
 
-  public canvasWidth = 740
-  public needleValue = 100 
-  public centralLabel = '99' //show level number
-  // public bottomLabel = '0'
-  public options = {
-    hasNeedle: true,
-    outerNeedle: true,
-    needleColor: 'rgb(166,206,227)',
-    needleUpdateSpeed: 4,
-    arcColors: ['rgb(166,206,227)', 'black'],
-    arcDelimiters: [99],
-    rangeLabel: ['0', '100'],
-    needleStartValue: 0,
-  }
+  //   single: any[];
+  //   multi: any[];
+
+  //   view:any= [300, 655];
+
+  //   // options
+
+  //   showXAxis = true;
+  //   showYAxis = true;
+  //   gradient = false;
+  //   showLegend = true;
+  //   showXAxisLabel = true;
+  //   // xAxisLabel = 'Country';
+  //   showYAxisLabel = true;
+  //   // yAxisLabel = 'Population';
+
+  //   colorScheme = {
+  //     domain: ['#ffe3bb', '#b99c7e']
+  //   };
+
+  //   onResize(event) {
+  //     this.view = [event.target.innerWidth / 1.3, 655];
+  // }
+
+  // ///////////////////////// FIRST GAUGE-CHART /////////////////////////
+
+  // public canvasWidth = 740
+  // public needleValue = 100 
+  // public centralLabel = '99' //show level number
+  // // public bottomLabel = '0'
+  // public options = {
+  //   hasNeedle: true,
+  //   outerNeedle: true,
+  //   needleColor: 'rgb(166,206,227)',
+  //   needleUpdateSpeed: 4,
+  //   arcColors: ['rgb(166,206,227)', 'black'],
+  //   arcDelimiters: [99],
+  //   rangeLabel: ['0', '100'],
+  //   needleStartValue: 0,
+  // }
 
 
-  ///////////////////////// SECOND GAUGE-CHART /////////////////////////
+  // ///////////////////////// SECOND GAUGE-CHART /////////////////////////
 
-  public canvasWidth2 = 740
-  public needleValue2 = 50 //percent
-  public centralLabel2 = '100' //show level number
-  // public bottomLabel = '0'
-  public options2 = {
-    hasNeedle: true,
-    outerNeedle: true,
-    needleColor: 'rgb(166,206,227)',
-    needleUpdateSpeed: 4,
-    arcColors: ['rgb(166,206,227)', 'black'],
-    arcDelimiters: [50], //percent
-    rangeLabel: ['0', '200'],
-    needleStartValue: 0,
-  }
-
+  // public canvasWidth2 = 740
+  // public needleValue2 = 50 //percent
+  // public centralLabel2 = '100' //show level number
+  // // public bottomLabel = '0'
+  // public options2 = {
+  //   hasNeedle: true,
+  //   outerNeedle: true,
+  //   needleColor: 'rgb(166,206,227)',
+  //   needleUpdateSpeed: 4,
+  //   arcColors: ['rgb(166,206,227)', 'black'],
+  //   arcDelimiters: [50], //percent
+  //   rangeLabel: ['0', '200'],
+  //   needleStartValue: 0,
+  // }
 
 
 
   ///////////////////////// FIRST DONUT /////////////////////////
 
-  public doughnutChartLabels: Label[] = ['SO station', 'IB station', 'OB station', 'GB station', 'DB station'];
+  public doughnutChartLabels: Label[] = ['SO station', 'IB station', 'DB station', 'GB station', 'OB station'];
   public doughnutChartData: MultiDataSet = [
     [350, 450, 100, 700, 95]
-  ];  
+  ];
   public doughnutChartType: ChartType = 'doughnut';
-
-  // public doughnutChartColors: Color[] = [
-  //   {backgroundColor:["#9E120E","#FF5800","#FFB414"]}
-  // ];
+  public doughnutChartColors: Color[] = [
+    { backgroundColor: ["#f6af3a", "#ffcf83", "#ffe6c4", "#b99c7e", "#7f5c46"] }
+  ];
 
 
   ///////////////////////// SECOND DONUT /////////////////////////
 
-  public doughnutChartLabels2: Label[] = ['SO station', 'IB station', 'OB station', 'GB station', 'DB station'];
+  public doughnutChartLabels2: Label[] = ['SO station', 'IB station', 'DB station', 'GB station', 'OB station'];
   public doughnutChartData2: MultiDataSet = [
     [450, 200, 100, 200, 750]
-  ];  
+  ];
   public doughnutChartType2: ChartType = 'doughnut';
 
   public doughnutChartColors2: Color[] = [
-    {backgroundColor:["#9E120E","#FF5800","#FFB414","black"]}
+    { backgroundColor: ["#f6af3a", "#ffcf83", "#ffe6c4", "#b99c7e", "#7f5c46"] }
   ];
 
 
+  ///////////////////////// %OEE /////////////////////////
+
+  public barChartOptions: ChartOptions = {
+    responsive: true,
+  };
+  public barChartLabels: Label[] = ['%A (AVAILABILITY)', '%P (PERFORMANCE)', '%Q (QUALITY)'];
+  public barChartType: ChartType = 'bar';
+  public barChartLegend = true;
+
+  public barChartData: ChartDataSets[] = [
+    {
+      data: [33, 60, 26],
+      label: 'SALE OFFICE',
+    },
+    {
+      data: [12, 45, 30],
+      label: 'INBOUND WEIGHTBRIDGE'
+    },
+    {
+      data: [45, 57, 60],
+      label: 'DIESEL BAY'
+    },
+    {
+      data: [14, 32, 15],
+      label: 'GASOHOL95 BAY'
+    },
+    {
+      data: [60, 63, 25],
+      label: 'OUTBOUND WEIGHTBRIDGE'
+    },
+  ];
+
+  public barChartColors: Color[] = [
+    { backgroundColor: '#ffa410' },
+    { backgroundColor: '#ffcf83' },
+    { backgroundColor: '#ffe6c4' },
+    { backgroundColor: '#b99c7e' },
+    { backgroundColor: '#7f5c46' },
+  ]
 
 
-  ///////////////////////// LINE CHART [NOT USE] /////////////////////////
+
+  ///////////////////////// WIP /////////////////////////
+
+  chartData = [
+    {
+      data: [33, 60, 26, 70, 12, 25, 100],
+      label: 'SO station',
+      fill: false
+    },
+    {
+      data: [0, 12, 33, 70, 12, 33, 80],
+      label: 'IB station',
+      fill: false
+    },
+    {
+      data: [0, 70, 12, 33, 48, 20, 22],
+      label: 'DB station',
+      fill: false
+    },
+    {
+      data: [1, 12, 33, 48, 57, 18, 75],
+      label: 'GB station',
+      fill: false
+    },
+    {
+      data: [1, 23, 90, 33, 58, 12, 64],
+      label: 'OB station',
+      fill: false
+    }
+  ];
+  chartLabels: Label[] = [
+    // อยากให้ขึ้นเป็น day / week / month ที่เลือกจะดู
+    '00:00', '04:00', '08:00', '12:00', '16:00', '20:00', '24:00'
+  ];
+  chartOptions = {
+    responsive: true,
+    legend: {
+      labels: {
+        fontColor: 'white'
+      }
+    }
+
+  };
+  // ...
+  onChartHover = ($event: any) => {
+    window.console.log('onChartHover', $event);
+  };
+  onChartClick = ($event: any) => {
+    window.console.log('onChartClick', $event);
+  };
+
+
+
+  newDataPoint(dataArr = [100, 100, 100], label) {
+    this.chartData.forEach((dataset, index) => {
+      this.chartData[index] = Object.assign({}, this.chartData[index], {
+        data: [...this.chartData[index].data, dataArr[index]]
+      });
+    });
+
+    this.chartLabels = [...this.chartLabels, label];
+  }
+
+
+
+  ///////////////////////// BUSY I /////////////////////////
+
+  public doughnutChartLabels3: Label[] = ['DIESEL', 'Other'];
+  public doughnutChartData3: MultiDataSet = [
+    [900, 450]
+  ];
+  public doughnutChartType3: ChartType = 'doughnut';
+  public doughnutChartColors3: Color[] = [
+    { backgroundColor: ["#ab3d30", "#e7e7e7"] }
+  ];
+
+  // chartData2 = [
+  //   {
+  //     data: [84],
+  //     label: 'DIESEL BAY',
+  //     fill: true
+  //   }
+  // ];
+  // chartLabels2: Label[] = [
+  //   // อยากให้ขึ้นเป็น day / week / month ที่เลือกจะดู
+  //   // 'DIESEL BAY', 'GASOHOL95 BAY'
+  // ];
+  // chartOptions2 = {
+  //   responsive: true,
+  //   legend: {
+  //     labels: {
+  //       fontColor: 'black'
+  //     }
+  //   },
+  //   primaryYAxis: {
+  //     minimum: 0, maximum: 5, interval:1, 
+  //  }
+  // };
+  // // ...
+  // onChartHover2 = ($event: any) => {
+  //   window.console.log('onChartHover', $event);
+  // };
+  // onChartClick2 = ($event: any) => {
+  //   window.console.log('onChartClick', $event);
+  // };
+
+  // newDataPoint2(dataArr = [0, 0, 0], label) {
+  //   this.chartData2.forEach((dataset, index) => {
+  //     this.chartData2[index] = Object.assign({}, this.chartData2[index], {
+  //       data: [...this.chartData2[index].data, dataArr[index]]
+  //     });
+  //   });
+
+  //   this.chartLabels2 = [...this.chartLabels2, label];
+  // }
+
+  ///////////////////////// BUSY II /////////////////////////
+
+  public doughnutChartLabels4: Label[] = ['GASOHOL95', 'Other'];
+  public doughnutChartData4: MultiDataSet = [
+    [450, 900]
+  ];
+  public doughnutChartType4: ChartType = 'doughnut';
+  public doughnutChartColors4: Color[] = [
+    { backgroundColor: ["#460707", "#e7e7e7"] }
+  ];
+
+
+  // chartData22 = [
+  //   {
+  //     data: [3],
+  //     label: 'GASOHOL95 BAY',
+  //     fill: false
+  //   }
+  // ];
+  // chartLabels22: Label[] = [
+  //   // อยากให้ขึ้นเป็น day / week / month ที่เลือกจะดู
+  //   // 'DIESEL BAY', 'GASOHOL95 BAY'
+  // ];
+  // chartOptions22 = {
+  //   responsive: true,
+  //   legend: {
+  //     labels: {
+  //       fontColor: 'black'
+  //     }
+  //   },
+  //   primaryYAxis: {
+  //     minimum: 0, maximum: 5, interval: 1,
+  //   }
+  // };
+  // // ...
+  // onChartHover22 = ($event: any) => {
+  //   window.console.log('onChartHover', $event);
+  // };
+  // onChartClick22 = ($event: any) => {
+  //   window.console.log('onChartClick', $event);
+  // };
+
+  // newDataPoint22(dataArr = [0, 0, 0], label) {
+  //   this.chartData22.forEach((dataset, index) => {
+  //     this.chartData22[index] = Object.assign({}, this.chartData22[index], {
+  //       data: [...this.chartData22[index].data, dataArr[index]]
+  //     });
+  //   });
+
+  //   this.chartLabels22 = [...this.chartLabels22, label];
+  // }
+
+  ngOnInit() {
+    // console.log(event);
+  }
+
+  constructor() {
+    // Object.assign(this, { single })
+    // this.view = [innerWidth / 4, 655];
+  }
+}
+
+
+
+
+
+  ///////////////////////// LINE CHART [NOT USE] in EXPORT /////////////////////////
 
   // public lineChartData: ChartDataSets[] = [
   //   { data: [85, 72, 78, 75, 77, 75], label: 'Crude oil prices',fill: false },
@@ -99,79 +345,3 @@ export class DailyComponent implements OnInit {
 
   // public lineChartLegend = true;
   // public lineChartPlugins = [];
-  
-
-
-
-  ///////////////////////// BIG LINE-CHART /////////////////////////
-
-  // public chartColors: Color[] =[
-  //   {
-  //     backgroundColor:["#FF7360", "#6FC8CE", "#FAFFF2", "#FFFCC4", "#B9E8E0"]
-  //   }];
-
-   ngOnInit() {
-  }
-
-constructor() { }
-
-  chartData = [
-    {
-      data: [330, 600, 260, 700],
-      label: 'SO station',
-      fill: false
-    },
-    {
-      data: [120, 455, 100, 340],
-      label: 'IB station',
-      fill: false
-    },
-    {
-      data: [45, 67, 800, 500],
-      label: 'OB station',
-      fill: false
-    },
-    {
-      data: [700, 67, 800, 500],
-      label: 'GB station',
-      fill: false
-    },
-    {
-      data: [200, 67, 800, 500],
-      label: 'DB station',
-      fill: false
-    }
-  ];
-  chartLabels: Label[] = [
-    // อยากให้ขึ้นเป็น day / week / month ที่เลือกจะดู
-    'January', 'February', 'March', 'April'
-  ];
-  chartOptions = {
-    responsive: true,
-    legend: {
-      labels: {
-        fontColor: 'white'
-      }
-    }
-  };
-  // ...
-  onChartHover = ($event: any) => {
-    window.console.log('onChartHover', $event);
-  };
-  onChartClick = ($event: any) => {
-    window.console.log('onChartClick', $event);
-  };
-
-
-
-  newDataPoint(dataArr = [100, 100, 100], label) {
-    this.chartData.forEach((dataset, index) => {
-      this.chartData[index] = Object.assign({}, this.chartData[index], {
-        data: [...this.chartData[index].data, dataArr[index]]
-      });
-    });
-
-    this.chartLabels = [...this.chartLabels, label];
-  }
-  
-}
