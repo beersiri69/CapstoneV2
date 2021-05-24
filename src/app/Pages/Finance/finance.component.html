@@ -1,24 +1,21 @@
-<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+<div class="header bg-bymesix pb-8 pt-5 pt-md-8">
     <div class="container-fluid">
-      <div class="header-body">
+      <div class="header-body">       
+        <a *ngFor="let Page of pages; index as i" routerLink="{{Page.Route}}">
+          <button id={{i}} type="button" placement="top-center" class="{{PropChange[i]}}" triggers="hover focus click"(click)=check($event)>{{Page.Name}}</button>  
+        </a>
 
         <!-- Card stats -->
-        
-        <mat-form-field appearance="fill" style=" Background-color: #D5D5D5; ">
-          <mat-label style="color:black">Select page</mat-label>
-          <mat-select (selectionChange)="navigateTo($event.value)">
-            <mat-option *ngFor="let page of pages; index as i" [value]="page.Route">
-              {{page.Name}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        
-        
 
       </div>
     </div>
   </div>
-  <div class="container-fluid mt--7">
-    <!-- Table -->
-    <router-outlet></router-outlet>
-</div>  
+  <div class="body bg-bymeten">
+    <div class="container-fluid mt--7">
+      <!-- Table -->
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <div class="footer bg-bymeten">
+  </div>
+  

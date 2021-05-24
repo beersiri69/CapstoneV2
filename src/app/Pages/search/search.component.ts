@@ -9,13 +9,11 @@ interface botton {
 }
 
 export const bottonall: botton[] = [
-  {path:'./staff' , Name:"Staff"},
-  {path:'./customer' , Name:"Customer"},
-  {path:'./invoice' , Name:"Invoice"},
-  {path:'./purchase_order' , Name:"Purchase Order"},
+  { path: './staff', Name: "Staff" },
+  { path: './customer', Name: "Customer" },
+  { path: './invoice', Name: "Invoice" },
+  { path: './purchase_order', Name: "Purchase Order" },
 ]
-
-
 
 @Component({
   selector: 'app-search',
@@ -23,33 +21,31 @@ export const bottonall: botton[] = [
   styleUrls: ['./search.component.scss']
 })
 
-
 export class SearchComponent implements OnInit {
   SearhForm: FormGroup;
   public Bottonshow: any[];
+  public PropChange: any[];
 
-  public PropChange : any[];
+  constructor(private router: Router,
+    private networkService: NetworkService)
+
+  { }
 
 
-  constructor(private router : Router,
-             private networkService:NetworkService,
-             ) {}
-    
-  
   ngOnInit() {
-    this.Bottonshow = bottonall.filter(Bottonshow => Bottonshow)    
-    
-    this.PropChange = ["btn-menu","btn-menu","btn-menu","btn-menu"]
+    this.Bottonshow = bottonall.filter(Bottonshow => Bottonshow)
+    this.PropChange = ["btn-menu", "btn-menu", "btn-menu", "btn-menu"]
   }
-  check(e){
+  check(e) {
     var target = e.target || e.srcElement || e.currentTarget
     var x = target.id
-    for ( let i in this.PropChange){
+    for (let i in this.PropChange) {
       this.PropChange[i] = "btn-menu"
-    }    
+    }
+
     this.PropChange[x] = "btn-sel"
-    
+
   }
 }
 
-  
+
