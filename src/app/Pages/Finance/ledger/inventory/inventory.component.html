@@ -3,38 +3,47 @@
       <div class="card shadow">
           
         <div class="card-header border-0">
-          <h3 class="mb-0">Inventory</h3>
-        </div>
-        <div class="card-header border-0">
-            
-          
-
-
+          <div class="row m-0 p-0">
+            <div class="col p-0">
+              <h3 class="mb-0">Account Inventory</h3>
+              
+            </div>
+            <div class="col-3">
+              <mat-form-field appearance="fill">
+                <mat-label>Choose a date</mat-label>
+                <input matInput [matDatepicker]="picker" (dateChange)="addEvent($event)">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>                
           </div>
+          <div class="col-2">
+            <h1 class="text-center mt-3">No. 126</h1>
+          </div>
+        </div>
+        </div>
         
         <div class="table-responsive">
           <table class="table align-items-center table-flush">
             <thead class="thead-light">
               <tr>
                 <th scope="col">Date</th>
-                <th scope="col">Explanation</th>
-                <th scope="col">Debit</th>
-                <th scope="col">Credit</th>
+                <th scope="col-3">Explanation</th>
+                <th scope="col">Ref No.</th>
+                <th scope="col">Debit(Baht)</th>
+                <th scope="col">Credit(Baht)</th>
+                <th scope="col">Balance(Baht)</th>
               </tr>
             </thead>
-            <tbody>
-              <!-- <tr *ngFor = "let Staff of StaffAll; index as i">
-                   <td> {{Staff.Staff_ID}}</td>
-                   <td> {{Staff.Staff_Title}}</td>
-                   <td> {{Staff.Staff_Name}}</td>
-                   <td> {{Staff.Staff_Surname}}</td>
-                   <td> {{Staff.Staff_Tel}}</td>
-                   <td> {{Staff.Password}}</td>
-                   <td> {{Staff.Role}}</td>
-                 -->
-                  
-                                
-              <!-- </tr> -->
+            <tbody *ngIf="GeneralShowAll && GeneralShowAll[0]">
+              <tr *ngFor = "let list of GeneralShowAll; index as i">
+                <td> {{list.Date}}</td>
+                <td> {{list.Explain}}</td>
+                <td> {{list.Ref}}</td>
+                <td> {{list.Debit}}</td>
+                <td> {{list.Credit}}</td>
+                <td> {{list.Balance}}</td>
+                       
+           </tr>
                              
             </tbody>
           </table>

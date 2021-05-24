@@ -3,7 +3,34 @@
       <div class="col">
         <div class="card shadow">
           <div class="card-header border-0">
-            <h3 class="mb-0">Income Statement</h3>
+            <div class="row m-0 p-0">
+              <div class="col p-0">
+                <h3 class="mb-0">Income Statement</h3>
+                
+              </div>
+              <div class="col-3">
+                <!-- <mat-form-field appearance="fill">
+                  <mat-label>Choose date range</mat-label>
+                  <input matInput [matDatepicker]="picker" (dateChange)="addEvent($event)">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field> c 
+                             -->
+                <mat-form-field appearance="fill">
+                  <mat-label>Enter a date range</mat-label>
+                  <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+                    <input matStartDate formControlName="start" placeholder="Start date">
+                    <input matEndDate formControlName="end" placeholder="End date" (dateChange)="GetDateRange($event)">
+                  </mat-date-range-input>
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-date-range-picker #picker></mat-date-range-picker>
+                </mat-form-field>                 
+            </div>
+            
+            <!-- <div class="col-2">
+              <h1 class="text-center mt-3">J{{DatChange}} </h1>
+            </div> -->
+          </div>
           </div>
           <div class="table-responsive">
             <table class="table align-items-center table-flush">
@@ -21,38 +48,38 @@
                                                    
                 </tr>
                 <tr>
-                  <td class="pl-5"> - GASOHOL95</td>
-                  <td>        XX    </td>
+                  <td class="pl-5"> -Sale GASOHOL95</td>
+                  <td>  {{Sale_GShow}}    </td>
                 </tr>
 
                 <tr>
-                  <td class="pl-5"> - DIESEL</td>
-                  <td>      XX   </td>
+                  <td class="pl-5"> -Sale DIESEL</td>
+                  <td>  {{Sale_DShow}}   </td>
                 </tr>
 
                 <tr class="fw-bold" >
                   <td> Total Sale </td>
-                  <td>      XX   </td>
+                  <td>      {{Total_SaleShow}}   </td>
                 </tr>
 
                 <tr>
-                  <td  class="pl-5"> - GASOHOL95</td>
-                  <td>        XX    </td>
+                  <td  class="pl-5"> -Purchase GASOHOL95</td>
+                  <td>        {{Purchase_GShow}}    </td>
                 </tr>
 
                 <tr>
-                  <td class="pl-5"> - DIESEL</td>
-                  <td>      XX   </td>
+                  <td class="pl-5"> -Purchase DIESEL</td>
+                  <td>      {{Purchase_DShow}}   </td>
                 </tr>
 
                 <tr class="fw-bold" >
                   <td> Total COGS </td>
-                  <td  style="text-decoration: underline;">      XX   </td>
+                  <td  style="text-decoration: underline;">  {{TotalPurchaseShow}} </td>
                 </tr>
 
                 <tr class="fw-bold">
                   <td> Gross Profit </td>
-                  <td>      XX   </td>
+                  <td> {{Gross_ProfitShow}}   </td>
                 </tr>
 
                 <tr>
@@ -61,32 +88,23 @@
                 </tr>
                 <tr>
                   <td> Salary </td>                 
-                  <td>  </td>                 
+                  <td> {{SalaryShow}} </td>                 
                 </tr>
 
-                <tr>
-                  <td class="pl-5"> - Sale Office Staff</td>
-                  <td>        XX    </td>
-                </tr>
-
-                <tr>
-                  <td class="pl-5"> - Gate Controller</td>
-                  <td>      XX   </td>
-                </tr>
 
                 <tr>
                   <td> Utility Expense</td>
-                  <td>        XX    </td>
+                  <td>        {{UtilityShow}}    </td>
                 </tr>
 
                 <tr>
                   <td> Depreciation</td>
-                  <td  style="text-decoration: underline;">        XX    </td>
+                  <td  style="text-decoration: underline;"> {{DepreciationShow}} </td>
                 </tr>
 
                 <tr class="fw-bold" >
                   <td > Net Income (Loss)</td>
-                  <td style="text-decoration: underline;">        XX    </td>
+                  <td style="text-decoration: underline;">{{Net_IncomeShow}}</td>
                 </tr>
 
                                

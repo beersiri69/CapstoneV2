@@ -31,7 +31,7 @@ const Authroute: Routes = [
     component: AuthTemplateComponent,
     children: 
     [ { path:'search', redirectTo:'search/staff',pathMatch:'full'},
-      { path:'financial', redirectTo:'financial/General_Ledger',pathMatch:'full'},
+      { path:'financial', redirectTo:'financial/Journal_Transaction',pathMatch:'full'},
       { path:'financial/General_Ledger',redirectTo:'financial/General_Ledger/Account_Receivable',pathMatch:'full'},
       { path:'managerdashboard', redirectTo:'managerdashboard',pathMatch:'full'},
       // { path:'managerdashboard', redirectTo:'managerdashboard/',pathMatch:'full'},
