@@ -144,10 +144,10 @@ export class OpDashboardComponent implements OnInit {
                 console.log(this.PivalueAll)
 
                 this.WIPD1 = Number(this.PivalueAll[0].Item1)
-                this.WIPD2 = Number(this.PivalueAll[0].Item1)
-                this.WIPD3 = Number(this.PivalueAll[0].Item1)
-                this.WIPD4 = Number(this.PivalueAll[0].Item1)
-                this.WIPD5 = Number(this.PivalueAll[0].Item1)
+                this.WIPD2 = Number(this.PivalueAll[1].Item1)
+                this.WIPD3 = Number(this.PivalueAll[2].Item1)
+                this.WIPD4 = Number(this.PivalueAll[3].Item1)
+                this.WIPD5 = Number(this.PivalueAll[4].Item1)
                 
                 this.chartData = [
                   {
