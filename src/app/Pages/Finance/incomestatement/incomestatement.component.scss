@@ -8,3 +8,78 @@
     padding: .75em .75em 0 .75em !important;
     background-color: rgb(172, 172, 172);
 }
+
+// ::ng-deep .mat-calendar-body-in-range {
+//     background-color: #ffffff;
+//     color: #fff;
+// } 
+
+// ::ng-deep .datepicker-active-color {color : rgb(255, 255, 255);}
+// ::ng-deep .datepicker-active-background {color: rgb(255, 255, 255);}
+// ::ng-deep .datepicker-range-background {color: rgb(255, 255, 255);}
+// ::ng-deep .datepicker-range-cell-focused-background {color: rgb(255, 255, 255);}
+// ::ng-deep .datepicker-range-color {color: rgb(255, 255, 255);}
+
+
+
+
+// ::ng-deep .mat-calendar-body-selected {
+//     background-color: #acc6f1;
+//     color: #fff;
+// } 
+
+
+// ::ng-deep .mat-calendar-body-cell::before,
+// .mat-calendar-body-cell::after,
+// .mat-calendar-body-cell-preview {
+// //   content: '';
+// //   position: absolute;
+  
+// //   left: 0;
+// //   z-index: 0;
+// //   box-sizing: border-box;
+
+//   // We want the range background to be slightly shorter than the cell so
+//   // that there's a gap when the range goes across multiple rows.
+  
+// //   width: 100%;
+//   background-color: #acc6f1;
+// // }
+
+
+// ::ng-deep .mat-calendar-body-range-end:not(.mat-calendar-body-in-comparison-range)::before,
+// .mat-calendar-body-range::after,
+// .mat-calendar-body-comparison-end:not(.mat-calendar-body-comparison-bridge-end)::before,
+// .mat-calendar-body-comparison::after,
+// .mat-calendar-body-preview-end .mat-calendar-body-cell-preview,.mat-calendar-body-in-range
+
+// {
+   
+//     border-radius: 0;
+//     background-color: #acc6f1;
+  
+// }
+
+// ::ng-deep .mat-calendar-body-range-start:not(.mat-calendar-body-in-comparison-range)::before,
+// .mat-calendar-body-range-start::after,
+// .mat-calendar-body-comparison-start:not(.mat-calendar-body-comparison-bridge-start)::before,
+// .mat-calendar-body-comparison-start::after,
+// .mat-calendar-body-preview-start .mat-calendar-body-cell-preview,
+// .mat-calendar-body-in-range {
+ 
+//     border-radius: 0;
+//     background-color: #acc6f1;
+  
+// }
+
+    
+// ::ng-deep .mat-calendar-body-begin-range .mat-calendar-cell-semi-selected .mat-calendar-body-end-range {
+    
+//     background-color: white;
+    
+// }
+// ::ng-deep .mat-calendar-body-in-range {
+//     border-radius: 22px 22px 22px 22px !important;
+//     background-color: #7cbaec;
+//     color: #fff;
+// } 
