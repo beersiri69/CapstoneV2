@@ -165,27 +165,27 @@ export class OpDashboardComponent implements OnInit {
       this.barChartData =  [
         {
           data: [this.A1, this.P1*100, 26],
-          label: 'SALE OFFICE',
+          label: 'DIESEL BAY 1',
         },
         {
           data: [this.A2, this.P2*100, 30],
-          label: 'INBOUND WEIGHBRIDGE',
+          label: 'DIESEL BAY 2'
         },
         {
           data: [this.A3, this.P3*100, 60],
-          label: 'DIESEL BAY',
+          label: 'GASOHOL95 BAY 1'
         },
         {
           data: [this.A4, this.P4*100, 15],
-          label: 'GASOHOL95 BAY',
+          label: 'GASOHOL95 BAY 2'
         },
         {
           data: [this.A5, this.P5*100, 25],
-          label: 'OUTBOUND WEIGHBRIDGE',
+          label: 'GASOHOL95 BAY 3'
         },
         {
           data: [this.A6, this.P6*100, 25],
-          label: 'OUTBOUND WEIGHBRIDGE',
+          label: 'GASOHOL95 BAY 4'
         },
       ];
 
@@ -288,46 +288,39 @@ export class OpDashboardComponent implements OnInit {
     { backgroundColor: '#ffe6c4' },
     { backgroundColor: '#b99c7e' },
     { backgroundColor: '#7f5c46' },
+    { backgroundColor: '#c1d6e1' },
   ];
 
   ///////////////////////// WIP /////////////////////////
 
   chartData = [
     {
-      data: [33, 60, 26, 70, 12, 25, 100],
+      data: [33],
       label: 'SO station',
       fill: false,
     },
     {
-      data: [0, 12, 33, 70, 12, 33, 80],
+      data: [12],
       label: 'IB station',
       fill: false,
     },
     {
-      data: [0, 70, 12, 33, 48, 20, 22],
+      data: [70],
       label: 'DB station',
       fill: false,
     },
     {
-      data: [1, 12, 33, 48, 57, 18, 75],
+      data: [5],
       label: 'GB station',
       fill: false,
     },
     {
-      data: [1, 23, 90, 33, 58, 12, 64],
+      data: [90],
       label: 'OB station',
       fill: false,
     },
   ];
-  chartLabels: Label[] = [
-    // อยากให้ขึ้นเป็น day / week / month ที่เลือกจะดู
-    '00:00',
-    '04:00',
-    '08:00',
-    '12:00',
-    '16:00',
-    '20:00',
-    '24:00',
+  chartLabels: Label[] = [      
   ];
   chartOptions = {
     responsive: true,

@@ -51,23 +51,27 @@ export class WeeklyComponent implements OnInit {
   public barChartData: ChartDataSets[] = [
     {
       data: [33, 60, 26],
-      label: 'SALE OFFICE',
+      label: 'DIESEL BAY 1',
     },
     {
       data: [12, 45, 30],
-      label: 'INBOUND WEIGHTBRIDGE'
+      label: 'DIESEL BAY 2'
     },
     {
       data: [45, 57, 60],
-      label: 'DIESEL BAY'
+      label: 'GASOHOL95 BAY 1'
     },
     {
       data: [14, 32, 15],
-      label: 'GASOHOL95 BAY'
+      label: 'GASOHOL95 BAY 2'
     },
     {
       data: [60, 63, 25],
-      label: 'OUTBOUND WEIGHTBRIDGE'
+      label: 'GASOHOL95 BAY 3'
+    },
+    {
+      data: [60, 63, 25],
+      label: 'GASOHOL95 BAY 4'
     },
   ];
 
@@ -77,9 +81,10 @@ export class WeeklyComponent implements OnInit {
     { backgroundColor: '#ffe6c4' },
     { backgroundColor: '#b99c7e' },
     { backgroundColor: '#7f5c46' },
+    { backgroundColor: '#c1d6e1' },
   ]
 
-
+  
 
   ///////////////////////// SCHEDULE UTILIZATION /////////////////////////
 
@@ -127,33 +132,32 @@ export class WeeklyComponent implements OnInit {
 
   chartData = [
     {
-      data: [33, 60, 26, 70, 12, 25, 100],
+      data: [33],
       label: 'SO station',
-      fill: false
+      fill: false,
     },
     {
-      data: [0, 12, 33, 70, 12, 33, 80],
+      data: [12],
       label: 'IB station',
-      fill: false
+      fill: false,
     },
     {
-      data: [0, 70, 12, 33, 48, 20, 22],
+      data: [70],
       label: 'DB station',
-      fill: false
+      fill: false,
     },
     {
-      data: [1, 12, 33, 48, 57, 18, 75],
+      data: [5],
       label: 'GB station',
-      fill: false
+      fill: false,
     },
     {
-      data: [1, 23, 90, 33, 58, 12, 64],
+      data: [90],
       label: 'OB station',
-      fill: false
-    }
+      fill: false,
+    },
   ];
-  chartLabels: Label[] = [
-    '00:00', '04:00', '08:00', '12:00', '16:00', '20:00', '24:00'
+  chartLabels: Label[] = [      
   ];
   chartOptions = {
     responsive: true,
