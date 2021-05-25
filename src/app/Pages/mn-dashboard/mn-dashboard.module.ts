@@ -24,6 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     DailyComponent,
     WeeklyComponent,
     MonthlyComponent,
+    WeeklyComponent
   ],
   imports: [
     CommonModule,
