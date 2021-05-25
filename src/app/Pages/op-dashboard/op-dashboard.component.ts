@@ -194,6 +194,20 @@ export class OpDashboardComponent implements OnInit {
       this.Q4 = Number(this.PivalueAll[15].Item1);
       this.Q5 = Number(this.PivalueAll[16].Item1);
       this.Q6 = Number(this.PivalueAll[17].Item1);
+      this.pivalueService.GBusy(DateSend).subscribe((data) => {
+        this.PivalueAll = data.result;
+        this.GBusy = Number(this.PivalueAll[0].Item1);
+      
+        this.pivalueService.DBusy(DateSend).subscribe((data) => {
+          this.PivalueAll = data.result;
+          this.DBusy = Number(this.PivalueAll[0].Item1);
+          //TODO ==========================================================================================  2 Donut
+          this.Donut_Diesel = [[this.GBusy, this.DBusy]];
+          this.Donut_Gasohol = [[this.DBusy, this.GBusy]];
+          this.CanRender2 = true;
+          this.GetDashboardValue3('2018-03-01');
+        });
+      });
        //TODO ==========================================================================================  Bar Chart APQ
       this.barChartData = [
         {
@@ -222,20 +236,7 @@ export class OpDashboardComponent implements OnInit {
         },
       ];
 
-      this.pivalueService.GBusy(DateSend).subscribe((data) => {
-        this.PivalueAll = data.result;
-        this.GBusy = Number(this.PivalueAll[0].Item1);
-      
-        this.pivalueService.DBusy(DateSend).subscribe((data) => {
-          this.PivalueAll = data.result;
-          this.DBusy = Number(this.PivalueAll[0].Item1);
-          //TODO ==========================================================================================  2 Donut
-          this.Donut_Diesel = [[this.GBusy, this.DBusy]];
-          this.Donut_Gasohol = [[this.DBusy, this.GBusy]];
-          this.CanRender2 = true;
-          this.GetDashboardValue3('2018-03-01');
-        });
-      });
+  
     });
   }
 

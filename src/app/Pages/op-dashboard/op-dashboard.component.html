@@ -214,7 +214,7 @@
   </div>
 
   <!----------------------------- START RESOURCES BUSY ----------------------------->
-  <div class="row mt-5" *ngIf="CanRender">
+  <div class="row mt-5" *ngIf="CanRender2">
   <!----------------------------- FIRST RESOURCES BUSY ----------------------------->
     <div class="col-xl-6 mb-5 mb-xl-0">
       <div class="card shadow">
@@ -314,9 +314,9 @@
   <!----------------------------- END %OEE ----------------------------->
 
   <!----------------------------- START DONUT ----------------------------->
-  <div class="row" *ngIf="CanRender3" >
+  <div class="row"  >
     <!----------------------------- FIRST DONUT ----------------------------->
-    <div class="col-xl-6">
+    <div class="col-xl-6" *ngIf="CanRender3">
       <div class="card shadow mt-5">
         <div class="card-header bg-transparent">
           <div class="row align-items-center">
@@ -327,7 +327,7 @@
           </div>
         </div>
         <div class="card-body">
-          <div style="display: block">
+          <div style="display: block" >
             <canvas baseChart 
             [data]="Donut_NOQ" 
             [labels]="doughnutChartLabels" 
