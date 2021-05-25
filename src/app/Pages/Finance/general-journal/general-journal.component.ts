@@ -78,9 +78,11 @@ export class GeneralJournalComponent implements OnInit {
     this.GeneralShowAll = []
     var DateSearch = formatDate(event.value,'yyyy-MM-dd','en-US');
     this.GetRefNo(DateSearch)
+    
     this.networkService.GetTransaction(DateSearch).subscribe(
       data => {         
-        this.TransactionAll = data.result        
+        this.TransactionAll = data.result   
+       
         this.InsertLoop()
       },
       err =>{
