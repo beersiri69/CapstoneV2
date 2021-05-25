@@ -17,6 +17,10 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
+import { Week01Component } from './weekly/week01/week01.component';
+import { Week02Component } from './weekly/week02/week02.component';
+import { Week03Component } from './weekly/week03/week03.component';
+import { Week04Component } from './weekly/week04/week04.component';
 
 
 @NgModule({
@@ -24,7 +28,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     DailyComponent,
     WeeklyComponent,
     MonthlyComponent,
-    WeeklyComponent
+    WeeklyComponent,
+    Week01Component,
+    Week02Component,
+    Week03Component,
+    Week04Component
   ],
   imports: [
     CommonModule,
