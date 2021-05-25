@@ -278,7 +278,7 @@
   </div>
 
   <!----------------------------- START %OEE ----------------------------->
-  <div class="row mt-5">
+  <div class="row mt-5"  *ngIf="CanRender2">
     <div class="col mb-5 mb-xl-0">
       <div class="card shadow">
         <div class="card-header bg-transparent">
@@ -295,7 +295,7 @@
             </div>
           </div>
         </div>
-        <div class="card-body" *ngIf="CanRender2">
+        <div class="card-body">
           <!-- Chart -->
           <div style="display: block">
             <canvas baseChart 
