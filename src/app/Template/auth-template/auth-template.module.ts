@@ -18,6 +18,11 @@ import { MnDashboardModule } from 'src/app/Pages/mn-dashboard/mn-dashboard.modul
 import { MnDashboardComponent } from 'src/app/Pages/mn-dashboard/mn-dashboard.component';
 import { NgxChartsModule }from '@swimlane/ngx-charts';
 import { FormsModule } from '@angular/forms';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
 
 @NgModule({
   declarations: [
@@ -53,6 +58,10 @@ import { FormsModule } from '@angular/forms';
 
     NgxChartsModule,
     FormsModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   exports:[
     AuthTemplateComponent
