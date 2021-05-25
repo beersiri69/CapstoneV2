@@ -36,7 +36,7 @@
 
 <div class="container-fluid bg-bymeten mt--7">
   <!----------------------------- START WIP ----------------------------->
-  <div class="row">
+  <div class="row" *ngIf="CanRender" >
     <div class="col-xl-8 mb-5 mb-xl-0">
       <div class="card bg-default shadow">
         <div class="card-header bg-transparent">
@@ -52,8 +52,15 @@
         <div class="card-body">
           <!-- Chart -->
           <div style="display: block">
-            <canvas baseChart [chartType]="'bar'" [legend]="true" [datasets]="chartData" [labels]="chartLabels"
-              [options]="chartOptions" (chartHover)="onChartHover(($event))" (chartClick)="onChartClick(($event))">
+            <canvas baseChart 
+            [chartType]="'bar'" 
+            [legend]="true" 
+            [datasets]="chartData" 
+            [labels]="chartLabels"
+            [options]="chartOptions" 
+            (chartHover)="onChartHover(($event))" 
+            (chartClick)="onChartClick(($event))">
+            <!-- [Color]="chartColors" -->
             </canvas>
           </div>
         </div>
@@ -62,8 +69,10 @@
     <!----------------------------- END WIP ----------------------------->
 
     <!----------------------------- START SIX BLOCKS ----------------------------->
+    
     <div class="col-xl-4">
-      <div class="row" *ngIf="CanRender">
+      <div class="row">
+        <!----------------------------- FIRST BLOCKS ----------------------------->
         <div class="col">
           <!----------------------------- FIRST BLOCKS ----------------------------->
           <div class="card card-stats bg-bymeonesix mb-4 mb-xl-0 mt-4">
@@ -81,9 +90,10 @@
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
 
+          </div>
+          </div>
+          
           <!----------------------------- SECOND BLOCKS ----------------------------->
           <div class="card card-stats bg-bymeoneseven mb-4 mb-xl-0 mt-3">
             <div class="card-body">
