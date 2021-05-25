@@ -59,9 +59,23 @@ export class OpDashboardComponent implements OnInit {
   TQ3:number
   TQ4:number
   TQ5:number
+
+  WIP1:number
+  WIP2:number
+  WIP3:number
+  WIP4:number
+  WIP5:number
+
+  WIPD1:number
+  WIPD2:number
+  WIPD3:number
+  WIPD4:number
+  WIPD5:number
   
   constructor(private pivalueService: PivalueService) {}
-  //TODO EDIT TO FALSE
+
+  //TODO: EDIT TO FLASE
+
   public CanRender = false;
   public CanRender2 = false;
   public CanRender3 = false;
@@ -79,7 +93,7 @@ export class OpDashboardComponent implements OnInit {
   Donut_Gasohol: MultiDataSet;
   Donut_NOQ: MultiDataSet;
   Donut_TQ: MultiDataSet;
-
+  chartData:any;
   GetDashboardValue1(DateSend) {
     this.pivalueService.GetAmoutG(DateSend).subscribe((data) => {
       this.PivalueAll = data.result;
@@ -110,7 +124,7 @@ export class OpDashboardComponent implements OnInit {
             this.pivalueService.GetCycle(DateSend).subscribe((data) => {
               this.PivalueAll = data.result;
               this.Cycle = this.PivalueAll[0].Item1;
-              this.CanRender = true;
+              
               //TODO WAIT PI TAG
               // this.pivalueService.GBusy(DateSend).subscribe((data) => {
               //   this.PivalueAll = data.result;
@@ -122,6 +136,52 @@ export class OpDashboardComponent implements OnInit {
 
             this.Donut_Diesel = [[this.GBusy, this.DBusy]];
             this.Donut_Gasohol= [[this.DBusy, this.GBusy]];
+            
+            this.pivalueService.GetWIPD(DateSend).subscribe(data=>{
+              
+                this.PivalueAll = data.result;
+
+                console.log(this.PivalueAll)
+
+                this.WIPD1 = Number(this.PivalueAll[0].Item1)
+                this.WIPD2 = Number(this.PivalueAll[1].Item1)
+                this.WIPD3 = Number(this.PivalueAll[2].Item1)
+                this.WIPD4 = Number(this.PivalueAll[3].Item1)
+                this.WIPD5 = Number(this.PivalueAll[4].Item1)
+                
+                this.chartData = [
+                  {
+                    data: [this.WIPD1],
+                    label: 'SO station',
+                    fill: false,
+                  },
+                  {
+                    data: [this.WIPD2],
+                    label: 'IB station',
+                    fill: false,
+                  },
+                  {
+                    data: [this.WIPD3],
+                    label: 'DB station',
+                    fill: false,
+                  },
+                  {
+                    data: [this.WIPD4],
+                    label: 'GB station',
+                    fill: false,
+                  },
+                  {
+                    data: [this.WIPD5],
+                    label: 'OB station',
+                    fill: false,
+                  },
+                ];
+                
+                this.CanRender = true;
+
+            })
+            
+            
             });
             //   });
             // });
@@ -221,7 +281,8 @@ export class OpDashboardComponent implements OnInit {
         this.Donut_NOQ = [[this.NOQ1,this.NOQ2,this.NOQ3,this.NOQ4,this.NOQ5]]
         this.Donut_TQ= [[this.TQ1,this.TQ2,this.TQ3,this.TQ4,this.TQ5]]
 
-
+        
+       
         this.CanRender3 = true;
 
       })
@@ -293,34 +354,13 @@ export class OpDashboardComponent implements OnInit {
 
   ///////////////////////// WIP /////////////////////////
 
-  chartData = [
-    {
-      data: [33],
-      label: 'SO station',
-      fill: false,
-    },
-    {
-      data: [12],
-      label: 'IB station',
-      fill: false,
-    },
-    {
-      data: [70],
-      label: 'DB station',
-      fill: false,
-    },
-    {
-      data: [5],
-      label: 'GB station',
-      fill: false,
-    },
-    {
-      data: [90],
-      label: 'OB station',
-      fill: false,
-    },
-  ];
-  chartLabels: Label[] = [      
+  //TODO 
+
+  chartLabels: Label[] = [
+    // อยากให้ขึ้นเป็น day / week / month ที่เลือกจะดู
+  
+    '12:00',
+
   ];
   chartOptions = {
     responsive: true,

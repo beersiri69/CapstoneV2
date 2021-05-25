@@ -39,7 +39,7 @@
 
 <div class="container-fluid bg-bymeten mt--7">
   <!----------------------------- START WIP ----------------------------->
-  <div class="row">
+  <div class="row" *ngIf="CanRender" >
     <div class="col-xl-8 mb-5 mb-xl-0">
       <div class="card bg-default shadow">
         <div class="card-header bg-transparent">
@@ -60,7 +60,7 @@
           <!-- Chart -->
           <div style="display: block">
             <canvas baseChart 
-            [chartType]="'line'" 
+            [chartType]="'bar'" 
             [legend]="true" 
             [datasets]="chartData" 
             [labels]="chartLabels"
@@ -80,8 +80,10 @@
     <!----------------------------- END WIP ----------------------------->
 
     <!----------------------------- START SIX BLOCKS ----------------------------->
+    
     <div class="col-xl-4">
-      <div class="row" *ngIf="CanRender">
+      <div class="row">
+        <!----------------------------- FIRST BLOCKS ----------------------------->
         <div class="col">
           <!----------------------------- FIRST BLOCKS ----------------------------->
           <div class="card card-stats bg-bymeonesix mb-4 mb-xl-0 mt-4">
@@ -98,11 +100,8 @@
                   </div>
                 </div>
               </div>
-              <!-- <p class="mt-3 mb-0 text-muted text-sm">
-                <span class="text-success mr-2"><i class="fa fa-arrow-circle-up"></i> 3.48%</span>
-                <span class="text-nowrap">Since last month</span>
-              </p> -->
-            </div>
+
+          </div>
           </div>
           
           <!----------------------------- SECOND BLOCKS ----------------------------->
@@ -120,10 +119,6 @@
                   </div>
                 </div>
               </div>
-              <!-- <p class="mt-3 mb-0 text-muted text-sm">
-                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                <span class="text-nowrap">Since last month</span>
-              </p> -->
             </div>
           </div>
           <!----------------------------- THIRD BLOCKS ----------------------------->
@@ -183,10 +178,6 @@
                   </div>
                 </div>
               </div>
-              <!-- <p class="mt-3 mb-0 text-muted text-sm">
-                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                <span class="text-nowrap">Since last month</span>
-              </p> -->
             </div>
           </div>
           <!----------------------------- SIXTH BLOCKS ----------------------------->
@@ -204,10 +195,6 @@
                   </div>
                 </div>
               </div>
-              <!-- <p class="mt-3 mb-0 text-muted text-sm">
-                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                <span class="text-nowrap">Since last month</span>
-              </p> -->
             </div>
           </div>
           <!----------------------------- SEVENTH BLOCKS ----------------------------->

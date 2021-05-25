@@ -45,6 +45,8 @@ export class PivalueService {
   private AVGNOQD = 'https://localhost:44389/api/oee/AVGNOQD/';
   private AVGTQD = 'https://localhost:44389/api/oee/AVGTQD/';
 
+  private WIPDAPI = 'https://localhost:44389/api/oee/WIPD/';
+
   constructor(private httpClient: HttpClient) {}
 
   GetAmoutG(Date): Observable<PivalueAll> {
@@ -154,6 +156,11 @@ export class PivalueService {
 
   GetAVGTQD(Date): Observable<PivalueAll> {
     return this.httpClient.get<PivalueAll>(this.AVGTQD + Date);
+  }
+
+
+  GetWIPD(Date): Observable<PivalueAll> {
+    return this.httpClient.get<PivalueAll>(this.WIPDAPI + Date);
   }
 
 }
