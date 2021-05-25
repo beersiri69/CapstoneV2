@@ -165,27 +165,27 @@ export class OpDashboardComponent implements OnInit {
       this.barChartData =  [
         {
           data: [this.A1, this.P1*100, 26],
-          label: 'SALE OFFICE',
+          label: 'DIESEL BAY 1',
         },
         {
           data: [this.A2, this.P2*100, 30],
-          label: 'INBOUND WEIGHBRIDGE',
+          label: 'DIESEL BAY 2'
         },
         {
           data: [this.A3, this.P3*100, 60],
-          label: 'DIESEL BAY',
+          label: 'GASOHOL95 BAY 1'
         },
         {
           data: [this.A4, this.P4*100, 15],
-          label: 'GASOHOL95 BAY',
+          label: 'GASOHOL95 BAY 2'
         },
         {
           data: [this.A5, this.P5*100, 25],
-          label: 'OUTBOUND WEIGHBRIDGE',
+          label: 'GASOHOL95 BAY 3'
         },
         {
           data: [this.A6, this.P6*100, 25],
-          label: 'OUTBOUND WEIGHBRIDGE',
+          label: 'GASOHOL95 BAY 4'
         },
       ];
 
@@ -288,6 +288,7 @@ export class OpDashboardComponent implements OnInit {
     { backgroundColor: '#ffe6c4' },
     { backgroundColor: '#b99c7e' },
     { backgroundColor: '#7f5c46' },
+    { backgroundColor: '#c1d6e1' },
   ];
 
   ///////////////////////// WIP /////////////////////////
