@@ -56,23 +56,27 @@ export class DailyComponent implements OnInit {
   public barChartData: ChartDataSets[] = [
     {
       data: [33, 60, 26],
-      label: 'SALE OFFICE',
+      label: 'DIESEL BAY 1',
     },
     {
       data: [12, 45, 30],
-      label: 'INBOUND WEIGHTBRIDGE'
+      label: 'DIESEL BAY 2'
     },
     {
       data: [45, 57, 60],
-      label: 'DIESEL BAY'
+      label: 'GASOHOL95 BAY 1'
     },
     {
       data: [14, 32, 15],
-      label: 'GASOHOL95 BAY'
+      label: 'GASOHOL95 BAY 2'
     },
     {
       data: [60, 63, 25],
-      label: 'OUTBOUND WEIGHTBRIDGE'
+      label: 'GASOHOL95 BAY 3'
+    },
+    {
+      data: [60, 63, 25],
+      label: 'GASOHOL95 BAY 4'
     },
   ];
 
@@ -82,6 +86,7 @@ export class DailyComponent implements OnInit {
     { backgroundColor: '#ffe6c4' },
     { backgroundColor: '#b99c7e' },
     { backgroundColor: '#7f5c46' },
+    { backgroundColor: '#c1d6e1' },
   ]
 
 
