@@ -187,9 +187,9 @@ export class PivalueService {
     return this.httpClient.get<PivalueAll>(this.AVGTQD + Date);
   }
 
-  GetWIPD(Date): Observable<PivalueAll> {
-    return this.httpClient.get<PivalueAll>(this.WIPDAPI + Date);
-  }
+  // GetWIPD(Date): Observable<PivalueAll> {
+  //   return this.httpClient.get<PivalueAll>(this.WIPDAPI + Date);
+  // }
 
   FailD(Date): Observable<PivalueAll> {
     return this.httpClient.get<PivalueAll>(this.FailDAPI + Date);
@@ -260,9 +260,9 @@ export class PivalueService {
   }
 
   
-  // GetWIPD(Date): Observable<PivalueAll> {
-  //   return this.httpClient.get<PivalueAll>(this.WIPDAPI + Date);
-  // }
+  GetWIPD(Date): Observable<PivalueAll> {
+    return this.httpClient.get<PivalueAll>(this.WIPDAPI + Date);
+  }
 
   GetQueueD(Date): Observable<PivalueAll> {
     return this.httpClient.get<PivalueAll>(this.QueueDAPI + Date);

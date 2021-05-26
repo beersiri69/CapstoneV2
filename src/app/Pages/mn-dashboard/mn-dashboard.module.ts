@@ -17,6 +17,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DailyV2Component } from './daily-v2/daily-v2.component';
 
 
 
@@ -26,6 +27,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     WeeklyComponent,
     MonthlyComponent,
     WeeklyComponent,
+    DailyV2Component,
 
   ],
   imports: [
