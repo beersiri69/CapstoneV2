@@ -2,9 +2,31 @@
     font-weight: bold;
 }
 
-
 ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
     border-radius: 10px 10px 10px 10px !important;
     padding: .75em .75em 0 .75em !important;
-    background-color: rgb(172, 172, 172);
+    background-color: #d9d9d9;
+    color: #676767;
 }
+
+::ng-deep .mat-calendar {
+    background-color: #d9d9d9;
+    color: #9a9a9a;
+  }
+
+::ng-deep .mat-calendar-body-selected {
+    background-color: #8b8b8b;
+    color: #fff;
+} 
+
+::ng-deep .mat-date-display { 
+    background-color: #8b8b8b; 
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+    color: #000000 !important;
+}
+
+mat-datepicker-toggle {
+    color: #ffffff !important;
+   }

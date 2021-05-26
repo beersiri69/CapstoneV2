@@ -1,30 +1,20 @@
+<div class="container-fluid bg-bymeten mt--7">
+  <div class="row text-right">
+    <div class="col"></div>
+    <div class="col-2">
 
+      <mat-form-field appearance="fill">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" (dateChange)="addEvent($event)">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
 
-
-<div class="body bg-bymeten">
-  <div class="container-fluid bg-bymeten mt--7">
-    <div class="row">
-      <div class="col">
-
-      </div>
-      <div class="col-3">
-        
-        <mat-form-field appearance="fill">
-          <mat-label>Choose a date</mat-label>
-          <input matInput [matDatepicker]="picker" (dateChange)="addEvent($event)">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field> 
-
-
-
-      </div>
     </div>
   </div>
-  <div class="container-fluid bg-bymeten mt-7">
   <!----------------------------- START WIP ----------------------------->
-  <div class="row">
-    <div class="col-xl-8 mb-5 mb-xl-0">
+  <div class="row" style="height: 100%;">
+    <div class="col-xl-8 mb-5 mb-xl-0" style="width: 100%;">
       <div class="card bg-default shadow">
         <div class="card-header bg-transparent">
           <div class="row align-items-center">
@@ -33,36 +23,22 @@
               <h2 class="text-white mb-0">WORK IN PROCESS</h2>
             </div>
             <div class="col">
-              <!-- <ul class="nav nav-pills justify-content-end">
-                <li>ABC</li>
-                <li>DEF</li>
-              </ul> -->
             </div>
           </div>
         </div>
-        
+
         <div class="card-body">
           <!-- Chart -->
           <div style="display: block">
-            <canvas baseChart 
-            [chartType]="'line'" 
-            [legend]="true" 
-            [datasets]="chartData" 
-            [labels]="chartLabels"
-            [options]="chartOptions" 
-            (chartHover)="onChartHover(($event))" 
-            (chartClick)="onChartClick(($event))">
-            <!-- [Color]="chartColors" -->
+            <canvas baseChart [chartType]="'bar'" [legend]="true" [datasets]="chartData" [labels]="chartLabels"
+              [options]="chartOptions" (chartHover)="onChartHover(($event))" (chartClick)="onChartClick(($event))">
             </canvas>
-            <!-- <button (click)="newDataPoint([900, 50, 300], 'May')">
-                Add data point
-              </button> -->
           </div>
-          <!-- ปรับความสูง+data chart sale value -->
         </div>
       </div>
     </div>
     <!----------------------------- END WIP ----------------------------->
+
 
     <!----------------------------- START SIX BLOCKS ----------------------------->
     <div class="col-xl-4">
@@ -214,12 +190,12 @@
         </div>
       </div>
     </div>
-    <!----------------------------- END SIX BLOCKS ----------------------------->
+    <!----------------------------- END SEVEN BLOCKS ----------------------------->
   </div>
 
   <!----------------------------- START RESOURCES BUSY ----------------------------->
   <div class="row mt-5">
-  <!----------------------------- FIRST RESOURCES BUSY ----------------------------->
+    <!----------------------------- FIRST RESOURCES BUSY ----------------------------->
     <div class="col-xl-6 mb-5 mb-xl-0">
       <div class="card shadow">
         <div class="card-header mt-3 bg-transparent">
@@ -229,44 +205,15 @@
               <h2 class="text-black mb-0">RESOURCES BUSY</h2>
             </div>
             <div class="col">
-              <!-- <ul class="nav nav-pills justify-content-end">
-                <li>ABC</li>
-                <li>DEF</li>
-              </ul> -->
             </div>
           </div>
         </div>
         <div class="card-body">
           <!-- Chart -->
           <div style="display: block">
-            <canvas baseChart 
-            [data]="doughnutChartData3" 
-            [labels]="doughnutChartLabels3" 
-            [chartType]="doughnutChartType3"
-            [colors]="doughnutChartColors3">
+            <canvas baseChart [data]="doughnutChartData3" [labels]="doughnutChartLabels3"
+              [chartType]="doughnutChartType3" [colors]="doughnutChartColors3">
             </canvas>
-            <!-- <ngx-charts-bar-vertical
-              (window:resize)="onResize($event)"
-              [view]="view"
-              [scheme]="colorScheme"
-              [results]="single"
-              [gradient]="gradient"
-              [xAxis]="showXAxis"
-              [yAxis]="showYAxis"
-              [legend]="showLegend"
-              [showXAxisLabel]="showXAxisLabel"
-              [showYAxisLabel]="showYAxisLabel"
-              >
-            </ngx-charts-bar-vertical> -->
-            <!-- <canvas baseChart 
-            [chartType]="'bar'" 
-            [legend]="true" 
-            [datasets]="chartData2" 
-            [labels]="chartLabels2"
-            [options]="chartOptions2" 
-            (chartHover)="onChartHover2(($event))" 
-            (chartClick)="onChartClick2(($event))">
-            </canvas> -->
           </div>
         </div>
       </div>
@@ -281,41 +228,20 @@
               <h2 class="text-black mb-0">RESOURCES BUSY</h2>
             </div>
             <div class="col">
-              <!-- <ul class="nav nav-pills justify-content-end">
-                <li>ABC</li>
-                <li>DEF</li>
-              </ul> -->
             </div>
           </div>
         </div>
         <div class="card-body">
           <!-- Chart -->
           <div style="display: block">
-            <canvas baseChart 
-            [data]="doughnutChartData4" 
-            [labels]="doughnutChartLabels4" 
-            [chartType]="doughnutChartType4"
-            [colors]="doughnutChartColors4">
+            <canvas baseChart [data]="doughnutChartData4" [labels]="doughnutChartLabels4"
+              [chartType]="doughnutChartType4" [colors]="doughnutChartColors4">
             </canvas>
-            <!-- <canvas baseChart 
-            [chartType]="'bar'" 
-            [legend]="true" 
-            [datasets]="chartData22" 
-            [labels]="chartLabels22"
-            [options]="chartOptions22" 
-            (chartHover)="onChartHover22(($event))" 
-            (chartClick)="onChartClick22(($event))">
-            [Color]="chartColors"
-            </canvas> -->
-            <!-- <button (click)="newDataPoint([900, 50, 300], 'May')">
-                Add data point
-              </button> -->
           </div>
-          <!-- ปรับความสูง+data chart sale value -->
         </div>
       </div>
     </div>
-    <!----------------------------- END RESOURCES BUSY -----------------------------> 
+    <!----------------------------- END RESOURCES BUSY ----------------------------->
   </div>
 
   <!----------------------------- START %OEE ----------------------------->
@@ -329,25 +255,16 @@
               <h2 class="text-black mb-0">COMPARE %OEE</h2>
             </div>
             <div class="col">
-              <!-- <ul class="nav nav-pills justify-content-end">
-                <li>ABC</li>
-                <li>DEF</li>
-              </ul> -->
             </div>
           </div>
         </div>
         <div class="card-body">
           <!-- Chart -->
           <div style="display: block">
-            <canvas baseChart 
-            [datasets]="barChartData" 
-            [labels]="barChartLabels"                        
-            [chartType]="barChartType" 
-            [colors]="barChartColors"
-            [options]="barChartOptions">
+            <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [chartType]="barChartType"
+              [colors]="barChartColors" [options]="barChartOptions">
             </canvas>
           </div>
-          <!-- ปรับความสูง+data chart sale value -->
         </div>
       </div>
     </div>
@@ -369,11 +286,8 @@
         </div>
         <div class="card-body">
           <div style="display: block">
-            <canvas baseChart 
-            [data]="doughnutChartData" 
-            [labels]="doughnutChartLabels" 
-            [chartType]="doughnutChartType"
-            [colors]="doughnutChartColors">
+            <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType"
+              [colors]="doughnutChartColors">
             </canvas>
           </div>
           <div class="row justify-content-md-center">
@@ -387,7 +301,7 @@
                 </div>
               </div>
             </div>
-          
+
             <div class="card card-stats mt-3 mb-4 mb-xl-0">
               <div class="card-body">
                 <div class="row">
@@ -398,7 +312,7 @@
                 </div>
               </div>
             </div>
-          
+
             <div class="card card-stats mt-3 mb-4 mb-xl-0">
               <div class="card-body">
                 <div class="row">
@@ -409,7 +323,7 @@
                 </div>
               </div>
             </div>
-          
+
             <div class="card card-stats mt-3 mb-4 mb-xl-0">
               <div class="card-body">
                 <div class="row">
@@ -420,7 +334,7 @@
                 </div>
               </div>
             </div>
-          
+
             <div class="card card-stats mt-3 mb-4 mb-xl-0">
               <div class="card-body">
                 <div class="row">
@@ -448,63 +362,61 @@
         </div>
         <div class="card-body">
           <div style="display: block">
-            <canvas baseChart 
-            [data]="doughnutChartData2" 
-            [labels]="doughnutChartLabels2"
-            [chartType]="doughnutChartType2" 
-            [colors]="doughnutChartColors2">
+            <canvas baseChart [data]="doughnutChartData2" [labels]="doughnutChartLabels2"
+              [chartType]="doughnutChartType2" [colors]="doughnutChartColors2">
             </canvas>
-          <div class="row justify-content-md-center">
-            <div class="card card-stats mt-3 mb-4 mb-xl-0">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col">
-                    <h5 class="card-title text-uppercase text-muted mb-0">SALE OFFICE</h5>
-                    <span class="h2 font-weight-bold mb-0">350,897</span>
+            <div class="row justify-content-md-center">
+              <div class="card card-stats mt-3 mb-4 mb-xl-0">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">SALE OFFICE</h5>
+                      <span class="h2 font-weight-bold mb-0">350,897</span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          
-            <div class="card card-stats mt-3 mb-4 mb-xl-0">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col">
-                    <h5 class="card-title text-uppercase text-muted mb-0">INBOUND WEIGHTBRIDGE</h5>
-                    <span class="h2 font-weight-bold mb-0">350,897</span>
+
+              <div class="card card-stats mt-3 mb-4 mb-xl-0">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">INBOUND WEIGHTBRIDGE</h5>
+                      <span class="h2 font-weight-bold mb-0">350,897</span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          
-            <div class="card card-stats mt-3 mb-4 mb-xl-0">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col">
-                    <h5 class="card-title text-uppercase text-muted mb-0">DIESEL BAY</h5>
-                    <span class="h2 font-weight-bold mb-0">350,897</span>
+
+              <div class="card card-stats mt-3 mb-4 mb-xl-0">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">DIESEL BAY</h5>
+                      <span class="h2 font-weight-bold mb-0">350,897</span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          
-            <div class="card card-stats mt-3 mb-4 mb-xl-0">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col">
-                    <h5 class="card-title text-uppercase text-muted mb-0">GASOHOL95 BAY</h5>
-                    <span class="h2 font-weight-bold mb-0">350,897</span>
+
+              <div class="card card-stats mt-3 mb-4 mb-xl-0">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">GASOHOL95 BAY</h5>
+                      <span class="h2 font-weight-bold mb-0">350,897</span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          
-            <div class="card card-stats mt-3 mb-4 mb-xl-0">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col">
-                    <h5 class="card-title text-uppercase text-muted mb-0">OUTBOUND WEIGHTBRIDGE</h5>
-                    <span class="h2 font-weight-bold mb-0">350,897</span>
+
+              <div class="card card-stats mt-3 mb-4 mb-xl-0">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">OUTBOUND WEIGHTBRIDGE</h5>
+                      <span class="h2 font-weight-bold mb-0">350,897</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -513,8 +425,8 @@
         </div>
       </div>
     </div>
+    <!----------------------------- END DONUT ----------------------------->
   </div>
-  <!----------------------------- END DONUT ----------------------------->
 </div>
 <div class=" footer container-fluid bg-bymeten">
 

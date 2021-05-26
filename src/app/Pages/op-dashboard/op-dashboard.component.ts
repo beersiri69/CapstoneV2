@@ -324,6 +324,7 @@ export class OpDashboardComponent implements OnInit {
     { backgroundColor: '#ffe6c4' },
     { backgroundColor: '#b99c7e' },
     { backgroundColor: '#7f5c46' },
+    { backgroundColor: '#c1d6e1' },
   ];
 
   ///////////////////////// WIP /////////////////////////
