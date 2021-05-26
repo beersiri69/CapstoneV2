@@ -1,7 +1,8 @@
-<div class="container-fluid bg-bymeten mt--7">
+<div class="container-fluid bg-bymeten mt--7"  *ngIf="CanRender"   >
+
     <div class="row text-right">
         <div class="col"></div>
-        <div class="col-2">
+        <div class="col-4">
 
             <mat-form-field appearance="fill">
                 <mat-label>Month and Year</mat-label>
@@ -16,8 +17,10 @@
             </mat-form-field>
 
         </div>
+        
     </div>
     <!----------------------------- START WIP ----------------------------->
+  
     <div class="row">
         <div class="col-xl-8 mb-5 mb-xl-0">
             <div class="card bg-default shadow">
@@ -34,14 +37,21 @@
                 <div class="card-body">
                     <!-- Chart -->
                     <div style="display: block">
-                        <canvas baseChart [chartType]="'bar'" [legend]="true" [datasets]="chartData"
-                            [labels]="chartLabels" [options]="chartOptions" (chartHover)="onChartHover(($event))"
+                        <canvas baseChart 
+                            [chartType]="'bar'" 
+                            [legend]="true" 
+                            [datasets]="chartData"
+                            [labels]="chartLabels" 
+                            [options]="chartOptions" 
+                            (chartHover)="onChartHover(($event))"
                             (chartClick)="onChartClick(($event))">
                         </canvas>
                     </div>
                 </div>
             </div>
         </div>
+
+       
         <!----------------------------- END WIP ----------------------------->
 
         <!----------------------------- START SIX BLOCKS ----------------------------->
@@ -56,7 +66,7 @@
                               <div class="col">
                                 <h5 class="card-title text-uppercase font-weight-bold text-muted text-white mb-0">AMOUNT OF
                                   GASOHOL95</h5>
-                                <span class="h1 font-weight-bold text-white mb-0">350,897</span>
+                                <span class="h1 font-weight-bold text-white mb-0">{{AmountG}}</span>
                                 <span class="h1 text-white mr-2 pl-2">litres</span>
                               </div>
                               <div class="col-auto">
@@ -76,7 +86,7 @@
                               <div class="col">
                                 <h5 class="card-title text-uppercase font-weight-bold text-muted text-white mb-0">AMOUNT OF DIESEL
                                 </h5>
-                                <span class="h1 font-weight-bold text-white mb-0">350,897</span>
+                                <span class="h1 font-weight-bold text-white mb-0">{{AmountD}}</span>
                                 <span class="h1 text-white mr-2 pl-2">litres</span>
                               </div>
                               <div class="col-auto">
@@ -97,7 +107,7 @@
                                 <h5 class="card-title text-uppercase font-weight-bold text-muted text-white mb-0">AMOUNT OF TRUCK
                                   IN
                                 </h5>
-                                <span class="h1 font-weight-bold text-white mb-0">350,897</span>
+                                <span class="h1 font-weight-bold text-white mb-0">{{TruckIn}}</span>
                                 <span class="h1 text-white mr-2 pl-2">cars</span>
                               </div>
                               <div class="col-auto">
@@ -118,7 +128,7 @@
                                 <h5 class="card-title text-uppercas font-weight-bold text-muted text-white mb-0">AMOUNT OF TRUCK
                                   OUT
                                 </h5>
-                                <span class="h1 font-weight-bold text-white mb-0">350,897</span>
+                                <span class="h1 font-weight-bold text-white mb-0">{{TruckOut}}</span>
                                 <span class="h1 text-white mr-2 pl-2">cars</span>
                               </div>
                               <div class="col-auto">
@@ -139,7 +149,7 @@
                                 <h5 class="card-title text-uppercase font-weight-bold text-muted text-white mb-0">DIESEL BAY's
                                   FAIL
                                 </h5>
-                                <span class="h1 font-weight-bold text-white mb-0">350,897</span>
+                                <span class="h1 font-weight-bold text-white mb-0">{{GFail}}</span>
                                 <span class="h1 text-white mr-2 pl-2">times</span>
                               </div>
                               <div class="col-auto">
@@ -159,7 +169,7 @@
                               <div class="col">
                                 <h5 class="card-title text-uppercase font-weight-bold text-muted text-white mb-0">GASOHOL95 BAY's
                                   FAIL</h5>
-                                <span class="h1 font-weight-bold text-white mb-0">350,897</span>
+                                <span class="h1 font-weight-bold text-white mb-0">{{DFail}}</span>
                                 <span class="h1 text-white mr-2 pl-2">times</span>
                               </div>
                               <div class="col-auto">
@@ -178,7 +188,7 @@
                             <div class="row">
                               <div class="col">
                                 <h5 class="card-title text-uppercase font-weight-bold text-muted text-white mb-0">CYCLE TIME</h5>
-                                <span class="h1 font-weight-bold text-white mb-0">350,897</span>
+                                <span class="h1 font-weight-bold text-white mb-0">{{Cycle}}</span>
                                 <span class="h1 text-white mr-2 pl-2">mins</span>
                               </div>
                               <div class="col-auto">
@@ -215,7 +225,7 @@
                 <div class="card-body">
                     <!-- Chart -->
                     <div style="display: block">
-                        <canvas baseChart [data]="doughnutChartData3" [labels]="doughnutChartLabels3"
+                        <canvas baseChart [data]="DieselBusyChart" [labels]="doughnutChartLabels3"
                             [chartType]="doughnutChartType3" [colors]="doughnutChartColors3">
                         </canvas>
                     </div>
@@ -238,7 +248,7 @@
                 <div class="card-body">
                     <!-- Chart -->
                     <div style="display: block">
-                        <canvas baseChart [data]="doughnutChartData4" [labels]="doughnutChartLabels4"
+                        <canvas baseChart [data]="GasoholBusyChart" [labels]="doughnutChartLabels4"
                             [chartType]="doughnutChartType4" [colors]="doughnutChartColors4">
                         </canvas>
                     </div>
@@ -290,7 +300,7 @@
                 </div>
                 <div class="card-body">
                     <div style="display: block">
-                        <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels"
+                        <canvas baseChart [data]="Donut_NOQ" [labels]="doughnutChartLabels"
                             [chartType]="doughnutChartType" [colors]="doughnutChartColors">
                         </canvas>
                     </div>
@@ -366,7 +376,7 @@
                 </div>
                 <div class="card-body">
                     <div style="display: block">
-                        <canvas baseChart [data]="doughnutChartData2" [labels]="doughnutChartLabels2"
+                        <canvas baseChart [data]="Donut_TQ" [labels]="doughnutChartLabels2"
                             [chartType]="doughnutChartType2" [colors]="doughnutChartColors2">
                         </canvas>
                         <div class="row justify-content-md-center">

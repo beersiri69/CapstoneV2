@@ -55,6 +55,13 @@ export class PivalueService {
   private BusyWAPI = 'https://localhost:44389/api/oee/BusyW/';
   private BusyMAPI = 'https://localhost:44389/api/oee/BusyM/';
 
+  private WIPMAPI   = 'https://localhost:44389/api/Monthvalue/WIPM/';
+  private QueueMAPI    = 'https://localhost:44389/api/Monthvalue/QueueM/';
+  private DonutMAPI    = 'https://localhost:44389/api/Monthvalue/DonutM/';
+  private UtilizeMAPI  = 'https://localhost:44389/api/Monthvalue/UtilizeM/';
+  private ShowAmountMAPI  = 'https://localhost:44389/api/Monthvalue/ShowAmountM/';
+
+
 
 
   constructor(private httpClient: HttpClient) {}
@@ -168,11 +175,9 @@ export class PivalueService {
     return this.httpClient.get<PivalueAll>(this.AVGTQD + Date);
   }
 
-
   GetWIPD(Date): Observable<PivalueAll> {
     return this.httpClient.get<PivalueAll>(this.WIPDAPI + Date);
   }
-
 
   FailD(Date): Observable<PivalueAll> {
     return this.httpClient.get<PivalueAll>(this.FailDAPI + Date);
@@ -192,6 +197,26 @@ export class PivalueService {
   }
   BusyM(Date): Observable<PivalueAll> {
     return this.httpClient.get<PivalueAll>(this.BusyMAPI + Date);
+  }
+
+  GetWIPM(Date): Observable<PivalueAll> {
+    return this.httpClient.get<PivalueAll>(this.WIPMAPI + Date);
+  }
+
+  GetQueueM(Date): Observable<PivalueAll> {
+    return this.httpClient.get<PivalueAll>(this.QueueMAPI + Date);
+  }
+
+  GetDonutM(Date): Observable<PivalueAll> {
+    return this.httpClient.get<PivalueAll>(this.DonutMAPI + Date);
+  }
+
+  GetUtilizeM(Date): Observable<PivalueAll> {
+    return this.httpClient.get<PivalueAll>(this.UtilizeMAPI + Date);
+  }
+
+  GetAmountM(Date): Observable<PivalueAll> {
+    return this.httpClient.get<PivalueAll>(this.ShowAmountMAPI + Date);
   }
 
 }
