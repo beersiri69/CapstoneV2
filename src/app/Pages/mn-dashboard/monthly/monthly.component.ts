@@ -135,13 +135,15 @@ export class MonthlyComponent implements OnInit {
     const ctrlValue = this.date.value;
     ctrlValue.month(normalizedMonth.month());
     this.date.setValue(ctrlValue);   
-    this.MonthTok = normalizedMonth.month();
+    this.MonthTok = normalizedMonth.month() +1 ;
     if(this.MonthTok<10){
       this.DateSearch += '0' + this.MonthTok  + '-31'
     }
     else{
       this.DateSearch += this.MonthTok  + '-31'
     }
+    console.log( this.DateSearch );
+    
     datepicker.close();
   }
 

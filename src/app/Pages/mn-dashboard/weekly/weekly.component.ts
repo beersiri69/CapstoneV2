@@ -86,7 +86,7 @@ export class WeeklyComponent implements OnInit {
 
   date = new FormControl(moment());
   YearTok:string
-  MonthTok:Number
+  MonthTok:String
   DateSearch:string
   public CanRender = false;
   ///////////////////////// BUTTON /////////////////////////
@@ -120,7 +120,10 @@ export class WeeklyComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-    this.PropChange = ["btn-menu","btn-menu","btn-menu","btn-menu"]
+    this.MonthTok = String(3)
+    this.YearTok = String(2018)
+
+    this.PropChange = ["btn-sel","btn-menu","btn-menu","btn-menu"]
     this.GetDashboardValue1('2018-03-31');   
   }
 
@@ -131,11 +134,17 @@ export class WeeklyComponent implements OnInit {
       this.PropChange[i] = "btn-menu"
     }
     this.PropChange[x] = "btn-sel"
-  }
+    this.DateSearch = ''
 
-  navigateTo(value){
-    //console.log(value);
-    this.router.navigate(['managerdashboard/',value]);
+
+    if(x==0){this.DateSearch = this.YearTok + '-' + this.MonthTok + '-07'}
+    if(x==1){this.DateSearch = this.YearTok + '-' + this.MonthTok + '-14'}
+    if(x==2){this.DateSearch = this.YearTok + '-' + this.MonthTok + '-21'}
+    if(x==3){this.DateSearch = this.YearTok + '-' + this.MonthTok + '-28'}
+
+    this.GetDashboardValue1(this.DateSearch);  
+    
+    
   }
 
   ///////////////////////// CARLENDAR /////////////////////////
@@ -146,20 +155,23 @@ export class WeeklyComponent implements OnInit {
     ctrlValue.year(normalizedYear.year());
     this.date.setValue(ctrlValue);    
     this.YearTok  = String(normalizedYear.year())
-    this.DateSearch = this.YearTok + '-'
+ 
   }
 
   chosenMonthHandler(normalizedMonth: Moment, datepicker: MatDatepicker<Moment>) {
     const ctrlValue = this.date.value;
     ctrlValue.month(normalizedMonth.month());
     this.date.setValue(ctrlValue);   
-    this.MonthTok = normalizedMonth.month();
-    if(this.MonthTok<10){
-      this.DateSearch += '0' + this.MonthTok  + '-31'
+    
+
+    if((normalizedMonth.month() +1)<10){
+
+      this.MonthTok = '0' + (normalizedMonth.month() +1)
     }
     else{
-      this.DateSearch += this.MonthTok  + '-31'
+      this.MonthTok = String((normalizedMonth.month() +1))
     }
+
     datepicker.close();
   }
 
@@ -225,7 +237,7 @@ export class WeeklyComponent implements OnInit {
             this.GasoholBusyChart = [[this.DBusy, this.GBusy]];
 
           this.pivalueService.GetQueueW(DateSend).subscribe(data =>{
-            
+
             this.PivalueAll = data.result;
             this.NOQ1 = Number(this.PivalueAll[0].Item1);
             this.NOQ2 = Number(this.PivalueAll[1].Item1);
@@ -250,7 +262,7 @@ export class WeeklyComponent implements OnInit {
               this.U3 = Number(this.PivalueAll[2].Item1)
               this.U4 = Number(this.PivalueAll[3].Item1)
               this.U5 = Number(this.PivalueAll[4].Item1)
-                console.log(this.PivalueAll);
+
                 setTimeout(() => {
                   this.barChartData2  = [
                     {
@@ -416,14 +428,7 @@ export class WeeklyComponent implements OnInit {
     this.chartLabels = [...this.chartLabels, label];
   }
 
-  // ...
-  onChartHover = ($event: any) => {
-    // window.console.log('onChartHover', $event);
-  };
-  onChartClick = ($event: any) => {
-    // window.console.log('onChartClick', $event);
-  };
- 
+
 
 
 
