@@ -1,4 +1,22 @@
 <div class="container-fluid bg-bymeten mt--7">
+    <div class="row text-right">
+        <div class="col"></div>
+        <div class="col-2">
+
+            <mat-form-field appearance="fill">
+                <mat-label>Month and Year</mat-label>
+                <input matInput [matDatepicker]="dp" [formControl]="date">
+                <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+                <mat-datepicker #dp
+                                startView="multi-year"
+                                (yearSelected)="chosenYearHandler($event)"
+                                (monthSelected)="chosenMonthHandler($event, dp)"
+                                panelClass="example-month-picker">
+                </mat-datepicker>
+            </mat-form-field>
+
+        </div>
+    </div>
     <!----------------------------- START WIP ----------------------------->
     <div class="row">
         <div class="col-xl-8 mb-5 mb-xl-0">
@@ -10,31 +28,17 @@
                             <h2 class="text-white mb-0">WORK IN PROCESS</h2>
                         </div>
                         <div class="col">
-                            <!-- <ul class="nav nav-pills justify-content-end">
-                  <li>ABC</li>
-                  <li>DEF</li>
-                </ul> -->
                         </div>
                     </div>
                 </div>
                 <div class="card-body">
                     <!-- Chart -->
                     <div style="display: block">
-                        <canvas baseChart 
-                        [chartType]="'line'" 
-                        [legend]="true" 
-                        [datasets]="chartData"
-                        [labels]="chartLabels" 
-                        [options]="chartOptions" 
-                        (chartHover)="onChartHover(($event))"
-                        (chartClick)="onChartClick(($event))">
-                            <!-- [Color]="chartColors" -->
+                        <canvas baseChart [chartType]="'bar'" [legend]="true" [datasets]="chartData"
+                            [labels]="chartLabels" [options]="chartOptions" (chartHover)="onChartHover(($event))"
+                            (chartClick)="onChartClick(($event))">
                         </canvas>
-                        <!-- <button (click)="newDataPoint([900, 50, 300], 'May')">
-                  Add data point
-                </button> -->
                     </div>
-                    <!-- ปรับความสูง+data chart sale value -->
                 </div>
             </div>
         </div>
@@ -45,164 +49,152 @@
             <div class="row">
                 <div class="col">
                     <!----------------------------- FIRST BLOCKS ----------------------------->
-                    <div class="card card-stats bg-bymeonesix mb-4 mb-xl-0 mt-4">
-                        <div class="card-body">
+                    <div class="row-xl-4" style="width: 100%;">
+                        <div class="card card-stats bg-bymeonesix mb-4 mb-xl-0 mt-2">
+                          <div class="card-body">
                             <div class="row">
-                                <div class="col">
-                                    <h5 class="card-title text-uppercase font-weight-bold text-muted text-white mb-0">
-                                        AMOUNT OF GASOHOL95</h5>
-                                    <span class="h1 font-weight-bold text-white mb-0">350,897 </span>
-                                    <span class="text-white mr-2"><i class="fa fa-arrow-up"></i></span>
+                              <div class="col">
+                                <h5 class="card-title text-uppercase font-weight-bold text-muted text-white mb-0">AMOUNT OF
+                                  GASOHOL95</h5>
+                                <span class="h1 font-weight-bold text-white mb-0">350,897</span>
+                                <span class="h1 text-white mr-2 pl-2">litres</span>
+                              </div>
+                              <div class="col-auto">
+                                <div class="icon icon-shape bg-white text-bymeonesix rounded-circle shadow">
+                                  <i class="fas fa-gas-pump"></i>
                                 </div>
-                                <div class="col-auto">
-                                    <div class="icon icon-shape bg-white text-bymeonesix rounded-circle shadow">
-                                        <i class="fas fa-gas-pump"></i>
-                                    </div>
-                                </div>
+                              </div>
                             </div>
-                            <!-- <p class="mt-3 mb-0 text-muted text-sm">
-                  <span class="text-success mr-2"><i class="fa fa-arrow-circle-up"></i> 3.48%</span>
-                  <span class="text-nowrap">Since last month</span>
-                </p> -->
+                          </div>
                         </div>
-                    </div>
-                    <!----------------------------- SECOND BLOCKS ----------------------------->
-                    <div class="card card-stats bg-bymeoneseven mb-4 mb-xl-0 mt-3">
-                        <div class="card-body">
+                      </div>
+                      <!----------------------------- SECOND BLOCKS ----------------------------->
+                      <div class="row-xl-4" style="width: 100%;">
+                        <div class="card card-stats bg-bymeoneseven mb-4 mb-xl-0 mt-3">
+                          <div class="card-body">
                             <div class="row">
-                                <div class="col">
-                                    <h5 class="card-title text-uppercase font-weight-bold text-muted text-white mb-0">
-                                        AMOUNT OF DIESEL</h5>
-                                    <span class="h1 font-weight-bold text-white mb-0">350,897 </span>
-                                    <span class="text-white mr-2"><i class="fa fa-arrow-up"></i></span>
+                              <div class="col">
+                                <h5 class="card-title text-uppercase font-weight-bold text-muted text-white mb-0">AMOUNT OF DIESEL
+                                </h5>
+                                <span class="h1 font-weight-bold text-white mb-0">350,897</span>
+                                <span class="h1 text-white mr-2 pl-2">litres</span>
+                              </div>
+                              <div class="col-auto">
+                                <div class="icon icon-shape bg-white text-bymeoneseven rounded-circle shadow">
+                                  <i class="fas fa-gas-pump"></i>
                                 </div>
-                                <div class="col-auto">
-                                    <div class="icon icon-shape bg-white text-bymeoneseven rounded-circle shadow">
-                                        <i class="fas fa-gas-pump"></i>
-                                    </div>
-                                </div>
+                              </div>
                             </div>
-                            <!-- <p class="mt-3 mb-0 text-muted text-sm">
-                  <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                  <span class="text-nowrap">Since last month</span>
-                </p> -->
+                          </div>
                         </div>
-                    </div>
-                    <!----------------------------- THIRD BLOCKS ----------------------------->
-                    <div class="card card-stats bg-bymeoneten mb-4 mb-xl-0 mt-3">
-                        <div class="card-body">
+                      </div>
+                      <!----------------------------- THIRD BLOCKS ----------------------------->
+                      <div class="row-xl-4" style="width: 100%;">
+                        <div class="card card-stats bg-bymeoneten mb-4 mb-xl-0 mt-3">
+                          <div class="card-body">
                             <div class="row">
-                                <div class="col">
-                                    <h5 class="card-title text-uppercase font-weight-bold text-muted text-white mb-0">
-                                        AMOUNT OF TRUCK IN</h5>
-                                    <span class="h1 font-weight-bold text-white mb-0">350,897 </span>
-                                    <span class="text-white mr-2"><i class="fa fa-arrow-up"></i></span>
+                              <div class="col">
+                                <h5 class="card-title text-uppercase font-weight-bold text-muted text-white mb-0">AMOUNT OF TRUCK
+                                  IN
+                                </h5>
+                                <span class="h1 font-weight-bold text-white mb-0">350,897</span>
+                                <span class="h1 text-white mr-2 pl-2">cars</span>
+                              </div>
+                              <div class="col-auto">
+                                <div class="icon icon-shape bg-white text-bymeoneten rounded-circle shadow">
+                                  <i class="fas fa-car-side"></i>
                                 </div>
-                                <div class="col-auto">
-                                    <div class="icon icon-shape bg-white text-bymeoneten rounded-circle shadow">
-                                        <i class="fas fa-car-side"></i>
-                                    </div>
-                                </div>
+                              </div>
                             </div>
-                            <!-- <p class="mt-3 mb-0 text-muted text-sm">
-                  <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                  <span class="text-nowrap">Since last date</span>
-                </p> -->
+                          </div>
                         </div>
-                    </div>
-                    <!----------------------------- FOURTH BLOCKS ----------------------------->
-                    <div class="card card-stats bg-bymetwoone mb-4 mb-xl-0 mt-3">
-                        <div class="card-body">
+                      </div>
+                      <!----------------------------- FOURTH BLOCKS ----------------------------->
+                      <div class="row-xl-4" style="width: 100%;">
+                        <div class="card card-stats bg-bymetwoone mb-4 mb-xl-0 mt-3">
+                          <div class="card-body">
                             <div class="row">
-                                <div class="col">
-                                    <h5 class="card-title text-uppercas font-weight-bold text-muted text-white mb-0">
-                                        AMOUNT OF TRUCK OUT</h5>
-                                    <span class="h1 font-weight-bold text-white mb-0">350,897 </span>
-                                    <span class="text-white mr-2"><i class="fa fa-arrow-up"></i></span>
+                              <div class="col">
+                                <h5 class="card-title text-uppercas font-weight-bold text-muted text-white mb-0">AMOUNT OF TRUCK
+                                  OUT
+                                </h5>
+                                <span class="h1 font-weight-bold text-white mb-0">350,897</span>
+                                <span class="h1 text-white mr-2 pl-2">cars</span>
+                              </div>
+                              <div class="col-auto">
+                                <div class="icon icon-shape bg-white text-bymetwoone rounded-circle shadow">
+                                  <i class="fas fa-car-side"></i>
                                 </div>
-                                <div class="col-auto">
-                                    <div class="icon icon-shape bg-white text-bymetwoone rounded-circle shadow">
-                                        <i class="fas fa-car-side"></i>
-                                    </div>
-                                </div>
+                              </div>
                             </div>
-                            <!-- <p class="mt-3 mb-0 text-muted text-sm">
-                  <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                  <span class="text-nowrap">Since last month</span>
-                </p> -->
+                          </div>
                         </div>
-                    </div>
-                    <!----------------------------- FIFTH BLOCKS ----------------------------->
-                    <div class="card card-stats bg-bymeonenine mb-4 mb-xl-0 mt-3">
-                        <div class="card-body">
+                      </div>
+                      <!----------------------------- FIFTH BLOCKS ----------------------------->
+                      <div class="row-xl-4" style="width: 100%;">
+                        <div class="card card-stats bg-bymeonenine mb-4 mb-xl-0 mt-3">
+                          <div class="card-body">
                             <div class="row">
-                                <div class="col">
-                                    <h5 class="card-title text-uppercase font-weight-bold text-muted text-white mb-0">
-                                        DIESEL BAY's FAIL</h5>
-                                    <span class="h1 font-weight-bold text-white mb-0">350,897 </span>
-                                    <span class="text-white mr-2"><i class="fa fa-arrow-up"></i></span>
+                              <div class="col">
+                                <h5 class="card-title text-uppercase font-weight-bold text-muted text-white mb-0">DIESEL BAY's
+                                  FAIL
+                                </h5>
+                                <span class="h1 font-weight-bold text-white mb-0">350,897</span>
+                                <span class="h1 text-white mr-2 pl-2">times</span>
+                              </div>
+                              <div class="col-auto">
+                                <div class="icon icon-shape bg-white text-bymeonenine rounded-circle shadow">
+                                  <i class="fas fa-exclamation-triangle"></i>
                                 </div>
-                                <div class="col-auto">
-                                    <div class="icon icon-shape bg-white text-bymeonenine rounded-circle shadow">
-                                        <i class="fas fa-exclamation-triangle"></i>
-                                    </div>
-                                </div>
+                              </div>
                             </div>
-                            <!-- <p class="mt-3 mb-0 text-muted text-sm">
-                  <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                  <span class="text-nowrap">Since last month</span>
-                </p> -->
+                          </div>
                         </div>
-                    </div>
-                    <!----------------------------- SIXTH BLOCKS ----------------------------->
-                    <div class="card card-stats bg-bymeoneeight mt-3 mb-4 mb-xl-0 mt-3">
-                        <div class="card-body">
+                      </div>
+                      <!----------------------------- SIXTH BLOCKS ----------------------------->
+                      <div class="row-xl-4" style="width: 100%;">
+                        <div class="card card-stats bg-bymeoneeight mt-3 mb-4 mb-xl-0 mt-3">
+                          <div class="card-body">
                             <div class="row">
-                                <div class="col">
-                                    <h5 class="card-title text-uppercase font-weight-bold text-muted text-white mb-0">
-                                        GASOHOL95 BAY's FAIL</h5>
-                                    <span class="h1 font-weight-bold text-white mb-0">350,897 </span>
-                                    <span class="text-white mr-2"><i class="fa fa-arrow-up"></i></span>
+                              <div class="col">
+                                <h5 class="card-title text-uppercase font-weight-bold text-muted text-white mb-0">GASOHOL95 BAY's
+                                  FAIL</h5>
+                                <span class="h1 font-weight-bold text-white mb-0">350,897</span>
+                                <span class="h1 text-white mr-2 pl-2">times</span>
+                              </div>
+                              <div class="col-auto">
+                                <div class="icon icon-shape bg-white text-bymeoneeight rounded-circle shadow">
+                                  <i class="fas fa-exclamation-triangle"></i>
                                 </div>
-                                <div class="col-auto">
-                                    <div class="icon icon-shape bg-white text-bymeoneeight rounded-circle shadow">
-                                        <i class="fas fa-exclamation-triangle"></i>
-                                    </div>
-                                </div>
+                              </div>
                             </div>
-                            <!-- <p class="mt-3 mb-0 text-muted text-sm">
-                  <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                  <span class="text-nowrap">Since last month</span>
-                </p> -->
+                          </div>
                         </div>
-                    </div>
-                    <!----------------------------- SEVENTH BLOCKS ----------------------------->
-                    <div class="card card-stats bg-bymeonefive mb-4 mb-xl-0 mt-3">
-                        <div class="card-body">
+                      </div>
+                      <!----------------------------- SEVENTH BLOCKS ----------------------------->
+                      <div class="row-xl-4" style="width: 100%;">
+                        <div class="card card-stats bg-bymeonefive mb-4 mb-xl-0 mt-3">
+                          <div class="card-body">
                             <div class="row">
-                                <div class="col">
-                                    <h5 class="card-title text-uppercase font-weight-bold text-muted text-white mb-0">
-                                        CYCLE TIME</h5>
-                                    <span class="h1 font-weight-bold text-white mb-0">350,897 </span>
-                                    <span class="text-white mr-2"><i class="fa fa-arrow-up"></i></span>
+                              <div class="col">
+                                <h5 class="card-title text-uppercase font-weight-bold text-muted text-white mb-0">CYCLE TIME</h5>
+                                <span class="h1 font-weight-bold text-white mb-0">350,897</span>
+                                <span class="h1 text-white mr-2 pl-2">mins</span>
+                              </div>
+                              <div class="col-auto">
+                                <div class="icon icon-shape bg-white text-bymeonefive rounded-circle shadow">
+                                  <i class="fas fa-history"></i>
                                 </div>
-                                <div class="col-auto">
-                                    <div class="icon icon-shape bg-white text-bymeonefive rounded-circle shadow">
-                                        <i class="fas fa-history"></i>
-                                    </div>
-                                </div>
+                              </div>
                             </div>
-                            <!-- <p class="mt-3 mb-0 text-muted text-sm">
-                  <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                  <span class="text-nowrap">Since last month</span>
-                </p> -->
+                          </div>
                         </div>
-                    </div>
+                      </div>
 
                 </div>
             </div>
         </div>
-        <!----------------------------- END SIX BLOCKS ----------------------------->
+        <!----------------------------- END SEVEN BLOCKS ----------------------------->
     </div>
 
     <!----------------------------- START RESOURCES BUSY ----------------------------->
@@ -217,44 +209,15 @@
                             <h2 class="text-black mb-0">RESOURCES BUSY</h2>
                         </div>
                         <div class="col">
-                            <!-- <ul class="nav nav-pills justify-content-end">
-                  <li>ABC</li>
-                  <li>DEF</li>
-                </ul> -->
                         </div>
                     </div>
                 </div>
                 <div class="card-body">
                     <!-- Chart -->
                     <div style="display: block">
-                        <canvas baseChart 
-                        [data]="doughnutChartData3" 
-                        [labels]="doughnutChartLabels3"
-                        [chartType]="doughnutChartType3" 
-                        [colors]="doughnutChartColors3">
+                        <canvas baseChart [data]="doughnutChartData3" [labels]="doughnutChartLabels3"
+                            [chartType]="doughnutChartType3" [colors]="doughnutChartColors3">
                         </canvas>
-                        <!-- <ngx-charts-bar-vertical
-                (window:resize)="onResize($event)"
-                [view]="view"
-                [scheme]="colorScheme"
-                [results]="single"
-                [gradient]="gradient"
-                [xAxis]="showXAxis"
-                [yAxis]="showYAxis"
-                [legend]="showLegend"
-                [showXAxisLabel]="showXAxisLabel"
-                [showYAxisLabel]="showYAxisLabel"
-                >
-              </ngx-charts-bar-vertical> -->
-                        <!-- <canvas baseChart 
-              [chartType]="'bar'" 
-              [legend]="true" 
-              [datasets]="chartData2" 
-              [labels]="chartLabels2"
-              [options]="chartOptions2" 
-              (chartHover)="onChartHover2(($event))" 
-              (chartClick)="onChartClick2(($event))">
-              </canvas> -->
                     </div>
                 </div>
             </div>
@@ -269,37 +232,16 @@
                             <h2 class="text-black mb-0">RESOURCES BUSY</h2>
                         </div>
                         <div class="col">
-                            <!-- <ul class="nav nav-pills justify-content-end">
-                  <li>ABC</li>
-                  <li>DEF</li>
-                </ul> -->
                         </div>
                     </div>
                 </div>
                 <div class="card-body">
                     <!-- Chart -->
                     <div style="display: block">
-                        <canvas baseChart 
-                        [data]="doughnutChartData4" 
-                        [labels]="doughnutChartLabels4"
-                        [chartType]="doughnutChartType4" 
-                        [colors]="doughnutChartColors4">
+                        <canvas baseChart [data]="doughnutChartData4" [labels]="doughnutChartLabels4"
+                            [chartType]="doughnutChartType4" [colors]="doughnutChartColors4">
                         </canvas>
-                        <!-- <canvas baseChart 
-              [chartType]="'bar'" 
-              [legend]="true" 
-              [datasets]="chartData22" 
-              [labels]="chartLabels22"
-              [options]="chartOptions22" 
-              (chartHover)="onChartHover22(($event))" 
-              (chartClick)="onChartClick22(($event))">
-              [Color]="chartColors"
-              </canvas> -->
-                        <!-- <button (click)="newDataPoint([900, 50, 300], 'May')">
-                  Add data point
-                </button> -->
                     </div>
-                    <!-- ปรับความสูง+data chart sale value -->
                 </div>
             </div>
         </div>
@@ -317,34 +259,15 @@
                             <h2 class="text-black mb-0">COMPARE %OEE</h2>
                         </div>
                         <div class="col">
-                            <!-- <ul class="nav nav-pills justify-content-end">
-                  <li>ABC</li>
-                  <li>DEF</li>
-                </ul> -->
                         </div>
                     </div>
                 </div>
                 <div class="card-body">
                     <!-- Chart -->
                     <div style="display: block">
-                        <canvas baseChart 
-                        [datasets]="barChartData" 
-                        [labels]="barChartLabels" 
-                        [chartType]="barChartType"
-                        [colors]="barChartColors" 
-                        [options]="barChartOptions">
+                        <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [chartType]="barChartType"
+                            [colors]="barChartColors" [options]="barChartOptions">
                         </canvas>
-                        <!-- <ngx-charts-bar-vertical 
-                [view]="view"
-                [scheme]="colorScheme"
-                [results]="multi"
-                [gradient]="gradient"
-                [xAxis]="showXAxis"
-                [yAxis]="showYAxis"
-                [legend]="showLegend"
-                [showXAxisLabel]="showXAxisLabel"
-                [showYAxisLabel]="showYAxisLabel">
-                </ngx-charts-bar-vertical> -->
                     </div>
                 </div>
             </div>
@@ -367,11 +290,8 @@
                 </div>
                 <div class="card-body">
                     <div style="display: block">
-                        <canvas baseChart 
-                        [data]="doughnutChartData" 
-                        [labels]="doughnutChartLabels"
-                        [chartType]="doughnutChartType" 
-                        [colors]="doughnutChartColors">
+                        <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels"
+                            [chartType]="doughnutChartType" [colors]="doughnutChartColors">
                         </canvas>
                     </div>
                     <div class="row justify-content-md-center">
@@ -446,11 +366,8 @@
                 </div>
                 <div class="card-body">
                     <div style="display: block">
-                        <canvas baseChart 
-                        [data]="doughnutChartData2" 
-                        [labels]="doughnutChartLabels2"
-                        [chartType]="doughnutChartType2" 
-                        [colors]="doughnutChartColors2">
+                        <canvas baseChart [data]="doughnutChartData2" [labels]="doughnutChartLabels2"
+                            [chartType]="doughnutChartType2" [colors]="doughnutChartColors2">
                         </canvas>
                         <div class="row justify-content-md-center">
                             <div class="card card-stats mt-3 mb-4 mb-xl-0">
@@ -528,34 +445,15 @@
                             <h2 class="text-black mb-0">SCHEDULE UTILIZATION</h2>
                         </div>
                         <div class="col">
-                            <!-- <ul class="nav nav-pills justify-content-end">
-                    <li>ABC</li>
-                    <li>DEF</li>
-                  </ul> -->
                         </div>
                     </div>
                 </div>
                 <div class="card-body">
                     <!-- Chart -->
                     <div style="display: block">
-                        <canvas baseChart 
-                        [datasets]="barChartData2" 
-                        [labels]="barChartLabels2"
-                        [chartType]="barChartType2" 
-                        [colors]="barChartColors2" 
-                        [options]="barChartOptions2">
+                        <canvas baseChart [datasets]="barChartData2" [labels]="barChartLabels2"
+                            [chartType]="barChartType2" [colors]="barChartColors2" [options]="barChartOptions2">
                         </canvas>
-                        <!-- <ngx-charts-bar-vertical 
-                  [view]="view"
-                  [scheme]="colorScheme"
-                  [results]="multi"
-                  [gradient]="gradient"
-                  [xAxis]="showXAxis"
-                  [yAxis]="showYAxis"
-                  [legend]="showLegend"
-                  [showXAxisLabel]="showXAxisLabel"
-                  [showYAxisLabel]="showYAxisLabel">
-                  </ngx-charts-bar-vertical> -->
                     </div>
                 </div>
             </div>
@@ -563,6 +461,7 @@
     </div>
     <!----------------------------- END SCHEDULE UTILIZATION ----------------------------->
 </div>
+
 <div class=" footer container-fluid bg-bymeten">
 
 </div>

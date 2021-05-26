@@ -2,89 +2,55 @@ import { Component, OnInit } from '@angular/core';
 import { ChartType, ChartOptions, ChartDataSets, } from 'chart.js';
 import { MultiDataSet, Label, Color } from 'ng2-charts';
 import { NgbTooltipModule } from "@ng-bootstrap/ng-bootstrap";
-import { multi } from '../monthly/data';
-import { from } from 'rxjs';
+import {FormControl} from '@angular/forms';
+import {MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/material-moment-adapter';
+import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
+import {MatDatepicker} from '@angular/material/datepicker';
+import * as _moment from 'moment';
+import {default as _rollupMoment, Moment} from 'moment';
+
+const moment = _rollupMoment || _moment;
+
+export const MY_FORMATS = {
+  parse: {
+    dateInput: 'MM/YYYY',
+  },
+  display: {
+    dateInput: 'MM/YYYY',
+    monthYearLabel: 'MMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM YYYY',
+  },
+};
 
 @Component({
   selector: 'app-monthly',
   templateUrl: './monthly.component.html',
-  styleUrls: ['./monthly.component.scss']
+  styleUrls: ['./monthly.component.scss'],
+  providers: [{
+      provide: DateAdapter,
+      useClass: MomentDateAdapter,
+      deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS]},{provide: MAT_DATE_FORMATS, useValue: MY_FORMATS}]
 })
+
 export class MonthlyComponent implements OnInit {
 
-  ///////////////////////// RESOURCES BUSY /////////////////////////
+  ///////////////////////// CARLENDAR /////////////////////////
 
-  //   multi: any[];
+  date = new FormControl(moment());
 
-  //   view:any= [300, 655];
+  chosenYearHandler(normalizedYear: Moment) {
+    const ctrlValue = this.date.value;
+    ctrlValue.year(normalizedYear.year());
+    this.date.setValue(ctrlValue);
+  }
 
-  //   // options
-
-  //   showXAxis = true;
-  //   showYAxis = true;
-  //   gradient = false;
-  //   showLegend = true;
-  //   showXAxisLabel = true;
-  //   // xAxisLabel = 'Country';
-  //   showYAxisLabel = true;
-  //   // yAxisLabel = 'Population';
-
-  //   colorScheme = {
-  //     domain: ['#f6af3a', '#fec569', '#ffe3bb', '#b99c7e', '#7f5c46']
-  //   };
-
-
-
-  //   onSelect(event): void {
-  //     console.log(event);
-  //   }
-
-  //   onActivate(data): void {
-  //     console.log('Activate', JSON.parse(JSON.stringify(data)));
-  //   }
-
-  //   onDeactivate(data): void {
-  //     console.log('Deactivate', JSON.parse(JSON.stringify(data)));
-  //   }
-  //   onResize(event) {
-  //     this.view = [event.target.innerWidth / 1.3, 655];
-  // }
-
-  // ///////////////////////// FIRST GAUGE-CHART /////////////////////////
-
-  // public canvasWidth = 740
-  // public needleValue = 100 
-  // public centralLabel = '99' //show level number
-  // // public bottomLabel = '0'
-  // public options = {
-  //   hasNeedle: true,
-  //   outerNeedle: true,
-  //   needleColor: 'rgb(166,206,227)',
-  //   needleUpdateSpeed: 4,
-  //   arcColors: ['rgb(166,206,227)', 'black'],
-  //   arcDelimiters: [99],
-  //   rangeLabel: ['0', '100'],
-  //   needleStartValue: 0,
-  // }
-
-
-  // ///////////////////////// SECOND GAUGE-CHART /////////////////////////
-
-  // public canvasWidth2 = 740
-  // public needleValue2 = 50 //percent
-  // public centralLabel2 = '100' //show level number
-  // // public bottomLabel = '0'
-  // public options2 = {
-  //   hasNeedle: true,
-  //   outerNeedle: true,
-  //   needleColor: 'rgb(166,206,227)',
-  //   needleUpdateSpeed: 4,
-  //   arcColors: ['rgb(166,206,227)', 'black'],
-  //   arcDelimiters: [50], //percent
-  //   rangeLabel: ['0', '200'],
-  //   needleStartValue: 0,
-  // }
-
+  chosenMonthHandler(normalizedMonth: Moment, datepicker: MatDatepicker<Moment>) {
+    const ctrlValue = this.date.value;
+    ctrlValue.month(normalizedMonth.month());
+    this.date.setValue(ctrlValue);
+    datepicker.close();
+  }
 
 
   ///////////////////////// FIRST DONUT /////////////////////////
@@ -166,23 +132,27 @@ export class MonthlyComponent implements OnInit {
   public barChartData2: ChartDataSets[] = [
     {
       data: [33, 60, 26],
-      label: 'SALE OFFICE',
+      label: 'DIESEL BAY 1',
     },
     {
       data: [12, 45, 30],
-      label: 'INBOUND WEIGHTBRIDGE'
+      label: 'DIESEL BAY 2'
     },
     {
       data: [45, 57, 60],
-      label: 'DIESEL BAY'
+      label: 'GASOHOL95 BAY 1'
     },
     {
       data: [14, 32, 15],
-      label: 'GASOHOL95 BAY'
+      label: 'GASOHOL95 BAY 2'
     },
     {
       data: [60, 63, 25],
-      label: 'OUTBOUND WEIGHTBRIDGE'
+      label: 'GASOHOL95 BAY 3'
+    },
+    {
+      data: [60, 63, 25],
+      label: 'GASOHOL95 BAY 4'
     },
   ];
 
@@ -192,6 +162,7 @@ export class MonthlyComponent implements OnInit {
     { backgroundColor: '#96808c' },
     { backgroundColor: '#706677' },
     { backgroundColor: '#565264' },
+    { backgroundColor: '#c1d6e1' },
   ]
   
 
@@ -200,34 +171,32 @@ export class MonthlyComponent implements OnInit {
 
   chartData = [
     {
-      data: [33, 60, 26, 70, 12, 25, 100],
+      data: [33],
       label: 'SO station',
-      fill: false
+      fill: false,
     },
     {
-      data: [0, 12, 33, 70, 12, 33, 80],
+      data: [12],
       label: 'IB station',
-      fill: false
+      fill: false,
     },
     {
-      data: [0, 70, 12, 33, 48, 20, 22],
+      data: [70],
       label: 'DB station',
-      fill: false
+      fill: false,
     },
     {
-      data: [1, 12, 33, 48, 57, 18, 75],
+      data: [5],
       label: 'GB station',
-      fill: false
+      fill: false,
     },
     {
-      data: [1, 23, 90, 33, 58, 12, 64],
+      data: [90],
       label: 'OB station',
-      fill: false
-    }
+      fill: false,
+    },
   ];
-  chartLabels: Label[] = [
-    // อยากให้ขึ้นเป็น day / week / month ที่เลือกจะดู
-    '00:00', '04:00', '08:00', '12:00', '16:00', '20:00', '24:00'
+  chartLabels: Label[] = [      
   ];
   chartOptions = {
     responsive: true,
@@ -271,46 +240,6 @@ export class MonthlyComponent implements OnInit {
     { backgroundColor: ["#ab3d30", "#e7e7e7"] }
   ];
 
-  // chartData2 = [
-  //   {
-  //     data: [84],
-  //     label: 'DIESEL BAY',
-  //     fill: true
-  //   }
-  // ];
-  // chartLabels2: Label[] = [
-  //   // อยากให้ขึ้นเป็น day / week / month ที่เลือกจะดู
-  //   // 'DIESEL BAY', 'GASOHOL95 BAY'
-  // ];
-  // chartOptions2 = {
-  //   responsive: true,
-  //   legend: {
-  //     labels: {
-  //       fontColor: 'black'
-  //     }
-  //   },
-  //   primaryYAxis: {
-  //     minimum: 0, maximum: 5, interval:1, 
-  //  }
-  // };
-  // // ...
-  // onChartHover2 = ($event: any) => {
-  //   window.console.log('onChartHover', $event);
-  // };
-  // onChartClick2 = ($event: any) => {
-  //   window.console.log('onChartClick', $event);
-  // };
-
-  // newDataPoint2(dataArr = [0, 0, 0], label) {
-  //   this.chartData2.forEach((dataset, index) => {
-  //     this.chartData2[index] = Object.assign({}, this.chartData2[index], {
-  //       data: [...this.chartData2[index].data, dataArr[index]]
-  //     });
-  //   });
-
-  //   this.chartLabels2 = [...this.chartLabels2, label];
-  // }
-
   ///////////////////////// BUSY II /////////////////////////
 
   public doughnutChartLabels4: Label[] = ['GASOHOL95', 'Other'];
@@ -323,80 +252,10 @@ export class MonthlyComponent implements OnInit {
   ];
 
 
-  // chartData22 = [
-  //   {
-  //     data: [3],
-  //     label: 'GASOHOL95 BAY',
-  //     fill: false
-  //   }
-  // ];
-  // chartLabels22: Label[] = [
-  //   // อยากให้ขึ้นเป็น day / week / month ที่เลือกจะดู
-  //   // 'DIESEL BAY', 'GASOHOL95 BAY'
-  // ];
-  // chartOptions22 = {
-  //   responsive: true,
-  //   legend: {
-  //     labels: {
-  //       fontColor: 'black'
-  //     }
-  //   },
-  //   primaryYAxis: {
-  //     minimum: 0, maximum: 5, interval: 1,
-  //   }
-  // };
-  // // ...
-  // onChartHover22 = ($event: any) => {
-  //   window.console.log('onChartHover', $event);
-  // };
-  // onChartClick22 = ($event: any) => {
-  //   window.console.log('onChartClick', $event);
-  // };
-
-  // newDataPoint22(dataArr = [0, 0, 0], label) {
-  //   this.chartData22.forEach((dataset, index) => {
-  //     this.chartData22[index] = Object.assign({}, this.chartData22[index], {
-  //       data: [...this.chartData22[index].data, dataArr[index]]
-  //     });
-  //   });
-
-  //   this.chartLabels22 = [...this.chartLabels22, label];
-  // }
-
+  
   ngOnInit() {
-    // console.log(event);
   }
 
   constructor() {
-    // Object.assign(this, { multi })
-    // this.view = [innerWidth / 4, 655];
   }
 }
-
-
-
-
-
-  ///////////////////////// LINE CHART [NOT USE] in EXPORT /////////////////////////
-
-  // public lineChartData: ChartDataSets[] = [
-  //   { data: [85, 72, 78, 75, 77, 75], label: 'Crude oil prices',fill: false },
-  //   { data: [100, 72, 25, 75, 80, 12], label: 'B',fill: false },
-  //   { data: [77, 65, 78, 11, 120, 99], label: 'C',fill: false },
-  // ];
-
-  // public lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June'];
-
-  // public lineChartOptions = {
-  //   responsive: true,
-  // };
-  // public lineChartType: ChartType = 'line';
-  // // lineChartColors: Color[] = [
-  // //   {
-  // //     borderColor: 'black',
-  // //     backgroundColor: 'rgba(255,255,0,0.28)',
-  // //   },
-  // // ];
-
-  // public lineChartLegend = true;
-  // public lineChartPlugins = [];
