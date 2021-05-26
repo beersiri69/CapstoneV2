@@ -1,18 +1,111 @@
-import { formatDate } from '@angular/common';
-import { Component, ComponentFactoryResolver, OnInit } from '@angular/core';
-import { ChartType, ChartOptions, ChartDataSets } from 'chart.js';
+import { RouterModule, Routes, Router } from '@angular/router';
+import { Component, OnInit, NgModule } from '@angular/core';
+import { ChartType, ChartOptions, ChartDataSets, } from 'chart.js';
 import { MultiDataSet, Label, Color } from 'ng2-charts';
-import { FormGroup, FormControl } from '@angular/forms';
+import { NgbTooltipModule } from "@ng-bootstrap/ng-bootstrap";
+import { FormControl } from '@angular/forms';
+import { MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import { MatDatepicker } from '@angular/material/datepicker';
+import * as _moment from 'moment';
+import { default as _rollupMoment, Moment } from 'moment';
 
+interface botton{
+  Name: string;
+  Route: string;
+}
+
+const moment = _rollupMoment || _moment;
+
+export const MY_FORMATS = {
+  parse: {
+    dateInput: 'MM/YYYY',
+  },
+  display: {
+    dateInput: 'MM/YYYY',
+    monthYearLabel: 'MMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM YYYY',
+  },
+};
 
 @Component({
   selector: 'app-weekly',
   templateUrl: './weekly.component.html',
-  styleUrls: ['./weekly.component.scss']
+  styleUrls: ['./weekly.component.scss'],
+  providers: [{
+    provide: DateAdapter,
+    useClass: MomentDateAdapter,
+    deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS]
+  }, { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS }]
 })
 
 export class WeeklyComponent implements OnInit {
 
+  ///////////////////////// BUTTON /////////////////////////
+
+  Menu_Title:string[];
+  Router_List:string[];
+  public PropChange : any[];
+
+  constructor(private router: Router) {
+    this.Menu_Title=[
+      "WEEK01",
+      "WEEK02",
+      "WEEK03",
+      "WEEK04"
+    ]
+    this.Router_List=[
+      "WEEK01",
+      "WEEK02",
+      "WEEK03",
+      "WEEK04"
+    ]
+   }
+  
+//OLD one
+  pages: botton[] = [
+    {Name: 'WEEK01', Route: 'WEEK01'},
+    {Name: 'WEEK02', Route: 'WEEK02'},
+    {Name: 'WEEK03', Route: 'WEEK03'},
+    {Name: 'WEEK04', Route: 'WEEK04'},
+  ];
+
+  ngOnInit(): void {
+    this.PropChange = ["btn-menu","btn-menu","btn-menu","btn-menu"]
+  }
+
+  check(e){
+    var target = e.target || e.srcElement || e.currentTarget
+    var x = target.id
+    for ( let i in this.PropChange){
+      this.PropChange[i] = "btn-menu"
+    }
+    this.PropChange[x] = "btn-sel"
+  }
+
+  navigateTo(value){
+    //console.log(value);
+    this.router.navigate(['managerdashboard/',value]);
+  
+  }
+
+  ///////////////////////// CARLENDAR /////////////////////////
+
+  date = new FormControl(moment());
+
+  chosenYearHandler(normalizedYear: Moment) {
+    const ctrlValue = this.date.value;
+    ctrlValue.year(normalizedYear.year());
+    this.date.setValue(ctrlValue);
+  }
+
+  chosenMonthHandler(normalizedMonth: Moment, datepicker: MatDatepicker<Moment>) {
+    const ctrlValue = this.date.value;
+    ctrlValue.month(normalizedMonth.month());
+    this.date.setValue(ctrlValue);
+    datepicker.close();
+  }
 
   ///////////////////////// FIRST DONUT /////////////////////////
 
@@ -84,7 +177,7 @@ export class WeeklyComponent implements OnInit {
     { backgroundColor: '#c1d6e1' },
   ]
 
-  
+
 
   ///////////////////////// SCHEDULE UTILIZATION /////////////////////////
 
@@ -125,7 +218,7 @@ export class WeeklyComponent implements OnInit {
     { backgroundColor: '#706677' },
     { backgroundColor: '#565264' },
   ]
-  
+
 
 
   ///////////////////////// WIP /////////////////////////
@@ -157,7 +250,7 @@ export class WeeklyComponent implements OnInit {
       fill: false,
     },
   ];
-  chartLabels: Label[] = [      
+  chartLabels: Label[] = [
   ];
   chartOptions = {
     responsive: true,
@@ -168,7 +261,7 @@ export class WeeklyComponent implements OnInit {
     }
 
   };
-  
+
   onChartHover = ($event: any) => {
     window.console.log('onChartHover', $event);
   };
@@ -212,32 +305,4 @@ export class WeeklyComponent implements OnInit {
     { backgroundColor: ["#460707", "#e7e7e7"] }
   ];
 
-
-  ngOnInit() {
-    
-  }
-
-  Start_Date: any | undefined;
-  End_Date: any | undefined;
-  Diff_Date: any | undefined;
-  range = new FormGroup({
-    start: new FormControl(),
-    end: new FormControl(),
-  });
-
-  async GetDateRange(e) {
-    this.Start_Date = formatDate(this.range.value.start, 'yyyy-MM-dd', 'en_US');
-    this.End_Date = formatDate(this.range.value.end, 'yyyy-MM-dd', 'en_US');
-
-    var Difference_In_Time = this.range.value.end - this.range.value.start;
-    this.Diff_Date = Difference_In_Time / (1000 * 3600 * 24) + 1;
-
-    //console.log(this.Start_Date +"   "  + this.End_Date)
-
-    
-  }
-
-  constructor() {
-    
-  }
 }
