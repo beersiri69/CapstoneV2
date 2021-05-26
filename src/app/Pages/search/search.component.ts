@@ -34,7 +34,7 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() {
     this.Bottonshow = bottonall.filter(Bottonshow => Bottonshow)
-    this.PropChange = ["btn-menu", "btn-menu", "btn-menu", "btn-menu"]
+    this.PropChange = ["btn-sel", "btn-menu", "btn-menu", "btn-menu"]
   }
   check(e) {
     var target = e.target || e.srcElement || e.currentTarget
