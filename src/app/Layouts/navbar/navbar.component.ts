@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
-import { ROUTES } from '../sidebar/sidebar.component';
+import { ROUTES1, ROUTES2} from '../sidebar/sidebar.component';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { Router } from '@angular/router';
 
@@ -17,7 +17,8 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.listTitles = ROUTES.filter(listTitle => listTitle);
+    this.listTitles = ROUTES1.filter(listTitle => listTitle);
+    this.listTitles = ROUTES2.filter(listTitle => listTitle);
   }
   getTitle(){
     var Titlee = this.router.url

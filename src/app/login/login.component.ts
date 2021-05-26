@@ -56,6 +56,8 @@ export class LoginComponent implements OnInit {
   }
 
   async Onsucess(id_in,name_in,surname_in,role_in){
+
+    this.logalert.toggle = false;
     this.logsuccess.toggle = true 
     this.logsuccess.message = "Login Sucess"
     localStorage.setItem("UserID",id_in)
@@ -65,6 +67,7 @@ export class LoginComponent implements OnInit {
     await this.delay(1000)
     // this.router.navigateByUrl('/operatordashboard');
   }
+  
   
   Onsubmit(){
 
@@ -109,6 +112,12 @@ export class LoginComponent implements OnInit {
           this.logalert.toggle = true 
           this.logalert.message = "Server not available"
         });
+    }
+    if(localStorage.getItem("UserRole")=='Staff'){
+      this.router.navigateByUrl('/operatordashboard');    
+    }    
+    if(localStorage.getItem("UserRole")=='Manager'){
+      this.router.navigateByUrl('/managerdashboard');
     }
    
   }
