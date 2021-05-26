@@ -49,7 +49,7 @@ export class FinanceComponent implements OnInit {
   ];
 
   ngOnInit() { 
-    this.PropChange = ["btn-menuu","btn-menuu","btn-menuu","btn-menuu","btn-menuu"]
+    this.PropChange = ["btn-sell","btn-menuu","btn-menuu","btn-menuu","btn-menuu"]
   }
 
   check(e){
