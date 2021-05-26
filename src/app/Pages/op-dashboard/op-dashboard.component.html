@@ -39,7 +39,7 @@
 
 <div class="container-fluid bg-bymeten mt--7">
   <!----------------------------- START WIP ----------------------------->
-  <div class="row" *ngIf="CanRender" >
+  <div class="row">
     <div class="col-xl-8 mb-5 mb-xl-0">
       <div class="card bg-default shadow">
         <div class="card-header bg-transparent">
@@ -56,9 +56,9 @@
             </div>
           </div>
         </div>
-        <div class="card-body">
+        <div class="card-body" >
           <!-- Chart -->
-          <div style="display: block">
+          <div style="display: block" *ngIf="CanRender" >
             <canvas baseChart 
             [chartType]="'bar'" 
             [legend]="true" 
@@ -67,11 +67,8 @@
             [options]="chartOptions" 
             (chartHover)="onChartHover(($event))" 
             (chartClick)="onChartClick(($event))">
-            <!-- [Color]="chartColors" -->
             </canvas>
-            <!-- <button (click)="newDataPoint([900, 50, 300], 'May')">
-                Add data point
-              </button> -->
+
           </div>
           <!-- ปรับความสูง+data chart sale value -->
         </div>
@@ -89,7 +86,7 @@
           <div class="card card-stats bg-bymeonesix mb-4 mb-xl-0 mt-4">
             <div class="card-body">
               <div class="row">
-                <div class="col">
+                <div class="col"*ngIf="CanRender" >
                   <h5 class="card-title text-uppercase font-weight-bold text-muted text-white mb-0">AMOUNT OF GASOHOL95</h5>
                   <span class="h1 font-weight-bold text-white mb-0">{{AmountG}}</span>
                   <span class="h1 text-white mr-2 pl-2">litres</span>
@@ -108,7 +105,7 @@
           <div class="card card-stats bg-bymeoneseven mb-4 mb-xl-0 mt-3">
             <div class="card-body">
               <div class="row">
-                <div class="col">
+                <div class="col"*ngIf="CanRender" >
                   <h5 class="card-title text-uppercase font-weight-bold text-muted text-white mb-0">AMOUNT OF DIESEL</h5>
                   <span class="h1 text-white mb-0">{{AmountD}}</span>
                   <span class="h1 text-white mr-2 pl-2">litres</span>
@@ -125,7 +122,7 @@
           <div class="card card-stats bg-bymeoneten mb-4 mb-xl-0 mt-3">
             <div class="card-body">
               <div class="row">
-                <div class="col">
+                <div class="col"*ngIf="CanRender" >
                   <h5 class="card-title text-uppercase font-weight-bold text-muted text-white mb-0">AMOUNT OF TRUCK IN</h5>
                   <span class="h1 font-weight-bold text-white mb-0">{{TruckIn}}</span>
                   <span class="h1 text-white mr-2 pl-2">cars</span>
@@ -142,7 +139,7 @@
           <div class="card card-stats bg-bymetwoone mb-4 mb-xl-0 mt-3">
             <div class="card-body">
               <div class="row">
-                <div class="col">
+                <div class="col"*ngIf="CanRender" >
                   <h5 class="card-title text-uppercas font-weight-bold text-muted text-white mb-0">AMOUNT OF TRUCK OUT</h5>
                   <span class="h1 font-weight-bold text-white mb-0">{{TruckOut}}</span>
                   <span class="h1 text-white mr-2 pl-2">cars</span>
@@ -159,7 +156,7 @@
           <div class="card card-stats bg-bymeonenine mb-4 mb-xl-0 mt-3">
             <div class="card-body">
               <div class="row">
-                <div class="col">
+                <div class="col"*ngIf="CanRender" >
                   <h5 class="card-title text-uppercase font-weight-bold text-muted text-white mb-0">DIESEL BAY's FAIL</h5>
                   <span class="h1 font-weight-bold text-white mb-0">{{DFail}}</span>
                   <span class="h1 text-white mr-2 pl-2">times</span>
@@ -176,7 +173,7 @@
           <div class="card card-stats bg-bymeoneeight mt-3 mb-4 mb-xl-0 mt-3">
             <div class="card-body">
               <div class="row">
-                <div class="col">
+                <div class="col"*ngIf="CanRender" >
                   <h5 class="card-title text-uppercase font-weight-bold text-muted text-white mb-0">GASOHOL95 BAY's FAIL</h5>
                   <span class="h1 font-weight-bold text-white mb-0">{{GFail}}</span>
                   <span class="h1 text-white mr-2 pl-2">times</span>
@@ -193,7 +190,7 @@
           <div class="card card-stats bg-bymeonefive mb-4 mb-xl-0 mt-3">
             <div class="card-body">
               <div class="row">
-                <div class="col">
+                <div class="col"*ngIf="CanRender" >
                   <h5 class="card-title text-uppercase font-weight-bold text-muted text-white mb-0">CYCLE TIME</h5>
                   <span class="h1 font-weight-bold text-white mb-0">{{Cycle}}</span>
                   <span class="h1 text-white mr-2 pl-2">mins</span>
@@ -316,7 +313,7 @@
   <!----------------------------- START DONUT ----------------------------->
   <div class="row"  >
     <!----------------------------- FIRST DONUT ----------------------------->
-    <div class="col-xl-6" *ngIf="CanRender3">
+    <div class="col-xl-6">
       <div class="card shadow mt-5">
         <div class="card-header bg-transparent">
           <div class="row align-items-center">
@@ -326,7 +323,7 @@
             </div>
           </div>
         </div>
-        <div class="card-body">
+        <div class="card-body" *ngIf="CanRender3">
           <div style="display: block" >
             <canvas baseChart 
             [data]="Donut_NOQ" 
@@ -405,7 +402,7 @@
             </div>
           </div>
         </div>
-        <div class="card-body">
+        <div class="card-body"  *ngIf="CanRender3" >
           <div style="display: block">
             <canvas baseChart 
             [data]="Donut_TQ" 

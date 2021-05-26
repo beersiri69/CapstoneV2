@@ -205,7 +205,7 @@ export class OpDashboardComponent implements OnInit {
           this.Donut_Diesel = [[this.GBusy, this.DBusy]];
           this.Donut_Gasohol = [[this.DBusy, this.GBusy]];
           this.CanRender2 = true;
-          this.GetDashboardValue3('2018-03-01');
+          this.GetDashboardValue3(DateSend);
         });
       });
        //TODO ==========================================================================================  Bar Chart APQ
@@ -249,7 +249,8 @@ export class OpDashboardComponent implements OnInit {
       this.TQ3 = Number(this.PivalueAll[2].Item1);
       this.TQ4 = Number(this.PivalueAll[3].Item1);
       this.TQ5 = Number(this.PivalueAll[4].Item1);
-
+      this.Donut_TQ = [[this.TQ1, this.TQ2, this.TQ3, this.TQ4, this.TQ5]];
+      //TODO ==========================================================================================  2 Donut
       this.pivalueService.GetAVGNOQD(DateSend).subscribe((data) => {
         this.PivalueAll = data.result;
 
@@ -262,7 +263,7 @@ export class OpDashboardComponent implements OnInit {
         this.Donut_NOQ = [
           [this.NOQ1, this.NOQ2, this.NOQ3, this.NOQ4, this.NOQ5],
         ];
-        this.Donut_TQ = [[this.TQ1, this.TQ2, this.TQ3, this.TQ4, this.TQ5]];
+       
 
         this.CanRender3 = true;
       });
