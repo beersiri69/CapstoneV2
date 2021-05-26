@@ -47,6 +47,16 @@ export class PivalueService {
 
   private WIPDAPI = 'https://localhost:44389/api/oee/WIPD/';
 
+  private FailDAPI = 'https://localhost:44389/api/oee/FailD/';
+  private FailWAPI = 'https://localhost:44389/api/oee/FailW/';
+  private FailMAPI = 'https://localhost:44389/api/oee/FailM/';
+
+  private BusyDAPI = 'https://localhost:44389/api/oee/BusyD/';
+  private BusyWAPI = 'https://localhost:44389/api/oee/BusyW/';
+  private BusyMAPI = 'https://localhost:44389/api/oee/BusyM/';
+
+
+
   constructor(private httpClient: HttpClient) {}
 
   GetAmoutG(Date): Observable<PivalueAll> {
@@ -161,6 +171,27 @@ export class PivalueService {
 
   GetWIPD(Date): Observable<PivalueAll> {
     return this.httpClient.get<PivalueAll>(this.WIPDAPI + Date);
+  }
+
+
+  FailD(Date): Observable<PivalueAll> {
+    return this.httpClient.get<PivalueAll>(this.FailDAPI + Date);
+  }
+  FailW(Date): Observable<PivalueAll> {
+    return this.httpClient.get<PivalueAll>(this.FailWAPI + Date);
+  }
+  FailM(Date): Observable<PivalueAll> {
+    return this.httpClient.get<PivalueAll>(this.FailMAPI + Date);
+  }
+
+  BusyD(Date): Observable<PivalueAll> {
+    return this.httpClient.get<PivalueAll>(this.BusyDAPI + Date);
+  }
+  BusyW(Date): Observable<PivalueAll> {
+    return this.httpClient.get<PivalueAll>(this.BusyWAPI + Date);
+  }
+  BusyM(Date): Observable<PivalueAll> {
+    return this.httpClient.get<PivalueAll>(this.BusyMAPI + Date);
   }
 
 }
