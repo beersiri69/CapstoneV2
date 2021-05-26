@@ -208,12 +208,7 @@ export class MonthlyComponent implements OnInit {
 
           this.pivalueService.GetQueueM(DateSend).subscribe(data =>{
             this.PivalueAll = data.result;
-            this.TQ1 = Number(this.PivalueAll[0].Item1);
-            this.TQ2 = Number(this.PivalueAll[1].Item1);
-            this.TQ3 = Number(this.PivalueAll[2].Item1);
-            this.TQ4 = Number(this.PivalueAll[3].Item1);
-            this.TQ5 = Number(this.PivalueAll[4].Item1);
-            this.Donut_TQ = [[this.TQ1, this.TQ2, this.TQ3, this.TQ4, this.TQ5]];
+         
 
             this.NOQ1 = Number(this.PivalueAll[0].Item1);
             this.NOQ2 = Number(this.PivalueAll[1].Item1);
@@ -221,6 +216,13 @@ export class MonthlyComponent implements OnInit {
             this.NOQ4 = Number(this.PivalueAll[3].Item1);
             this.NOQ5 = Number(this.PivalueAll[4].Item1);           
             this.Donut_NOQ = [[this.NOQ1, this.NOQ2, this.NOQ3, this.NOQ4, this.NOQ5]];
+
+            this.TQ1 = Number(this.PivalueAll[5].Item1);
+            this.TQ2 = Number(this.PivalueAll[6].Item1);
+            this.TQ3 = Number(this.PivalueAll[7].Item1);
+            this.TQ4 = Number(this.PivalueAll[8].Item1);
+            this.TQ5 = Number(this.PivalueAll[9].Item1);
+            this.Donut_TQ = [[this.TQ1, this.TQ2, this.TQ3, this.TQ4, this.TQ5]];
 
             this.pivalueService.GetUtilizeM(DateSend).subscribe(data =>{
               this.PivalueAll = data.result;
@@ -255,14 +257,6 @@ export class MonthlyComponent implements OnInit {
                   ];
                   this.CanRender = true                
                 }, 100);
-               
-
-                
-                 
-                
-
-                
-            
             });
           });
         });
