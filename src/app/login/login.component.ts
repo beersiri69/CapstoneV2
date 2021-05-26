@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit {
     localStorage.setItem("UserSurName",surname_in)
     localStorage.setItem("UserRole",role_in)
     await this.delay(1000)
-    this.router.navigateByUrl('/home');
+    // this.router.navigateByUrl('/operatordashboard');
   }
   
   Onsubmit(){
@@ -72,7 +72,12 @@ export class LoginComponent implements OnInit {
     var pwd = this.myForm.get('Password').value
 
     if(id == "admin" && pwd =="1234"){
-      this.Onsucess("AdminID","Admin","SuperUser","Manager");       
+      this.Onsucess("AdminID","Admin","SuperUser","Manager"); 
+      this.router.navigateByUrl('/managerdashboard');      
+    }
+    if(id == "test" && pwd =="1234"){
+      this.Onsucess("AdminID","Admin","SuperUser","Staff");   
+      this.router.navigateByUrl('/operatordashboard');    
     }
     else{
       this.authService.getLogin(id,pwd).subscribe(
