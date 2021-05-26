@@ -373,7 +373,6 @@ export class OpDashboardComponent implements OnInit {
   ///////////////////////// BUSY II /////////////////////////
 
   public doughnutChartLabels4: Label[] = ['GASOHOL95', 'Other'];
-  public doughnutChartData4: MultiDataSet = [[250, 750]];
   public doughnutChartType4: ChartType = 'doughnut';
   public doughnutChartColors4: Color[] = [
     { backgroundColor: ['#460707', '#e7e7e7'] },

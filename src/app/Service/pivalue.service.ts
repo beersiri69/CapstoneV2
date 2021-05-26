@@ -45,7 +45,7 @@ export class PivalueService {
   private AVGNOQD = 'https://localhost:44389/api/oee/AVGNOQD/';
   private AVGTQD = 'https://localhost:44389/api/oee/AVGTQD/';
 
-  private WIPDAPI = 'https://localhost:44389/api/oee/WIPD/';
+  //private WIPDAPI = 'https://localhost:44389/api/oee/WIPD/';
 
   private FailDAPI = 'https://localhost:44389/api/oee/FailD/';
   private FailWAPI = 'https://localhost:44389/api/oee/FailW/';
@@ -54,6 +54,25 @@ export class PivalueService {
   private BusyDAPI = 'https://localhost:44389/api/oee/BusyD/';
   private BusyWAPI = 'https://localhost:44389/api/oee/BusyW/';
   private BusyMAPI = 'https://localhost:44389/api/oee/BusyM/';
+
+  private WIPMAPI   = 'https://localhost:44389/api/Monthvalue/WIPM/';
+  private QueueMAPI    = 'https://localhost:44389/api/Monthvalue/QueueM/';
+  private DonutMAPI    = 'https://localhost:44389/api/Monthvalue/DonutM/';
+  private UtilizeMAPI  = 'https://localhost:44389/api/Monthvalue/UtilizeM/';
+  private ShowAmountMAPI  = 'https://localhost:44389/api/Monthvalue/ShowAmountM/';
+
+  private WIPWAPI   = 'https://localhost:44389/api/Weekvalue/WIPW/';
+  private QueueWAPI    = 'https://localhost:44389/api/Weekvalue/QueueW/';
+  private DonutWAPI    = 'https://localhost:44389/api/Weekvalue/DonutW/';
+  private UtilizeWAPI  = 'https://localhost:44389/api/Weekvalue/UtilizeW/';
+  private ShowAmountWAPI  = 'https://localhost:44389/api/Weekvalue/ShowAmountW/';
+
+  private WIPDAPI   = 'https://localhost:44389/api/Dailyvalue/WIPD/';
+  private QueueDAPI    = 'https://localhost:44389/api/Dailyvalue/QueueD/';
+  private DonutDAPI    = 'https://localhost:44389/api/Dailyvalue/DonutD/';
+  private UtilizeDAPI  = 'https://localhost:44389/api/Dailyvalue/UtilizeD/';
+  private ShowAmountDAPI  = 'https://localhost:44389/api/Dailyvalue/ShowAmountD/';
+
 
 
 
@@ -168,11 +187,9 @@ export class PivalueService {
     return this.httpClient.get<PivalueAll>(this.AVGTQD + Date);
   }
 
-
-  GetWIPD(Date): Observable<PivalueAll> {
-    return this.httpClient.get<PivalueAll>(this.WIPDAPI + Date);
-  }
-
+  // GetWIPD(Date): Observable<PivalueAll> {
+  //   return this.httpClient.get<PivalueAll>(this.WIPDAPI + Date);
+  // }
 
   FailD(Date): Observable<PivalueAll> {
     return this.httpClient.get<PivalueAll>(this.FailDAPI + Date);
@@ -192,6 +209,75 @@ export class PivalueService {
   }
   BusyM(Date): Observable<PivalueAll> {
     return this.httpClient.get<PivalueAll>(this.BusyMAPI + Date);
+  }
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+  GetWIPM(Date): Observable<PivalueAll> {
+    return this.httpClient.get<PivalueAll>(this.WIPMAPI + Date);
+  }
+
+  GetQueueM(Date): Observable<PivalueAll> {
+    return this.httpClient.get<PivalueAll>(this.QueueMAPI + Date);
+  }
+
+  GetDonutM(Date): Observable<PivalueAll> {
+    return this.httpClient.get<PivalueAll>(this.DonutMAPI + Date);
+  }
+
+  GetUtilizeM(Date): Observable<PivalueAll> {
+    return this.httpClient.get<PivalueAll>(this.UtilizeMAPI + Date);
+  }
+
+  GetAmountM(Date): Observable<PivalueAll> {
+    return this.httpClient.get<PivalueAll>(this.ShowAmountMAPI + Date);
+  }
+  
+  ///////////////////////////////////////////////////////////////////////////
+
+  GetWIPW(Date): Observable<PivalueAll> {
+    return this.httpClient.get<PivalueAll>(this.WIPWAPI + Date);
+  }
+
+  GetQueueW(Date): Observable<PivalueAll> {
+    return this.httpClient.get<PivalueAll>(this.QueueWAPI + Date);
+  }
+
+  GetDonutW(Date): Observable<PivalueAll> {
+    return this.httpClient.get<PivalueAll>(this.DonutWAPI + Date);
+  }
+
+  GetUtilizeW(Date): Observable<PivalueAll> {
+    return this.httpClient.get<PivalueAll>(this.UtilizeWAPI + Date);
+  }
+
+  GetAmountW(Date): Observable<PivalueAll> {
+    return this.httpClient.get<PivalueAll>(this.ShowAmountWAPI + Date);
+  }
+
+  
+  GetWIPD(Date): Observable<PivalueAll> {
+    return this.httpClient.get<PivalueAll>(this.WIPDAPI + Date);
+  }
+
+  GetQueueD(Date): Observable<PivalueAll> {
+    return this.httpClient.get<PivalueAll>(this.QueueDAPI + Date);
+  }
+
+  GetDonutD(Date): Observable<PivalueAll> {
+    return this.httpClient.get<PivalueAll>(this.DonutDAPI + Date);
+  }
+
+  GetUtilizeD(Date): Observable<PivalueAll> {
+    return this.httpClient.get<PivalueAll>(this.UtilizeDAPI + Date);
+  }
+
+  GetAmountD(Date): Observable<PivalueAll> {
+    return this.httpClient.get<PivalueAll>(this.ShowAmountDAPI + Date);
   }
 
 }
