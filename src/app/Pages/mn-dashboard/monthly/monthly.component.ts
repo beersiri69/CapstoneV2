@@ -145,7 +145,8 @@ export class MonthlyComponent implements OnInit {
       this.DateSearch += this.MonthTok  + '-31'
     }
     console.log( this.DateSearch );
-    
+   
+    this.GetDashboardValue1(this.DateSearch)
     datepicker.close();
   }
 

@@ -4,27 +4,6 @@ import { Component, OnInit } from '@angular/core';
 
 import {MatDatepickerInputEvent} from '@angular/material/datepicker';
 import {formatDate} from '@angular/common';
-import {FormControl} from '@angular/forms';
-import {MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/material-moment-adapter';
-import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
-import {MatDatepicker} from '@angular/material/datepicker';
-import * as _moment from 'moment';
-import {default as _rollupMoment, Moment} from 'moment';
-
-const moment = _rollupMoment || _moment;
-
-export const MY_FORMATS = {
-  parse: {
-    dateInput: 'DD/MM/YYYY',
-  },
-  display: {
-    dateInput: 'DD/MM/YYYY',
-    monthYearLabel: 'DD MMM YYYY',
-    dateA11yLabel: 'LL',
-    monthYearA11yLabel: 'MMMM YYYY',
-  },
-};
-
 import {  ReconAll,Purchase,Payment,Deliver } from 'src/app/Model/recon.Model';
 
 export interface GeneralShow{  
@@ -43,35 +22,25 @@ export interface GeneralShow{
 @Component({
   selector: 'app-reconciliation',
   templateUrl: './reconciliation.component.html',
-  styleUrls: ['./reconciliation.component.scss'],
-  providers: [{
-    provide: DateAdapter,
-    useClass: MomentDateAdapter,
-    deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS]
-  }, { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS }]
+  styleUrls: ['./reconciliation.component.scss']
 })
 export class ReconciliationComponent implements OnInit {
 
   ToktRec: ReconAll
   constructor(private networkService:NetworkService) { }
-  date = new FormControl(moment([2018, 2, 1]));
-  YearTok:string
-  MonthTok:String
-  DateSearch:string
-  constructor( ) {
-  }
 
   public CanRender = false
   ngOnInit(): void {
     this.GeneralShowAll=[]
     this.ReconcilFunc("2018-03-01");
-    
   }
   addEvent(event: MatDatepickerInputEvent<Date>) {
-    
+    this.CanRender = false
+    this.GeneralShowAll=[]
     var DateSearch = formatDate(event.value,'yyyy-MM-dd','en-US');
-   
+    this.ReconcilFunc(DateSearch);
     }
+
     Paymentinfo: Payment[]
     Deliverinfo: Deliver[]
     PurchaseInfo: Purchase[]
@@ -81,9 +50,8 @@ export class ReconciliationComponent implements OnInit {
         this.Paymentinfo=data.Payment
         this.Deliverinfo = data.Deliver
         this.PurchaseInfo = data.Purchase
-        // console.log(this.Paymentinfo)
-        // console.log(this.Deliverinfo)
-        // console.log(this.PurchaseInfo)
+
+
         
         setTimeout(() => {
           this.Insertloop()
