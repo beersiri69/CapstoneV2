@@ -65,16 +65,16 @@ export class MonthlyComponent implements OnInit {
   Q6: number;
   GBusy: number;
   DBusy: number;
-  NOQ1: number;
-  NOQ2: number;
-  NOQ3: number;
-  NOQ4: number;
-  NOQ5: number;
-  TQ1: number;
-  TQ2: number;
-  TQ3: number;
-  TQ4: number;
-  TQ5: number;
+  NOQ1: any;
+  NOQ2: any;
+  NOQ3: any;
+  NOQ4: any;
+  NOQ5: any;
+  TQ1: any;
+  TQ2: any;
+  TQ3: any;
+  TQ4: any;
+  TQ5: any;
   WIP1: number;
   WIP2: number;
   WIP3: number;
@@ -190,13 +190,13 @@ export class MonthlyComponent implements OnInit {
       this.pivalueService.GetAmountM(DateSend).subscribe(data =>{
         this.PivalueAll = data.result;
 
-        this.AmountG  = this.PivalueAll[0].Item1
-        this.AmountD  = this.PivalueAll[1].Item1
-        this.TruckIn  = this.PivalueAll[2].Item1
-        this.TruckOut = this.PivalueAll[3].Item1
-        this.GFail    = this.PivalueAll[4].Item1
-        this.DFail    = this.PivalueAll[5].Item1
-        this.Cycle    = this.PivalueAll[6].Item1
+        this.AmountG  = parseFloat(Number(this.PivalueAll[0].Item1).toFixed(4)).toLocaleString("en")
+        this.AmountD  = parseFloat(Number(this.PivalueAll[1].Item1).toFixed(4)).toLocaleString("en")
+        this.TruckIn  = parseFloat(Number(this.PivalueAll[2].Item1).toFixed(4)).toLocaleString("en")
+        this.TruckOut = parseFloat(Number(this.PivalueAll[3].Item1).toFixed(4)).toLocaleString("en")
+        this.GFail    = parseFloat(Number(this.PivalueAll[4].Item1).toFixed(4)).toLocaleString("en")
+        this.DFail    = parseFloat(Number(this.PivalueAll[5].Item1).toFixed(4)).toLocaleString("en")
+        this.Cycle    = parseFloat(Number(this.PivalueAll[6].Item1).toFixed(4)).toLocaleString("en")
 
         
 
@@ -212,18 +212,18 @@ export class MonthlyComponent implements OnInit {
             this.PivalueAll = data.result;
          
 
-            this.NOQ1 = Number(this.PivalueAll[0].Item1);
-            this.NOQ2 = Number(this.PivalueAll[1].Item1);
-            this.NOQ3 = Number(this.PivalueAll[2].Item1);
-            this.NOQ4 = Number(this.PivalueAll[3].Item1);
-            this.NOQ5 = Number(this.PivalueAll[4].Item1);           
+            this.NOQ1 = parseFloat(Number(this.PivalueAll[0].Item1).toFixed(4)).toLocaleString("en");
+            this.NOQ2 = parseFloat(Number(this.PivalueAll[1].Item1).toFixed(4)).toLocaleString("en");
+            this.NOQ3 = parseFloat(Number(this.PivalueAll[2].Item1).toFixed(4)).toLocaleString("en");
+            this.NOQ4 = parseFloat(Number(this.PivalueAll[3].Item1).toFixed(4)).toLocaleString("en");
+            this.NOQ5 = parseFloat(Number(this.PivalueAll[4].Item1).toFixed(4)).toLocaleString("en");           
             this.Donut_NOQ = [[this.NOQ1, this.NOQ2, this.NOQ3, this.NOQ4, this.NOQ5]];
 
-            this.TQ1 = Number(this.PivalueAll[5].Item1);
-            this.TQ2 = Number(this.PivalueAll[6].Item1);
-            this.TQ3 = Number(this.PivalueAll[7].Item1);
-            this.TQ4 = Number(this.PivalueAll[8].Item1);
-            this.TQ5 = Number(this.PivalueAll[9].Item1);
+            this.TQ1 = parseFloat(Number(this.PivalueAll[5].Item1).toFixed(4)).toLocaleString("en");
+            this.TQ2 = parseFloat(Number(this.PivalueAll[6].Item1).toFixed(4)).toLocaleString("en");
+            this.TQ3 = parseFloat(Number(this.PivalueAll[7].Item1).toFixed(4)).toLocaleString("en");
+            this.TQ4 = parseFloat(Number(this.PivalueAll[8].Item1).toFixed(4)).toLocaleString("en");
+            this.TQ5 = parseFloat(Number(this.PivalueAll[9].Item1).toFixed(4)).toLocaleString("en");
             this.Donut_TQ = [[this.TQ1, this.TQ2, this.TQ3, this.TQ4, this.TQ5]];
 
             this.pivalueService.GetUtilizeM(DateSend).subscribe(data =>{
@@ -305,30 +305,34 @@ export class MonthlyComponent implements OnInit {
   public barChartOptions: ChartOptions = {
     responsive: true,
   };
-  public barChartLabels: Label[] = ['%A (AVAILABILITY)', '%P (PERFORMANCE)', '%Q (QUALITY)'];
+  public barChartLabels: Label[] = ['%A (AVAILABILITY)', '%P (PERFORMANCE)', '%Q (QUALITY)', '%OEE'];
   public barChartType: ChartType = 'bar';
   public barChartLegend = true;
 
   public barChartData: ChartDataSets[] = [
     {
-      data: [33, 60, 26],
-      label: 'SALE OFFICE',
+      data: [33, 60, 26, 32],
+      label: 'DIESEL BAY 1',
     },
     {
-      data: [12, 45, 30],
-      label: 'INBOUND WEIGHTBRIDGE'
+      data: [12, 45, 30, 50],
+      label: 'DIESEL BAY 2'
     },
     {
-      data: [45, 57, 60],
-      label: 'DIESEL BAY'
+      data: [45, 57, 60, 37],
+      label: 'DIESEL BAY 3'
     },
     {
-      data: [14, 32, 15],
-      label: 'GASOHOL95 BAY'
+      data: [14, 32, 15, 40],
+      label: 'DIESEL BAY 4'
     },
     {
-      data: [60, 63, 25],
-      label: 'OUTBOUND WEIGHTBRIDGE'
+      data: [60, 63, 25, 85],
+      label: 'GASOHOL95 BAY 1'
+    },
+    {
+      data: [60, 63, 25, 17],
+      label: 'GASOHOL95 BAY 2'
     },
   ];
 
@@ -338,6 +342,7 @@ export class MonthlyComponent implements OnInit {
     { backgroundColor: '#ffe6c4' },
     { backgroundColor: '#b99c7e' },
     { backgroundColor: '#7f5c46' },
+    { backgroundColor: '#c1d6e1' }
   ]
 
 
