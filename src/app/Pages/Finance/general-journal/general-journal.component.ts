@@ -123,10 +123,10 @@ export class GeneralJournalComponent implements OnInit {
         var Date_insert = formatDate(this.TransactionAll[k].Date,'yyyy-MM-dd','en-US')
         
         if (this.TransactionAll[k].Volume_D != 0){
-          var Amount = this.TransactionAll[k].Price_D
+          var Amount = parseFloat(Number(this.TransactionAll[k].Price_D).toFixed(4)).toLocaleString("en")
         }
         else{
-          var Amount = this.TransactionAll[k].Price_G
+          var Amount = parseFloat(Number(this.TransactionAll[k].Price_G).toFixed(4)).toLocaleString("en")
         }
          
         //TODO SALE
