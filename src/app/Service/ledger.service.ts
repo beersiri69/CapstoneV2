@@ -88,16 +88,16 @@ export class LedgerService {
           Date_insert,
           'Sale Fuel',
           RefID,
-          Amount.toFixed(2),
+          parseFloat(Number(Amount).toFixed(2)).toLocaleString("en"),
           '',
-          Amount.toFixed(2)
+          parseFloat(Number(Amount).toFixed(2)).toLocaleString("en")
         );
         this.InsertShow(
           '',
           'Customer Paid',
           RefID,
           '',
-          Amount.toFixed(2),
+          parseFloat(Number(Amount).toFixed(2)).toLocaleString("en"),
           '0.00'
         );
       }
@@ -124,16 +124,16 @@ export class LedgerService {
           Date_insert,
           'Purchase Fuel',
           RefID,
-          Amount.toFixed(2),
+          parseFloat(Number(Amount).toFixed(2)).toLocaleString("en"),
           '',
-          Amount.toFixed(2)
+          parseFloat(Number(Amount).toFixed(2)).toLocaleString("en")
         );
         this.InsertShow(
           '',
           'Paid Purchase Fuel',
           RefID,
           '',
-          Amount.toFixed(2),
+          parseFloat(Number(Amount).toFixed(2)).toLocaleString("en"),
           '0.00'
         );
       }
@@ -228,8 +228,8 @@ export class LedgerService {
           'Purchase Fuel',
           RefID,
           '',
-          Amount.toFixed(2),
-          this.SumCash.toFixed(2)
+          parseFloat(Number(Amount).toFixed(2)).toLocaleString("en"),
+          parseFloat(Number(this.SumCash).toFixed(2)).toLocaleString("en")
         );
       } else {
         this.SumCash += Amount
@@ -237,9 +237,9 @@ export class LedgerService {
           Date_insert,
           'Sale Fuel',
           RefID,
-          Amount.toFixed(2),
+          parseFloat(Number(Amount).toFixed(2)).toLocaleString("en"),
           '',
-          this.SumCash.toFixed(2)
+          parseFloat(Number(this.SumCash).toFixed(2)).toLocaleString("en")
         );
       }
     }
@@ -260,7 +260,7 @@ export class LedgerService {
         RefID,
         '',
         this.Expenseoverall[j].Price_Per_day,
-        this.SumCash.toFixed(2)
+        parseFloat(Number(this.SumCash).toFixed(2)).toLocaleString("en")
       );
     }
   }
