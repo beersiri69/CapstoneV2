@@ -103,7 +103,7 @@ export class MonthlyComponent implements OnInit {
   Donut_NOQ: MultiDataSet;
   Donut_TQ: MultiDataSet;
   chartData: any;
-
+  barChartData: ChartDataSets[]
 
  
 
@@ -237,7 +237,7 @@ export class MonthlyComponent implements OnInit {
               this.U4 = Number(this.PivalueAll[3].Item1)
               this.U5 = Number(this.PivalueAll[4].Item1)
                 console.log(this.PivalueAll);
-                setTimeout(() => {
+                
                   this.barChartData2  = [
                     {
                       data: [this.U1],
@@ -260,8 +260,39 @@ export class MonthlyComponent implements OnInit {
                       label: 'OUTBOUND WEIGHBRIDGE'
                     },
                   ];
-                  this.CanRender = true                
-                }, 100);
+                          
+              
+
+                this.pivalueService.GetOEE(DateSend).subscribe(data=>{
+                  data.result[0].Item1
+                 this.barChartData = [
+                    {
+                      data: [Number(data.result[0].Item1), Number(data.result[6].Item1), Number(data.result[12].Item1), Number(data.result[18].Item1)],
+                      label: 'DIESEL BAY 1',
+                    },
+                    {
+                      data: [Number(data.result[1].Item1), Number(data.result[7].Item1), Number(data.result[13].Item1), Number(data.result[19].Item1)],
+                      label: 'DIESEL BAY 2'
+                    },
+                    {
+                      data: [Number(data.result[2].Item1), Number(data.result[8].Item1), Number(data.result[14].Item1), Number(data.result[20].Item1)],
+                      label: 'DIESEL BAY 3'
+                    },
+                    {
+                      data: [Number(data.result[3].Item1), Number(data.result[9].Item1), Number(data.result[15].Item1), Number(data.result[21].Item1)],
+                      label: 'DIESEL BAY 4'
+                    },
+                    {
+                      data: [Number(data.result[4].Item1), Number(data.result[10].Item1), Number(data.result[16].Item1), Number(data.result[22].Item1)],
+                      label: 'GASOHOL95 BAY 1'
+                    },
+                    {
+                      data: [Number(data.result[5].Item1), Number(data.result[11].Item1), Number(data.result[17].Item1), Number(data.result[23].Item1)],
+                      label: 'GASOHOL95 BAY 2'
+                    },
+                  ];
+                  this.CanRender = true      
+                });         
             });
           });
         });
@@ -312,32 +343,7 @@ export class MonthlyComponent implements OnInit {
   public barChartType: ChartType = 'bar';
   public barChartLegend = true;
 
-  public barChartData: ChartDataSets[] = [
-    {
-      data: [33, 60, 26, 32],
-      label: 'DIESEL BAY 1',
-    },
-    {
-      data: [12, 45, 30, 50],
-      label: 'DIESEL BAY 2'
-    },
-    {
-      data: [45, 57, 60, 37],
-      label: 'DIESEL BAY 3'
-    },
-    {
-      data: [14, 32, 15, 40],
-      label: 'DIESEL BAY 4'
-    },
-    {
-      data: [60, 63, 25, 85],
-      label: 'GASOHOL95 BAY 1'
-    },
-    {
-      data: [60, 63, 25, 17],
-      label: 'GASOHOL95 BAY 2'
-    },
-  ];
+  
 
   public barChartColors: Color[] = [
     { backgroundColor: '#ffa410' },

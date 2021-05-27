@@ -69,17 +69,19 @@ export class LoginComponent implements OnInit {
   }
   
   
-  Onsubmit(){
+  async Onsubmit(){
 
     var id = this.myForm.get('UserID').value 
     var pwd = this.myForm.get('Password').value
 
     if(id == "admin" && pwd =="1234"){
       this.Onsucess("AdminID","Admin","SuperUser","Manager"); 
+      await this.delay(1000)
       this.router.navigateByUrl('/managerdashboard');      
     }
     if(id == "test" && pwd =="1234"){
-      this.Onsucess("AdminID","Admin","SuperUser","Staff");   
+      this.Onsucess("AdminID","Admin","SuperUser","Staff");  
+      await this.delay(1000) 
       this.router.navigateByUrl('/operatordashboard');    
     }
     else{
