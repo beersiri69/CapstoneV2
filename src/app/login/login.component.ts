@@ -55,16 +55,21 @@ export class LoginComponent implements OnInit {
     return new Promise( resolve => setTimeout(resolve, ms) );
   }
 
-  async Onsucess(id_in,name_in,surname_in,role_in){
+  Onsucess(id_in,name_in,surname_in,role_in){
 
     this.logalert.toggle = false;
     this.logsuccess.toggle = true 
     this.logsuccess.message = "Login Sucess"
+
     localStorage.setItem("UserID",id_in)
     localStorage.setItem("UserName",name_in)
     localStorage.setItem("UserSurName",surname_in)
     localStorage.setItem("UserRole",role_in)
-    await this.delay(1000)
+    setTimeout(() => {
+      this.Checkrole() 
+    }, 500);
+   
+    
     // this.router.navigateByUrl('/operatordashboard');
   }
   
@@ -76,13 +81,13 @@ export class LoginComponent implements OnInit {
 
     if(id == "admin" && pwd =="1234"){
       this.Onsucess("AdminID","Admin","SuperUser","Manager"); 
-      await this.delay(1000)
-      this.router.navigateByUrl('/managerdashboard');      
+
     }
     if(id == "test" && pwd =="1234"){
       this.Onsucess("AdminID","Admin","SuperUser","Staff");  
-      await this.delay(1000) 
-      this.router.navigateByUrl('/operatordashboard');    
+   
+  
+    
     }
     else{
       this.authService.getLogin(id,pwd).subscribe(
@@ -114,14 +119,16 @@ export class LoginComponent implements OnInit {
           this.logalert.toggle = true 
           this.logalert.message = "Server not available"
         });
-    }
+    }   
+  }
+
+  Checkrole(){
     if(localStorage.getItem("UserRole")=='Staff'){
       this.router.navigateByUrl('/operatordashboard');    
     }    
     if(localStorage.getItem("UserRole")=='Manager'){
       this.router.navigateByUrl('/managerdashboard');
     }
-   
   }
 
 }
