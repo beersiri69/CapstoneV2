@@ -90,12 +90,13 @@ export class InventorystockComponent implements OnInit {
     this.date.setValue(ctrlValue);   
     this.MonthTok = normalizedMonth.month() +1 ;
     if(this.MonthTok<10){
-      this.DateSearch += '0' + this.MonthTok  + '-31'
+      this.DateSearch += '0' + this.MonthTok
     }
     else{
-      this.DateSearch += this.MonthTok  + '-31'
+      this.DateSearch += this.MonthTok
     }
     console.log( this.DateSearch );
+
     datepicker.close();
     
   }
@@ -115,6 +116,8 @@ export class InventorystockComponent implements OnInit {
     if(x==2){this.DateSearch = this.YearTok + '-' + this.MonthTok + '-21'}
     if(x==3){this.DateSearch = this.YearTok + '-' + this.MonthTok + '-28'}
 
+    console.log(this.DateSearch);
+    
     //this.GetDashboardValue1(this.DateSearch);  
     
     
