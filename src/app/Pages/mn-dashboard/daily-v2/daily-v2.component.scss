@@ -27,8 +27,8 @@
 
 ///////////////// calendar icon color /////////////////
 
-mat-datepicker-toggle {
-    color: #755a4a !important;
+::ng-deep .mat-datepicker-toggle {
+    color: #a77f69 !important;
    }
 
 ///////////////// calendar background color /////////////////
@@ -42,6 +42,45 @@ mat-datepicker-toggle {
 
   ::ng-deep .mat-calendar-body-selected {
     background-color: #755a4a;
-    color: #fff;
+    color: rgb(255, 255, 255) !important ;
 } 
+//////////////// Choose a date WHEN CLICK ////////////////
 
+::ng-deep .mat-focused .mat-form-field-label {
+    color: #755a4a !important;
+}
+
+
+//////////////// DATE NUMBER ////////////////
+
+::ng-deep .mat-calendar-body-cell-content, .mat-date-range-input-separator {
+    color: #a77f69;
+    border-color: transparent;
+}
+
+//////////////// arrow's MAY 2021 ////////////////
+
+::ng-deep .mat-calendar-arrow {
+    border-top-color: #a77f69;
+}
+
+//////////////// arrow's MAY 2021 ////////////////
+
+::ng-deep .mat-datepicker-content .mat-calendar-next-button{
+    color: #a77f69;
+}
+
+::ng-deep .mat-datepicker-content .mat-calendar-previous-button{
+    color: #a77f69;
+}
+
+
+::ng-deep .mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical),.cdk-keyboard-focused .mat-calendar-body-active>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical),.cdk-program-focused .mat-calendar-body-active>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical){
+    background-color:#a77f69;
+    color: #ffffff;
+}
+
+
+::ng-deep .ng-star-inserted{
+    color: #a77f69;
+}
