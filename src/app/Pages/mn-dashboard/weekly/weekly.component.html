@@ -1,5 +1,5 @@
-<div class="container-fluid bg-bymeten mt--7"  >
-  <!--  *ngIf="CanRender" -->
+<div class="container-fluid bg-bymeten mt--7"   *ngIf="CanRender">
+
     <div class="row text-right">
         <div class="col-auto text-left pr-0 mr-0" *ngFor="let Page of pages; index as i">
             <!-- <div class *ngFor="let Page of pages; index as i" routerLink="./{{Page.Route}}"> -->
