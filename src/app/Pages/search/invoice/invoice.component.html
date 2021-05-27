@@ -5,156 +5,118 @@
         <div class="card-header border-0">
           <div class="row">
             <div class="col">
-               <h2 class="mt-2 mb-0">Invoice</h2>
-            </div>  
+              <h2 class="mt-2 mb-0">Invoice</h2>
+            </div>
             <div class="col-4">
-       
+
               <div class="input-group mb-2">
-                <input type="text" [(ngModel)]="myModel" (keyup)="valuechange()"  class="form-control searchcustom" placeholder="Invoice ID" #myInput>
+                <input type="text" [(ngModel)]="myModel" (keyup.enter)="onEnter2()" class="form-control searchcustom"
+                  placeholder="Invoice ID">
                 <!-- <input type="text"class="form-control searchcustom" placeholder="{{TableName}} ID" #myInput formControlName="SearchID"> -->
-                
+
                 <div class="input-group-append">
-                  <button class="btn-search" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+                  <button (click)="onEnter2()" class="btn-search" type="button"><i class="fa fa-search"
+                      aria-hidden="true"></i></button>
                   <!-- <button class="btn-search" type="button" (click)="OnSearch()"><i class="fa fa-search" aria-hidden="true"></i></button> -->
                 </div>
-              </div>    
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <!-- //TODO -->
+        <!-- Table -->
+        <div class="row">
+          <div class="col">
+            <div class="card shadow">
+              <!-- //TODO HEADER -->
+              <div class="card-header border-0">
+                <div class="row align-items-center">
+                  <div class="col-4"></div>
+                  <div class="col">
+                    <h1 class="mb-0 text-center ">Invoice</h1>
+                  </div>
+                  <div class="col-3"></div>
+
+                  <div class="col-1 text-right">
+                    <a href="#!" class="btn btn-sm btn-primary">Print</a>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <h3 class="sametopic">Company Name: Denchai Distribution Center</h3><br>
+                  <h3 class="sametopic">Address: 4 Moo 6 Rodfai Rd. Denchai Phrae</h3><br>
+                </div>
+                <div class="col"></div>
+                <div class="col-3">
+                  <h3 class="sametopic">Invoice NO.: {{InvoiceShow}}</h3><br>
+                  <h3 class="sametopic">PO NO.: {{PoNumShow}}</h3><br>
+                  <h3 class="sametopic">Payment NO.: {{PaymentShow}}</h3><br>
+                  <h3 class="sametopic">Date: {{DateShow}}</h3><br>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-3">
+                  <h3 class="sametopic">Customer ID.:{{CustID}}</h3><br>
+                  <h3 class="sametopic">Customer: {{CusTitle}} {{CusName}} {{CusSur}}</h3><br>
+                  <h3 class="sametopic">Taxpayer ID.: {{TaxID}}</h3><br>
+                </div>
+                <div class="col"></div>
+              </div>
+              <!-- //TODO TABLE -->
+              <div class="table-responsive mt-4">
+                <!-- Projects table -->
+                <table class="table align-items-center table-flush">
+                  <thead class="thead-light">
+                    <tr>
+                      <th scope="col">Date</th>
+                      <th scope="col">Filling Time</th>
+                      <th scope="col">Item</th>
+                      <th scope="col">Price/Litre</th>
+                      <th scope="col">Quantity(L)</th>
+                      <th scope="col">Amount</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        {{DateShow}}
+                      </td>
+                      <td>
+                        {{Filling}}
+                      </td>
+                      <td>
+                        {{Gastype}}
+                      </td>
+                      <td>
+                        {{Price}}
+                      </td>
+                      <td>
+                        {{Quantity}}
+                      </td>
+                      <td>
+                        {{AmountPrice}}
+                      </td>
+                    </tr>
                     
+                    <tr>
+                      <td></td><td></td><td></td><td></td>
+                      <td>Vat 7%</td><td>{{Vat}}</td>
+                    </tr>
+                    <tr>
+                      <td></td><td></td><td></td><td></td>
+                      <td>Grand Total 7%</td><td>{{Total}}</td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
+          <!----------------------------- END PAGE VISITS ----------------------------->
+
+          <!----------------------------- START SOCIAL TRAFFIC ----------------------------->
+
+          <!----------------------------- END SOCIAL TRAFFIC ----------------------------->
         </div>
-    <!-- //TODO -->
-    <!-- Table -->
-    <div class="row">
-      <div class="col">
-        <div class="card shadow">
-          <!-- //TODO HEADER -->
-          <div class="card-header border-0">
-            <div class="row align-items-center">
-              <div class="col-4"></div>
-              <div class="col">
-                <h1 class="mb-0 text-center ">Invoice</h1>
-              </div>
-              <div class="col-3"></div>
-             
-              <div class="col-1 text-right">
-                <a href="#!" class="btn btn-sm btn-primary">Print</a>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-              <div class="col-3">
-                <h3 class="sametopic">Company Name xxxxx</h3><br>
-                <h3 class="sametopic">Address xxxxx</h3><br>
-              </div>
-              <div class="col"></div>
-              <div class="col-3">
-                  <h3 class="sametopic">Invoice NO. xxxxx</h3><br>
-                  <h3 class="sametopic">PO NO. xxxxx</h3><br>
-                  <h3 class="sametopic">Payment NO. xxxxx</h3><br>
-                  <h3 class="sametopic">Date xxxxx</h3><br>
-              </div>
-          </div>
-          <div class="row">       
-              <div class="col-3">
-                  <h3 class="sametopic">Customer ID. xxxxx</h3><br>
-                  <h3 class="sametopic">Customer xxxxx</h3><br>
-                  <h3 class="sametopic">Taxpayer ID. xxxxx</h3><br>
-              </div>
-              <div class="col"></div>
-            </div>
-          <!-- //TODO TABLE -->
-          <div class="table-responsive mt-4">
-            <!-- Projects table -->
-            <table class="table align-items-center table-flush">
-              <thead class="thead-light">
-                <tr>
-                  <th scope="col">Date</th>
-                  <th scope="col">Filling Time</th>
-                  <th scope="col">Item</th>
-                  <th scope="col">Price/Litre</th>
-                  <th scope="col">Quantity(L)</th>
-                  <th scope="col" class ="text-center">Total</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">
-                    /argon/
-                  </th>
-                  <td>
-                    4,569
-                  </td>
-                  <td>
-                    340
-                  </td>
-                  <td>
-                    <i class="fas fa-arrow-up text-success mr-3"></i> 46,53%
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    /argon/index.html
-                  </th>
-                  <td>
-                    3,985
-                  </td>
-                  <td>
-                    319
-                  </td>
-                  <td>
-                    <i class="fas fa-arrow-down text-warning mr-3"></i> 46,53%
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    /argon/charts.html
-                  </th>
-                  <td>
-                    3,513
-                  </td>
-                  <td>
-                    294
-                  </td>
-                  <td>
-                    <i class="fas fa-arrow-down text-warning mr-3"></i> 36,49%
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    /argon/tables.html
-                  </th>
-                  <td>
-                    2,050
-                  </td>
-                  <td>
-                    147
-                  </td>
-                  <td>
-                    <i class="fas fa-arrow-up text-success mr-3"></i> 50,87%
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    /argon/profile.html
-                  </th>
-                  <td>
-                    1,795
-                  </td>
-                  <td>
-                    190
-                  </td>
-                  <td>
-                    <i class="fas fa-arrow-down text-danger mr-3"></i> 46,53%
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-      <!----------------------------- END PAGE VISITS ----------------------------->
-  
-      <!----------------------------- START SOCIAL TRAFFIC ----------------------------->
-      
-      <!----------------------------- END SOCIAL TRAFFIC ----------------------------->
-    </div>
