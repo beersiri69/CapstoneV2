@@ -143,19 +143,19 @@ export class IncomestatementComponent implements OnInit {
             this.Purchase_Gasohol += this.IncomeAll[i].AmountPurchase_G_B_;
             this.Purchase_Diesel += this.IncomeAll[i].AmountPurchase_D_B_;
           }
-          this.Sale_GShow = parseFloat(Number(this.Sale_Gasohol.toFixed(2)).toLocaleString("en"))
-          this.Sale_DShow = parseFloat(Number(this.Sale_Diesel.toFixed(2)).toLocaleString("en"))
-          this.Purchase_GShow = parseFloat(Number(this.Purchase_Gasohol.toFixed(2)).toLocaleString("en"))
-          this.Purchase_DShow = parseFloat(Number(this.Purchase_Diesel.toFixed(2)).toLocaleString("en"))
+          this.Sale_GShow = parseFloat(Number(this.Sale_Gasohol.toFixed(4)).toLocaleString("en"))
+          this.Sale_DShow = parseFloat(Number(this.Sale_Diesel.toFixed(4)).toLocaleString("en"))
+          this.Purchase_GShow = parseFloat(Number(this.Purchase_Gasohol.toFixed(4)).toLocaleString("en"))
+          this.Purchase_DShow = parseFloat(Number(this.Purchase_Diesel.toFixed(4)).toLocaleString("en"))
 
           this.TotalSale = this.Sale_Diesel + this.Sale_Gasohol;
-          this.Total_SaleShow = parseFloat(Number(this.TotalSale.toFixed(2)).toLocaleString("en"))
+          this.Total_SaleShow = parseFloat(Number(this.TotalSale.toFixed(4)).toLocaleString("en"))
 
           this.TotalPurchase = this.Purchase_Gasohol + this.Purchase_Diesel;
-          this.TotalPurchaseShow = parseFloat(Number(this.TotalPurchase.toFixed(2)).toLocaleString("en"))
+          this.TotalPurchaseShow = parseFloat(Number(this.TotalPurchase.toFixed(4)).toLocaleString("en"))
 
           this.GrossProfit = this.TotalSale - this.TotalPurchase;
-          this.Gross_ProfitShow = parseFloat(Number(this.GrossProfit.toFixed(2)).toLocaleString("en"))
+          this.Gross_ProfitShow = parseFloat(Number(this.GrossProfit.toFixed(4)).toLocaleString("en"))
           console.log(2);
         },
         (err) => {}
@@ -175,10 +175,10 @@ export class IncomestatementComponent implements OnInit {
         this.ExpenseSum = this.Salary + this.Depreciation + this.Utility;
         console.log(this.ExpenseSum)
         this.Netincome = this.GrossProfit - this.ExpenseSum;
-        this.SalaryShow = parseFloat(Number(this.Salary.toFixed(2)).toLocaleString("en"));
-        this.UtilityShow = parseFloat(Number(this.Utility.toFixed(2)).toLocaleString("en"));
-        this.DepreciationShow = parseFloat(Number(this.Depreciation.toFixed(2)).toLocaleString("en"));
-        this.Net_IncomeShow = parseFloat(Number(this.Netincome.toFixed(2)).toLocaleString("en"));
+        this.SalaryShow = parseFloat(Number(this.Salary.toFixed(4)).toLocaleString("en"));
+        this.UtilityShow = parseFloat(Number(this.Utility.toFixed(4)).toLocaleString("en"));
+        this.DepreciationShow = parseFloat(Number(this.Depreciation.toFixed(4)).toLocaleString("en"));
+        this.Net_IncomeShow = parseFloat(Number(this.Netincome.toFixed(4)).toLocaleString("en"));
         console.log(3);
       },
       (err) => {}
