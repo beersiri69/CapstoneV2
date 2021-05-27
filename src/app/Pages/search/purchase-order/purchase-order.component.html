@@ -10,11 +10,11 @@
                 <div class="col-4">
            
                   <div class="input-group mb-2">
-                    <input type="text" [(ngModel)]="myModel" (keyup)="valuechange()"  class="form-control searchcustom" placeholder="Purchase Order ID">
+                    <input type="text" [(ngModel)]="myModel" (click)="onEnter2()"  class="form-control searchcustom" placeholder="Purchase Order ID">
                     <!-- <input type="text"class="form-control searchcustom" placeholder="{{TableName}} ID" #myInput formControlName="SearchID"> -->
                     
                     <div class="input-group-append">
-                      <button class="btn-search" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+                      <button (click)="onEnter2()" class="btn-search" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
                       <!-- <button class="btn-search" type="button" (click)="OnSearch()"><i class="fa fa-search" aria-hidden="true"></i></button> -->
                     </div>
                   </div>    
