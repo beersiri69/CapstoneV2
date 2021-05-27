@@ -12,6 +12,10 @@ export class NavbarComponent implements OnInit {
   public focus;
   public listTitles: any[];
   public location: Location;
+
+  Log_Name = localStorage.getItem('UserName')
+  Log_SurName = localStorage.getItem('UserSurName')
+
   constructor(location: Location,  private element: ElementRef, private router: Router) {
     this.location = location;
   }
@@ -25,7 +29,6 @@ export class NavbarComponent implements OnInit {
     var Title_return = Titlee.replace('/','');
     return Title_return;
   }
-  Log_Name = '';
-  Log_SurName = '';
+
   
 }

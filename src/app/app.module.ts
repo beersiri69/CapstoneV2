@@ -23,6 +23,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ExampleModule } from './example/example.module';
 import { MonthlyComponent } from './Pages/mn-dashboard/monthly/monthly.component';
+import { LedgerModule } from './Pages/Finance/ledger/ledger.module';
 
 
 
@@ -64,8 +65,8 @@ import { MonthlyComponent } from './Pages/mn-dashboard/monthly/monthly.component
     FormsModule,
     ReactiveFormsModule,
     NgxChartsModule,
-    MatNativeDateModule
-    
+    MatNativeDateModule,
+    LedgerModule
    
   ],
   providers: [],

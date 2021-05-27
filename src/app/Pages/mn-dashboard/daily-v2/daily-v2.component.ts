@@ -16,11 +16,29 @@ import {formatDate} from '@angular/common';
 
 const moment = _rollupMoment || _moment;
 
+export const MY_FORMATS = {
+  parse: {
+    dateInput: 'DD/MM/YYYY',
+  },
+  display: {
+    dateInput: 'DD/MM/YYYY',
+    monthYearLabel: 'DD MMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM YYYY',
+  },
+};
+
 @Component({
   selector: 'app-daily-v2',
   templateUrl: './daily-v2.component.html',
-  styleUrls: ['./daily-v2.component.scss']
+  styleUrls: ['./daily-v2.component.scss'],
+  providers: [{
+    provide: DateAdapter,
+    useClass: MomentDateAdapter,
+    deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS]
+  }, { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS }]
 })
+
 export class DailyV2Component implements OnInit {
 
   AmountG: any | undefined;
@@ -56,7 +74,6 @@ export class DailyV2Component implements OnInit {
   U4:number
   U5:number
 
-  WIPM: any|undefined
   PivalueAll: Pivalue[] | undefined;
   DieselBusyChart: MultiDataSet;
   GasoholBusyChart: MultiDataSet;
@@ -68,9 +85,9 @@ export class DailyV2Component implements OnInit {
  
 
 
-  date = new FormControl(moment());
+  date = new FormControl(moment([2018, 2, 1]));
   YearTok:string
-  MonthTok:Number
+  MonthTok:String
   DateSearch:string
   constructor(private pivalueService: PivalueService) {
   }

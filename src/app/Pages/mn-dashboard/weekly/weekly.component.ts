@@ -84,7 +84,7 @@ export class WeeklyComponent implements OnInit {
   Donut_TQ: MultiDataSet;
   chartData: any;
 
-  date = new FormControl(moment());
+  date = new FormControl(moment([2018, 2]));
   YearTok:string
   MonthTok:String
   DateSearch:string
