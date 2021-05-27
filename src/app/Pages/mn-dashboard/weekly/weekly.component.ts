@@ -53,16 +53,16 @@ export class WeeklyComponent implements OnInit {
 
   GBusy: number;
   DBusy: number;
-  NOQ1: number;
-  NOQ2: number;
-  NOQ3: number;
-  NOQ4: number;
-  NOQ5: number;
-  TQ1: number;
-  TQ2: number;
-  TQ3: number;
-  TQ4: number;
-  TQ5: number;
+  NOQ1: any;
+  NOQ2: any;
+  NOQ3: any;
+  NOQ4: any;
+  NOQ5: any;
+  TQ1: any;
+  TQ2: any;
+  TQ3: any;
+  TQ4: any;
+  TQ5: any;
 
   WIPD1: number;
   WIPD2: number;
@@ -84,7 +84,7 @@ export class WeeklyComponent implements OnInit {
   Donut_TQ: MultiDataSet;
   chartData: any;
 
-  date = new FormControl(moment());
+  date = new FormControl(moment([2018, 2]));
   YearTok:string
   MonthTok:String
   DateSearch:string
@@ -218,13 +218,13 @@ export class WeeklyComponent implements OnInit {
       this.pivalueService.GetAmountW(DateSend).subscribe(data =>{
         this.PivalueAll = data.result;
 
-        this.AmountG  = this.PivalueAll[0].Item1
-        this.AmountD  = this.PivalueAll[1].Item1
-        this.TruckIn  = this.PivalueAll[2].Item1
-        this.TruckOut = this.PivalueAll[3].Item1
-        this.GFail    = this.PivalueAll[4].Item1
-        this.DFail    = this.PivalueAll[5].Item1
-        this.Cycle    = this.PivalueAll[6].Item1
+        this.AmountG  = parseFloat(Number(this.PivalueAll[0].Item1).toFixed(4)).toLocaleString("en")
+        this.AmountD  = parseFloat(Number(this.PivalueAll[1].Item1).toFixed(4)).toLocaleString("en")
+        this.TruckIn  = parseFloat(Number(this.PivalueAll[2].Item1).toFixed(4)).toLocaleString("en")
+        this.TruckOut = parseFloat(Number(this.PivalueAll[3].Item1).toFixed(4)).toLocaleString("en")
+        this.GFail    = parseFloat(Number(this.PivalueAll[4].Item1).toFixed(4)).toLocaleString("en")
+        this.DFail    = parseFloat(Number(this.PivalueAll[5].Item1).toFixed(4)).toLocaleString("en")
+        this.Cycle    = parseFloat(Number(this.PivalueAll[6].Item1).toFixed(4)).toLocaleString("en")
 
         
 
@@ -239,18 +239,18 @@ export class WeeklyComponent implements OnInit {
           this.pivalueService.GetQueueW(DateSend).subscribe(data =>{
 
             this.PivalueAll = data.result;
-            this.NOQ1 = Number(this.PivalueAll[0].Item1);
-            this.NOQ2 = Number(this.PivalueAll[1].Item1);
-            this.NOQ3 = Number(this.PivalueAll[2].Item1);
-            this.NOQ4 = Number(this.PivalueAll[3].Item1);
-            this.NOQ5 = Number(this.PivalueAll[4].Item1);           
+            this.NOQ1 = parseFloat(Number(this.PivalueAll[0].Item1).toFixed(4)).toLocaleString("en");
+            this.NOQ2 = parseFloat(Number(this.PivalueAll[1].Item1).toFixed(4)).toLocaleString("en");
+            this.NOQ3 = parseFloat(Number(this.PivalueAll[2].Item1).toFixed(4)).toLocaleString("en");
+            this.NOQ4 = parseFloat(Number(this.PivalueAll[3].Item1).toFixed(4)).toLocaleString("en");
+            this.NOQ5 = parseFloat(Number(this.PivalueAll[4].Item1).toFixed(4)).toLocaleString("en");           
             this.Donut_NOQ = [[this.NOQ1, this.NOQ2, this.NOQ3, this.NOQ4, this.NOQ5]];
 
-            this.TQ1 = Number(this.PivalueAll[5].Item1);
-            this.TQ2 = Number(this.PivalueAll[6].Item1);
-            this.TQ3 = Number(this.PivalueAll[7].Item1);
-            this.TQ4 = Number(this.PivalueAll[8].Item1);
-            this.TQ5 = Number(this.PivalueAll[9].Item1);
+            this.TQ1 = parseFloat(Number(this.PivalueAll[5].Item1).toFixed(4)).toLocaleString("en");
+            this.TQ2 = parseFloat(Number(this.PivalueAll[6].Item1).toFixed(4)).toLocaleString("en");
+            this.TQ3 = parseFloat(Number(this.PivalueAll[7].Item1).toFixed(4)).toLocaleString("en");
+            this.TQ4 = parseFloat(Number(this.PivalueAll[8].Item1).toFixed(4)).toLocaleString("en");
+            this.TQ5 = parseFloat(Number(this.PivalueAll[9].Item1).toFixed(4)).toLocaleString("en");
             this.Donut_TQ = [[this.TQ1, this.TQ2, this.TQ3, this.TQ4, this.TQ5]];
 
            

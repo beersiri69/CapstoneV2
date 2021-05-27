@@ -10,6 +10,7 @@ import { TransactionAll} from '../Model/transaction.model'
 import { IncomeAll } from '../Model/income.model'
 import { DeliverAll } from '../Model/deliver';
 import { PaymentAll } from '../Model/payment';
+import { ReconAll } from '../Model/recon.Model';
 
 
 @Injectable({
@@ -103,5 +104,13 @@ export class NetworkService {
 
   GetPurchaseAll(): Observable<PurchaseAll>{     
     return this.httpClient.get<PurchaseAll>(this.PurchaseAllAPI)
+  }
+
+  Api = ''
+
+  GetReconcil(Date): Observable<ReconAll>{ 
+    console.log("START")
+    this.Api = 'https://localhost:44389/api/auth/Reconlist/'    
+    return this.httpClient.get<ReconAll>(this.Api + Date)
   }
 }

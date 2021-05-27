@@ -4,15 +4,42 @@ import { Component, OnInit } from '@angular/core';
 import { ChartType, ChartOptions, ChartDataSets } from 'chart.js';
 import { MultiDataSet, Label, Color } from 'ng2-charts';
 
+import {FormControl} from '@angular/forms';
+import {MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/material-moment-adapter';
+import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
+import {MatDatepicker} from '@angular/material/datepicker';
+import * as _moment from 'moment';
+import {default as _rollupMoment, Moment} from 'moment';
+
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { formatDate } from '@angular/common';
 import { PivalueService } from 'src/app/Service/pivalue.service';
+
+const moment = _rollupMoment || _moment;
+
+export const MY_FORMATS = {
+  parse: {
+    dateInput: 'DD/MM/YYYY',
+  },
+  display: {
+    dateInput: 'DD/MM/YYYY',
+    monthYearLabel: 'DD MMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM YYYY',
+  },
+};
 
 @Component({
   selector: 'app-OperatorDashboard',
   templateUrl: './op-dashboard.component.html',
   styleUrls: ['./op-dashboard.component.scss'],
+  providers: [{
+    provide: DateAdapter,
+    useClass: MomentDateAdapter,
+    deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS]
+  }, { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS }]
 })
+
 export class OpDashboardComponent implements OnInit {
   AmountG: any | undefined;
   AmountD: any | undefined;
@@ -42,16 +69,16 @@ export class OpDashboardComponent implements OnInit {
   Q6: number;
   GBusy: number;
   DBusy: number;
-  NOQ1: number;
-  NOQ2: number;
-  NOQ3: number;
-  NOQ4: number;
-  NOQ5: number;
-  TQ1: number;
-  TQ2: number;
-  TQ3: number;
-  TQ4: number;
-  TQ5: number;
+  NOQ1: any;
+  NOQ2: any;
+  NOQ3: any;
+  NOQ4: any;
+  NOQ5: any;
+  TQ1: any;
+  TQ2: any;
+  TQ3: any;
+  TQ4: any;
+  TQ5: any;
   WIP1: number;
   WIP2: number;
   WIP3: number;
@@ -75,6 +102,11 @@ export class OpDashboardComponent implements OnInit {
 
   //TODO: EDIT TO FLASE
 
+  date = new FormControl(moment([2018, 2, 1]));
+  YearTok:string
+  MonthTok:String
+  DateSearch:string
+
   public CanRender = false;
   public CanRender2 = false;
   public CanRender3 = false;
@@ -93,31 +125,31 @@ export class OpDashboardComponent implements OnInit {
   GetDashboardValue1(DateSend) {
     this.pivalueService.GetAmoutG(DateSend).subscribe((data) => {
       this.PivalueAll = data.result;
-      this.AmountG = this.PivalueAll[0].Item1;
+      this.AmountG = parseFloat(Number(this.AmountG = this.PivalueAll[0].Item1).toFixed(4)).toLocaleString("en");
 
       this.pivalueService.GetAmoutD(DateSend).subscribe((data) => {
         this.PivalueAll = data.result;
-        this.AmountD = this.PivalueAll[0].Item1;
+        this.AmountD = parseFloat(Number(this.PivalueAll[0].Item1).toFixed(4)).toLocaleString("en");
 
         this.pivalueService.GetTruckIn(DateSend).subscribe((data) => {
           this.PivalueAll = data.result;
-          this.TruckIn = this.PivalueAll[0].Item1;
+          this.TruckIn = parseFloat(Number(this.PivalueAll[0].Item1).toFixed(4)).toLocaleString("en");
 
           this.pivalueService.GetTruckOut(DateSend).subscribe((data) => {
             this.PivalueAll = data.result;
-            this.TruckOut = this.PivalueAll[0].Item1;
+            this.TruckOut = parseFloat(Number(this.PivalueAll[0].Item1).toFixed(4)).toLocaleString("en");
 
             this.pivalueService.GetGFail(DateSend).subscribe((data) => {
               this.PivalueAll = data.result;
-              this.DFail = this.PivalueAll[0].Item1;
+              this.DFail = parseFloat(Number(this.PivalueAll[0].Item1).toFixed(4)).toLocaleString("en");
 
               this.pivalueService.GetDFail(DateSend).subscribe((data) => {
                 this.PivalueAll = data.result;
-                this.GFail = this.PivalueAll[0].Item1;
+                this.GFail = parseFloat(Number(this.PivalueAll[0].Item1).toFixed(4)).toLocaleString("en");
 
                 this.pivalueService.GetCycle(DateSend).subscribe((data) => {
                   this.PivalueAll = data.result;
-                  this.Cycle = this.PivalueAll[0].Item1;
+                  this.Cycle = parseFloat(Number(this.PivalueAll[0].Item1).toFixed(4)).toLocaleString("en");
 
                   this.pivalueService.GetWIPD(DateSend).subscribe((data) => {
                     this.PivalueAll = data.result;
@@ -244,21 +276,21 @@ export class OpDashboardComponent implements OnInit {
     this.pivalueService.GetAVGTQD(DateSend).subscribe((data) => {
       this.PivalueAll = data.result;
 
-      this.TQ1 = Number(this.PivalueAll[0].Item1);
-      this.TQ2 = Number(this.PivalueAll[1].Item1);
-      this.TQ3 = Number(this.PivalueAll[2].Item1);
-      this.TQ4 = Number(this.PivalueAll[3].Item1);
-      this.TQ5 = Number(this.PivalueAll[4].Item1);
+      this.TQ1 = parseFloat(Number(this.PivalueAll[0].Item1).toFixed(4)).toLocaleString("en");
+      this.TQ2 = parseFloat(Number(this.PivalueAll[1].Item1).toFixed(4)).toLocaleString("en");
+      this.TQ3 = parseFloat(Number(this.PivalueAll[2].Item1).toFixed(4)).toLocaleString("en");
+      this.TQ4 = parseFloat(Number(this.PivalueAll[3].Item1).toFixed(4)).toLocaleString("en");
+      this.TQ5 = parseFloat(Number(this.PivalueAll[4].Item1).toFixed(4)).toLocaleString("en");
       this.Donut_TQ = [[this.TQ1, this.TQ2, this.TQ3, this.TQ4, this.TQ5]];
       //TODO ==========================================================================================  2 Donut
       this.pivalueService.GetAVGNOQD(DateSend).subscribe((data) => {
         this.PivalueAll = data.result;
 
-        this.NOQ1 = Number(this.PivalueAll[0].Item1);
-        this.NOQ2 = Number(this.PivalueAll[1].Item1);
-        this.NOQ3 = Number(this.PivalueAll[2].Item1);
-        this.NOQ4 = Number(this.PivalueAll[3].Item1);
-        this.NOQ5 = Number(this.PivalueAll[4].Item1);
+        this.NOQ1 = parseFloat(Number(this.PivalueAll[0].Item1).toFixed(4)).toLocaleString("en");
+        this.NOQ2 = parseFloat(Number(this.PivalueAll[1].Item1).toFixed(4)).toLocaleString("en");
+        this.NOQ3 = parseFloat(Number(this.PivalueAll[2].Item1).toFixed(4)).toLocaleString("en");
+        this.NOQ4 = parseFloat(Number(this.PivalueAll[3].Item1).toFixed(4)).toLocaleString("en");
+        this.NOQ5 = parseFloat(Number(this.PivalueAll[4].Item1).toFixed(4)).toLocaleString("en");
         //TODO ==========================================================================================  2 Donut
         this.Donut_NOQ = [
           [this.NOQ1, this.NOQ2, this.NOQ3, this.NOQ4, this.NOQ5],

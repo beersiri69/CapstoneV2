@@ -4,11 +4,38 @@ import { Component, ComponentFactoryResolver, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { NetworkService } from '../../../Service/network.service';
 import { Expense } from './../../../Model/expense.Model';
+import {MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/material-moment-adapter';
+import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
+import {MatDatepicker} from '@angular/material/datepicker';
+import * as _moment from 'moment';
+import {default as _rollupMoment, Moment} from 'moment';
+import {MatDatepickerInputEvent} from '@angular/material/datepicker';
+
+const moment = _rollupMoment || _moment;
+
+export const MY_FORMATS = {
+  parse: {
+    dateInput: 'DD/MM/YYYY',
+  },
+  display: {
+    dateInput: 'DD/MM/YYYY',
+    monthYearLabel: 'DD MMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM YYYY',
+  },
+};
+
 @Component({
   selector: 'app-incomestatement',
   templateUrl: './incomestatement.component.html',
   styleUrls: ['./incomestatement.component.scss'],
+  providers: [{
+    provide: DateAdapter,
+    useClass: MomentDateAdapter,
+    deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS]
+  }, { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS }]
 })
+
 export class IncomestatementComponent implements OnInit {
   IncomeAll: Income[] | undefined;
   ExpenseAll: Expense[] | undefined;
@@ -28,6 +55,11 @@ export class IncomestatementComponent implements OnInit {
   ToShow: any;
 
   constructor(private networkService: NetworkService) {}
+
+  date = new FormControl(moment([2018, 2]));
+  YearTok:string
+  MonthTok:String
+  DateSearch:string
 
   ngOnInit(): void {
     this.Start_Date = formatDate('2018-03-01', 'yyyy-MM-dd', 'en_US');

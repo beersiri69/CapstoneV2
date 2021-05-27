@@ -25,7 +25,7 @@ export class LedgerComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-    this.PropChange = ["btn-menuuu","btn-menuuu","btn-menuuu","btn-menuuu"]
+    this.PropChange = ["btn-selll","btn-menuuu","btn-menuuu","btn-menuuu"]
   }
 
   check(e){

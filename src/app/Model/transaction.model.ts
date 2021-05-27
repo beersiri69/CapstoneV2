@@ -3,8 +3,12 @@ export class Transaction {
     Date: Date | undefined;
     Action: string | undefined;
     Type: string | undefined;
-    Volume: number | undefined;
-    Amount: number | undefined;
+    Volume_D: number | undefined;
+    Volume_G: number | undefined;
+    Price_D: number | undefined;
+    Price_G: number | undefined;
+    Balance_D: number | undefined;
+    Balance_G: number | undefined;
 }
  
 export interface TransactionAll{

@@ -37,7 +37,7 @@ export class MnDashboardComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-    this.PropChange = ["btn-menu","btn-menu","btn-menu"]
+    this.PropChange = ["btn-sel","btn-menu","btn-menu"]
   }
 
   check(e){
