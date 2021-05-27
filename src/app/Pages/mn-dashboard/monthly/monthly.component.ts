@@ -37,6 +37,8 @@ export const MY_FORMATS = {
 
 export class MonthlyComponent implements OnInit {
 
+  
+
   AmountG: any | undefined;
   AmountD: any | undefined;
   TruckIn: any | undefined;
@@ -105,7 +107,7 @@ export class MonthlyComponent implements OnInit {
 
  
 
-  date = new FormControl(moment());
+  date = new FormControl(moment([2018, 2]));
   YearTok:string
   MonthTok:Number
   DateSearch:string

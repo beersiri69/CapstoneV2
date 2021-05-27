@@ -22,6 +22,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { LedgerModule } from 'src/app/Pages/Finance/ledger/ledger.module';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import { MatInputModule } from '@angular/material/input';
     ComponentsModule,
     GaugeChartModule,
     MnDashboardModule,
+    LedgerModule,
 
     NgxChartsModule,
     FormsModule,

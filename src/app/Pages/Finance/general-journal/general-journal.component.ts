@@ -4,25 +4,28 @@ import { NetworkService } from '../../../Service/network.service'
 import {MatDatepickerInputEvent} from '@angular/material/datepicker';
 import {formatDate} from '@angular/common';
 import { Transaction } from 'src/app/Model/transaction.model';
+import {FormControl} from '@angular/forms';
+import {MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/material-moment-adapter';
+import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
+import {MatDatepicker} from '@angular/material/datepicker';
+import * as _moment from 'moment';
+import {default as _rollupMoment, Moment} from 'moment';
 
 
-// export class GeneralShow{
-//   Date: String | undefined;
-//   Explan : String | undefined;
-//   Debit : number | undefined;
-//   Credit: number | undefined;
-// }
-// export interface GeneralShowAll{
-//   result : GeneralShow[]
-//   message : string
-// }
+const moment = _rollupMoment || _moment;
 
-// export class GeneralShow{
-//   Date: String | undefined;
-//   Explan : String | undefined;
-//   Debit : number | undefined;
-//   Credit: number | undefined;
-// }
+export const MY_FORMATS = {
+  parse: {
+    dateInput: 'DD/MM/YYYY',
+  },
+  display: {
+    dateInput: 'DD/MM/YYYY',
+    monthYearLabel: 'DD MMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM YYYY',
+  },
+};
+
 export interface GeneralShow{  
   Date: String | undefined;
   Explain : String | undefined;
@@ -34,7 +37,12 @@ export interface GeneralShow{
 @Component({
   selector: 'app-general-journal',
   templateUrl: './general-journal.component.html',
-  styleUrls: ['./general-journal.component.scss']
+  styleUrls: ['./general-journal.component.scss'],
+  providers: [{
+    provide: DateAdapter,
+    useClass: MomentDateAdapter,
+    deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS]
+  }, { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS }]
 })
 
 
@@ -49,7 +57,11 @@ export class GeneralJournalComponent implements OnInit {
              ) {
               
    }
-
+   date = new FormControl(moment([2018, 2, 1]));
+   YearTok:string
+   MonthTok:String
+   DateSearch:string
+   
   ngOnInit(): void {    
     this.Init_Date()
   }
