@@ -1,4 +1,4 @@
-import { from } from 'rxjs';
+
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormArray, Validators, FormControl, FormBuilder, } from '@angular/forms';
@@ -56,6 +56,8 @@ export class LoginComponent implements OnInit {
   }
 
   async Onsucess(id_in,name_in,surname_in,role_in){
+
+    this.logalert.toggle = false;
     this.logsuccess.toggle = true 
     this.logsuccess.message = "Login Sucess"
     localStorage.setItem("UserID",id_in)
@@ -63,8 +65,9 @@ export class LoginComponent implements OnInit {
     localStorage.setItem("UserSurName",surname_in)
     localStorage.setItem("UserRole",role_in)
     await this.delay(1000)
-    this.router.navigateByUrl('/home');
+    // this.router.navigateByUrl('/operatordashboard');
   }
+  
   
   Onsubmit(){
 
@@ -72,7 +75,12 @@ export class LoginComponent implements OnInit {
     var pwd = this.myForm.get('Password').value
 
     if(id == "admin" && pwd =="1234"){
-      this.Onsucess("AdminID","Admin","SuperUser","Manager");       
+      this.Onsucess("AdminID","Admin","SuperUser","Manager"); 
+      this.router.navigateByUrl('/managerdashboard');      
+    }
+    if(id == "test" && pwd =="1234"){
+      this.Onsucess("AdminID","Admin","SuperUser","Staff");   
+      this.router.navigateByUrl('/operatordashboard');    
     }
     else{
       this.authService.getLogin(id,pwd).subscribe(
@@ -104,6 +112,12 @@ export class LoginComponent implements OnInit {
           this.logalert.toggle = true 
           this.logalert.message = "Server not available"
         });
+    }
+    if(localStorage.getItem("UserRole")=='Staff'){
+      this.router.navigateByUrl('/operatordashboard');    
+    }    
+    if(localStorage.getItem("UserRole")=='Manager'){
+      this.router.navigateByUrl('/managerdashboard');
     }
    
   }

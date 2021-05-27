@@ -3,35 +3,55 @@
         <div class="col">
           <div class="card shadow">
             <div class="card-header border-0">
-              <h3 class="mb-0">Reconciliation</h3>
+              <div class="row m-0 p-0">
+                <div class="col p-0">
+                  <h2 class="mt-3 mb-0">Reconciliation</h2>
+                  
+                </div>
+                <div class="col-3 text-right">
+                  <mat-form-field appearance="fill" class="mt-1 mb--2">
+                    <mat-label>Choose a date</mat-label>
+                    <input matInput [matDatepicker]="picker" (dateChange)="addEvent($event)" >
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>                
+              </div>
+            </div>
             </div>
             <div class="table-responsive">
               <table class="table align-items-center table-flush">
                 <thead class="thead-light">
                   <tr>
-                      <th scope="col">StaffID</th>
-                      <th scope="col">Title</th>
-                      <th scope="col">Name</th>
-                      <th scope="col">Surname</th>
-                      <th scope="col">Tel</th>
-                      <th scope="col">Password</th>
-                      <th scope="col">Role</th>
-              
+                    <th scope="col">Date</th>
+                    <th scope="col">PO No.</th>
+                    <th scope="col">Payment No.</th>
+                    <th scope="col">Invoice No.</th>
+                    <th scope="col">Deliver ID</th>
+                    <th scope="col">Truck NO.</th>
+                    <th scope="col">Patrol Type</th>
+                    <th scope="col">Quantity(L)</th>
+                    <th scope="col">Amount(B)</th>
+                    <th scope="col">Customer ID</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <!-- <tr *ngFor = "let Staff of StaffAll; index as i">
-                       <td> {{Staff.Staff_ID}}</td>
-                       <td> {{Staff.Staff_Title}}</td>
-                       <td> {{Staff.Staff_Name}}</td>
-                       <td> {{Staff.Staff_Surname}}</td>
-                       <td> {{Staff.Staff_Tel}}</td>
-                       <td> {{Staff.Password}}</td>
-                       <td> {{Staff.Role}}</td>
-                     -->
+                <tbody  *ngIf="CanRender">
+                  <tr *ngFor = "let list of GeneralShowAll; index as i">
+                       <td> {{list.Date}}</td>
+                       <td> {{list.PO}}</td>
+                       <td> {{list.E_bill_No}}</td>
+                       <td> {{list.Invoice_No}}</td>
+                       <td> {{list.Delivery_ID}}</td>
+                       <td> {{list.Truck_ID}}</td>
+                       <td> {{list.Type}}</td>
+                       <td> {{list.Quantity}}</td>
+                       <td> {{list.Amount}}</td>
+                       <td> {{list.Agent}}</td>
+           
+            
+                    
                       
                                     
-                  <!-- </tr> -->
+                  </tr>
                                  
                 </tbody>
               </table>
@@ -45,7 +65,7 @@
                       <span class="sr-only">Previous</span>
                     </a>
                   </li>
-                  <li class="page-item active">
+                  <li class="page-item2 active">
                     <a class="page-link" href="javascript:void(0)">1</a>
                   </li>
                   <li class="page-item">

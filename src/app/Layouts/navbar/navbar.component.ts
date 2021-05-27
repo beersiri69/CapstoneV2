@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
-import { ROUTES } from '../sidebar/sidebar.component';
+import { ROUTES1, ROUTES2} from '../sidebar/sidebar.component';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { Router } from '@angular/router';
 
@@ -12,19 +12,23 @@ export class NavbarComponent implements OnInit {
   public focus;
   public listTitles: any[];
   public location: Location;
+
+  Log_Name = localStorage.getItem('UserName')
+  Log_SurName = localStorage.getItem('UserSurName')
+
   constructor(location: Location,  private element: ElementRef, private router: Router) {
     this.location = location;
   }
 
   ngOnInit() {
-    this.listTitles = ROUTES.filter(listTitle => listTitle);
+    this.listTitles = ROUTES1.filter(listTitle => listTitle);
+    this.listTitles = ROUTES2.filter(listTitle => listTitle);
   }
   getTitle(){
     var Titlee = this.router.url
     var Title_return = Titlee.replace('/','');
     return Title_return;
   }
-  Log_Name = '';
-  Log_SurName = '';
+
   
 }

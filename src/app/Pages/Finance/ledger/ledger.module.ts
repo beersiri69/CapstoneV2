@@ -8,8 +8,11 @@ import { PayableComponent } from './payable/payable.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { CashComponent } from './cash/cash.component';
 import { MatSelectModule } from '@angular/material/select';
-
-
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import {FormControl, FormsModule} from '@angular/forms';
 @NgModule({
   declarations: [
     RecieveableComponent,
@@ -21,7 +24,12 @@ import { MatSelectModule } from '@angular/material/select';
   imports: [
     MatSelectModule,
     CommonModule,
-    LedgerRoutingModule
+    LedgerRoutingModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule
   ]
 })
 export class LedgerModule { }

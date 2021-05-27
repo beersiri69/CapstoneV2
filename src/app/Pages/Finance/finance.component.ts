@@ -1,7 +1,8 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
-interface Pagelist{
+
+interface botton{
   Name: string;
   Route: string;
 }
@@ -9,11 +10,14 @@ interface Pagelist{
 @Component({
   selector: 'app-finance',
   templateUrl: './finance.component.html',
+  styleUrls: ['../search/search.component.scss']
+  
 })
 
 export class FinanceComponent implements OnInit {
   Menu_Title:string[];
   Router_List:string[];
+  public PropChange : any[];
   constructor(private router: Router) {
     this.Menu_Title=[
       "Journal Transaction",
@@ -34,17 +38,27 @@ export class FinanceComponent implements OnInit {
       "Invoice"
     ]
    }
-   pages: Pagelist[] = [
+  
+//OLD one
+  pages: botton[] = [
     {Name: 'Journal Transaction', Route: 'Journal_Transaction'},
     {Name: 'General Ledger', Route: 'General_Ledger'},
     {Name: 'Income Statement', Route: 'Income_Statement'},
     {Name: 'Reconciliation', Route: 'Reconciliation'},
     {Name: 'Inventory Stock', Route: 'Inventory_Stock'},
-    // {Name: 'Purchase Order', Route: 'Purchase Order'},
-    // {Name: 'Invoice', Route: 'Invoice'},
   ];
 
-  ngOnInit(): void {
+  ngOnInit() { 
+    this.PropChange = ["btn-sell","btn-menuu","btn-menuu","btn-menuu","btn-menuu"]
+  }
+
+  check(e){
+    var target = e.target || e.srcElement || e.currentTarget
+    var x = target.id
+    for ( let i in this.PropChange){
+      this.PropChange[i] = "btn-menuu"
+    }
+    this.PropChange[x] = "btn-sell"
   }
 
   navigateTo(value){

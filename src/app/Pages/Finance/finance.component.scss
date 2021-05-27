@@ -1,0 +1,39 @@
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+    border-radius: 10px 10px 10px 10px !important;
+    padding: .75em .75em 0 .75em !important;
+    background-color: #ddbea9 ;
+    color: #755a4a;
+}
+
+::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: rgba(255, 255, 255, 0) !important;;
+   } 
+
+::ng-deep .mat-form-field-ripple {
+    /*change color of underline when focused*/
+    background-color: rgba(255, 255, 255, 0) !important;;
+   }
+::ng-deep .mat-focused .mat-form-field-label {
+    color: #755a4a !important;
+}
+
+///////////////// calendar icon color /////////////////
+
+mat-datepicker-toggle {
+    color: #755a4a !important;
+   }
+
+///////////////// calendar background color /////////////////
+
+   ::ng-deep .mat-calendar {
+    background-color: #ddbea9;
+    color: #755a4a;
+  }
+
+///////////////// circle color /////////////////
+
+  ::ng-deep .mat-calendar-body-selected {
+    background-color: #755a4a;
+    color: #fff;
+} 

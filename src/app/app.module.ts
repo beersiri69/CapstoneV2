@@ -7,7 +7,7 @@ import { ChartModule  } from 'angular2-chartjs';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { RouterModule,  } from '@angular/router';
 import { ComponentsModule } from './Layouts/components.module'
 
@@ -20,6 +20,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ExampleComponent } from './example/example.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatNativeDateModule } from '@angular/material/core';
+import { ExampleModule } from './example/example.module';
+import { MonthlyComponent } from './Pages/mn-dashboard/monthly/monthly.component';
+import { LedgerModule } from './Pages/Finance/ledger/ledger.module';
+
+
+
+
 
 
 
@@ -30,7 +38,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     SearchComponent,
     ExampleComponent,
-    LoginComponent,    
+    LoginComponent,
+   
+    
+    
   ],
   imports: [ 
     AppRoutingModule,
@@ -41,14 +52,21 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     RouterModule,
     BrowserModule,
-  
+    
+    ExampleModule,
+
     NgbModule,
+    FormsModule,
     ChartModule,   
     ComponentsModule,    
     HttpClientModule, BrowserAnimationsModule,
+    NgxChartsModule,
     
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxChartsModule,
+    MatNativeDateModule,
+    LedgerModule
    
   ],
   providers: [],

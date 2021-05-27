@@ -12,7 +12,18 @@ import { SearchModule } from 'src/app/Pages/search/search.module';
 import { FinanceModule } from 'src/app/Pages/Finance/finance.module';
 import { HomeComponent } from 'src/app/Pages/home/home.component';
 import { ChartsModule } from 'ng2-charts';
+import { GaugeChartModule } from 'angular-gauge-chart';
 import { OpDashboardComponent } from 'src/app/Pages/op-dashboard/op-dashboard.component';
+import { MnDashboardModule } from 'src/app/Pages/mn-dashboard/mn-dashboard.module';
+import { MnDashboardComponent } from 'src/app/Pages/mn-dashboard/mn-dashboard.component';
+import { NgxChartsModule }from '@swimlane/ngx-charts';
+import { FormsModule } from '@angular/forms';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { LedgerModule } from 'src/app/Pages/Finance/ledger/ledger.module';
+
 
 @NgModule({
   declarations: [
@@ -24,8 +35,8 @@ import { OpDashboardComponent } from 'src/app/Pages/op-dashboard/op-dashboard.co
     HomeComponent,
     //import component to this module below
 
-
-    OpDashboardComponent
+    MnDashboardComponent,
+    OpDashboardComponent,
     
   ],
   imports: [   
@@ -37,13 +48,22 @@ import { OpDashboardComponent } from 'src/app/Pages/op-dashboard/op-dashboard.co
 
     // AuthTemplateModule call this modeul below
     ChartsModule,
+    NgxChartsModule,
+    FormsModule,
     FinanceModule,
     SearchModule,
-    AuthTemplateRoutingModule,  
-    
-    
+    AuthTemplateRoutingModule,    
     ComponentsModule,
-    
+    GaugeChartModule,
+    MnDashboardModule,
+    LedgerModule,
+
+    NgxChartsModule,
+    FormsModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   exports:[
     AuthTemplateComponent
