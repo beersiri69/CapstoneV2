@@ -77,7 +77,7 @@ export class ReconciliationComponent implements OnInit {
 
   ReconcilFunc(Date){
     this.networkService.GetReconcil(Date).subscribe(data=>{
-        this.Paymentinfo=data.Payment
+        this.Paymentinfo = data.Payment
         this.Deliverinfo = data.Deliver
         this.PurchaseInfo = data.Purchase
 
@@ -120,8 +120,8 @@ export class ReconciliationComponent implements OnInit {
       var Deliver_ID = this.Deliverinfo[k].Deliver_ID
       var Truck_ID = this.Deliverinfo[k].Truck_NO
       var Type = this.PurchaseInfo[k].Gas_type
-      var Quantity = this.PurchaseInfo[k].Fuel_Amount
-      var amount = this.Paymentinfo[k].Amount
+      var Quantity = parseFloat(Number(this.PurchaseInfo[k].Fuel_Amount).toFixed(4)).toLocaleString("en")
+      var amount = parseFloat(Number(this.Paymentinfo[k].Amount).toFixed(4)).toLocaleString("en")
       var Agent = this.PurchaseInfo[k].Customer_ID
 
 
