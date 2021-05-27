@@ -1,15 +1,15 @@
     
-    <div class="row text-right">
-       <div class="col-auto text-left pr-0 mr-0" *ngFor="let Page of pages; index as i">
+    <div class="row text-right spb-2 pt-0 pl-0 ml-0">
+      <div class="col-auto text-left pr-0 mr-0 pl-0" *ngFor="let Page of pages; index as i">
         <!-- <div class *ngFor="let Page of pages; index as i" routerLink="./{{Page.Route}}"> -->
         <a>
-        
-            <button id={{i}} type="button" placement="top-center" class="{{PropChange[i]}}" triggers="hover focus click"
-                (click)=check($event)>{{Page.Name}}</button>
-        
+    
+          <button id={{i}} type="button" placement="top-center" class="{{PropChange[i]}}" triggers="hover focus click"
+            (click)=check($event)>{{Page.Name}}</button>
+    
         </a>
-  
-    </div>
+    
+      </div>
     </div>
     <!-- Table -->
     
