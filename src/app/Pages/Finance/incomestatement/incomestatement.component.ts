@@ -78,17 +78,17 @@ export class IncomestatementComponent implements OnInit {
     end: new FormControl(),
   });
 
-  Sale_GShow: any;
-  Sale_DShow: any;
-  Total_SaleShow: any;
-  Purchase_GShow: any;
-  Purchase_DShow: any;
-  Gross_ProfitShow: any;
-  SalaryShow: any;
-  UtilityShow: any;
-  DepreciationShow: any;
-  Net_IncomeShow: any;
-  TotalPurchaseShow: any;
+  Sale_GShow: string;
+  Sale_DShow: string;
+  Total_SaleShow: string;
+  Purchase_GShow: string;
+  Purchase_DShow: string;
+  Gross_ProfitShow: string;
+  SalaryShow: string;
+  UtilityShow: string;
+  DepreciationShow: string;
+  Net_IncomeShow: string;
+  TotalPurchaseShow: string;
 
   async GetDateRange(e) {
     this.Start_Date = formatDate(this.range.value.start, 'yyyy-MM-dd', 'en_US');
