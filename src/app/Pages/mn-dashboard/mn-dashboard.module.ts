@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DailyComponent } from './daily/daily.component';
 import { WeeklyComponent } from './weekly/weekly.component';
 import { ChartsModule } from 'ng2-charts';
 import { GaugeChartModule } from 'angular-gauge-chart';
@@ -23,7 +22,6 @@ import { DailyV2Component } from './daily-v2/daily-v2.component';
 
 @NgModule({
   declarations: [
-    DailyComponent,
     WeeklyComponent,
     MonthlyComponent,
     WeeklyComponent,
