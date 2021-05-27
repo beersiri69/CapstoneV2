@@ -70,27 +70,34 @@ export class InventoryComponent implements OnInit {
         this.IncomeCal['Begin_G_B_'] + this.IncomeCal['Begin_D_B_'];
         this.Amout_left = this.Amount_Init;
       
-
+        var Amount
         for (let k in this.TransactionAll) {
+
+          if (this.TransactionAll[k].Volume_D != 0){
+            Amount = this.TransactionAll[k].Price_D
+         }
+         else{
+            Amount = this.TransactionAll[k].Price_G
+         }
          
           if (this.TransactionAll[k].Action === 'Purchase') {
-            this.Amout_left += this.TransactionAll[k].Amount;
+            this.Amout_left += Amount;
             this.InsertShow(
               this.Date_insert,
               'Purchase Fuel',
               this.RefID,
-              this.TransactionAll[k].Amount.toFixed(2),
+              Amount.toFixed(2),
               '',
               this.Amout_left.toFixed(2)
             );
           } else {
-            this.Amout_left -= this.TransactionAll[k].Amount;
+            this.Amout_left -= Amount;
             this.InsertShow(
               this.Date_insert,
               'Sale Fuel',
               this.RefID,
               '',
-              this.TransactionAll[k].Amount.toFixed(2),
+              Amount.toFixed(2),
               this.Amout_left.toFixed(2)
             );
           }

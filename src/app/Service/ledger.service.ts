@@ -71,7 +71,16 @@ export class LedgerService {
         'yyyy-MM-dd',
         'en-US'
       );
-      var Amount = this.TransactionAll[k].Amount;
+
+      if (this.TransactionAll[k].Volume_D != 0){
+        var Amount = this.TransactionAll[k].Price_D
+      }
+      else{
+        var Amount = this.TransactionAll[k].Price_G
+      }
+
+
+      
       var RefID = 'J' + this.GetRefNo(Date_insert);
 
       if (this.TransactionAll[k].Action === 'Sale') {
@@ -102,7 +111,12 @@ export class LedgerService {
         'yyyy-MM-dd',
         'en-US'
       );
-      var Amount = this.TransactionAll[k].Amount;
+      if (this.TransactionAll[k].Volume_D != 0){
+        var Amount = this.TransactionAll[k].Price_D
+      }
+      else{
+        var Amount = this.TransactionAll[k].Price_G
+      }
       var RefID = 'J' + this.GetRefNo(Date_insert);
 
       if (this.TransactionAll[k].Action === 'Purchase') {
@@ -157,11 +171,23 @@ export class LedgerService {
   }
 
   InsertCash_GetSum() {
+    var Amount;
     for (let i in this.GetSumCash) {
+
+      if (this.TransactionAll[i].Volume_D != 0){
+         Amount = this.TransactionAll[i].Price_D
+      }
+      else{
+         Amount = this.TransactionAll[i].Price_G
+      }
+
+
+
+
       if (this.GetSumCash[i].Action === 'Purchase') {
-        this.SumCash -= this.GetSumCash[i].Amount;
+        this.SumCash -= Amount;
       } else {
-        this.SumCash += this.GetSumCash[i].Amount;
+        this.SumCash += Amount;
       }
     }
   }
@@ -182,9 +208,21 @@ export class LedgerService {
         'en-US'
       );
 
-      var Amount = this.TransactionAll[k].Amount;
+    var Amount
+
+    if (this.TransactionAll[k].Volume_D != 0){
+        Amount = this.TransactionAll[k].Price_D
+     }
+     else{
+        Amount = this.TransactionAll[k].Price_G
+     }
+
+     
+
+
+      
       if (this.TransactionAll[k].Action === 'Purchase') {
-        this.SumCash -= this.TransactionAll[k].Amount;
+        this.SumCash -= Amount
         this.InsertShow(
           Date_insert,
           'Purchase Fuel',
@@ -194,7 +232,7 @@ export class LedgerService {
           this.SumCash.toFixed(2)
         );
       } else {
-        this.SumCash += this.TransactionAll[k].Amount;
+        this.SumCash += Amount
         this.InsertShow(
           Date_insert,
           'Sale Fuel',

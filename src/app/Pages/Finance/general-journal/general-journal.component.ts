@@ -64,7 +64,7 @@ export class GeneralJournalComponent implements OnInit {
   
   this.networkService.GetTransaction(DateSearchInit).subscribe(
     data => {         
-      this.TransactionAll = data.result        
+      this.TransactionAll = data.result
       this.InsertLoop()
     },
     err =>{
@@ -110,15 +110,21 @@ export class GeneralJournalComponent implements OnInit {
 
         var Date_insert = formatDate(this.TransactionAll[k].Date,'yyyy-MM-dd','en-US')
         
-        var Amount = this.TransactionAll[k].Amount   
+        if (this.TransactionAll[k].Volume_D != 0){
+          var Amount = this.TransactionAll[k].Price_D
+        }
+        else{
+          var Amount = this.TransactionAll[k].Price_G
+        }
+         
         //TODO SALE
         if(this.TransactionAll[k].Action === "Purchase"){
 
           if(this.TransactionAll[k].Type === "DIESEL"){
-            this.InsertShow(Date_insert,"Inventory (Sale Diesel)",InventoryNo,Amount,'')
+            this.InsertShow(Date_insert,"Inventory Diesel (Sale Diesel)",InventoryNo,Amount,'')
 
           }else{
-            this.InsertShow(Date_insert,"Inventory (Sale Gasohol 95)",InventoryNo,Amount,'')
+            this.InsertShow(Date_insert,"Inventory Gasohol95 (Sale Gasohol95)",InventoryNo,Amount,'')
           }
           
           this.InsertShow('',"Acc. Payable",PayableNo,'',Amount)

@@ -23,29 +23,35 @@
                 <thead class="thead-light">
                   <tr>
                     <th scope="col">Date</th>
-                    <th scope="col">PO NO.</th>
+                    <th scope="col">PO No.</th>
+                    <th scope="col">Payment No.</th>
                     <th scope="col">Invoice No.</th>
                     <th scope="col">Deliver ID</th>
                     <th scope="col">Truck NO.</th>
                     <th scope="col">Patrol Type</th>
-                    <th scope="col">Quantity</th>
-                    <th scope="col">Amount</th>
+                    <th scope="col">Quantity(L)</th>
+                    <th scope="col">Amount(B)</th>
                     <th scope="col">Customer ID</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <!-- <tr *ngFor = "let Staff of StaffAll; index as i">
-                       <td> {{Staff.Staff_ID}}</td>
-                       <td> {{Staff.Staff_Title}}</td>
-                       <td> {{Staff.Staff_Name}}</td>
-                       <td> {{Staff.Staff_Surname}}</td>
-                       <td> {{Staff.Staff_Tel}}</td>
-                       <td> {{Staff.Password}}</td>
-                       <td> {{Staff.Role}}</td>
-                     -->
+                <tbody  *ngIf="CanRender">
+                  <tr *ngFor = "let list of GeneralShowAll; index as i">
+                       <td> {{list.Date}}</td>
+                       <td> {{list.PO}}</td>
+                       <td> {{list.E_bill_No}}</td>
+                       <td> {{list.Invoice_No}}</td>
+                       <td> {{list.Delivery_ID}}</td>
+                       <td> {{list.Truck_ID}}</td>
+                       <td> {{list.Type}}</td>
+                       <td> {{list.Quantity}}</td>
+                       <td> {{list.Amount}}</td>
+                       <td> {{list.Agent}}</td>
+           
+            
+                    
                       
                                     
-                  <!-- </tr> -->
+                  </tr>
                                  
                 </tbody>
               </table>
