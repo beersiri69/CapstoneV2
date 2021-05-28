@@ -112,14 +112,14 @@ export class OpDashboardComponent implements OnInit {
   public CanRender3 = false;
   ngOnInit() {
     this.GetDashboardValue1('2018-03-01');
-    this.GetDashboardValue2('2018-03-01');
+    this.GetDashboardValue3('2018-03-01');
   }
 
   
   addEvent(event: MatDatepickerInputEvent<Date>) {
     var DatePick = formatDate(event.value, 'yyyy-MM-dd', 'en-US');
     this.GetDashboardValue1(DatePick);
-    this.GetDashboardValue2(DatePick);
+    //this.GetDashboardValue2(DatePick);
   }
 
   GetDashboardValue1(DateSend) {
@@ -189,6 +189,7 @@ export class OpDashboardComponent implements OnInit {
                     ];
 
                     this.CanRender = true;
+                    this.GetDashboardValue3(DateSend);
                   });
                 });
               });
@@ -237,7 +238,7 @@ export class OpDashboardComponent implements OnInit {
           this.Donut_Diesel = [[this.GBusy, this.DBusy]];
           this.Donut_Gasohol = [[this.DBusy, this.GBusy]];
           this.CanRender2 = true;
-          this.GetDashboardValue3(DateSend);
+          
         });
       });
        //TODO ==========================================================================================  Bar Chart APQ

@@ -73,6 +73,8 @@ export class PivalueService {
   private UtilizeDAPI  = 'https://localhost:44389/api/Dailyvalue/UtilizeD/';
   private ShowAmountDAPI  = 'https://localhost:44389/api/Dailyvalue/ShowAmountD/';
 
+  private OEEAPI = 'https://localhost:44389/api/oee/AllAPQDM/';
+
 
 
 
@@ -279,5 +281,10 @@ export class PivalueService {
   GetAmountD(Date): Observable<PivalueAll> {
     return this.httpClient.get<PivalueAll>(this.ShowAmountDAPI + Date);
   }
+
+  GetOEE(Date): Observable<PivalueAll> {
+    return this.httpClient.get<PivalueAll>(this.OEEAPI + Date);
+  }
+  
 
 }
