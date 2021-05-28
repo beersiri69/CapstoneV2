@@ -10,6 +10,7 @@ import * as _moment from 'moment';
 import {default as _rollupMoment, Moment} from 'moment';
 import { Pivalue } from 'src/app/Model/pivalue.Model';
 import { PivalueService } from 'src/app/Service/pivalue.service';
+import { AuthService } from 'src/app/Service/auth.service';
 
 const moment = _rollupMoment || _moment;
 
@@ -118,9 +119,12 @@ export class MonthlyComponent implements OnInit {
 
   ngOnInit() {
     this.GetDashboardValue1('2018-03-31');   
+    this.auth.CheckPernission()
   }
 
-  constructor(private pivalueService: PivalueService) {
+  constructor(private pivalueService: PivalueService,
+    private auth:AuthService) {
+    
   }
 
   

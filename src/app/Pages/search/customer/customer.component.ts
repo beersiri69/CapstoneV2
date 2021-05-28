@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NetworkService } from 'src/app/Service/network.service';
 import { Customer } from 'src/app/Model/customer'
+import { AuthService } from 'src/app/Service/auth.service';
 @Component({
   selector: 'app-customer',
   templateUrl: './customer.component.html',
@@ -12,10 +13,12 @@ export class CustomerComponent implements OnInit {
   Count : number | undefined;
 
   constructor(private networkService : NetworkService,
+    private auth:AuthService
     ) { }
 
   ngOnInit(): void {
     this.feedUser();
+    this.auth.CheckPernission()
   }
   feedUser(){
     this.networkService.getCustomer().subscribe(

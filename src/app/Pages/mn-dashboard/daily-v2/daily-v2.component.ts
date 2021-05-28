@@ -13,6 +13,7 @@ import { PivalueService } from 'src/app/Service/pivalue.service';
 
 import {MatDatepickerInputEvent} from '@angular/material/datepicker';
 import {formatDate} from '@angular/common';
+import { AuthService } from 'src/app/Service/auth.service';
 
 const moment = _rollupMoment || _moment;
 
@@ -89,11 +90,13 @@ export class DailyV2Component implements OnInit {
   YearTok:string
   MonthTok:String
   DateSearch:string
-  constructor(private pivalueService: PivalueService) {
+  constructor(private pivalueService: PivalueService,
+    private auth:AuthService) {
   }
 
   ngOnInit(): void {
     this.GetDashboardValue1("2018-03-01");
+    this.auth.CheckPernission()
   }
 
   addEvent(event: MatDatepickerInputEvent<Date>) {

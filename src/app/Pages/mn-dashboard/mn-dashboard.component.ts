@@ -1,5 +1,6 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/Service/auth.service';
 
 interface botton{
   Name: string;
@@ -16,7 +17,8 @@ export class MnDashboardComponent implements OnInit {
   Menu_Title:string[];
   Router_List:string[];
   public PropChange : any[];
-  constructor(private router: Router) {
+  constructor(private router: Router,
+    private auth:AuthService) {
     this.Menu_Title=[
       "Daily",
       "Weekly",
@@ -38,6 +40,7 @@ export class MnDashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.PropChange = ["btn-sel","btn-menu","btn-menu"]
+    this.auth.CheckPernission()
   }
 
   check(e){

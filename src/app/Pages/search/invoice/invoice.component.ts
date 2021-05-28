@@ -5,17 +5,19 @@ import {
   Price,
   Customer,
 } from 'src/app/Model/invoice.Model';
+import { AuthService } from 'src/app/Service/auth.service';
 import { NetworkService } from 'src/app/Service/network.service';
-
+import {formatDate} from '@angular/common';
 @Component({
   selector: 'app-invoice',
   templateUrl: './invoice.component.html',
   styleUrls: ['../search.component.scss'],
 })
 export class InvoiceComponent implements OnInit {
-  constructor(private networkService: NetworkService) {}
+  constructor(private networkService: NetworkService,
+    private auth:AuthService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void { this.auth.CheckPernission()}
 
   GetInvoice: InvoiceAll[];
   ResultTok: Purchase[];
@@ -49,7 +51,11 @@ export class InvoiceComponent implements OnInit {
       this.InvoiceShow = data.GetPayment;
       this.PoNumShow = data.result[0].PO_NO;
       this.PaymentShow = data.result[0].e_Bill_NO;
+
+
       this.DateShow = data.result[0].Deliver_Date;
+      this.DateShow = formatDate(this.DateShow,'yyyy-MM-dd','en-US');
+
       this.CustID = data.result[0].Customer_ID;
       this.CusTitle = data.Customer[0].Customer_Title;
       this.CusName = data.Customer[0].Customer_Name;

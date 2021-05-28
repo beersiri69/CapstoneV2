@@ -10,6 +10,7 @@ import {MatDatepicker} from '@angular/material/datepicker';
 import * as _moment from 'moment';
 import {default as _rollupMoment, Moment} from 'moment';
 import {MatDatepickerInputEvent} from '@angular/material/datepicker';
+import { AuthService } from 'src/app/Service/auth.service';
 
 const moment = _rollupMoment || _moment;
 
@@ -54,7 +55,8 @@ export class IncomestatementComponent implements OnInit {
   ExpenseSum: number;
   ToShow: any;
 
-  constructor(private networkService: NetworkService) {}
+  constructor(private networkService: NetworkService,
+    private auth:AuthService) {}
 
   date = new FormControl(moment([2018, 2]));
   YearTok:string
@@ -62,6 +64,7 @@ export class IncomestatementComponent implements OnInit {
   DateSearch:string
 
   ngOnInit(): void {
+    this.auth.CheckPernission()
     this.Start_Date = formatDate('2018-03-01', 'yyyy-MM-dd', 'en_US');
     this.End_Date = formatDate('2018-03-01', 'yyyy-MM-dd', 'en_US');
     this.ResetVariable()

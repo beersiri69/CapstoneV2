@@ -14,6 +14,7 @@ import {default as _rollupMoment, Moment} from 'moment';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { formatDate } from '@angular/common';
 import { PivalueService } from 'src/app/Service/pivalue.service';
+import { AuthService } from 'src/app/Service/auth.service';
 
 const moment = _rollupMoment || _moment;
 
@@ -98,7 +99,8 @@ export class OpDashboardComponent implements OnInit {
   Donut_TQ: MultiDataSet;
   chartData: any;
 
-  constructor(private pivalueService: PivalueService) {}
+  constructor(private pivalueService: PivalueService,
+    private auth:AuthService) {}
 
   //TODO: EDIT TO FLASE
 
@@ -112,6 +114,7 @@ export class OpDashboardComponent implements OnInit {
   public CanRender3 = false;
   ngOnInit() {
     this.GetDashboardValue1('2018-03-01');
+    this.auth.CheckPernission()
     
   }
 

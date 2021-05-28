@@ -28,4 +28,9 @@ export class AuthService {
     }
     return x
   }
+  CheckPernission(){
+    if(localStorage.getItem('UserRole') === null){
+      this.router.navigateByUrl('/login');  
+    }
+  }
 }
