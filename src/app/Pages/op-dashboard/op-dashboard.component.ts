@@ -112,7 +112,7 @@ export class OpDashboardComponent implements OnInit {
   public CanRender3 = false;
   ngOnInit() {
     this.GetDashboardValue1('2018-03-01');
-    this.GetDashboardValue3('2018-03-01');
+    
   }
 
   
@@ -227,20 +227,7 @@ export class OpDashboardComponent implements OnInit {
       this.Q4 = Number(this.PivalueAll[15].Item1);
       this.Q5 = Number(this.PivalueAll[16].Item1);
       this.Q6 = Number(this.PivalueAll[17].Item1);
-      this.pivalueService.GBusy(DateSend).subscribe((data) => {
-        this.PivalueAll = data.result;
-        this.GBusy = Number(this.PivalueAll[0].Item1);
-      
-        this.pivalueService.DBusy(DateSend).subscribe((data) => {
-          this.PivalueAll = data.result;
-          this.DBusy = Number(this.PivalueAll[0].Item1);
-          //TODO ==========================================================================================  2 Donut
-          this.Donut_Diesel = [[this.GBusy, this.DBusy]];
-          this.Donut_Gasohol = [[this.DBusy, this.GBusy]];
-          this.CanRender2 = true;
-          
-        });
-      });
+
        //TODO ==========================================================================================  Bar Chart APQ
       this.barChartData = [
         {
@@ -274,33 +261,48 @@ export class OpDashboardComponent implements OnInit {
   }
 
   GetDashboardValue3(DateSend) {
-    this.pivalueService.GetAVGTQD(DateSend).subscribe((data) => {
+    this.pivalueService.GBusy(DateSend).subscribe((data) => {
       this.PivalueAll = data.result;
-
-      this.TQ1 = parseFloat(Number(this.PivalueAll[0].Item1).toFixed(4)).toLocaleString("en");
-      this.TQ2 = parseFloat(Number(this.PivalueAll[1].Item1).toFixed(4)).toLocaleString("en");
-      this.TQ3 = parseFloat(Number(this.PivalueAll[2].Item1).toFixed(4)).toLocaleString("en");
-      this.TQ4 = parseFloat(Number(this.PivalueAll[3].Item1).toFixed(4)).toLocaleString("en");
-      this.TQ5 = parseFloat(Number(this.PivalueAll[4].Item1).toFixed(4)).toLocaleString("en");
-      this.Donut_TQ = [[this.TQ1, this.TQ2, this.TQ3, this.TQ4, this.TQ5]];
-      //TODO ==========================================================================================  2 Donut
-      this.pivalueService.GetAVGNOQD(DateSend).subscribe((data) => {
+      this.GBusy = Number(this.PivalueAll[0].Item1);
+    
+      this.pivalueService.DBusy(DateSend).subscribe((data) => {
         this.PivalueAll = data.result;
-
-        this.NOQ1 = parseFloat(Number(this.PivalueAll[0].Item1).toFixed(4)).toLocaleString("en");
-        this.NOQ2 = parseFloat(Number(this.PivalueAll[1].Item1).toFixed(4)).toLocaleString("en");
-        this.NOQ3 = parseFloat(Number(this.PivalueAll[2].Item1).toFixed(4)).toLocaleString("en");
-        this.NOQ4 = parseFloat(Number(this.PivalueAll[3].Item1).toFixed(4)).toLocaleString("en");
-        this.NOQ5 = parseFloat(Number(this.PivalueAll[4].Item1).toFixed(4)).toLocaleString("en");
+        this.DBusy = Number(this.PivalueAll[0].Item1);
         //TODO ==========================================================================================  2 Donut
-        this.Donut_NOQ = [
-          [this.NOQ1, this.NOQ2, this.NOQ3, this.NOQ4, this.NOQ5],
-        ];
-       
-
-        this.CanRender3 = true;
+        this.Donut_Diesel = [[this.GBusy, this.DBusy]];
+        this.Donut_Gasohol = [[this.DBusy, this.GBusy]];
+        this.CanRender2 = true;
+        this.pivalueService.GetAVGTQD(DateSend).subscribe((data) => {
+          this.PivalueAll = data.result;
+    
+          this.TQ1 = parseFloat(Number(this.PivalueAll[0].Item1).toFixed(4)).toLocaleString("en");
+          this.TQ2 = parseFloat(Number(this.PivalueAll[1].Item1).toFixed(4)).toLocaleString("en");
+          this.TQ3 = parseFloat(Number(this.PivalueAll[2].Item1).toFixed(4)).toLocaleString("en");
+          this.TQ4 = parseFloat(Number(this.PivalueAll[3].Item1).toFixed(4)).toLocaleString("en");
+          this.TQ5 = parseFloat(Number(this.PivalueAll[4].Item1).toFixed(4)).toLocaleString("en");
+          this.Donut_TQ = [[this.TQ1, this.TQ2, this.TQ3, this.TQ4, this.TQ5]];
+          //TODO ==========================================================================================  2 Donut
+          this.pivalueService.GetAVGNOQD(DateSend).subscribe((data) => {
+            this.PivalueAll = data.result;
+    
+            this.NOQ1 = parseFloat(Number(this.PivalueAll[0].Item1).toFixed(4)).toLocaleString("en");
+            this.NOQ2 = parseFloat(Number(this.PivalueAll[1].Item1).toFixed(4)).toLocaleString("en");
+            this.NOQ3 = parseFloat(Number(this.PivalueAll[2].Item1).toFixed(4)).toLocaleString("en");
+            this.NOQ4 = parseFloat(Number(this.PivalueAll[3].Item1).toFixed(4)).toLocaleString("en");
+            this.NOQ5 = parseFloat(Number(this.PivalueAll[4].Item1).toFixed(4)).toLocaleString("en");
+            //TODO ==========================================================================================  2 Donut
+            this.Donut_NOQ = [
+              [this.NOQ1, this.NOQ2, this.NOQ3, this.NOQ4, this.NOQ5],
+            ];
+           
+    
+            this.CanRender3 = true;
+          });
+        });
+        
       });
     });
+    
   }
 
 
