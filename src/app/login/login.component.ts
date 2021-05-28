@@ -65,6 +65,7 @@ export class LoginComponent implements OnInit {
     localStorage.setItem("UserName",name_in)
     localStorage.setItem("UserSurName",surname_in)
     localStorage.setItem("UserRole",role_in)
+    this.logalert.toggle = false;
     setTimeout(() => {
       this.Checkrole() 
     }, 500);
@@ -81,21 +82,19 @@ export class LoginComponent implements OnInit {
 
     if(id == "admin" && pwd =="1234"){
       this.Onsucess("AdminID","Admin","SuperUser","Manager"); 
-
     }
     if(id == "test" && pwd =="1234"){
       this.Onsucess("AdminID","Admin","SuperUser","Staff");  
-   
-  
-    
     }
     else{
       this.authService.getLogin(id,pwd).subscribe(
         data => {
-            if(data.result == null){
-      
-              this.logalert.toggle = true 
-              this.logalert.message = "Incorrect Username"            
+            if(data.result == null) {
+              if( id != "admin"  || id != "test"){
+                this.logalert.toggle = true 
+                this.logalert.message = "Incorrect Username"  
+              }
+                       
             }
             else{ 
               this.Logindata = data.result          
