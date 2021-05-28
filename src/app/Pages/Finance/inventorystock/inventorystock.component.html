@@ -47,27 +47,27 @@
               <th scope="col">Diesel</th>
             </tr>
           </thead>
-          <tbody style="color: black;">
+          <tbody style="color: black;" *ngIf="CanRender">
 
             <tr>
               <td>Begining Stock</td>
-              <td>1,123,200.00</td>
-              <td>812,400.00</td>
+              <td>{{BiginstockG}}</td>
+              <td>{{BiginstockD}}</td>
             </tr>
             <tr>
               <td>Purchase</td>
-              <td>120,326,800</td>
-              <td>627,458,500</td>
+              <td>{{PurchaseG}}</td>
+              <td>{{PurchaseD}}</td>
             </tr>
             <tr>
               <td>Sold</td>
-              <td>147,564,328.08</td>
-              <td>652,534,389.06</td>
+              <td>{{SoldG}}</td>
+              <td>{{SoldD}}</td>
             </tr>
             <tr>
               <td>Ending Stock</td>
-              <td>1,313,984.96</td>
-              <td>794,481.46</td>
+              <td>{{EndG}}</td>
+              <td>{{EndD}}</td>
             </tr>
 
 
@@ -102,5 +102,5 @@
     </div>
   </div>
 </div>
-<div class="footer bg-bymeten" style="padding-bottom: 7rem;">
+<div class="footer bg-bymeten" style="padding-bottom: 9rem;">
 </div>

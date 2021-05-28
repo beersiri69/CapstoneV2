@@ -1,3 +1,5 @@
+import { Income } from './../../../Model/income.model';
+import { NetworkService } from './../../../Service/network.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
@@ -39,17 +41,19 @@ export class InventorystockComponent implements OnInit {
   YearTok:String
   MonthTok:any
   DateSearch:String
+  DateEnd:String
   GeneralShowAll:any
   Menu_Title:string[];
   Router_List:string[];
   
   public PropChange : any[];
-  constructor() { 
+  constructor(private networkService:NetworkService) { 
     this.Menu_Title=[
       "WEEK01",
       "WEEK02",
       "WEEK03",
-      "WEEK04"
+      "WEEK04",
+      "WEEK05"
     ]
     this.Router_List=[
       "WEEK01",
@@ -65,18 +69,20 @@ export class InventorystockComponent implements OnInit {
     {Name: 'WEEK02', Route: 'WEEK02'},
     {Name: 'WEEK03', Route: 'WEEK03'},
     {Name: 'WEEK04', Route: 'WEEK04'},
+    {Name: 'WEEK05', Route: 'WEEK05'},
   ];
 
 
   ngOnInit(): void {
     this.MonthTok = String(3)
     this.YearTok = String(2018)
+    this.Getincom("2018-03-01","2018-03-07")
+    this.PropChange = ["btn-sel","btn-menu","btn-menu","btn-menu","btn-menu"]
 
-    this.PropChange = ["btn-sel","btn-menu","btn-menu","btn-menu"]
-    //this.GetDashboardValue1('2018-03-31');  
   }
   chosenYearHandler(normalizedYear: Moment) {
     this.DateSearch = ''
+    this.DateEnd = ''
     const ctrlValue = this.date.value;
     ctrlValue.year(normalizedYear.year());
     this.date.setValue(ctrlValue);    
@@ -109,17 +115,88 @@ export class InventorystockComponent implements OnInit {
     }
     this.PropChange[x] = "btn-sel"
     this.DateSearch = ''
+    this.DateEnd = ''
 
 
-    if(x==0){this.DateSearch = this.YearTok + '-' + this.MonthTok + '-07'}
-    if(x==1){this.DateSearch = this.YearTok + '-' + this.MonthTok + '-14'}
-    if(x==2){this.DateSearch = this.YearTok + '-' + this.MonthTok + '-21'}
-    if(x==3){this.DateSearch = this.YearTok + '-' + this.MonthTok + '-28'}
+    if(x==0){
+      this.DateSearch = this.YearTok + '-' + this.MonthTok + '-07'
+      this.DateEnd = this.YearTok + '-' + this.MonthTok + '-01'
+
+    }
+    if(x==1){
+      this.DateSearch = this.YearTok + '-' + this.MonthTok + '-14'
+      this.DateEnd = this.YearTok + '-' + this.MonthTok + '-8'
+    }
+    if(x==2){
+      this.DateSearch = this.YearTok + '-' + this.MonthTok + '-21'
+      this.DateEnd = this.YearTok + '-' + this.MonthTok + '-15'
+    }
+    if(x==3){
+      this.DateSearch = this.YearTok + '-' + this.MonthTok + '-28'
+      this.DateEnd = this.YearTok + '-' + this.MonthTok + '-22'
+   }
+    if(x==4){
+      this.DateSearch = this.YearTok + '-' + this.MonthTok + '-31'
+      this.DateEnd = this.YearTok + '-' + this.MonthTok + '-25'
+    }
 
     console.log(this.DateSearch);
+    this.Getincom(this.DateEnd,this.DateSearch)
+  
     
-    //this.GetDashboardValue1(this.DateSearch);  
     
+  }
+  IncomeGet:Income[]
+  BiginstockG:any
+  BiginstockD:any
+  PurchaseG:any
+  PurchaseD:any
+  SoldG:any
+  SoldD:any
+  EndG:any
+  EndD:any
+  CanRender = false
+  Getincom(a,b){
+    this.networkService.GetIncomeBetween(a,b).subscribe(data=>{
+      this.IncomeGet = data.result
+      console.log(this.IncomeGet);
+      
+      this.PurchaseG = 0
+      this.PurchaseD=0
+      this.SoldG=0
+      this.SoldD=0
+
+      this.BiginstockG = this.IncomeGet[0].Begin_G_B_
+      this.BiginstockD = this.IncomeGet[0].Begin_D_B_
+      
+      for(var i of this.IncomeGet){
+        this.PurchaseG += this.IncomeGet[0].AmountPurchase_G_B_
+        this.PurchaseD += this.IncomeGet[0].AmountPurchase_D_B_
+        this.SoldG     += this.IncomeGet[0].AmountSold_G_B_
+        this.SoldD     += this.IncomeGet[0].AmountSold_D_B_
+      }
+      this.EndG = this.IncomeGet[6].Balance_G_B_
+      this.EndD = this.IncomeGet[6].Balance_D_B_
+
+
+
+
+      this.PurchaseG =parseFloat(Number(this.PurchaseG).toFixed(2)).toLocaleString("en")
+      this.PurchaseD=parseFloat(Number(this.PurchaseD).toFixed(2)).toLocaleString("en")
+      this.SoldG=parseFloat(Number(this.SoldG ).toFixed(2)).toLocaleString("en")
+      this.SoldD =parseFloat(Number(this.SoldD ).toFixed(2)).toLocaleString("en")
+      this.BiginstockG =parseFloat(Number(this.BiginstockG).toFixed(2)).toLocaleString("en")
+      this.BiginstockD =parseFloat(Number(this.BiginstockD).toFixed(2)).toLocaleString("en")
+      this.EndG =parseFloat(Number(this.EndG).toFixed(2)).toLocaleString("en")
+      this.EndD=parseFloat(Number(this.EndD).toFixed(2)).toLocaleString("en")
+
+      
+
+
+      this.CanRender = true
+
+    })
+
     
   }
 
