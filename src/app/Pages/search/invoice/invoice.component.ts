@@ -48,7 +48,9 @@ export class InvoiceComponent implements OnInit {
       this.ResultTok = data.result;
       this.PriceTok = data.Price;
 
-      this.InvoiceShow = data.GetPayment;
+      this.InvoiceShow = data.Payment;
+      console.log(this.InvoiceShow);
+      
       this.PoNumShow = data.result[0].PO_NO;
       this.PaymentShow = data.result[0].e_Bill_NO;
 

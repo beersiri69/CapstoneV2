@@ -169,14 +169,17 @@ export class InventorystockComponent implements OnInit {
       this.BiginstockG = this.IncomeGet[0].Begin_G_B_
       this.BiginstockD = this.IncomeGet[0].Begin_D_B_
       
-      for(var i of this.IncomeGet){
-        this.PurchaseG += this.IncomeGet[0].AmountPurchase_G_B_
-        this.PurchaseD += this.IncomeGet[0].AmountPurchase_D_B_
-        this.SoldG     += this.IncomeGet[0].AmountSold_G_B_
-        this.SoldD     += this.IncomeGet[0].AmountSold_D_B_
+  
+        for(var i =0;i<7;i++){
+        this.PurchaseG += this.IncomeGet[i].AmountPurchase_G_B_
+        this.PurchaseD += this.IncomeGet[i].AmountPurchase_D_B_
+        this.SoldG     += this.IncomeGet[i].AmountSold_G_B_
+        this.SoldD     += this.IncomeGet[i].AmountSold_D_B_
+        console.log(this.PurchaseD);
+        
       }
-      this.EndG = this.IncomeGet[6].Balance_G_B_
-      this.EndD = this.IncomeGet[6].Balance_D_B_
+      this.EndG = this.BiginstockG-this.PurchaseG+this.SoldG
+      this.EndD = this.BiginstockD-this.PurchaseD+this.SoldD
 
 
 
